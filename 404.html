@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="fr" class="no-js">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Page introuvable · Ago Ezoolim-Ela</title>
+  <meta name="robots" content="noindex">
+  <meta name="color-scheme" content="light dark">
+  <meta name="theme-color" id="meta-theme-color" content="#F7F5FC">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%236D28D9'/%3E%3Ctext x='32' y='43' font-family='Georgia, serif' font-size='28' font-weight='700' fill='white' text-anchor='middle'%3EAE%3C/text%3E%3C/svg%3E">
+
+  <script>
+    (function () {
+      var t = null;
+      try { t = localStorage.getItem('theme'); } catch (e) {}
+      if (t !== 'dark' && t !== 'light') t = 'light';
+      document.documentElement.setAttribute('data-theme', t);
+      var m = document.getElementById('meta-theme-color');
+      if (m) m.setAttribute('content', t === 'dark' ? '#14102A' : '#F7F5FC');
+    })();
+  </script>
+
+  <!-- Chemins absolus : GitHub Pages sert cette page depuis n’importe quelle adresse du site. -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;1,9..144,500&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+  <link rel="stylesheet" href="/Portfolio/styles.css?v=7">
+</head>
+<body>
+  <a class="skip-link" href="#contenu">Aller au contenu</a>
+
+  <header class="topbar" id="topbar">
+    <div class="container topbar-inner">
+      <a href="/Portfolio/" class="brand" aria-label="Ago Ezoolim-Ela — retour à l’accueil">
+        <span class="gem" aria-hidden="true">AE</span>
+        <span class="brand-name">Ago <em>Ezoolim-Ela</em></span>
+      </a>
+      <nav class="site-nav" id="site-nav" aria-label="Navigation principale">
+        <ul class="nav-list">
+          <li><a href="/Portfolio/#a-propos" class="nav-link">À propos</a></li>
+          <li><a href="/Portfolio/#competences" class="nav-link">Compétences</a></li>
+          <li><a href="/Portfolio/#parcours" class="nav-link">Parcours</a></li>
+          <li><a href="/Portfolio/#projets" class="nav-link">Projets</a></li>
+          <li><a href="/Portfolio/#contact" class="nav-link">Contact</a></li>
+        </ul>
+      </nav>
+      <div class="topbar-actions">
+        <a href="/Portfolio/assets/CV_Ago_Ezoolim-Ela.pdf" class="btn btn-glass btn-sm btn-cv" target="_blank" rel="noopener">
+          <i class="fa-solid fa-file-arrow-down" aria-hidden="true"></i><span class="btn-cv-label">Mon CV</span>
+        </a>
+        <button class="icon-btn" id="theme-toggle" type="button" aria-label="Passer en mode sombre" aria-pressed="false">
+          <i class="fa-solid fa-moon icon-moon" aria-hidden="true"></i>
+          <i class="fa-solid fa-sun icon-sun" aria-hidden="true"></i>
+        </button>
+        <button class="icon-btn nav-toggle" id="nav-toggle" type="button" aria-controls="site-nav" aria-expanded="false" aria-label="Ouvrir le menu">
+          <i class="fa-solid fa-bars icon-open" aria-hidden="true"></i>
+          <i class="fa-solid fa-xmark icon-close" aria-hidden="true"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="contenu">
+    <section class="hero not-found" aria-labelledby="titre-404">
+      <div class="container">
+        <p class="hello">Erreur 404</p>
+        <h1 class="hero-name" id="titre-404">Cette page n’existe pas <em>(ou plus)</em></h1>
+        <p class="section-lead">Le lien que vous avez suivi est peut-être ancien, ou l’adresse contient une faute de frappe. Tout ce qui compte est à un clic.</p>
+        <div class="hero-actions">
+          <a href="/Portfolio/" class="btn btn-glow"><i class="fa-solid fa-house" aria-hidden="true"></i> Retour à l’accueil</a>
+          <a href="/Portfolio/#projets" class="btn btn-glass">Voir mes projets</a>
+          <a href="/Portfolio/stea.html" class="btn btn-glass">Étude de cas STEA</a>
+          <a href="/Portfolio/#contact" class="btn btn-glass">Me contacter</a>
+        </div>
+        <p class="not-found-code" aria-hidden="true">404</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-bottom">
+        <p>&copy; <span id="year">2026</span> Ago Ezoolim-Ela · <a href="/Portfolio/">ezoolim-ela.github.io/Portfolio</a></p>
+        <a href="/Portfolio/" class="footer-top">Accueil <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/Portfolio/script.js?v=7" defer></script>
+</body>
+</html>

@@ -13,7 +13,7 @@
 
   --text: #1B1533;
   --text-2: #4A4468;
-  --text-3: #6F6890;
+  --text-3: #6A6389; /* ≥ 4,8:1 sur toutes les surfaces claires */
 
   --primary: #6D28D9;
   --primary-strong: #5B21B6;
@@ -754,6 +754,9 @@ body.gallery-open { overflow: hidden; }
   .arch-link { flex-direction: row; min-width: 0; padding: 4px 0; }
   .arch-link i { transform: rotate(90deg); }
 }
+
+/* Icônes Font Awesome chargées sans bloquer le rendu : réserver leur place pour éviter tout décalage */
+i.fa-solid, i.fa-brands, i.fa-regular { display: inline-block; min-width: 1em; min-height: 1em; line-height: 1; text-align: center; }
 
 /* ---------- Page 404 ---------- */
 .not-found { min-height: calc(100vh - var(--header-h)); display: flex; align-items: center; padding-block: clamp(3rem, 8vw, 6rem); background: linear-gradient(180deg, var(--surface-2) 0%, var(--bg) 100%); }

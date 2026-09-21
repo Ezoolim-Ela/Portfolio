@@ -32,9 +32,11 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;1,9..144,500&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
-  <link rel="stylesheet" href="styles.css?v=7">
+  <!-- Polices et icônes chargées sans bloquer le rendu (préchargement, puis activation) -->
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;1,9..144,500&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;1,9..144,500&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"></noscript>
+  <link rel="stylesheet" href="styles.css?v=8">
 </head>
 <body>
   <a class="skip-link" href="#contenu">Aller au contenu</a>
@@ -42,7 +44,7 @@
   <!-- ===== En-tête ===== -->
   <header class="topbar" id="topbar">
     <div class="container topbar-inner">
-      <a href="index.html" class="brand" aria-label="Ago Ezoolim-Ela — retour à l’accueil">
+      <a href="index.html" class="brand" aria-label="Ago Ezoolim-Ela">
         <span class="gem" aria-hidden="true">AE</span>
         <span class="brand-name">Ago <em>Ezoolim-Ela</em></span>
       </a>
@@ -58,7 +60,7 @@
       </nav>
 
       <div class="topbar-actions">
-        <a href="assets/CV_Ago_Ezoolim-Ela.pdf" class="btn btn-glass btn-sm btn-cv" target="_blank" rel="noopener">
+        <a href="assets/CV_Ago_Ezoolim-Ela.pdf" class="btn btn-glass btn-sm btn-cv" target="_blank" rel="noopener" aria-label="Mon CV (PDF)">
           <i class="fa-solid fa-file-arrow-down" aria-hidden="true"></i><span class="btn-cv-label">Mon CV</span>
         </a>
         <button class="icon-btn" id="theme-toggle" type="button" aria-label="Passer en mode sombre" aria-pressed="false">
@@ -247,12 +249,12 @@
         -->
 
         <div class="shots">
-          <figure class="reveal"><img src="assets/stea/tableau-de-bord-vue-desktop.webp" alt="Tableau de bord de STEA" width="1440" height="900" loading="lazy"><figcaption>Tableau de bord — indicateurs de stock, encaissements et tâches à traiter</figcaption></figure>
-          <figure class="reveal"><img src="assets/stea/statistiques-widgets-desktop.webp" alt="Statistiques de STEA" width="1440" height="900" loading="lazy"><figcaption>Statistiques — tableau de bord configurable par widgets et période</figcaption></figure>
-          <figure class="reveal"><img src="assets/stea/articles-liste-desktop.webp" alt="Liste des articles de STEA" width="1440" height="900" loading="lazy"><figcaption>Articles — liste avec seuils d’alerte, prix et niveaux de stock</figcaption></figure>
-          <figure class="reveal"><img src="assets/stea/mouvements-liste-desktop.webp" alt="Mouvements de stock de STEA" width="1440" height="900" loading="lazy"><figcaption>Mouvements — entrées, sorties, transferts et ajustements de stock</figcaption></figure>
-          <figure class="reveal"><img src="assets/stea/bons-de-commande-liste-desktop.webp" alt="Bons de commande de STEA" width="1440" height="900" loading="lazy"><figcaption>Bons de commande — suivi des achats fournisseurs et de leurs statuts</figcaption></figure>
-          <figure class="reveal"><img src="assets/stea/notifications-vue-desktop.webp" alt="Notifications de STEA" width="1440" height="900" loading="lazy"><figcaption>Notifications — alertes de stock critique et messagerie interne</figcaption></figure>
+          <figure class="reveal"><img src="assets/stea/tableau-de-bord-vue-desktop.webp" srcset="assets/stea/tableau-de-bord-vue-desktop-720.webp 720w, assets/stea/tableau-de-bord-vue-desktop-1080.webp 1080w, assets/stea/tableau-de-bord-vue-desktop.webp 1440w" sizes="(max-width: 860px) calc(100vw - 32px), 360px" alt="Tableau de bord de STEA" width="1440" height="900" loading="lazy"><figcaption>Tableau de bord — indicateurs de stock, encaissements et tâches à traiter</figcaption></figure>
+          <figure class="reveal"><img src="assets/stea/statistiques-widgets-desktop.webp" srcset="assets/stea/statistiques-widgets-desktop-720.webp 720w, assets/stea/statistiques-widgets-desktop-1080.webp 1080w, assets/stea/statistiques-widgets-desktop.webp 1440w" sizes="(max-width: 860px) calc(100vw - 32px), 360px" alt="Statistiques de STEA" width="1440" height="900" loading="lazy"><figcaption>Statistiques — tableau de bord configurable par widgets et période</figcaption></figure>
+          <figure class="reveal"><img src="assets/stea/articles-liste-desktop.webp" srcset="assets/stea/articles-liste-desktop-720.webp 720w, assets/stea/articles-liste-desktop-1080.webp 1080w, assets/stea/articles-liste-desktop.webp 1440w" sizes="(max-width: 860px) calc(100vw - 32px), 360px" alt="Liste des articles de STEA" width="1440" height="900" loading="lazy"><figcaption>Articles — liste avec seuils d’alerte, prix et niveaux de stock</figcaption></figure>
+          <figure class="reveal"><img src="assets/stea/mouvements-liste-desktop.webp" srcset="assets/stea/mouvements-liste-desktop-720.webp 720w, assets/stea/mouvements-liste-desktop-1080.webp 1080w, assets/stea/mouvements-liste-desktop.webp 1440w" sizes="(max-width: 860px) calc(100vw - 32px), 360px" alt="Mouvements de stock de STEA" width="1440" height="900" loading="lazy"><figcaption>Mouvements — entrées, sorties, transferts et ajustements de stock</figcaption></figure>
+          <figure class="reveal"><img src="assets/stea/bons-de-commande-liste-desktop.webp" srcset="assets/stea/bons-de-commande-liste-desktop-720.webp 720w, assets/stea/bons-de-commande-liste-desktop-1080.webp 1080w, assets/stea/bons-de-commande-liste-desktop.webp 1440w" sizes="(max-width: 860px) calc(100vw - 32px), 360px" alt="Bons de commande de STEA" width="1440" height="900" loading="lazy"><figcaption>Bons de commande — suivi des achats fournisseurs et de leurs statuts</figcaption></figure>
+          <figure class="reveal"><img src="assets/stea/notifications-vue-desktop.webp" srcset="assets/stea/notifications-vue-desktop-720.webp 720w, assets/stea/notifications-vue-desktop-1080.webp 1080w, assets/stea/notifications-vue-desktop.webp 1440w" sizes="(max-width: 860px) calc(100vw - 32px), 360px" alt="Notifications de STEA" width="1440" height="900" loading="lazy"><figcaption>Notifications — alertes de stock critique et messagerie interne</figcaption></figure>
         </div>
       </div>
     </section>
@@ -308,7 +310,7 @@
     <div class="container">
       <div class="footer-grid">
         <div class="footer-brand">
-          <a href="index.html" class="brand" aria-label="Retour à l’accueil">
+          <a href="index.html" class="brand" aria-label="Ago Ezoolim-Ela">
             <span class="gem" aria-hidden="true">AE</span>
             <span class="brand-name">Ago <em>Ezoolim-Ela</em></span>
           </a>
@@ -345,6 +347,6 @@
     <i class="fa-solid fa-arrow-up" aria-hidden="true"></i>
   </button>
 
-  <script src="script.js?v=7" defer></script>
+  <script src="script.js?v=8" defer></script>
 </body>
 </html>

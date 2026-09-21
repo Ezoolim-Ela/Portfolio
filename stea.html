@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="fr" class="no-js">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>STEA, de l’idée à la production — Étude de cas · Ago Ezoolim-Ela</title>
+  <meta name="description" content="Étude de cas : comment j’ai conçu, développé et déployé STEA, une application de gestion logistique et de suivi des stocks utilisée par STEA Trans Euro Afrika SARL (Lomé). Spring Boot, React, MySQL, Electron.">
+  <meta name="color-scheme" content="light dark">
+  <meta name="theme-color" id="meta-theme-color" content="#F7F5FC">
+  <meta name="author" content="Ago Ezoolim-Ela">
+  <link rel="canonical" href="https://ezoolim-ela.github.io/Portfolio/stea.html">
+  <meta property="og:type" content="article">
+  <meta property="og:locale" content="fr_FR">
+  <meta property="og:site_name" content="Portfolio d’Ago Ezoolim-Ela">
+  <meta property="og:title" content="STEA, de l’idée à la production — Étude de cas">
+  <meta property="og:description" content="Une application de gestion logistique conçue, développée et déployée de bout en bout : 24 modules, 8 rôles, 173 endpoints REST, 141 tests, 29 versions publiées.">
+  <meta property="og:url" content="https://ezoolim-ela.github.io/Portfolio/stea.html">
+  <meta property="og:image" content="https://ezoolim-ela.github.io/Portfolio/assets/stea/tableau-de-bord-vue-desktop.webp">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%236D28D9'/%3E%3Ctext x='32' y='43' font-family='Georgia, serif' font-size='28' font-weight='700' fill='white' text-anchor='middle'%3EAE%3C/text%3E%3C/svg%3E">
+
+  <script>
+    (function () {
+      var t = null;
+      try { t = localStorage.getItem('theme'); } catch (e) {}
+      if (t !== 'dark' && t !== 'light') t = 'light';
+      document.documentElement.setAttribute('data-theme', t);
+      var m = document.getElementById('meta-theme-color');
+      if (m) m.setAttribute('content', t === 'dark' ? '#14102A' : '#F7F5FC');
+    })();
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;1,9..144,500&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+  <link rel="stylesheet" href="styles.css?v=6">
+</head>
+<body>
+  <a class="skip-link" href="#contenu">Aller au contenu</a>
+
+  <!-- ===== En-tête ===== -->
+  <header class="topbar" id="topbar">
+    <div class="container topbar-inner">
+      <a href="index.html" class="brand" aria-label="Ago Ezoolim-Ela — retour à l’accueil">
+        <span class="gem" aria-hidden="true">AE</span>
+        <span class="brand-name">Ago <em>Ezoolim-Ela</em></span>
+      </a>
+
+      <nav class="site-nav" id="site-nav" aria-label="Navigation principale">
+        <ul class="nav-list">
+          <li><a href="index.html#a-propos" class="nav-link">À propos</a></li>
+          <li><a href="index.html#competences" class="nav-link">Compétences</a></li>
+          <li><a href="index.html#parcours" class="nav-link">Parcours</a></li>
+          <li><a href="index.html#projets" class="nav-link is-active" aria-current="page">Projets</a></li>
+          <li><a href="index.html#contact" class="nav-link">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="topbar-actions">
+        <a href="assets/CV_Ago_Ezoolim-Ela.pdf" class="btn btn-glass btn-sm btn-cv" target="_blank" rel="noopener">
+          <i class="fa-solid fa-file-arrow-down" aria-hidden="true"></i><span class="btn-cv-label">Mon CV</span>
+        </a>
+        <button class="icon-btn" id="theme-toggle" type="button" aria-label="Passer en mode sombre" aria-pressed="false">
+          <i class="fa-solid fa-moon icon-moon" aria-hidden="true"></i>
+          <i class="fa-solid fa-sun icon-sun" aria-hidden="true"></i>
+        </button>
+        <button class="icon-btn nav-toggle" id="nav-toggle" type="button" aria-controls="site-nav" aria-expanded="false" aria-label="Ouvrir le menu">
+          <i class="fa-solid fa-bars icon-open" aria-hidden="true"></i>
+          <i class="fa-solid fa-xmark icon-close" aria-hidden="true"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="contenu">
+
+    <!-- ===== En-tête de l’étude de cas ===== -->
+    <section class="case-hero" id="stea">
+      <div class="container">
+        <a href="index.html#projets" class="case-back"><i class="fa-solid fa-arrow-left" aria-hidden="true"></i> Retour aux projets</a>
+        <p class="eyebrow">Étude de cas · projet phare</p>
+        <h1>STEA, de l’idée à la <em style="font-style: italic; font-weight: 500; color: var(--primary);">production</em></h1>
+        <p class="section-lead">Comment j’ai conçu, développé et déployé, de bout en bout, une application de gestion logistique et de suivi des stocks aujourd’hui utilisée par STEA Trans Euro Afrika SARL, à Lomé.</p>
+
+        <dl class="case-meta">
+          <div><dt>Client</dt><dd>STEA Trans Euro Afrika SARL · Lomé, Togo</dd></div>
+          <div><dt>Mon rôle</dt><dd>Conception, développement, déploiement et maintenance</dd></div>
+          <div><dt>Période</dt><dd>Juillet – septembre 2026 · en production depuis août 2026</dd></div>
+          <div><dt>Technologies</dt><dd>Java 17 · Spring Boot · MySQL · React · Tailwind CSS · Electron</dd></div>
+        </dl>
+
+        <div class="case-cta">
+          <button type="button" class="btn btn-glow btn-sm" data-gallery-open="0"><i class="fa-solid fa-images" aria-hidden="true"></i> Voir les écrans</button>
+          <a href="https://github.com/Ezoolim-Ela/stea_stock_application" target="_blank" rel="noopener" class="btn btn-glass btn-sm"><i class="fa-brands fa-github" aria-hidden="true"></i> Code source</a>
+          <a href="https://github.com/Ezoolim-Ela/stea-desktop/releases" target="_blank" rel="noopener" class="btn btn-glass btn-sm"><i class="fa-solid fa-desktop" aria-hidden="true"></i> Versions publiées</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Le défi ===== -->
+    <section class="case-section" id="defi">
+      <div class="container">
+        <p class="eyebrow">01 · Le défi</p>
+        <h2>Savoir à tout moment <em>ce qu’il y a en stock, où, et quoi recommander</em></h2>
+        <div class="case-prose">
+          <p>STEA Trans Euro Afrika gère plusieurs entrepôts, des achats auprès de fournisseurs, des livraisons à ses clients et des retours. Sans outil central, ce type d’information se disperse dans des fichiers et des cahiers : l’état réel du stock devient incertain, les ruptures se découvrent trop tard et l’on ne sait plus qui a fait quoi.</p>
+          <p>L’application devait donc tenir <strong>un stock fiable et multi-entrepôts</strong>, couvrir <strong>tout le cycle achat → livraison → retour</strong> avec ses documents, <strong>alerter automatiquement</strong> avant la rupture, distinguer <strong>des rôles aux droits précis</strong> et rester <strong>simple à installer</strong> sur les postes Windows de l’entreprise, sans intervention technique sur place à chaque mise à jour.</p>
+        </div>
+
+        <div class="case-grid" data-stagger>
+          <article class="case-card reveal">
+            <span class="case-icon" aria-hidden="true"><i class="fa-solid fa-warehouse"></i></span>
+            <h3>Un stock qu’on peut croire</h3>
+            <p>Plusieurs entrepôts, des lots et des numéros de série, des inventaires et des réinitialisations tracées : chaque quantité affichée doit correspondre à la réalité.</p>
+          </article>
+          <article class="case-card reveal">
+            <span class="case-icon" aria-hidden="true"><i class="fa-solid fa-truck-ramp-box"></i></span>
+            <h3>Le cycle complet</h3>
+            <p>Bons de commande fournisseurs, livraisons, bons de livraison, retours et avoirs, encaissements : les documents s’enchaînent sans ressaisie.</p>
+          </article>
+          <article class="case-card reveal">
+            <span class="case-icon" aria-hidden="true"><i class="fa-solid fa-user-shield"></i></span>
+            <h3>Des droits précis</h3>
+            <p>Un opérateur de stock, un logisticien, un comptable ou un agent commercial ne voient pas la même chose et ne peuvent pas faire les mêmes actions.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Ma réponse ===== -->
+    <section class="case-section" id="reponse">
+      <div class="container">
+        <p class="eyebrow">02 · Ma réponse</p>
+        <h2>Une API solide, une interface claire, <em>une installation en un clic</em></h2>
+        <div class="case-prose">
+          <p>J’ai séparé nettement les responsabilités : un <strong>serveur Spring Boot</strong> qui porte toutes les règles métier et la sécurité, une <strong>interface React</strong> qui ne fait que présenter et guider, et une <strong>application de bureau Electron</strong> qui embarque cette interface et se met à jour toute seule. La même interface est aussi servie en version web par le serveur : un seul code, deux canaux.</p>
+        </div>
+
+        <div class="arch">
+          <div class="arch-box reveal">
+            <h3><i class="fa-solid fa-desktop" aria-hidden="true"></i> Application de bureau</h3>
+            <p>Electron + React 18, Tailwind CSS, Recharts. Installeur Windows, mise à jour automatique au lancement via GitHub Releases (electron-updater). L’adresse du serveur est lue dans un fichier de configuration distant : changer de serveur ne demande aucune nouvelle version.</p>
+          </div>
+          <div class="arch-link" aria-hidden="true"><i class="fa-solid fa-right-left"></i>HTTPS · JSON</div>
+          <div class="arch-box reveal">
+            <h3><i class="fa-solid fa-server" aria-hidden="true"></i> Serveur</h3>
+            <p>Spring Boot 3 / Java 17, API REST de 173 endpoints, 31 entités JPA sur MySQL. Authentification JWT, autorisations par rôle sur chaque endpoint, journal d’audit des activités.</p>
+          </div>
+          <p class="arch-note reveal"><i class="fa-solid fa-circle-info" aria-hidden="true" style="color: var(--primary); margin-right: 8px;"></i>Exploitation : serveur auto-hébergé et supervisé (base de données, serveur et tunnel relancés automatiquement en cas de coupure), exposé sur Internet par un tunnel sécurisé à adresse fixe, sauvegarde de la base et de la version précédente avant chaque déploiement.</p>
+        </div>
+
+        <h3 style="margin-top: 40px; font-size: var(--fs-h3);">24 modules, un seul outil</h3>
+        <ul class="modules" aria-label="Modules de l’application">
+          <li><i class="fa-solid fa-gauge-high" aria-hidden="true"></i>Tableau de bord</li>
+          <li><i class="fa-solid fa-boxes-stacked" aria-hidden="true"></i>Articles</li>
+          <li><i class="fa-solid fa-warehouse" aria-hidden="true"></i>Entrepôts</li>
+          <li><i class="fa-solid fa-barcode" aria-hidden="true"></i>Lots et séries</li>
+          <li><i class="fa-solid fa-right-left" aria-hidden="true"></i>Mouvements de stock</li>
+          <li><i class="fa-solid fa-clipboard-check" aria-hidden="true"></i>Inventaires</li>
+          <li><i class="fa-solid fa-bell" aria-hidden="true"></i>Réapprovisionnement</li>
+          <li><i class="fa-solid fa-rotate-left" aria-hidden="true"></i>Réinitialisations de stock</li>
+          <li><i class="fa-solid fa-users" aria-hidden="true"></i>Clients</li>
+          <li><i class="fa-solid fa-industry" aria-hidden="true"></i>Fournisseurs</li>
+          <li><i class="fa-solid fa-cart-shopping" aria-hidden="true"></i>Commandes</li>
+          <li><i class="fa-solid fa-file-invoice" aria-hidden="true"></i>Bons de commande</li>
+          <li><i class="fa-solid fa-truck" aria-hidden="true"></i>Livraisons</li>
+          <li><i class="fa-solid fa-file-signature" aria-hidden="true"></i>Bons de livraison</li>
+          <li><i class="fa-solid fa-rotate" aria-hidden="true"></i>Retours et avoirs</li>
+          <li><i class="fa-solid fa-coins" aria-hidden="true"></i>Comptabilité</li>
+          <li><i class="fa-solid fa-cash-register" aria-hidden="true"></i>Réinitialisations d’encaissements</li>
+          <li><i class="fa-solid fa-chart-column" aria-hidden="true"></i>Statistiques</li>
+          <li><i class="fa-solid fa-file-lines" aria-hidden="true"></i>Rapports</li>
+          <li><i class="fa-solid fa-envelope" aria-hidden="true"></i>Messagerie</li>
+          <li><i class="fa-solid fa-user-gear" aria-hidden="true"></i>Utilisateurs</li>
+          <li><i class="fa-solid fa-sliders" aria-hidden="true"></i>Configuration</li>
+          <li><i class="fa-solid fa-clock-rotate-left" aria-hidden="true"></i>Historique des activités</li>
+          <li><i class="fa-solid fa-circle-question" aria-hidden="true"></i>Guide d’utilisation</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ===== Sécurité et qualité ===== -->
+    <section class="case-section" id="qualite">
+      <div class="container">
+        <p class="eyebrow">03 · Sécurité et qualité</p>
+        <h2>L’écran cache, <em>le serveur interdit</em></h2>
+        <div class="case-prose">
+          <p>Chaque règle de droits existe deux fois : une fois dans l’interface, pour ne montrer que ce qui est permis, et une fois dans le serveur, qui refuse ce qui ne l’est pas, quoi qu’envoie le client. Huit rôles se partagent l’application, dont trois profils d’agents en consultation seule, limités aux articles de leur service.</p>
+        </div>
+        <div class="case-grid" data-stagger>
+          <article class="case-card reveal">
+            <span class="case-icon" aria-hidden="true"><i class="fa-solid fa-key"></i></span>
+            <h3>Accès</h3>
+            <ul>
+              <li>Authentification par jeton JWT (Spring Security)</li>
+              <li>Limitation des tentatives de connexion</li>
+              <li>Autorisations vérifiées endpoint par endpoint</li>
+            </ul>
+          </article>
+          <article class="case-card reveal">
+            <span class="case-icon" aria-hidden="true"><i class="fa-solid fa-clock-rotate-left"></i></span>
+            <h3>Traçabilité</h3>
+            <ul>
+              <li>Journal d’audit : qui a fait quoi, et quand</li>
+              <li>Réinitialisations de stock et d’encaissements tracées</li>
+              <li>Sauvegarde de la base avant chaque déploiement</li>
+            </ul>
+          </article>
+          <article class="case-card reveal">
+            <span class="case-icon" aria-hidden="true"><i class="fa-solid fa-vial-circle-check"></i></span>
+            <h3>Vérification</h3>
+            <ul>
+              <li>141 tests automatisés côté serveur</li>
+              <li>Chaque évolution essayée sur une instance isolée avec une base jetable avant la mise en production</li>
+              <li>Procédure de déploiement écrite et rejouable</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Résultats ===== -->
+    <section class="case-section" id="resultats">
+      <div class="container">
+        <p class="eyebrow">04 · Résultats</p>
+        <h2>En production, <em>et toujours en évolution</em></h2>
+        <div class="case-prose">
+          <p>La première version de bureau a été publiée le 12 août 2026. Depuis, l’application évolue au rythme des besoins de l’entreprise : 29 versions livrées par mise à jour automatique en cinq semaines, sans jamais réinstaller un poste.</p>
+          <p>Exemple d’évolution demandée par l’entreprise : trois profils d’agents en consultation seule, chacun limité aux articles de son service. Maquette proposée le matin, validée dans la journée, serveur mis à jour le jour même.</p>
+        </div>
+
+        <ul class="case-figures" aria-label="STEA en chiffres">
+          <li><span class="figure-num" data-count="24">0</span><span class="figure-label">modules métier</span></li>
+          <li><span class="figure-num" data-count="8">0</span><span class="figure-label">rôles utilisateurs</span></li>
+          <li><span class="figure-num" data-count="173">0</span><span class="figure-label">endpoints REST</span></li>
+          <li><span class="figure-num" data-count="141">0</span><span class="figure-label">tests automatisés</span></li>
+          <li><span class="figure-num" data-count="29">0</span><span class="figure-label">versions publiées</span></li>
+          <li><span class="figure-num" data-count="46">0</span><span class="figure-label">mille lignes de code (Java + React)</span></li>
+        </ul>
+
+        <!-- Témoignage du client — à activer dès que STEA Trans Euro Afrika fournit une phrase :
+        <blockquote class="project-quote" style="margin-top: 28px; max-width: 68ch;">
+          <p>« La phrase du client. »</p>
+          <footer>— Prénom Nom, fonction · STEA Trans Euro Afrika SARL</footer>
+        </blockquote>
+        -->
+
+        <div class="shots">
+          <figure class="reveal"><img src="assets/stea/tableau-de-bord-vue-desktop.webp" alt="Tableau de bord de STEA" width="1440" height="900" loading="lazy"><figcaption>Tableau de bord — indicateurs de stock, encaissements et tâches à traiter</figcaption></figure>
+          <figure class="reveal"><img src="assets/stea/statistiques-widgets-desktop.webp" alt="Statistiques de STEA" width="1440" height="900" loading="lazy"><figcaption>Statistiques — tableau de bord configurable par widgets et période</figcaption></figure>
+          <figure class="reveal"><img src="assets/stea/articles-liste-desktop.webp" alt="Liste des articles de STEA" width="1440" height="900" loading="lazy"><figcaption>Articles — liste avec seuils d’alerte, prix et niveaux de stock</figcaption></figure>
+          <figure class="reveal"><img src="assets/stea/mouvements-liste-desktop.webp" alt="Mouvements de stock de STEA" width="1440" height="900" loading="lazy"><figcaption>Mouvements — entrées, sorties, transferts et ajustements de stock</figcaption></figure>
+          <figure class="reveal"><img src="assets/stea/bons-de-commande-liste-desktop.webp" alt="Bons de commande de STEA" width="1440" height="900" loading="lazy"><figcaption>Bons de commande — suivi des achats fournisseurs et de leurs statuts</figcaption></figure>
+          <figure class="reveal"><img src="assets/stea/notifications-vue-desktop.webp" alt="Notifications de STEA" width="1440" height="900" loading="lazy"><figcaption>Notifications — alertes de stock critique et messagerie interne</figcaption></figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Ce que j’ai appris ===== -->
+    <section class="case-section" id="appris">
+      <div class="container">
+        <p class="eyebrow">05 · Ce que j’ai appris</p>
+        <h2>Trois leçons <em>que je garde</em></h2>
+        <ol class="lessons" data-stagger>
+          <li class="reveal">
+            <h3>Livrer, c’est plus que coder</h3>
+            <p>Un serveur en marche ne se remplace pas à chaud : arrêter, sauvegarder, remplacer, relancer, dans cet ordre. Je l’ai appris en cassant une fois le serveur, et j’en ai fait une procédure écrite que je suis à chaque déploiement.</p>
+          </li>
+          <li class="reveal">
+            <h3>Le serveur décide, l’écran suggère</h3>
+            <p>Masquer un bouton ne protège rien. Chaque règle de droits est vérifiée côté serveur, et l’interface ne fait que refléter ce qui est permis.</p>
+          </li>
+          <li class="reveal">
+            <h3>Vérifier avant d’annoncer</h3>
+            <p>Avant de dire « c’est en ligne », je rejoue la fonctionnalité sur une instance isolée avec une base jetable. Une démonstration vaut mieux qu’une promesse.</p>
+          </li>
+        </ol>
+
+        <div class="case-cta">
+          <a href="index.html#contact" class="btn btn-glow"><i class="fa-solid fa-paper-plane" aria-hidden="true"></i> Parlons de votre projet</a>
+          <a href="index.html#projets" class="btn btn-glass">Retour aux projets</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ===== Galerie des écrans (même composant que la page d’accueil) ===== -->
+<dialog class="gallery" id="galerie-stea" aria-label="Écrans de l’application STEA">
+    <div class="gallery-inner">
+      <div class="gallery-top">
+        <p class="gallery-title">STEA — écrans de l’application <span class="gallery-count" id="gallery-count"></span></p>
+        <button type="button" class="icon-btn gallery-close" id="gallery-close" aria-label="Fermer la galerie"><i class="fa-solid fa-xmark" aria-hidden="true"></i></button>
+      </div>
+      <figure class="gallery-figure">
+        <img id="gallery-img" src="" alt="">
+        <figcaption id="gallery-cap"></figcaption>
+      </figure>
+      <button type="button" class="gallery-nav prev" id="gallery-prev" aria-label="Écran précédent"><i class="fa-solid fa-chevron-left" aria-hidden="true"></i></button>
+      <button type="button" class="gallery-nav next" id="gallery-next" aria-label="Écran suivant"><i class="fa-solid fa-chevron-right" aria-hidden="true"></i></button>
+      <div class="gallery-thumbs" id="gallery-thumbs" aria-label="Choisir un écran"></div>
+    </div>
+  </dialog>
+
+  <!-- ===== Pied de page ===== -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="brand" aria-label="Retour à l’accueil">
+            <span class="gem" aria-hidden="true">AE</span>
+            <span class="brand-name">Ago <em>Ezoolim-Ela</em></span>
+          </a>
+          <p>Étudiante en Génie Logiciel à l’IAI-TOGO, passionnée par le développement et les réseaux.</p>
+        </div>
+        <nav class="footer-col" aria-label="Plan du site">
+          <h3>Navigation</h3>
+          <ul>
+            <li><a href="index.html#a-propos">À propos</a></li>
+            <li><a href="index.html#competences">Compétences</a></li>
+            <li><a href="index.html#parcours">Parcours</a></li>
+            <li><a href="index.html#projets">Projets</a></li>
+            <li><a href="index.html#contact">Contact</a></li>
+          </ul>
+        </nav>
+        <div class="footer-col">
+          <h3>Me retrouver</h3>
+          <ul>
+            <li><a href="https://github.com/Ezoolim-Ela" target="_blank" rel="noopener"><i class="fa-brands fa-github" aria-hidden="true"></i> GitHub</a></li>
+            <li><a href="https://linkedin.com/in/ago-ezoolim-ela" target="_blank" rel="noopener"><i class="fa-brands fa-linkedin-in" aria-hidden="true"></i> LinkedIn</a></li>
+            <li><a href="mailto:agoezoolimela@gmail.com"><i class="fa-solid fa-envelope" aria-hidden="true"></i> agoezoolimela@gmail.com</a></li>
+            <li><a href="assets/CV_Ago_Ezoolim-Ela.pdf" target="_blank" rel="noopener"><i class="fa-solid fa-file-arrow-down" aria-hidden="true"></i> Télécharger mon CV</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; <span id="year">2026</span> Ago Ezoolim-Ela · Site conçu et codé à la main — <a href="https://github.com/Ezoolim-Ela/Portfolio" target="_blank" rel="noopener">code source</a></p>
+        <a href="#contenu" class="footer-top">Retour en haut <i class="fa-solid fa-arrow-up" aria-hidden="true"></i></a>
+      </div>
+    </div>
+  </footer>
+
+  <button class="back-to-top" id="back-to-top" type="button" aria-label="Retour en haut de page">
+    <i class="fa-solid fa-arrow-up" aria-hidden="true"></i>
+  </button>
+
+  <script src="script.js?v=6" defer></script>
+</body>
+</html>

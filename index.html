@@ -1,237 +1,688 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="fr" class="no-js">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AGO EZOOLIM-ELA — Portfolio Développeuse</title>
-  <meta name="description" content="Portfolio d'AGO EZOOLIM-ELA, étudiante en Informatique à l'IAI-TOGO, en recherche de stage en Génie Logiciel.">
+  <title>Ago Ezoolim-Ela — Génie logiciel & réseaux · Portfolio</title>
+  <meta name="description" content="Portfolio d’Ago Ezoolim-Ela, étudiante en Génie Logiciel et Systèmes d’Information à l’IAI-TOGO (Lomé) — Java, Spring Boot, PHP, React, SQL, réseaux Cisco CCNA 1 & 2. À la recherche d’un stage.">
+  <meta name="color-scheme" content="light dark">
+  <meta name="theme-color" id="meta-theme-color" content="#F7F5FC">
+  <meta name="author" content="Ago Ezoolim-Ela">
+  <link rel="canonical" href="https://ezoolim-ela.github.io/Portfolio/">
+  <meta property="og:type" content="profile">
+  <meta property="og:locale" content="fr_FR">
+  <meta property="og:site_name" content="Portfolio d’Ago Ezoolim-Ela">
+  <meta property="og:title" content="Ago Ezoolim-Ela — Génie logiciel & réseaux">
+  <meta property="og:description" content="Étudiante à l’IAI-TOGO (Lomé). Java · Spring Boot · React · MySQL · Cisco CCNA 1 & 2. Une application de gestion logistique en production. Disponible pour un stage.">
+  <meta property="og:url" content="https://ezoolim-ela.github.io/Portfolio/">
+  <meta property="og:image" content="https://ezoolim-ela.github.io/Portfolio/assets/og-image.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Ago Ezoolim-Ela — Étudiante en Génie Logiciel & Systèmes d’Information, IAI-TOGO">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Ago Ezoolim-Ela — Génie logiciel & réseaux">
+  <meta name="twitter:description" content="Java · Spring Boot · React · MySQL · Cisco CCNA 1 & 2. Une application de gestion logistique en production. Disponible pour un stage.">
+  <meta name="twitter:image" content="https://ezoolim-ela.github.io/Portfolio/assets/og-image.jpg">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Ago Ezoolim-Ela",
+    "url": "https://ezoolim-ela.github.io/Portfolio/",
+    "image": "https://ezoolim-ela.github.io/Portfolio/assets/photo-ago-ezoolim-ela.jpg",
+    "email": "mailto:agoezoolimela@gmail.com",
+    "telephone": "+228 71 12 32 62",
+    "jobTitle": "Étudiante en Génie Logiciel & Systèmes d’Information",
+    "address": { "@type": "PostalAddress", "addressLocality": "Lomé", "addressCountry": "TG" },
+    "alumniOf": { "@type": "CollegeOrUniversity", "name": "IAI-TOGO" },
+    "knowsAbout": ["Java", "Spring Boot", "React", "MySQL", "SQL Server", "PHP", "Réseaux Cisco", "Cisco CCNA"],
+    "knowsLanguage": ["fr", "en", "kbp"],
+    "sameAs": ["https://github.com/Ezoolim-Ela", "https://linkedin.com/in/ago-ezoolim-ela"]
+  }
+  </script>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%236D28D9'/%3E%3Ctext x='32' y='43' font-family='Georgia, serif' font-size='28' font-weight='700' fill='white' text-anchor='middle'%3EAE%3C/text%3E%3C/svg%3E">
+
+  <script>
+    (function () {
+      var t = null;
+      try { t = localStorage.getItem('theme'); } catch (e) {}
+      if (t !== 'dark' && t !== 'light') t = 'light';
+      document.documentElement.setAttribute('data-theme', t);
+      var m = document.getElementById('meta-theme-color');
+      if (m) m.setAttribute('content', t === 'dark' ? '#14102A' : '#F7F5FC');
+    })();
+  </script>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Poppins:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
-  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;1,9..144,500&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+  <link rel="stylesheet" href="styles.css?v=6">
 </head>
 <body>
 
-  <!-- Navigation -->
-  <nav class="navbar" id="navbar">
-    <div class="nav-container">
-      <a href="#accueil" class="nav-logo">
-        <span class="logo-badge">AE</span>
+  <a class="skip-link" href="#contenu">Aller au contenu</a>
+
+  <!-- ===== En-tête ===== -->
+  <header class="topbar" id="topbar">
+    <div class="container topbar-inner">
+      <a href="#accueil" class="brand" aria-label="Ago Ezoolim-Ela — retour à l’accueil">
+        <span class="gem" aria-hidden="true">AE</span>
+        <span class="brand-name">Ago <em>Ezoolim-Ela</em></span>
       </a>
-      <button class="hamburger" id="hamburger" aria-label="Menu" aria-expanded="false">
-        <span></span><span></span><span></span>
-      </button>
-      <ul class="nav-menu" id="nav-menu">
-        <li><a href="#accueil">Accueil</a></li>
-        <li><a href="#a-propos">À propos</a></li>
-        <li><a href="#competences">Compétences</a></li>
-        <li><a href="#projets">Projets</a></li>
-        <li><a href="#contact">Contact</a></li>
-        <li><a href="assets/CV_Ago_Ezoolim-Ela.pdf" target="_blank" class="nav-cta"><i class="fa-solid fa-file-arrow-down"></i> Mon CV</a></li>
-      </ul>
-    </div>
-  </nav>
 
-  <!-- Hero Section -->
-  <section class="hero" id="accueil">
-    <div class="container hero-container">
-      <div class="hero-content reveal">
-        <div class="hero-tag">Disponible pour un stage de Licence 2</div>
-        <h1 class="hero-title">Ago <span class="text-gradient">Ezoolim-Ela</span></h1>
-        <p class="hero-subtitle">Étudiante passionnée en Génie Logiciel & Systèmes d'Information à l'IAI-TOGO.</p>
-        <p class="hero-objective">Motivée à relever des défis techniques, à concevoir des applications fluides et à optimiser le fonctionnement des systèmes.</p>
-        <div class="hero-actions">
-          <a href="#projets" class="btn btn-primary">Découvrir mes projets</a>
-          <a href="#contact" class="btn btn-secondary">Me contacter</a>
-        </div>
-      </div>
-      <div class="hero-visual reveal">
-        <div class="mesh-container">
-          <div class="mesh-grid"></div>
-          <div class="floating-node node-1"></div>
-          <div class="floating-node node-2"></div>
-          <div class="floating-node node-3"></div>
-          <div class="tech-icon-badge ti-1"><i class="fa-brands fa-java"></i></div>
-          <div class="tech-icon-badge ti-2"><i class="fa-brands fa-python"></i></div>
-          <div class="tech-icon-badge ti-3"><i class="fa-solid fa-network-wired"></i></div>
-        </div>
+      <nav class="site-nav" id="site-nav" aria-label="Navigation principale">
+        <ul class="nav-list">
+          <li><a href="#a-propos" class="nav-link">À propos</a></li>
+          <li><a href="#competences" class="nav-link">Compétences</a></li>
+          <li><a href="#parcours" class="nav-link">Parcours</a></li>
+          <li><a href="#projets" class="nav-link">Projets</a></li>
+          <li><a href="#contact" class="nav-link">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="topbar-actions">
+        <a href="assets/CV_Ago_Ezoolim-Ela.pdf" class="btn btn-glass btn-sm btn-cv" target="_blank" rel="noopener">
+          <i class="fa-solid fa-file-arrow-down" aria-hidden="true"></i><span class="btn-cv-label">Mon CV</span>
+        </a>
+        <button class="icon-btn" id="theme-toggle" type="button" aria-label="Passer en mode sombre" aria-pressed="false">
+          <i class="fa-solid fa-moon icon-moon" aria-hidden="true"></i>
+          <i class="fa-solid fa-sun icon-sun" aria-hidden="true"></i>
+        </button>
+        <button class="icon-btn nav-toggle" id="nav-toggle" type="button" aria-controls="site-nav" aria-expanded="false" aria-label="Ouvrir le menu">
+          <i class="fa-solid fa-bars icon-open" aria-hidden="true"></i>
+          <i class="fa-solid fa-xmark icon-close" aria-hidden="true"></i>
+        </button>
       </div>
     </div>
-  </section>
+  </header>
 
-  <!-- À Propos Section -->
-  <section class="about" id="a-propos">
-    <div class="container">
-      <h2 class="section-title reveal">À propos de moi</h2>
-      <div class="about-grid">
-        <div class="about-text reveal">
-          <p>Actuellement en deuxième année de Licence en Informatique à l'<strong>IAI-TOGO</strong> (2025-2026), je construis des bases solides pour concevoir et maintenir des architectures logicielles et des systèmes fiables.</p>
-          <p>Je m'investis pleinement dans mes travaux académiques et personnels afin de continuellement perfectionner mes compétences et apporter une réelle valeur ajoutée au sein d'une équipe professionnelle.</p>
-          <div class="about-meta">
-            <div class="meta-item"><i class="fa-solid fa-location-dot"></i> Lomé, Togo</div>
-            <div class="meta-item"><i class="fa-solid fa-graduation-cap"></i> IAI-TOGO (L1 & L2)</div>
-          </div>
-        </div>
-        <div class="about-highlights reveal">
-          <div class="highlight-card">
-            <span class="card-num">01</span>
-            <h3>Rigueur Académique</h3>
-            <p>Parcours orienté Génie Logiciel avec une excellente maîtrise de l'algorithmique et de la modélisation.</p>
-          </div>
-          <div class="highlight-card">
-            <span class="card-num">02</span>
-            <h3>Esprit Technique</h3>
-            <p>Aspirations poussées vers la compréhension approfondie des réseaux (Certifications CCNA 1 & 2).</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+  <main id="contenu">
 
-  <!-- Compétences Section -->
-  <section class="skills" id="competences">
-    <div class="container">
-      <h2 class="section-title reveal">Mes Compétences</h2>
-      <div class="skills-grid">
-        <div class="skill-category reveal">
-          <div class="category-header">
-            <i class="fa-solid fa-code"></i>
-            <h3>Programmation</h3>
+    <!-- ===== Accueil ===== -->
+    <section class="hero" id="accueil">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <p class="pill reveal"><span class="pill-dot" aria-hidden="true"></span> Disponible pour un stage pratique</p>
+          <p class="hello reveal">Bonjour, moi c’est</p>
+          <h1 class="hero-name reveal">Ago Ezoolim-Ela</h1>
+          <p class="hero-role reveal">Étudiante en <em>Génie Logiciel</em> &amp; Systèmes d’Information&nbsp;·&nbsp;<span class="nowrap">IAI-TOGO</span></p>
+          <p class="hero-lead reveal">Je conçois des applications utiles et bien structurées, du back-end Java aux interfaces web, et je m’intéresse de près aux réseaux (Cisco CCNA 1 &amp; 2). Je cherche un stage pour mettre ces compétences en pratique au sein d’une équipe.</p>
+          <div class="hero-actions reveal">
+            <a href="#projets" class="btn btn-glow">Découvrir mes projets <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+            <a href="#contact" class="btn btn-glass">Me contacter</a>
           </div>
-          <ul class="skill-list">
-            <li><span>Java</span> <div class="bar-container"><div class="bar" style="width: 85%"></div></div></li>
-            <li><span>Python</span> <div class="bar-container"><div class="bar" style="width: 80%"></div></div></li>
-            <li><span>Langage C</span> <div class="bar-container"><div class="bar" style="width: 75%"></div></div></li>
+          <ul class="hero-stats reveal" aria-label="En bref">
+            <li><i class="fa-solid fa-check" aria-hidden="true"></i> Cisco CCNA 1 &amp; 2 certifiée</li>
+            <li><i class="fa-solid fa-check" aria-hidden="true"></i> Une application en production</li>
+            <li><i class="fa-solid fa-check" aria-hidden="true"></i> Lomé, Togo</li>
           </ul>
         </div>
 
-        <div class="skill-category reveal">
-          <div class="category-header">
-            <i class="fa-solid fa-globe"></i>
-            <h3>Développement Web</h3>
+        <div class="hero-portrait reveal" aria-hidden="false">
+          <div class="portrait-ring">
+            <img src="assets/photo-ago-ezoolim-ela.jpg" alt="Portrait d’Ago Ezoolim-Ela, souriante" width="640" height="800" fetchpriority="high">
           </div>
-          <ul class="skill-list">
-            <li><span>HTML5 / CSS3</span> <div class="bar-container"><div class="bar" style="width: 90%"></div></div></li>
-            <li><span>PHP</span> <div class="bar-container"><div class="bar" style="width: 70%"></div></div></li>
-            <li><span>SQL Server (BDD)</span> <div class="bar-container"><div class="bar" style="width: 80%"></div></div></li>
-          </ul>
-        </div>
-
-        <div class="skill-category reveal">
-          <div class="category-header">
-            <i class="fa-solid fa-certificate"></i>
-            <h3>Réseaux & Certifications</h3>
-          </div>
-          <ul class="skill-list">
-            <li><span>Cisco CCNA 1</span> <span class="badge">Validé</span></li>
-            <li><span>Cisco CCNA 2</span> <span class="badge">Validé</span></li>
-            <li><span>Bureautique IAI</span> <span class="badge">Certifié</span></li>
-          </ul>
+          <div class="float-chip chip-1"><i class="fa-brands fa-java" aria-hidden="true"></i> Java · Spring Boot</div>
+          <div class="float-chip chip-2"><i class="fa-solid fa-network-wired" aria-hidden="true"></i> Cisco CCNA 1 &amp; 2</div>
+          <div class="float-chip chip-3"><i class="fa-brands fa-react" aria-hidden="true"></i> React · PHP · SQL</div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Projets Section -->
-  <section class="projects" id="projets">
-    <div class="container">
-      <h2 class="section-title reveal">Mes Projets</h2>
-      <div class="projects-grid">
-        <div class="project-card reveal">
-          <div class="project-content">
-            <div class="project-meta">Projet d'Études</div>
-            <h3>Application de Gestion Locative</h3>
-            <p>Conception et développement d'une application structurée pour la gestion moderne des biens immobiliers, des contrats et des paiements de loyers.</p>
-            <div class="project-tech">
-              <span>Java</span>
-              <span>SQL Server</span>
-              <span>MVC</span>
-            </div>
-          </div>
+    <!-- ===== À propos ===== -->
+    <section class="section" id="a-propos">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="eyebrow">Qui je suis</p>
+          <h2>À propos <em>de moi</em></h2>
         </div>
-
-        <div class="project-card reveal">
-          <div class="project-content">
-            <div class="project-meta">Développement Web</div>
-            <h3>Plateforme Web Dynamique</h3>
-            <p>Création d'un site web interactif intégrant la gestion de bases de données, l'authentification sécurisée des utilisateurs et un back-office d'administration.</p>
-            <div class="project-tech">
-              <span>HTML/CSS</span>
-              <span>PHP</span>
-              <span>MySQL</span>
-            </div>
+        <div class="about-grid">
+          <div class="about-text reveal">
+            <p class="about-intro">Je suis <span class="rotator" aria-hidden="true"><span class="rotator-word" id="rotator-word">curieuse</span></span><span class="sr-only">curieuse, rigoureuse, créative et orientée solutions.</span></p>
+            <p class="scroll-text">Passionnée par le numérique et les nouvelles technologies, je suis actuellement en deuxième année de Licence en Informatique à l’<strong>IAI-TOGO</strong> (2025-2026), en tronc commun orienté Génie Logiciel et Systèmes d’Information.</p>
+            <p class="scroll-text">J’aime comprendre comment les systèmes fonctionnent et trouver des solutions quand quelque chose ne marche pas. Je m’investis pleinement dans mes projets, scolaires comme personnels, et je cherche un stage pour apprendre aux côtés de professionnels tout en apportant mon sérieux et ma bonne humeur à l’équipe.</p>
+            <ul class="meta-list">
+              <li><i class="fa-solid fa-location-dot" aria-hidden="true"></i> Lomé, Togo</li>
+              <li><i class="fa-solid fa-building-columns" aria-hidden="true"></i> IAI-TOGO (L1 &amp; L2)</li>
+              <li><i class="fa-solid fa-language" aria-hidden="true"></i> Français · Anglais · Kabyè</li>
+            </ul>
           </div>
-        </div>
 
-        <div class="project-card reveal">
-          <div class="project-content">
-            <div class="project-meta">Réseaux & Infrastructures</div>
-            <h3>Architecture Réseau Sécurisée</h3>
-            <p>Simulation et configuration complète d'un réseau d'entreprise multisites avec routage dynamique, VLANs et listes de contrôle d'accès (ACL).</p>
-            <div class="project-tech">
-              <span>Cisco Packet Tracer</span>
-              <span>CCNA</span>
-              <span>Routing</span>
-            </div>
+          <div class="about-cards" data-stagger>
+            <article class="card highlight reveal">
+              <span class="card-num">01</span>
+              <h3>Rigueur académique</h3>
+              <p>Algorithmique, modélisation et architecture MVC : des bases solides pour concevoir des applications maintenables, du cahier des charges au code.</p>
+            </article>
+            <article class="card highlight reveal">
+              <span class="card-num">02</span>
+              <h3>Esprit technique</h3>
+              <p>Certifiée Cisco CCNA 1 &amp; 2 : je comprends ce qui se passe sous le capot, du routage et des VLAN jusqu’à la sécurisation d’un réseau d’entreprise sous Packet Tracer.</p>
+            </article>
+            <article class="card highlight reveal">
+              <span class="card-num">03</span>
+              <h3>De l’idée à la production</h3>
+              <p>STEA est installée sur les postes de l’entreprise, se met à jour automatiquement et tourne sur un serveur que j’administre : je ne m’arrête pas au code, je livre et je maintiens.</p>
+            </article>
           </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Contact Section -->
-  <section class="contact" id="contact">
-    <div class="container">
-      <h2 class="section-title reveal">Restons en contact</h2>
-      <div class="contact-grid">
-        <div class="contact-info reveal">
-          <h3>Un projet ? Une opportunité de stage ?</h3>
-          <p>N'hésitez pas à me contacter directement par e-mail ou via le formulaire ci-contre. Je me ferai un plaisir de vous répondre rapidement.</p>
-          <div class="info-details">
-            <a href="mailto:agoezoolimela@gmail.com" class="info-link"><i class="fa-solid fa-envelope"></i> agoezoolimela@gmail.com</a>
-            <a href="tel:+22871123262" class="info-link"><i class="fa-solid fa-phone"></i> +228 71 12 32 62</a>
+    <!-- ===== Compétences ===== -->
+    <section class="section" id="competences">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="eyebrow">Ma boîte à outils</p>
+          <h2>Mes <em>compétences</em></h2>
+          <p class="section-lead">Les technologies que j’utilise dans mes projets académiques et personnels.</p>
+        </div>
+
+        <div class="skills-grid" data-stagger>
+          <article class="glass skill-group reveal">
+            <h3><span class="icon-gem" aria-hidden="true"><i class="fa-solid fa-code"></i></span> Programmation</h3>
+            <ul class="chips">
+              <li class="chip"><i class="fa-brands fa-java" aria-hidden="true"></i> Java <small>Swing · Spring Boot</small></li>
+              <li class="chip"><i class="fa-brands fa-python" aria-hidden="true"></i> Python</li>
+              <li class="chip"><i class="fa-solid fa-c" aria-hidden="true"></i> Langage C</li>
+              <li class="chip"><i class="fa-brands fa-php" aria-hidden="true"></i> PHP</li>
+            </ul>
+          </article>
+          <article class="glass skill-group reveal">
+            <h3><span class="icon-gem" aria-hidden="true"><i class="fa-solid fa-globe"></i></span> Web &amp; données</h3>
+            <ul class="chips">
+              <li class="chip"><i class="fa-brands fa-html5" aria-hidden="true"></i> HTML5</li>
+              <li class="chip"><i class="fa-brands fa-css3-alt" aria-hidden="true"></i> CSS3</li>
+              <li class="chip"><i class="fa-brands fa-js" aria-hidden="true"></i> JavaScript</li>
+              <li class="chip"><i class="fa-brands fa-react" aria-hidden="true"></i> React</li>
+              <li class="chip"><i class="fa-solid fa-database" aria-hidden="true"></i> MySQL</li>
+              <li class="chip"><i class="fa-solid fa-server" aria-hidden="true"></i> SQL Server</li>
+              <li class="chip"><i class="fa-solid fa-plug" aria-hidden="true"></i> API REST</li>
+            </ul>
+          </article>
+          <article class="glass skill-group reveal">
+            <h3><span class="icon-gem" aria-hidden="true"><i class="fa-solid fa-network-wired"></i></span> Réseaux &amp; outils</h3>
+            <ul class="chips">
+              <li class="chip"><i class="fa-solid fa-diagram-project" aria-hidden="true"></i> Cisco Packet Tracer</li>
+              <li class="chip"><i class="fa-solid fa-shield-halved" aria-hidden="true"></i> VLAN · Routage · ACL</li>
+              <li class="chip"><i class="fa-brands fa-git-alt" aria-hidden="true"></i> Git &amp; GitHub</li>
+              <li class="chip"><i class="fa-solid fa-terminal" aria-hidden="true"></i> VS Code</li>
+            </ul>
+          </article>
+        </div>
+
+        <div class="certs reveal" aria-label="Certifications">
+          <div class="cert">
+            <span class="cert-check" aria-hidden="true"><i class="fa-solid fa-check"></i></span>
+            <div><strong>Cisco CCNA 1</strong><span>Introduction aux réseaux · validé</span></div>
+          </div>
+          <div class="cert">
+            <span class="cert-check" aria-hidden="true"><i class="fa-solid fa-check"></i></span>
+            <div><strong>Cisco CCNA 2</strong><span>Routage et commutation · validé</span></div>
+          </div>
+          <div class="cert">
+            <span class="cert-check" aria-hidden="true"><i class="fa-solid fa-check"></i></span>
+            <div><strong>Bureautique IAI-TOGO</strong><span>Suite Office · certifiée</span></div>
           </div>
         </div>
-        <div class="contact-form-container reveal">
-          <form action="https://formspree.io/f/xoqzlkpd" method="POST" class="contact-form" id="contact-form">
-            <div class="form-group">
-              <input type="text" id="name" name="name" placeholder="Votre nom complet" required>
-              <span class="form-error" id="name-error"></span>
+      </div>
+    </section>
+
+    <!-- ===== Parcours ===== -->
+    <section class="section" id="parcours">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="eyebrow">Mon parcours</p>
+          <h2>Formation &amp; <em>certifications</em></h2>
+          <p class="section-lead">Cliquez sur une étape pour découvrir ce que j’y ai réalisé.</p>
+        </div>
+
+        <div class="journey-stats reveal" aria-label="En chiffres">
+          <div class="stat">
+            <span class="stat-icon" aria-hidden="true"><i class="fa-solid fa-graduation-cap"></i></span>
+            <span class="stat-num" data-count="2">0</span>
+            <span class="stat-label">années à l’IAI-TOGO</span>
+          </div>
+          <div class="stat">
+            <span class="stat-icon" aria-hidden="true"><i class="fa-solid fa-certificate"></i></span>
+            <span class="stat-num" data-count="2">0</span>
+            <span class="stat-label">certifications Cisco</span>
+          </div>
+          <div class="stat">
+            <span class="stat-icon" aria-hidden="true"><i class="fa-solid fa-diagram-project"></i></span>
+            <span class="stat-num" data-count="4">0</span>
+            <span class="stat-label">projets réalisés</span>
+          </div>
+          <div class="stat">
+            <span class="stat-icon" aria-hidden="true"><i class="fa-solid fa-language"></i></span>
+            <span class="stat-num" data-count="3">0</span>
+            <span class="stat-label">langues parlées</span>
+          </div>
+        </div>
+
+        <nav class="journey-map reveal" aria-label="Aller à une étape du parcours">
+          <button type="button" class="map-step" data-step="0"><span class="map-dot" aria-hidden="true"></span>Août 2026 · STEA</button>
+          <button type="button" class="map-step" data-step="1"><span class="map-dot" aria-hidden="true"></span>2025 — 2026</button>
+          <button type="button" class="map-step" data-step="2"><span class="map-dot" aria-hidden="true"></span>2024 — 2025</button>
+          <button type="button" class="map-step" data-step="3"><span class="map-dot" aria-hidden="true"></span>Certifications</button>
+        </nav>
+
+        <div class="timeline-wrap">
+        <span class="today-node" aria-hidden="true"><span class="today-dot"></span>Aujourd’hui</span>
+        <ol class="timeline" data-stagger>
+          <li class="timeline-item reveal" id="etape-0">
+            <span class="timeline-date">Août 2026</span>
+            <button type="button" class="timeline-marker" aria-expanded="false" aria-controls="detail-0" aria-label="Afficher le détail : STEA en production"><i class="fa-solid fa-rocket" aria-hidden="true"></i></button>
+            <div class="glass timeline-body">
+              <h3>STEA mise en production</h3>
+              <p>Mon premier logiciel utilisé en entreprise : conçu, développé, déployé et maintenu de bout en bout pour STEA Trans Euro Afrika SARL, à Lomé.</p>
+              <ul class="tags"><li>Spring Boot</li><li>React</li><li>MySQL</li><li>Electron</li></ul>
+              <button type="button" class="tl-toggle" aria-expanded="false" aria-controls="detail-0"><span class="tl-toggle-label">Voir le détail</span> <i class="fa-solid fa-chevron-down" aria-hidden="true"></i></button>
+              <div class="tl-details" id="detail-0">
+                <div class="tl-details-inner">
+                  <p class="tl-details-title">Étapes clés</p>
+                  <ul class="tl-check">
+                    <li>Juillet 2026 : conception de la base de données, de l’API et des premiers écrans</li>
+                    <li>12 août 2026 : première version de l’application de bureau publiée (v1.0.0)</li>
+                    <li>Août – septembre 2026 : 29 versions livrées par mises à jour automatiques, nouveaux modules (statistiques, comptabilité, agents en consultation seule, historique des activités)</li>
+                    <li>Serveur auto-hébergé, sauvegardes et procédure de déploiement documentée</li>
+                  </ul>
+                  <p class="tl-details-title">Pour aller plus loin</p>
+                  <ul class="tl-links">
+                    <li><a href="stea.html" class="tl-link"><i class="fa-solid fa-book-open" aria-hidden="true"></i> Étude de cas complète <small>défi · réponse · résultats</small></a></li>
+                  </ul>
+                </div>
+              </div>
             </div>
-            <div class="form-group">
-              <input type="email" id="email" name="email" placeholder="Votre adresse e-mail" required>
-              <span class="form-error" id="email-error"></span>
+          </li>
+          <li class="timeline-item reveal" id="etape-1">
+            <span class="timeline-date">2025 — 2026</span>
+            <button type="button" class="timeline-marker" aria-expanded="false" aria-controls="detail-1" aria-label="Afficher le détail : Licence 2 Informatique"><i class="fa-solid fa-graduation-cap" aria-hidden="true"></i></button>
+            <div class="glass timeline-body">
+              <h3>Licence 2 Informatique · IAI-TOGO</h3>
+              <p>Tronc commun orienté Génie Logiciel &amp; Systèmes d’Information : conception d’applications structurées (Java, architecture MVC), bases de données relationnelles, développement web.</p>
+              <ul class="tags"><li>Java</li><li>MVC</li><li>SQL Server</li><li>PHP</li></ul>
+              <button type="button" class="tl-toggle" aria-expanded="false" aria-controls="detail-1"><span class="tl-toggle-label">Voir le détail</span> <i class="fa-solid fa-chevron-down" aria-hidden="true"></i></button>
+              <div class="tl-details" id="detail-1">
+                <div class="tl-details-inner">
+                  <p class="tl-details-title">Réalisations de l’année</p>
+                  <ul class="tl-links">
+                    <li><a href="#projet-stea" class="tl-link"><i class="fa-solid fa-boxes-stacked" aria-hidden="true"></i> STEA — gestion logistique <small>Spring Boot · React</small></a></li>
+                    <li><a href="#projets" class="tl-link"><i class="fa-solid fa-building" aria-hidden="true"></i> Application de gestion locative <small>Java · SQL Server</small></a></li>
+                    <li><a href="#projets" class="tl-link"><i class="fa-solid fa-globe" aria-hidden="true"></i> Plateforme web dynamique <small>PHP · MySQL</small></a></li>
+                  </ul>
+                  <p class="tl-details-title">Compétences travaillées</p>
+                  <ul class="tags"><li>Architecture MVC</li><li>Modélisation de données</li><li>API REST</li><li>Authentification JWT</li><li>Interfaces React</li></ul>
+                </div>
+              </div>
             </div>
-            <div class="form-group">
-              <textarea id="message" name="message" placeholder="Votre message..." rows="5" required></textarea>
-              <span class="form-error" id="message-error"></span>
+          </li>
+          <li class="timeline-item reveal" id="etape-2">
+            <span class="timeline-date">2024 — 2025</span>
+            <button type="button" class="timeline-marker" aria-expanded="false" aria-controls="detail-2" aria-label="Afficher le détail : Licence 1 Informatique"><i class="fa-solid fa-book-open" aria-hidden="true"></i></button>
+            <div class="glass timeline-body">
+              <h3>Licence 1 Informatique · IAI-TOGO</h3>
+              <p>Fondamentaux de l’informatique : algorithmique, programmation, développement web et initiation aux réseaux.</p>
+              <ul class="tags"><li>Algorithmique</li><li>Python</li><li>HTML / CSS</li></ul>
+              <button type="button" class="tl-toggle" aria-expanded="false" aria-controls="detail-2"><span class="tl-toggle-label">Voir le détail</span> <i class="fa-solid fa-chevron-down" aria-hidden="true"></i></button>
+              <div class="tl-details" id="detail-2">
+                <div class="tl-details-inner">
+                  <p class="tl-details-title">Les bases posées</p>
+                  <ul class="tl-check">
+                    <li>Algorithmique et programmation structurée (Python, C)</li>
+                    <li>Premières pages web en HTML / CSS</li>
+                    <li>Initiation aux réseaux, prélude aux certifications Cisco</li>
+                  </ul>
+                  <p class="tl-details-title">Projet lié</p>
+                  <ul class="tl-links">
+                    <li><a href="#projets" class="tl-link"><i class="fa-solid fa-diagram-project" aria-hidden="true"></i> Architecture réseau sécurisée <small>Packet Tracer</small></a></li>
+                  </ul>
+                </div>
+              </div>
             </div>
-            <button type="submit" class="btn btn-primary form-submit">Envoyer le message</button>
+          </li>
+          <li class="timeline-item reveal" id="etape-3">
+            <span class="timeline-date">Certifications</span>
+            <button type="button" class="timeline-marker" aria-expanded="false" aria-controls="detail-3" aria-label="Afficher le détail : certifications Cisco"><i class="fa-solid fa-certificate" aria-hidden="true"></i></button>
+            <div class="glass timeline-body">
+              <h3>Cisco CCNA 1 &amp; 2 · Cisco Networking Academy</h3>
+              <p>Notions fondamentales des réseaux, routage et commutation, VLAN, listes de contrôle d’accès et configuration d’équipements sous Packet Tracer.</p>
+              <ul class="tags"><li>CCNA 1</li><li>CCNA 2</li><li>Packet Tracer</li></ul>
+              <button type="button" class="tl-toggle" aria-expanded="false" aria-controls="detail-3"><span class="tl-toggle-label">Voir le détail</span> <i class="fa-solid fa-chevron-down" aria-hidden="true"></i></button>
+              <div class="tl-details" id="detail-3">
+                <div class="tl-details-inner">
+                  <div class="tl-columns">
+                    <div>
+                      <p class="tl-details-title">CCNA 1 · Introduction aux réseaux</p>
+                      <ul class="tl-check">
+                        <li>Modèles OSI et TCP/IP</li>
+                        <li>Adressage IPv4 / IPv6 et sous-réseaux</li>
+                        <li>Ethernet, commutation de base</li>
+                        <li>Configuration initiale des équipements Cisco</li>
+                      </ul>
+                    </div>
+                    <div>
+                      <p class="tl-details-title">CCNA 2 · Routage et commutation</p>
+                      <ul class="tl-check">
+                        <li>VLAN, trunking et routage inter-VLAN</li>
+                        <li>Routage statique et dynamique</li>
+                        <li>DHCP, listes de contrôle d’accès (ACL)</li>
+                        <li>Sécurité des commutateurs</li>
+                      </ul>
+                    </div>
+                  </div>
+                  <p class="tl-details-title">Mis en pratique dans</p>
+                  <ul class="tl-links">
+                    <li><a href="#projets" class="tl-link"><i class="fa-solid fa-diagram-project" aria-hidden="true"></i> Architecture réseau sécurisée <small>multisites · VLAN · ACL</small></a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </li>
+        </ol>
+        <span class="timeline-comet" aria-hidden="true"></span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Projets ===== -->
+    <section class="section" id="projets">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="eyebrow">Réalisations</p>
+          <h2>Mes <em>projets</em></h2>
+          <p class="section-lead">Une sélection de projets académiques et personnels, du logiciel de gestion à l’infrastructure réseau. Ouvrez les écrans de STEA, ou lisez l’étude de cas complète.</p>
+        </div>
+
+        <article class="glass project featured reveal" id="projet-stea">
+          <div class="project-main">
+            <div class="project-head">
+              <span class="project-kind gold">Projet phare · 2026</span>
+              <span class="live-badge"><span class="live-dot" aria-hidden="true"></span> En production</span>
+            </div>
+            <h3>STEA — Gestion logistique et suivi des stocks</h3>
+            <p>Application complète développée pour STEA Trans Euro Afrika SARL : suivi des stocks multi-entrepôts, commandes fournisseurs, livraisons et retours, alertes de réapprovisionnement, inventaires et tableaux de bord. Une API REST Spring Boot sécurisée par JWT, consommée par une interface React, et distribuée en application de bureau avec mises à jour automatiques.</p>
+            <dl class="project-context">
+              <div><dt>Mon rôle</dt><dd>Conception et développement de l’ensemble : back-end, interface, application de bureau et déploiement.</dd></div>
+              <div><dt>Durée</dt><dd>Juillet – septembre 2026 · en production depuis août 2026</dd></div>
+            </dl>
+            <ul class="check-list compact">
+              <li><i class="fa-solid fa-check" aria-hidden="true"></i> Multi-entrepôts, lots et numéros de série</li>
+              <li><i class="fa-solid fa-check" aria-hidden="true"></i> Achats, livraisons, retours, inventaires</li>
+              <li><i class="fa-solid fa-check" aria-hidden="true"></i> Alertes automatiques de stock critique</li>
+              <li><i class="fa-solid fa-check" aria-hidden="true"></i> Rôles, permissions et journal d’audit</li>
+            </ul>
+            <ul class="project-figures" aria-label="STEA en chiffres">
+              <li><span class="figure-num" data-count="24">0</span><span class="figure-label">modules métier</span></li>
+              <li><span class="figure-num" data-count="8">0</span><span class="figure-label">rôles utilisateurs</span></li>
+              <li><span class="figure-num" data-count="173">0</span><span class="figure-label">endpoints REST</span></li>
+              <li><span class="figure-num" data-count="141">0</span><span class="figure-label">tests automatisés</span></li>
+              <li><span class="figure-num" data-count="29">0</span><span class="figure-label">versions publiées</span></li>
+            </ul>
+            <ul class="tags">
+              <li>Java 17</li><li>Spring Boot</li><li>MySQL</li><li>JWT</li><li>React</li><li>Tailwind CSS</li><li>Recharts</li><li>Electron</li>
+            </ul>
+            <!-- Témoignage du client — à activer dès que STEA Trans Euro Afrika fournit une phrase :
+            <blockquote class="project-quote">
+              <p>« La phrase du client. »</p>
+              <footer>— Prénom Nom, fonction · STEA Trans Euro Afrika SARL</footer>
+            </blockquote>
+            -->
+            <div class="project-links">
+              <a href="stea.html" class="btn btn-glow btn-sm"><i class="fa-solid fa-book-open" aria-hidden="true"></i> Étude de cas</a>
+              <button type="button" class="btn btn-glass btn-sm" data-gallery-open="0"><i class="fa-solid fa-images" aria-hidden="true"></i> Voir les écrans</button>
+              <a href="https://github.com/Ezoolim-Ela/stea_stock_application" target="_blank" rel="noopener" class="btn btn-glass btn-sm"><i class="fa-brands fa-github" aria-hidden="true"></i> Code source</a>
+              <a href="https://github.com/Ezoolim-Ela/stea-desktop" target="_blank" rel="noopener" class="btn btn-glass btn-sm"><i class="fa-solid fa-desktop" aria-hidden="true"></i> Application bureau</a>
+            </div>
+          </div>
+
+          <div class="device-duo">
+            <button type="button" class="device-laptop" data-gallery-open="0" aria-label="Ouvrir la galerie des écrans de STEA">
+              <span class="device-bar" aria-hidden="true"><span></span><span></span><span></span><span class="device-title">STEA · Tableau de bord</span></span>
+              <img src="assets/stea/tableau-de-bord-vue-desktop.webp" alt="Tableau de bord de STEA : indicateurs de stock, encaissements et tâches à traiter" width="1440" height="900" loading="lazy">
+              <span class="device-hint" aria-hidden="true"><i class="fa-solid fa-magnifying-glass-plus"></i> Voir les écrans</span>
+            </button>
+            <figure class="device-phone" aria-hidden="true">
+              <img src="assets/stea/tableau-de-bord-vue-mobile.webp" alt="" width="390" height="844" loading="lazy">
+            </figure>
+          </div>
+        </article>
+
+        <div class="projects-grid" data-stagger>
+          <article class="glass project reveal">
+            <div class="scene scene-locatif" aria-hidden="true">
+              <svg viewBox="0 0 320 180" class="scene-svg" focusable="false">
+                <defs>
+                  <linearGradient id="bld" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#8B5CF6"/><stop offset="1" stop-color="#5B21B6"/></linearGradient>
+                  <linearGradient id="bld2" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#C4B5FD"/><stop offset="1" stop-color="#A78BFA"/></linearGradient>
+                </defs>
+                <rect x="0" y="150" width="320" height="30" fill="#DDD6FE"/>
+                <rect x="36" y="70" width="70" height="80" rx="4" fill="url(#bld2)" stroke="rgba(109,40,217,.25)"/>
+                <rect x="214" y="58" width="70" height="92" rx="4" fill="url(#bld2)" stroke="rgba(109,40,217,.25)"/>
+                <rect x="112" y="30" width="96" height="120" rx="5" fill="url(#bld)" stroke="rgba(76,29,149,.45)"/>
+                <rect x="150" y="122" width="20" height="28" rx="2" fill="#4C1D95" stroke="rgba(255,255,255,.5)"/>
+                <g class="windows">
+                  <rect class="w" x="122" y="42" width="16" height="14" rx="2"/><rect class="w" x="152" y="42" width="16" height="14" rx="2"/><rect class="w" x="182" y="42" width="16" height="14" rx="2"/>
+                  <rect class="w" x="122" y="66" width="16" height="14" rx="2"/><rect class="w" x="152" y="66" width="16" height="14" rx="2"/><rect class="w" x="182" y="66" width="16" height="14" rx="2"/>
+                  <rect class="w" x="122" y="90" width="16" height="14" rx="2"/><rect class="w" x="152" y="90" width="16" height="14" rx="2"/><rect class="w" x="182" y="90" width="16" height="14" rx="2"/>
+                  <rect class="w s" x="48" y="82" width="12" height="11" rx="2"/><rect class="w s" x="70" y="82" width="12" height="11" rx="2"/><rect class="w s" x="48" y="104" width="12" height="11" rx="2"/><rect class="w s" x="70" y="104" width="12" height="11" rx="2"/>
+                  <rect class="w s" x="226" y="70" width="12" height="11" rx="2"/><rect class="w s" x="248" y="70" width="12" height="11" rx="2"/><rect class="w s" x="226" y="94" width="12" height="11" rx="2"/><rect class="w s" x="248" y="94" width="12" height="11" rx="2"/>
+                </g>
+                <circle class="moon" cx="282" cy="28" r="9"/>
+              </svg>
+              <span class="scene-chip chip-a"><i class="fa-solid fa-file-signature"></i> Contrat signé</span>
+              <span class="scene-chip chip-b"><i class="fa-solid fa-circle-check"></i> Loyer payé</span>
+            </div>
+            <div class="project-head">
+              <span class="project-kind">Projet d’études</span>
+              <span class="icon-gem" aria-hidden="true"><i class="fa-solid fa-building"></i></span>
+            </div>
+            <h3>Application de gestion locative</h3>
+            <p>Conception et développement d’une application structurée pour la gestion des biens immobiliers, des contrats de location et des paiements de loyers.</p>
+            <ul class="tags"><li>Java</li><li>SQL Server</li><li>MVC</li></ul>
+          </article>
+
+          <article class="glass project reveal">
+            <div class="scene scene-web" aria-hidden="true">
+              <div class="mini-browser">
+                <div class="mini-bar"><span></span><span></span><span></span><span class="mini-url">plateforme.local/admin</span></div>
+                <div class="mini-screens">
+                  <div class="mini-login">
+                    <span class="mini-avatar"><i class="fa-solid fa-lock"></i></span>
+                    <span class="mini-input"></span>
+                    <span class="mini-input short"></span>
+                    <span class="mini-btn">Connexion</span>
+                  </div>
+                  <div class="mini-admin">
+                    <div class="mini-row head"><span class="mini-cell"></span><span class="mini-cell"></span><span class="mini-cell"></span></div>
+                    <div class="mini-row"><span class="mini-cell w"></span><span class="mini-cell"></span><span class="mini-pill on"></span></div>
+                    <div class="mini-row"><span class="mini-cell w"></span><span class="mini-cell"></span><span class="mini-pill"></span></div>
+                    <div class="mini-row"><span class="mini-cell w"></span><span class="mini-cell"></span><span class="mini-pill on"></span></div>
+                  </div>
+                </div>
+                <span class="mini-cursor"></span>
+              </div>
+            </div>
+            <div class="project-head">
+              <span class="project-kind">Développement web</span>
+              <span class="icon-gem" aria-hidden="true"><i class="fa-solid fa-globe"></i></span>
+            </div>
+            <h3>Plateforme web dynamique</h3>
+            <p>Site interactif avec base de données, authentification des utilisateurs et back-office d’administration pour gérer les contenus.</p>
+            <ul class="tags"><li>PHP</li><li>MySQL</li><li>HTML / CSS</li></ul>
+          </article>
+
+          <article class="glass project reveal">
+            <div class="scene scene-reseau" aria-hidden="true">
+              <svg viewBox="0 0 320 180" class="scene-svg" focusable="false">
+                <defs>
+                  <filter id="glow" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="2.5" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+                </defs>
+                <path id="lnk1" class="link" d="M70,128 L160,48"/>
+                <path id="lnk2" class="link" d="M160,48 L250,128"/>
+                <path id="lnk3" class="link vpn" d="M70,128 L250,128"/>
+                <g class="site">
+                  <circle class="router" cx="160" cy="48" r="13"/>
+                  <text x="160" y="52" class="ric">R</text>
+                  <text x="142" y="52" class="lbl left">Siège · Lomé</text>
+                  <rect class="sw" x="140" y="70" width="40" height="8" rx="2"/>
+                  <rect class="pc v10" x="138" y="86" width="9" height="9" rx="2"/><rect class="pc v20" x="155" y="86" width="9" height="9" rx="2"/><rect class="pc v30" x="172" y="86" width="9" height="9" rx="2"/>
+                </g>
+                <g class="site">
+                  <circle class="router" cx="70" cy="128" r="13"/>
+                  <text x="70" y="132" class="ric">R</text>
+                  <text x="70" y="162" class="lbl">Site 2</text>
+                  <rect class="sw" x="22" y="100" width="34" height="8" rx="2"/>
+                  <rect class="pc v10" x="22" y="86" width="8" height="8" rx="2"/><rect class="pc v20" x="35" y="86" width="8" height="8" rx="2"/><rect class="pc v30" x="48" y="86" width="8" height="8" rx="2"/>
+                </g>
+                <g class="site">
+                  <circle class="router" cx="250" cy="128" r="13"/>
+                  <text x="250" y="132" class="ric">R</text>
+                  <text x="250" y="162" class="lbl">Site 3</text>
+                  <rect class="sw" x="264" y="100" width="34" height="8" rx="2"/>
+                  <rect class="pc v10" x="264" y="86" width="8" height="8" rx="2"/><rect class="pc v20" x="277" y="86" width="8" height="8" rx="2"/><rect class="pc v30" x="290" y="86" width="8" height="8" rx="2"/>
+                </g>
+                <g class="acl" transform="translate(205,84)">
+                  <path d="M0,-9 L8,-5 L8,2 C8,7 4,10 0,12 C-4,10 -8,7 -8,2 L-8,-5 Z" class="shield"/>
+                  <text x="0" y="24" class="lbl small">ACL</text>
+                </g>
+                <text x="160" y="142" class="lbl small">VPN site-à-site</text>
+                <circle class="pkt p1" r="3.2" filter="url(#glow)"><animateMotion dur="3.2s" repeatCount="indefinite"><mpath href="#lnk1"/></animateMotion></circle>
+                <circle class="pkt p2" r="3.2" filter="url(#glow)"><animateMotion dur="2.8s" begin="0.8s" repeatCount="indefinite"><mpath href="#lnk2"/></animateMotion></circle>
+                <circle class="pkt p3" r="3.2" filter="url(#glow)"><animateMotion dur="4s" begin="1.4s" repeatCount="indefinite"><mpath href="#lnk3"/></animateMotion></circle>
+                <circle class="pkt p1" r="2.6" filter="url(#glow)"><animateMotion dur="3.2s" begin="1.6s" repeatCount="indefinite" keyPoints="1;0" keyTimes="0;1" calcMode="linear"><mpath href="#lnk1"/></animateMotion></circle>
+              </svg>
+              <span class="scene-legend"><i class="v10"></i> VLAN 10 <i class="v20"></i> VLAN 20 <i class="v30"></i> VLAN 30</span>
+            </div>
+            <div class="project-head">
+              <span class="project-kind">Réseaux &amp; infrastructures</span>
+              <span class="icon-gem" aria-hidden="true"><i class="fa-solid fa-diagram-project"></i></span>
+            </div>
+            <h3>Architecture réseau sécurisée</h3>
+            <p>Simulation et configuration d’un réseau d’entreprise multisites : routage dynamique, segmentation en VLAN et listes de contrôle d’accès (ACL).</p>
+            <ul class="tags"><li>Cisco Packet Tracer</li><li>CCNA</li><li>Routage</li></ul>
+          </article>
+        </div>
+
+        <p class="projects-more reveal">
+          <a href="https://github.com/Ezoolim-Ela?tab=repositories" target="_blank" rel="noopener" class="link-arrow">Voir tous mes dépôts sur GitHub <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></a>
+        </p>
+      </div>
+    </section>
+
+    <!-- Galerie des écrans de STEA -->
+    <dialog class="gallery" id="galerie-stea" aria-label="Écrans de l’application STEA">
+      <div class="gallery-inner">
+        <div class="gallery-top">
+          <p class="gallery-title">STEA — écrans de l’application <span class="gallery-count" id="gallery-count"></span></p>
+          <button type="button" class="icon-btn gallery-close" id="gallery-close" aria-label="Fermer la galerie"><i class="fa-solid fa-xmark" aria-hidden="true"></i></button>
+        </div>
+        <figure class="gallery-figure">
+          <img id="gallery-img" src="" alt="">
+          <figcaption id="gallery-cap"></figcaption>
+        </figure>
+        <button type="button" class="gallery-nav prev" id="gallery-prev" aria-label="Écran précédent"><i class="fa-solid fa-chevron-left" aria-hidden="true"></i></button>
+        <button type="button" class="gallery-nav next" id="gallery-next" aria-label="Écran suivant"><i class="fa-solid fa-chevron-right" aria-hidden="true"></i></button>
+        <div class="gallery-thumbs" id="gallery-thumbs" aria-label="Choisir un écran"></div>
+      </div>
+    </dialog>
+
+    <!-- ===== Contact ===== -->
+    <section class="section" id="contact">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="eyebrow">Contact</p>
+          <h2>Restons <em>en contact</em></h2>
+        </div>
+        <div class="contact-grid">
+          <div class="contact-info reveal">
+            <h3>Un projet ? Une opportunité de stage ?</h3>
+            <p>Écrivez-moi directement ou utilisez le formulaire : je vous réponds rapidement.</p>
+            <ul class="contact-list">
+              <li><span class="icon-gem" aria-hidden="true"><i class="fa-solid fa-envelope"></i></span><div><span>E-mail</span><a href="mailto:agoezoolimela@gmail.com">agoezoolimela@gmail.com</a></div></li>
+              <li><span class="icon-gem" aria-hidden="true"><i class="fa-solid fa-phone"></i></span><div><span>Téléphone</span><a href="tel:+22871123262">+228 71 12 32 62</a></div></li>
+              <li><span class="icon-gem" aria-hidden="true"><i class="fa-solid fa-location-dot"></i></span><div><span>Localisation</span><p>Lomé, Togo</p></div></li>
+            </ul>
+            <div class="social-row">
+              <a href="https://github.com/Ezoolim-Ela" target="_blank" rel="noopener" class="icon-btn" aria-label="GitHub"><i class="fa-brands fa-github" aria-hidden="true"></i></a>
+              <a href="https://linkedin.com/in/ago-ezoolim-ela" target="_blank" rel="noopener" class="icon-btn" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in" aria-hidden="true"></i></a>
+              <a href="assets/CV_Ago_Ezoolim-Ela.pdf" target="_blank" rel="noopener" class="icon-btn" aria-label="Mon CV (PDF)"><i class="fa-solid fa-file-arrow-down" aria-hidden="true"></i></a>
+            </div>
+          </div>
+
+          <form class="glass contact-form reveal" id="contact-form" action="https://formspree.io/f/xoqzlkpd" method="POST" novalidate>
+            <input type="hidden" name="_subject" value="Nouveau message depuis le portfolio">
+            <p class="hp-field" aria-hidden="true"><label>Ne pas remplir <input type="text" name="_gotcha" tabindex="-1" autocomplete="off"></label></p>
+            <div class="field">
+              <label for="name">Nom complet</label>
+              <input type="text" id="name" name="name" autocomplete="name" placeholder="Votre nom" required>
+              <p class="field-error" id="name-error" role="alert"></p>
+            </div>
+            <div class="field">
+              <label for="email">Adresse e-mail</label>
+              <input type="email" id="email" name="email" autocomplete="email" placeholder="vous@exemple.com" required>
+              <p class="field-error" id="email-error" role="alert"></p>
+            </div>
+            <div class="field">
+              <label for="message">Message</label>
+              <textarea id="message" name="message" rows="5" placeholder="Parlez-moi de votre projet ou de l’opportunité…" required></textarea>
+              <p class="field-error" id="message-error" role="alert"></p>
+            </div>
+            <button type="submit" class="btn btn-glow btn-block" id="form-submit">
+              <span class="btn-label"><i class="fa-solid fa-paper-plane" aria-hidden="true"></i> Envoyer le message</span>
+              <span class="btn-sending"><i class="fa-solid fa-circle-notch fa-spin" aria-hidden="true"></i> Envoi en cours…</span>
+            </button>
             <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
           </form>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Footer -->
-  <footer class="footer">
-    <div class="container footer-inner">
-      <a href="#accueil" class="nav-logo">
-        <span class="logo-badge">AE</span>
-      </a>
-      <div class="social-links">
-        <a href="https://github.com/ago-ezoolim" target="_blank" rel="noopener" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
-        <a href="https://linkedin.com/in/ago-ezoolim-ela" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
-        <a href="mailto:agoezoolimela@gmail.com" aria-label="E-mail"><i class="fa-solid fa-envelope"></i></a>
+  </main>
+
+  <!-- ===== Pied de page ===== -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="#accueil" class="brand" aria-label="Retour à l’accueil">
+            <span class="gem" aria-hidden="true">AE</span>
+            <span class="brand-name">Ago <em>Ezoolim-Ela</em></span>
+          </a>
+          <p>Étudiante en Génie Logiciel à l’IAI-TOGO, passionnée par le développement et les réseaux.</p>
+        </div>
+        <nav class="footer-col" aria-label="Plan du site">
+          <h3>Navigation</h3>
+          <ul>
+            <li><a href="#a-propos">À propos</a></li>
+            <li><a href="#competences">Compétences</a></li>
+            <li><a href="#parcours">Parcours</a></li>
+            <li><a href="#projets">Projets</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </nav>
+        <div class="footer-col">
+          <h3>Me retrouver</h3>
+          <ul>
+            <li><a href="https://github.com/Ezoolim-Ela" target="_blank" rel="noopener"><i class="fa-brands fa-github" aria-hidden="true"></i> GitHub</a></li>
+            <li><a href="https://linkedin.com/in/ago-ezoolim-ela" target="_blank" rel="noopener"><i class="fa-brands fa-linkedin-in" aria-hidden="true"></i> LinkedIn</a></li>
+            <li><a href="mailto:agoezoolimela@gmail.com"><i class="fa-solid fa-envelope" aria-hidden="true"></i> agoezoolimela@gmail.com</a></li>
+            <li><a href="assets/CV_Ago_Ezoolim-Ela.pdf" target="_blank" rel="noopener"><i class="fa-solid fa-file-arrow-down" aria-hidden="true"></i> Télécharger mon CV</a></li>
+          </ul>
+        </div>
       </div>
-      <p class="footer-copy">&copy; <span id="year">2026</span> Ago Ezoolim-Ela. Fait avec passion.</p>
+      <div class="footer-bottom">
+        <p>&copy; <span id="year">2026</span> Ago Ezoolim-Ela · Site conçu et codé à la main — <a href="https://github.com/Ezoolim-Ela/Portfolio" target="_blank" rel="noopener">code source</a></p>
+        <a href="#accueil" class="footer-top">Retour en haut <i class="fa-solid fa-arrow-up" aria-hidden="true"></i></a>
+      </div>
     </div>
   </footer>
 
-  <script src="script.js"></script>
+  <button class="back-to-top" id="back-to-top" type="button" aria-label="Retour en haut de page">
+    <i class="fa-solid fa-arrow-up" aria-hidden="true"></i>
+  </button>
+
+  <script src="script.js?v=6" defer></script>
 </body>
 </html>

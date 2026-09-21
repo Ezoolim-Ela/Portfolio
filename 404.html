@@ -23,11 +23,10 @@
   <!-- Chemins absolus : GitHub Pages sert cette page depuis n’importe quelle adresse du site. -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <!-- Polices et icônes chargées sans bloquer le rendu (préchargement, puis activation) -->
+  <!-- Police chargée sans bloquer le rendu (préchargement, puis activation) ; icônes : sprite SVG local assets/icons.svg -->
   <link rel="preload" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;1,9..144,500&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
-  <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;1,9..144,500&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"></noscript>
-  <link rel="stylesheet" href="/Portfolio/styles.css?v=8">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;1,9..144,500&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap"></noscript>
+  <link rel="stylesheet" href="/Portfolio/styles.css?v=9">
 </head>
 <body>
   <a class="skip-link" href="#contenu">Aller au contenu</a>
@@ -49,15 +48,15 @@
       </nav>
       <div class="topbar-actions">
         <a href="/Portfolio/assets/CV_Ago_Ezoolim-Ela.pdf" class="btn btn-glass btn-sm btn-cv" target="_blank" rel="noopener" aria-label="Mon CV (PDF)">
-          <i class="fa-solid fa-file-arrow-down" aria-hidden="true"></i><span class="btn-cv-label">Mon CV</span>
+          <svg class="icon" aria-hidden="true" focusable="false"><use href="/Portfolio/assets/icons.svg#file-arrow-down"></use></svg><span class="btn-cv-label">Mon CV</span>
         </a>
         <button class="icon-btn" id="theme-toggle" type="button" aria-label="Passer en mode sombre" aria-pressed="false">
-          <i class="fa-solid fa-moon icon-moon" aria-hidden="true"></i>
-          <i class="fa-solid fa-sun icon-sun" aria-hidden="true"></i>
+          <svg class="icon icon-moon" aria-hidden="true" focusable="false"><use href="/Portfolio/assets/icons.svg#moon"></use></svg>
+          <svg class="icon icon-sun" aria-hidden="true" focusable="false"><use href="/Portfolio/assets/icons.svg#sun"></use></svg>
         </button>
         <button class="icon-btn nav-toggle" id="nav-toggle" type="button" aria-controls="site-nav" aria-expanded="false" aria-label="Ouvrir le menu">
-          <i class="fa-solid fa-bars icon-open" aria-hidden="true"></i>
-          <i class="fa-solid fa-xmark icon-close" aria-hidden="true"></i>
+          <svg class="icon icon-open" aria-hidden="true" focusable="false"><use href="/Portfolio/assets/icons.svg#bars"></use></svg>
+          <svg class="icon icon-close" aria-hidden="true" focusable="false"><use href="/Portfolio/assets/icons.svg#xmark"></use></svg>
         </button>
       </div>
     </div>
@@ -70,7 +69,7 @@
         <h1 class="hero-name" id="titre-404">Cette page n’existe pas <em>(ou plus)</em></h1>
         <p class="section-lead">Le lien que vous avez suivi est peut-être ancien, ou l’adresse contient une faute de frappe. Tout ce qui compte est à un clic.</p>
         <div class="hero-actions">
-          <a href="/Portfolio/" class="btn btn-glow"><i class="fa-solid fa-house" aria-hidden="true"></i> Retour à l’accueil</a>
+          <a href="/Portfolio/" class="btn btn-glow"><svg class="icon" aria-hidden="true" focusable="false"><use href="/Portfolio/assets/icons.svg#house"></use></svg> Retour à l’accueil</a>
           <a href="/Portfolio/#projets" class="btn btn-glass">Voir mes projets</a>
           <a href="/Portfolio/stea.html" class="btn btn-glass">Étude de cas STEA</a>
           <a href="/Portfolio/#contact" class="btn btn-glass">Me contacter</a>
@@ -84,11 +83,11 @@
     <div class="container">
       <div class="footer-bottom">
         <p>&copy; <span id="year">2026</span> Ago Ezoolim-Ela · <a href="/Portfolio/">ezoolim-ela.github.io/Portfolio</a></p>
-        <a href="/Portfolio/" class="footer-top">Accueil <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+        <a href="/Portfolio/" class="footer-top">Accueil <svg class="icon" aria-hidden="true" focusable="false"><use href="/Portfolio/assets/icons.svg#arrow-right"></use></svg></a>
       </div>
     </div>
   </footer>
 
-  <script src="/Portfolio/script.js?v=8" defer></script>
+  <script src="/Portfolio/script.js?v=9" defer></script>
 </body>
 </html>

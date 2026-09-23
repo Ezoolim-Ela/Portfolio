@@ -32,11 +32,10 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <!-- Polices et icônes chargées sans bloquer le rendu (préchargement, puis activation) -->
+  <!-- Police chargée sans bloquer le rendu (préchargement, puis activation) ; icônes : sprite SVG local assets/icons.svg -->
   <link rel="preload" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;1,9..144,500&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
-  <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;1,9..144,500&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"></noscript>
-  <link rel="stylesheet" href="styles.css?v=8">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;1,9..144,500&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap"></noscript>
+  <link rel="stylesheet" href="styles.css?v=9">
 </head>
 <body>
   <a class="skip-link" href="#contenu">Aller au contenu</a>
@@ -61,15 +60,15 @@
 
       <div class="topbar-actions">
         <a href="assets/CV_Ago_Ezoolim-Ela.pdf" class="btn btn-glass btn-sm btn-cv" target="_blank" rel="noopener" aria-label="Mon CV (PDF)">
-          <i class="fa-solid fa-file-arrow-down" aria-hidden="true"></i><span class="btn-cv-label">Mon CV</span>
+          <svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#file-arrow-down"></use></svg><span class="btn-cv-label">Mon CV</span>
         </a>
         <button class="icon-btn" id="theme-toggle" type="button" aria-label="Passer en mode sombre" aria-pressed="false">
-          <i class="fa-solid fa-moon icon-moon" aria-hidden="true"></i>
-          <i class="fa-solid fa-sun icon-sun" aria-hidden="true"></i>
+          <svg class="icon icon-moon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#moon"></use></svg>
+          <svg class="icon icon-sun" aria-hidden="true" focusable="false"><use href="assets/icons.svg#sun"></use></svg>
         </button>
         <button class="icon-btn nav-toggle" id="nav-toggle" type="button" aria-controls="site-nav" aria-expanded="false" aria-label="Ouvrir le menu">
-          <i class="fa-solid fa-bars icon-open" aria-hidden="true"></i>
-          <i class="fa-solid fa-xmark icon-close" aria-hidden="true"></i>
+          <svg class="icon icon-open" aria-hidden="true" focusable="false"><use href="assets/icons.svg#bars"></use></svg>
+          <svg class="icon icon-close" aria-hidden="true" focusable="false"><use href="assets/icons.svg#xmark"></use></svg>
         </button>
       </div>
     </div>
@@ -80,7 +79,7 @@
     <!-- ===== En-tête de l’étude de cas ===== -->
     <section class="case-hero" id="stea">
       <div class="container">
-        <a href="index.html#projets" class="case-back"><i class="fa-solid fa-arrow-left" aria-hidden="true"></i> Retour aux projets</a>
+        <a href="index.html#projets" class="case-back"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#arrow-left"></use></svg> Retour aux projets</a>
         <p class="eyebrow">Étude de cas · projet phare</p>
         <h1>STEA, de l’idée à la <em style="font-style: italic; font-weight: 500; color: var(--primary);">production</em></h1>
         <p class="section-lead">Comment j’ai conçu, développé et déployé, de bout en bout, une application de gestion logistique et de suivi des stocks aujourd’hui utilisée par STEA Trans Euro Afrika SARL, à Lomé.</p>
@@ -93,9 +92,9 @@
         </dl>
 
         <div class="case-cta">
-          <button type="button" class="btn btn-glow btn-sm" data-gallery-open="0"><i class="fa-solid fa-images" aria-hidden="true"></i> Voir les écrans</button>
-          <a href="https://github.com/Ezoolim-Ela/stea_stock_application" target="_blank" rel="noopener" class="btn btn-glass btn-sm"><i class="fa-brands fa-github" aria-hidden="true"></i> Code source</a>
-          <a href="https://github.com/Ezoolim-Ela/stea-desktop/releases" target="_blank" rel="noopener" class="btn btn-glass btn-sm"><i class="fa-solid fa-desktop" aria-hidden="true"></i> Versions publiées</a>
+          <button type="button" class="btn btn-glow btn-sm" data-gallery-open="0"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#images"></use></svg> Voir les écrans</button>
+          <a href="https://github.com/Ezoolim-Ela/stea_stock_application" target="_blank" rel="noopener" class="btn btn-glass btn-sm"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#github"></use></svg> Code source</a>
+          <a href="https://github.com/Ezoolim-Ela/stea-desktop/releases" target="_blank" rel="noopener" class="btn btn-glass btn-sm"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#desktop"></use></svg> Versions publiées</a>
         </div>
       </div>
     </section>
@@ -112,17 +111,17 @@
 
         <div class="case-grid" data-stagger>
           <article class="case-card reveal">
-            <span class="case-icon" aria-hidden="true"><i class="fa-solid fa-warehouse"></i></span>
+            <span class="case-icon" aria-hidden="true"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#warehouse"></use></svg></span>
             <h3>Un stock qu’on peut croire</h3>
             <p>Plusieurs entrepôts, des lots et des numéros de série, des inventaires et des réinitialisations tracées : chaque quantité affichée doit correspondre à la réalité.</p>
           </article>
           <article class="case-card reveal">
-            <span class="case-icon" aria-hidden="true"><i class="fa-solid fa-truck-ramp-box"></i></span>
+            <span class="case-icon" aria-hidden="true"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#truck-ramp-box"></use></svg></span>
             <h3>Le cycle complet</h3>
             <p>Bons de commande fournisseurs, livraisons, bons de livraison, retours et avoirs, encaissements : les documents s’enchaînent sans ressaisie.</p>
           </article>
           <article class="case-card reveal">
-            <span class="case-icon" aria-hidden="true"><i class="fa-solid fa-user-shield"></i></span>
+            <span class="case-icon" aria-hidden="true"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#user-shield"></use></svg></span>
             <h3>Des droits précis</h3>
             <p>Un opérateur de stock, un logisticien, un comptable ou un agent commercial ne voient pas la même chose et ne peuvent pas faire les mêmes actions.</p>
           </article>
@@ -141,43 +140,43 @@
 
         <div class="arch">
           <div class="arch-box reveal">
-            <h3><i class="fa-solid fa-desktop" aria-hidden="true"></i> Application de bureau</h3>
+            <h3><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#desktop"></use></svg> Application de bureau</h3>
             <p>Electron + React 18, Tailwind CSS, Recharts. Installeur Windows, mise à jour automatique au lancement via GitHub Releases (electron-updater). L’adresse du serveur est lue dans un fichier de configuration distant : changer de serveur ne demande aucune nouvelle version.</p>
           </div>
-          <div class="arch-link" aria-hidden="true"><i class="fa-solid fa-right-left"></i>HTTPS · JSON</div>
+          <div class="arch-link" aria-hidden="true"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#right-left"></use></svg>HTTPS · JSON</div>
           <div class="arch-box reveal">
-            <h3><i class="fa-solid fa-server" aria-hidden="true"></i> Serveur</h3>
+            <h3><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#server"></use></svg> Serveur</h3>
             <p>Spring Boot 3 / Java 17, API REST de 173 endpoints, 31 entités JPA sur MySQL. Authentification JWT, autorisations par rôle sur chaque endpoint, journal d’audit des activités.</p>
           </div>
-          <p class="arch-note reveal"><i class="fa-solid fa-circle-info" aria-hidden="true" style="color: var(--primary); margin-right: 8px;"></i>Exploitation : serveur auto-hébergé et supervisé (base de données, serveur et tunnel relancés automatiquement en cas de coupure), exposé sur Internet par un tunnel sécurisé à adresse fixe, sauvegarde de la base et de la version précédente avant chaque déploiement.</p>
+          <p class="arch-note reveal"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#circle-info"></use></svg>Exploitation : serveur auto-hébergé et supervisé (base de données, serveur et tunnel relancés automatiquement en cas de coupure), exposé sur Internet par un tunnel sécurisé à adresse fixe, sauvegarde de la base et de la version précédente avant chaque déploiement.</p>
         </div>
 
         <h3 style="margin-top: 40px; font-size: var(--fs-h3);">24 modules, un seul outil</h3>
         <ul class="modules" aria-label="Modules de l’application">
-          <li><i class="fa-solid fa-gauge-high" aria-hidden="true"></i>Tableau de bord</li>
-          <li><i class="fa-solid fa-boxes-stacked" aria-hidden="true"></i>Articles</li>
-          <li><i class="fa-solid fa-warehouse" aria-hidden="true"></i>Entrepôts</li>
-          <li><i class="fa-solid fa-barcode" aria-hidden="true"></i>Lots et séries</li>
-          <li><i class="fa-solid fa-right-left" aria-hidden="true"></i>Mouvements de stock</li>
-          <li><i class="fa-solid fa-clipboard-check" aria-hidden="true"></i>Inventaires</li>
-          <li><i class="fa-solid fa-bell" aria-hidden="true"></i>Réapprovisionnement</li>
-          <li><i class="fa-solid fa-rotate-left" aria-hidden="true"></i>Réinitialisations de stock</li>
-          <li><i class="fa-solid fa-users" aria-hidden="true"></i>Clients</li>
-          <li><i class="fa-solid fa-industry" aria-hidden="true"></i>Fournisseurs</li>
-          <li><i class="fa-solid fa-cart-shopping" aria-hidden="true"></i>Commandes</li>
-          <li><i class="fa-solid fa-file-invoice" aria-hidden="true"></i>Bons de commande</li>
-          <li><i class="fa-solid fa-truck" aria-hidden="true"></i>Livraisons</li>
-          <li><i class="fa-solid fa-file-signature" aria-hidden="true"></i>Bons de livraison</li>
-          <li><i class="fa-solid fa-rotate" aria-hidden="true"></i>Retours et avoirs</li>
-          <li><i class="fa-solid fa-coins" aria-hidden="true"></i>Comptabilité</li>
-          <li><i class="fa-solid fa-cash-register" aria-hidden="true"></i>Réinitialisations d’encaissements</li>
-          <li><i class="fa-solid fa-chart-column" aria-hidden="true"></i>Statistiques</li>
-          <li><i class="fa-solid fa-file-lines" aria-hidden="true"></i>Rapports</li>
-          <li><i class="fa-solid fa-envelope" aria-hidden="true"></i>Messagerie</li>
-          <li><i class="fa-solid fa-user-gear" aria-hidden="true"></i>Utilisateurs</li>
-          <li><i class="fa-solid fa-sliders" aria-hidden="true"></i>Configuration</li>
-          <li><i class="fa-solid fa-clock-rotate-left" aria-hidden="true"></i>Historique des activités</li>
-          <li><i class="fa-solid fa-circle-question" aria-hidden="true"></i>Guide d’utilisation</li>
+          <li><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#gauge-high"></use></svg>Tableau de bord</li>
+          <li><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#boxes-stacked"></use></svg>Articles</li>
+          <li><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#warehouse"></use></svg>Entrepôts</li>
+          <li><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#barcode"></use></svg>Lots et séries</li>
+          <li><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#right-left"></use></svg>Mouvements de stock</li>
+          <li><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#clipboard-check"></use></svg>Inventaires</li>
+          <li><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#bell"></use></svg>Réapprovisionnement</li>
+          <li><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#rotate-left"></use></svg>Réinitialisations de stock</li>
+          <li><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#users"></use></svg>Clients</li>
+          <li><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#industry"></use></svg>Fournisseurs</li>
+          <li><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#cart-shopping"></use></svg>Commandes</li>
+          <li><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#file-invoice"></use></svg>Bons de commande</li>
+          <li><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#truck"></use></svg>Livraisons</li>
+          <li><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#file-signature"></use></svg>Bons de livraison</li>
+          <li><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#rotate"></use></svg>Retours et avoirs</li>
+          <li><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#coins"></use></svg>Comptabilité</li>
+          <li><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#cash-register"></use></svg>Réinitialisations d’encaissements</li>
+          <li><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#chart-column"></use></svg>Statistiques</li>
+          <li><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#file-lines"></use></svg>Rapports</li>
+          <li><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#envelope"></use></svg>Messagerie</li>
+          <li><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#user-gear"></use></svg>Utilisateurs</li>
+          <li><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#sliders"></use></svg>Configuration</li>
+          <li><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#clock-rotate-left"></use></svg>Historique des activités</li>
+          <li><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#circle-question"></use></svg>Guide d’utilisation</li>
         </ul>
       </div>
     </section>
@@ -192,7 +191,7 @@
         </div>
         <div class="case-grid" data-stagger>
           <article class="case-card reveal">
-            <span class="case-icon" aria-hidden="true"><i class="fa-solid fa-key"></i></span>
+            <span class="case-icon" aria-hidden="true"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#key"></use></svg></span>
             <h3>Accès</h3>
             <ul>
               <li>Authentification par jeton JWT (Spring Security)</li>
@@ -201,7 +200,7 @@
             </ul>
           </article>
           <article class="case-card reveal">
-            <span class="case-icon" aria-hidden="true"><i class="fa-solid fa-clock-rotate-left"></i></span>
+            <span class="case-icon" aria-hidden="true"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#clock-rotate-left"></use></svg></span>
             <h3>Traçabilité</h3>
             <ul>
               <li>Journal d’audit : qui a fait quoi, et quand</li>
@@ -210,7 +209,7 @@
             </ul>
           </article>
           <article class="case-card reveal">
-            <span class="case-icon" aria-hidden="true"><i class="fa-solid fa-vial-circle-check"></i></span>
+            <span class="case-icon" aria-hidden="true"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#vial-circle-check"></use></svg></span>
             <h3>Vérification</h3>
             <ul>
               <li>141 tests automatisés côté serveur</li>
@@ -280,7 +279,7 @@
         </ol>
 
         <div class="case-cta">
-          <a href="index.html#contact" class="btn btn-glow"><i class="fa-solid fa-paper-plane" aria-hidden="true"></i> Parlons de votre projet</a>
+          <a href="index.html#contact" class="btn btn-glow"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#paper-plane"></use></svg> Parlons de votre projet</a>
           <a href="index.html#projets" class="btn btn-glass">Retour aux projets</a>
         </div>
       </div>
@@ -293,14 +292,14 @@
     <div class="gallery-inner">
       <div class="gallery-top">
         <p class="gallery-title">STEA — écrans de l’application <span class="gallery-count" id="gallery-count"></span></p>
-        <button type="button" class="icon-btn gallery-close" id="gallery-close" aria-label="Fermer la galerie"><i class="fa-solid fa-xmark" aria-hidden="true"></i></button>
+        <button type="button" class="icon-btn gallery-close" id="gallery-close" aria-label="Fermer la galerie"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#xmark"></use></svg></button>
       </div>
       <figure class="gallery-figure">
         <img id="gallery-img" src="" alt="">
         <figcaption id="gallery-cap"></figcaption>
       </figure>
-      <button type="button" class="gallery-nav prev" id="gallery-prev" aria-label="Écran précédent"><i class="fa-solid fa-chevron-left" aria-hidden="true"></i></button>
-      <button type="button" class="gallery-nav next" id="gallery-next" aria-label="Écran suivant"><i class="fa-solid fa-chevron-right" aria-hidden="true"></i></button>
+      <button type="button" class="gallery-nav prev" id="gallery-prev" aria-label="Écran précédent"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#chevron-left"></use></svg></button>
+      <button type="button" class="gallery-nav next" id="gallery-next" aria-label="Écran suivant"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#chevron-right"></use></svg></button>
       <div class="gallery-thumbs" id="gallery-thumbs" aria-label="Choisir un écran"></div>
     </div>
   </dialog>
@@ -329,24 +328,24 @@
         <div class="footer-col">
           <h3>Me retrouver</h3>
           <ul>
-            <li><a href="https://github.com/Ezoolim-Ela" target="_blank" rel="noopener"><i class="fa-brands fa-github" aria-hidden="true"></i> GitHub</a></li>
-            <li><a href="https://linkedin.com/in/ago-ezoolim-ela" target="_blank" rel="noopener"><i class="fa-brands fa-linkedin-in" aria-hidden="true"></i> LinkedIn</a></li>
-            <li><a href="mailto:agoezoolimela@gmail.com"><i class="fa-solid fa-envelope" aria-hidden="true"></i> agoezoolimela@gmail.com</a></li>
-            <li><a href="assets/CV_Ago_Ezoolim-Ela.pdf" target="_blank" rel="noopener"><i class="fa-solid fa-file-arrow-down" aria-hidden="true"></i> Télécharger mon CV</a></li>
+            <li><a href="https://github.com/Ezoolim-Ela" target="_blank" rel="noopener"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#github"></use></svg> GitHub</a></li>
+            <li><a href="https://linkedin.com/in/ago-ezoolim-ela" target="_blank" rel="noopener"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#linkedin-in"></use></svg> LinkedIn</a></li>
+            <li><a href="mailto:agoezoolimela@gmail.com"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#envelope"></use></svg> agoezoolimela@gmail.com</a></li>
+            <li><a href="assets/CV_Ago_Ezoolim-Ela.pdf" target="_blank" rel="noopener"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#file-arrow-down"></use></svg> Télécharger mon CV</a></li>
           </ul>
         </div>
       </div>
       <div class="footer-bottom">
         <p>&copy; <span id="year">2026</span> Ago Ezoolim-Ela · Site conçu et codé à la main — <a href="https://github.com/Ezoolim-Ela/Portfolio" target="_blank" rel="noopener">code source</a></p>
-        <a href="#contenu" class="footer-top">Retour en haut <i class="fa-solid fa-arrow-up" aria-hidden="true"></i></a>
+        <a href="#contenu" class="footer-top">Retour en haut <svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#arrow-up"></use></svg></a>
       </div>
     </div>
   </footer>
 
   <button class="back-to-top" id="back-to-top" type="button" aria-label="Retour en haut de page">
-    <i class="fa-solid fa-arrow-up" aria-hidden="true"></i>
+    <svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#arrow-up"></use></svg>
   </button>
 
-  <script src="script.js?v=8" defer></script>
+  <script src="script.js?v=9" defer></script>
 </body>
 </html>

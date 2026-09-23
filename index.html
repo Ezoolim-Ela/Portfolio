@@ -55,11 +55,10 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <!-- Polices et icônes chargées sans bloquer le rendu (préchargement, puis activation) -->
+  <!-- Police chargée sans bloquer le rendu (préchargement, puis activation) ; icônes : sprite SVG local assets/icons.svg -->
   <link rel="preload" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;1,9..144,500&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
-  <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;1,9..144,500&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"></noscript>
-  <link rel="stylesheet" href="styles.css?v=8">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;1,9..144,500&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap"></noscript>
+  <link rel="stylesheet" href="styles.css?v=9">
 </head>
 <body>
 
@@ -85,15 +84,15 @@
 
       <div class="topbar-actions">
         <a href="assets/CV_Ago_Ezoolim-Ela.pdf" class="btn btn-glass btn-sm btn-cv" target="_blank" rel="noopener" aria-label="Mon CV (PDF)">
-          <i class="fa-solid fa-file-arrow-down" aria-hidden="true"></i><span class="btn-cv-label">Mon CV</span>
+          <svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#file-arrow-down"></use></svg><span class="btn-cv-label">Mon CV</span>
         </a>
         <button class="icon-btn" id="theme-toggle" type="button" aria-label="Passer en mode sombre" aria-pressed="false">
-          <i class="fa-solid fa-moon icon-moon" aria-hidden="true"></i>
-          <i class="fa-solid fa-sun icon-sun" aria-hidden="true"></i>
+          <svg class="icon icon-moon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#moon"></use></svg>
+          <svg class="icon icon-sun" aria-hidden="true" focusable="false"><use href="assets/icons.svg#sun"></use></svg>
         </button>
         <button class="icon-btn nav-toggle" id="nav-toggle" type="button" aria-controls="site-nav" aria-expanded="false" aria-label="Ouvrir le menu">
-          <i class="fa-solid fa-bars icon-open" aria-hidden="true"></i>
-          <i class="fa-solid fa-xmark icon-close" aria-hidden="true"></i>
+          <svg class="icon icon-open" aria-hidden="true" focusable="false"><use href="assets/icons.svg#bars"></use></svg>
+          <svg class="icon icon-close" aria-hidden="true" focusable="false"><use href="assets/icons.svg#xmark"></use></svg>
         </button>
       </div>
     </div>
@@ -111,13 +110,13 @@
           <p class="hero-role reveal">Étudiante en <em>Génie Logiciel</em> &amp; Systèmes d’Information&nbsp;·&nbsp;<span class="nowrap">IAI-TOGO</span></p>
           <p class="hero-lead reveal">Je conçois des applications utiles et bien structurées, du back-end Java aux interfaces web, et je m’intéresse de près aux réseaux (Cisco CCNA 1 &amp; 2). Je cherche un stage pour mettre ces compétences en pratique au sein d’une équipe.</p>
           <div class="hero-actions reveal">
-            <a href="#projets" class="btn btn-glow">Découvrir mes projets <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+            <a href="#projets" class="btn btn-glow">Découvrir mes projets <svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#arrow-right"></use></svg></a>
             <a href="#contact" class="btn btn-glass">Me contacter</a>
           </div>
           <ul class="hero-stats reveal" aria-label="En bref">
-            <li><i class="fa-solid fa-check" aria-hidden="true"></i> Cisco CCNA 1 &amp; 2 certifiée</li>
-            <li><i class="fa-solid fa-check" aria-hidden="true"></i> Une application en production</li>
-            <li><i class="fa-solid fa-check" aria-hidden="true"></i> Lomé, Togo</li>
+            <li><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#check"></use></svg> Cisco CCNA 1 &amp; 2 certifiée</li>
+            <li><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#check"></use></svg> Une application en production</li>
+            <li><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#check"></use></svg> Lomé, Togo</li>
           </ul>
         </div>
 
@@ -125,9 +124,9 @@
           <div class="portrait-ring">
             <img src="assets/photo-ago-ezoolim-ela.jpg" srcset="assets/photo-ago-ezoolim-ela-480.jpg 480w, assets/photo-ago-ezoolim-ela.jpg 640w" sizes="(max-width: 640px) min(240px, 68vw), (max-width: 1024px) min(280px, 70vw), 360px" alt="Portrait d’Ago Ezoolim-Ela, souriante" width="640" height="800" fetchpriority="high">
           </div>
-          <div class="float-chip chip-1"><i class="fa-brands fa-java" aria-hidden="true"></i> Java · Spring Boot</div>
-          <div class="float-chip chip-2"><i class="fa-solid fa-network-wired" aria-hidden="true"></i> Cisco CCNA 1 &amp; 2</div>
-          <div class="float-chip chip-3"><i class="fa-brands fa-react" aria-hidden="true"></i> React · PHP · SQL</div>
+          <div class="float-chip chip-1"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#java"></use></svg> Java · Spring Boot</div>
+          <div class="float-chip chip-2"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#network-wired"></use></svg> Cisco CCNA 1 &amp; 2</div>
+          <div class="float-chip chip-3"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#react"></use></svg> React · PHP · SQL</div>
         </div>
       </div>
     </section>
@@ -145,9 +144,9 @@
             <p class="scroll-text">Passionnée par le numérique et les nouvelles technologies, je suis actuellement en deuxième année de Licence en Informatique à l’<strong>IAI-TOGO</strong> (2025-2026), en tronc commun orienté Génie Logiciel et Systèmes d’Information.</p>
             <p class="scroll-text">J’aime comprendre comment les systèmes fonctionnent et trouver des solutions quand quelque chose ne marche pas. Je m’investis pleinement dans mes projets, scolaires comme personnels, et je cherche un stage pour apprendre aux côtés de professionnels tout en apportant mon sérieux et ma bonne humeur à l’équipe.</p>
             <ul class="meta-list">
-              <li><i class="fa-solid fa-location-dot" aria-hidden="true"></i> Lomé, Togo</li>
-              <li><i class="fa-solid fa-building-columns" aria-hidden="true"></i> IAI-TOGO (L1 &amp; L2)</li>
-              <li><i class="fa-solid fa-language" aria-hidden="true"></i> Français · Anglais · Kabyè</li>
+              <li><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#location-dot"></use></svg> Lomé, Togo</li>
+              <li><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#building-columns"></use></svg> IAI-TOGO (L1 &amp; L2)</li>
+              <li><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#language"></use></svg> Français · Anglais · Kabyè</li>
             </ul>
           </div>
 
@@ -183,48 +182,48 @@
 
         <div class="skills-grid" data-stagger>
           <article class="glass skill-group reveal">
-            <h3><span class="icon-gem" aria-hidden="true"><i class="fa-solid fa-code"></i></span> Programmation</h3>
+            <h3><span class="icon-gem" aria-hidden="true"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#code"></use></svg></span> Programmation</h3>
             <ul class="chips">
-              <li class="chip"><i class="fa-brands fa-java" aria-hidden="true"></i> Java <small>Swing · Spring Boot</small></li>
-              <li class="chip"><i class="fa-brands fa-python" aria-hidden="true"></i> Python</li>
-              <li class="chip"><i class="fa-solid fa-c" aria-hidden="true"></i> Langage C</li>
-              <li class="chip"><i class="fa-brands fa-php" aria-hidden="true"></i> PHP</li>
+              <li class="chip"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#java"></use></svg> Java <small>Swing · Spring Boot</small></li>
+              <li class="chip"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#python"></use></svg> Python</li>
+              <li class="chip"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#c"></use></svg> Langage C</li>
+              <li class="chip"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#php"></use></svg> PHP</li>
             </ul>
           </article>
           <article class="glass skill-group reveal">
-            <h3><span class="icon-gem" aria-hidden="true"><i class="fa-solid fa-globe"></i></span> Web &amp; données</h3>
+            <h3><span class="icon-gem" aria-hidden="true"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#globe"></use></svg></span> Web &amp; données</h3>
             <ul class="chips">
-              <li class="chip"><i class="fa-brands fa-html5" aria-hidden="true"></i> HTML5</li>
-              <li class="chip"><i class="fa-brands fa-css3-alt" aria-hidden="true"></i> CSS3</li>
-              <li class="chip"><i class="fa-brands fa-js" aria-hidden="true"></i> JavaScript</li>
-              <li class="chip"><i class="fa-brands fa-react" aria-hidden="true"></i> React</li>
-              <li class="chip"><i class="fa-solid fa-database" aria-hidden="true"></i> MySQL</li>
-              <li class="chip"><i class="fa-solid fa-server" aria-hidden="true"></i> SQL Server</li>
-              <li class="chip"><i class="fa-solid fa-plug" aria-hidden="true"></i> API REST</li>
+              <li class="chip"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#html5"></use></svg> HTML5</li>
+              <li class="chip"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#css3-alt"></use></svg> CSS3</li>
+              <li class="chip"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#js"></use></svg> JavaScript</li>
+              <li class="chip"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#react"></use></svg> React</li>
+              <li class="chip"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#database"></use></svg> MySQL</li>
+              <li class="chip"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#server"></use></svg> SQL Server</li>
+              <li class="chip"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#plug"></use></svg> API REST</li>
             </ul>
           </article>
           <article class="glass skill-group reveal">
-            <h3><span class="icon-gem" aria-hidden="true"><i class="fa-solid fa-network-wired"></i></span> Réseaux &amp; outils</h3>
+            <h3><span class="icon-gem" aria-hidden="true"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#network-wired"></use></svg></span> Réseaux &amp; outils</h3>
             <ul class="chips">
-              <li class="chip"><i class="fa-solid fa-diagram-project" aria-hidden="true"></i> Cisco Packet Tracer</li>
-              <li class="chip"><i class="fa-solid fa-shield-halved" aria-hidden="true"></i> VLAN · Routage · ACL</li>
-              <li class="chip"><i class="fa-brands fa-git-alt" aria-hidden="true"></i> Git &amp; GitHub</li>
-              <li class="chip"><i class="fa-solid fa-terminal" aria-hidden="true"></i> VS Code</li>
+              <li class="chip"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#diagram-project"></use></svg> Cisco Packet Tracer</li>
+              <li class="chip"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#shield-halved"></use></svg> VLAN · Routage · ACL</li>
+              <li class="chip"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#git-alt"></use></svg> Git &amp; GitHub</li>
+              <li class="chip"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#terminal"></use></svg> VS Code</li>
             </ul>
           </article>
         </div>
 
         <div class="certs reveal" aria-label="Certifications">
           <div class="cert">
-            <span class="cert-check" aria-hidden="true"><i class="fa-solid fa-check"></i></span>
+            <span class="cert-check" aria-hidden="true"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#check"></use></svg></span>
             <div><strong>Cisco CCNA 1</strong><span>Introduction aux réseaux · validé</span></div>
           </div>
           <div class="cert">
-            <span class="cert-check" aria-hidden="true"><i class="fa-solid fa-check"></i></span>
+            <span class="cert-check" aria-hidden="true"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#check"></use></svg></span>
             <div><strong>Cisco CCNA 2</strong><span>Routage et commutation · validé</span></div>
           </div>
           <div class="cert">
-            <span class="cert-check" aria-hidden="true"><i class="fa-solid fa-check"></i></span>
+            <span class="cert-check" aria-hidden="true"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#check"></use></svg></span>
             <div><strong>Bureautique IAI-TOGO</strong><span>Suite Office · certifiée</span></div>
           </div>
         </div>
@@ -242,22 +241,22 @@
 
         <div class="journey-stats reveal" aria-label="En chiffres">
           <div class="stat">
-            <span class="stat-icon" aria-hidden="true"><i class="fa-solid fa-graduation-cap"></i></span>
+            <span class="stat-icon" aria-hidden="true"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#graduation-cap"></use></svg></span>
             <span class="stat-num" data-count="2">0</span>
             <span class="stat-label">années à l’IAI-TOGO</span>
           </div>
           <div class="stat">
-            <span class="stat-icon" aria-hidden="true"><i class="fa-solid fa-certificate"></i></span>
+            <span class="stat-icon" aria-hidden="true"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#certificate"></use></svg></span>
             <span class="stat-num" data-count="2">0</span>
             <span class="stat-label">certifications Cisco</span>
           </div>
           <div class="stat">
-            <span class="stat-icon" aria-hidden="true"><i class="fa-solid fa-diagram-project"></i></span>
+            <span class="stat-icon" aria-hidden="true"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#diagram-project"></use></svg></span>
             <span class="stat-num" data-count="4">0</span>
             <span class="stat-label">projets réalisés</span>
           </div>
           <div class="stat">
-            <span class="stat-icon" aria-hidden="true"><i class="fa-solid fa-language"></i></span>
+            <span class="stat-icon" aria-hidden="true"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#language"></use></svg></span>
             <span class="stat-num" data-count="3">0</span>
             <span class="stat-label">langues parlées</span>
           </div>
@@ -275,12 +274,12 @@
         <ol class="timeline" data-stagger>
           <li class="timeline-item reveal" id="etape-0">
             <span class="timeline-date">Août 2026</span>
-            <button type="button" class="timeline-marker" aria-expanded="false" aria-controls="detail-0" aria-label="Afficher le détail : STEA en production"><i class="fa-solid fa-rocket" aria-hidden="true"></i></button>
+            <button type="button" class="timeline-marker" aria-expanded="false" aria-controls="detail-0" aria-label="Afficher le détail : STEA en production"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#rocket"></use></svg></button>
             <div class="glass timeline-body">
               <h3>STEA mise en production</h3>
               <p>Mon premier logiciel utilisé en entreprise : conçu, développé, déployé et maintenu de bout en bout pour STEA Trans Euro Afrika SARL, à Lomé.</p>
               <ul class="tags"><li>Spring Boot</li><li>React</li><li>MySQL</li><li>Electron</li></ul>
-              <button type="button" class="tl-toggle" aria-expanded="false" aria-controls="detail-0"><span class="tl-toggle-label">Voir le détail</span> <i class="fa-solid fa-chevron-down" aria-hidden="true"></i></button>
+              <button type="button" class="tl-toggle" aria-expanded="false" aria-controls="detail-0"><span class="tl-toggle-label">Voir le détail</span> <svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#chevron-down"></use></svg></button>
               <div class="tl-details" id="detail-0">
                 <div class="tl-details-inner">
                   <p class="tl-details-title">Étapes clés</p>
@@ -292,7 +291,7 @@
                   </ul>
                   <p class="tl-details-title">Pour aller plus loin</p>
                   <ul class="tl-links">
-                    <li><a href="stea.html" class="tl-link"><i class="fa-solid fa-book-open" aria-hidden="true"></i> Étude de cas complète <small>défi · réponse · résultats</small></a></li>
+                    <li><a href="stea.html" class="tl-link"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#book-open"></use></svg> Étude de cas complète <small>défi · réponse · résultats</small></a></li>
                   </ul>
                 </div>
               </div>
@@ -300,19 +299,19 @@
           </li>
           <li class="timeline-item reveal" id="etape-1">
             <span class="timeline-date">2025 — 2026</span>
-            <button type="button" class="timeline-marker" aria-expanded="false" aria-controls="detail-1" aria-label="Afficher le détail : Licence 2 Informatique"><i class="fa-solid fa-graduation-cap" aria-hidden="true"></i></button>
+            <button type="button" class="timeline-marker" aria-expanded="false" aria-controls="detail-1" aria-label="Afficher le détail : Licence 2 Informatique"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#graduation-cap"></use></svg></button>
             <div class="glass timeline-body">
               <h3>Licence 2 Informatique · IAI-TOGO</h3>
               <p>Tronc commun orienté Génie Logiciel &amp; Systèmes d’Information : conception d’applications structurées (Java, architecture MVC), bases de données relationnelles, développement web.</p>
               <ul class="tags"><li>Java</li><li>MVC</li><li>SQL Server</li><li>PHP</li></ul>
-              <button type="button" class="tl-toggle" aria-expanded="false" aria-controls="detail-1"><span class="tl-toggle-label">Voir le détail</span> <i class="fa-solid fa-chevron-down" aria-hidden="true"></i></button>
+              <button type="button" class="tl-toggle" aria-expanded="false" aria-controls="detail-1"><span class="tl-toggle-label">Voir le détail</span> <svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#chevron-down"></use></svg></button>
               <div class="tl-details" id="detail-1">
                 <div class="tl-details-inner">
                   <p class="tl-details-title">Réalisations de l’année</p>
                   <ul class="tl-links">
-                    <li><a href="#projet-stea" class="tl-link"><i class="fa-solid fa-boxes-stacked" aria-hidden="true"></i> STEA — gestion logistique <small>Spring Boot · React</small></a></li>
-                    <li><a href="#projets" class="tl-link"><i class="fa-solid fa-building" aria-hidden="true"></i> Application de gestion locative <small>Java · SQL Server</small></a></li>
-                    <li><a href="#projets" class="tl-link"><i class="fa-solid fa-globe" aria-hidden="true"></i> Plateforme web dynamique <small>PHP · MySQL</small></a></li>
+                    <li><a href="#projet-stea" class="tl-link"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#boxes-stacked"></use></svg> STEA — gestion logistique <small>Spring Boot · React</small></a></li>
+                    <li><a href="#projets" class="tl-link"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#building"></use></svg> Application de gestion locative <small>Java · SQL Server</small></a></li>
+                    <li><a href="#projets" class="tl-link"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#globe"></use></svg> Plateforme web dynamique <small>PHP · MySQL</small></a></li>
                   </ul>
                   <p class="tl-details-title">Compétences travaillées</p>
                   <ul class="tags"><li>Architecture MVC</li><li>Modélisation de données</li><li>API REST</li><li>Authentification JWT</li><li>Interfaces React</li></ul>
@@ -322,12 +321,12 @@
           </li>
           <li class="timeline-item reveal" id="etape-2">
             <span class="timeline-date">2024 — 2025</span>
-            <button type="button" class="timeline-marker" aria-expanded="false" aria-controls="detail-2" aria-label="Afficher le détail : Licence 1 Informatique"><i class="fa-solid fa-book-open" aria-hidden="true"></i></button>
+            <button type="button" class="timeline-marker" aria-expanded="false" aria-controls="detail-2" aria-label="Afficher le détail : Licence 1 Informatique"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#book-open"></use></svg></button>
             <div class="glass timeline-body">
               <h3>Licence 1 Informatique · IAI-TOGO</h3>
               <p>Fondamentaux de l’informatique : algorithmique, programmation, développement web et initiation aux réseaux.</p>
               <ul class="tags"><li>Algorithmique</li><li>Python</li><li>HTML / CSS</li></ul>
-              <button type="button" class="tl-toggle" aria-expanded="false" aria-controls="detail-2"><span class="tl-toggle-label">Voir le détail</span> <i class="fa-solid fa-chevron-down" aria-hidden="true"></i></button>
+              <button type="button" class="tl-toggle" aria-expanded="false" aria-controls="detail-2"><span class="tl-toggle-label">Voir le détail</span> <svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#chevron-down"></use></svg></button>
               <div class="tl-details" id="detail-2">
                 <div class="tl-details-inner">
                   <p class="tl-details-title">Les bases posées</p>
@@ -338,7 +337,7 @@
                   </ul>
                   <p class="tl-details-title">Projet lié</p>
                   <ul class="tl-links">
-                    <li><a href="#projets" class="tl-link"><i class="fa-solid fa-diagram-project" aria-hidden="true"></i> Architecture réseau sécurisée <small>Packet Tracer</small></a></li>
+                    <li><a href="#projets" class="tl-link"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#diagram-project"></use></svg> Architecture réseau sécurisée <small>Packet Tracer</small></a></li>
                   </ul>
                 </div>
               </div>
@@ -346,12 +345,12 @@
           </li>
           <li class="timeline-item reveal" id="etape-3">
             <span class="timeline-date">Certifications</span>
-            <button type="button" class="timeline-marker" aria-expanded="false" aria-controls="detail-3" aria-label="Afficher le détail : certifications Cisco"><i class="fa-solid fa-certificate" aria-hidden="true"></i></button>
+            <button type="button" class="timeline-marker" aria-expanded="false" aria-controls="detail-3" aria-label="Afficher le détail : certifications Cisco"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#certificate"></use></svg></button>
             <div class="glass timeline-body">
               <h3>Cisco CCNA 1 &amp; 2 · Cisco Networking Academy</h3>
               <p>Notions fondamentales des réseaux, routage et commutation, VLAN, listes de contrôle d’accès et configuration d’équipements sous Packet Tracer.</p>
               <ul class="tags"><li>CCNA 1</li><li>CCNA 2</li><li>Packet Tracer</li></ul>
-              <button type="button" class="tl-toggle" aria-expanded="false" aria-controls="detail-3"><span class="tl-toggle-label">Voir le détail</span> <i class="fa-solid fa-chevron-down" aria-hidden="true"></i></button>
+              <button type="button" class="tl-toggle" aria-expanded="false" aria-controls="detail-3"><span class="tl-toggle-label">Voir le détail</span> <svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#chevron-down"></use></svg></button>
               <div class="tl-details" id="detail-3">
                 <div class="tl-details-inner">
                   <div class="tl-columns">
@@ -376,7 +375,7 @@
                   </div>
                   <p class="tl-details-title">Mis en pratique dans</p>
                   <ul class="tl-links">
-                    <li><a href="#projets" class="tl-link"><i class="fa-solid fa-diagram-project" aria-hidden="true"></i> Architecture réseau sécurisée <small>multisites · VLAN · ACL</small></a></li>
+                    <li><a href="#projets" class="tl-link"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#diagram-project"></use></svg> Architecture réseau sécurisée <small>multisites · VLAN · ACL</small></a></li>
                   </ul>
                 </div>
               </div>
@@ -410,10 +409,10 @@
               <div><dt>Durée</dt><dd>Juillet – septembre 2026 · en production depuis août 2026</dd></div>
             </dl>
             <ul class="check-list compact">
-              <li><i class="fa-solid fa-check" aria-hidden="true"></i> Multi-entrepôts, lots et numéros de série</li>
-              <li><i class="fa-solid fa-check" aria-hidden="true"></i> Achats, livraisons, retours, inventaires</li>
-              <li><i class="fa-solid fa-check" aria-hidden="true"></i> Alertes automatiques de stock critique</li>
-              <li><i class="fa-solid fa-check" aria-hidden="true"></i> Rôles, permissions et journal d’audit</li>
+              <li><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#check"></use></svg> Multi-entrepôts, lots et numéros de série</li>
+              <li><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#check"></use></svg> Achats, livraisons, retours, inventaires</li>
+              <li><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#check"></use></svg> Alertes automatiques de stock critique</li>
+              <li><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#check"></use></svg> Rôles, permissions et journal d’audit</li>
             </ul>
             <ul class="project-figures" aria-label="STEA en chiffres">
               <li><span class="figure-num" data-count="24">0</span><span class="figure-label">modules métier</span></li>
@@ -432,10 +431,10 @@
             </blockquote>
             -->
             <div class="project-links">
-              <a href="stea.html" class="btn btn-glow btn-sm"><i class="fa-solid fa-book-open" aria-hidden="true"></i> Étude de cas</a>
-              <button type="button" class="btn btn-glass btn-sm" data-gallery-open="0"><i class="fa-solid fa-images" aria-hidden="true"></i> Voir les écrans</button>
-              <a href="https://github.com/Ezoolim-Ela/stea_stock_application" target="_blank" rel="noopener" class="btn btn-glass btn-sm"><i class="fa-brands fa-github" aria-hidden="true"></i> Code source</a>
-              <a href="https://github.com/Ezoolim-Ela/stea-desktop" target="_blank" rel="noopener" class="btn btn-glass btn-sm"><i class="fa-solid fa-desktop" aria-hidden="true"></i> Application bureau</a>
+              <a href="stea.html" class="btn btn-glow btn-sm"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#book-open"></use></svg> Étude de cas</a>
+              <button type="button" class="btn btn-glass btn-sm" data-gallery-open="0"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#images"></use></svg> Voir les écrans</button>
+              <a href="https://github.com/Ezoolim-Ela/stea_stock_application" target="_blank" rel="noopener" class="btn btn-glass btn-sm"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#github"></use></svg> Code source</a>
+              <a href="https://github.com/Ezoolim-Ela/stea-desktop" target="_blank" rel="noopener" class="btn btn-glass btn-sm"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#desktop"></use></svg> Application bureau</a>
             </div>
           </div>
 
@@ -443,7 +442,7 @@
             <button type="button" class="device-laptop" data-gallery-open="0" aria-label="Ouvrir la galerie des écrans de STEA">
               <span class="device-bar" aria-hidden="true"><span></span><span></span><span></span><span class="device-title">STEA · Tableau de bord</span></span>
               <img src="assets/stea/tableau-de-bord-vue-desktop.webp" srcset="assets/stea/tableau-de-bord-vue-desktop-720.webp 720w, assets/stea/tableau-de-bord-vue-desktop-1080.webp 1080w, assets/stea/tableau-de-bord-vue-desktop.webp 1440w" sizes="(max-width: 860px) calc(100vw - 60px), 520px" alt="Tableau de bord de STEA : indicateurs de stock, encaissements et tâches à traiter" width="1440" height="900" loading="lazy">
-              <span class="device-hint" aria-hidden="true"><i class="fa-solid fa-magnifying-glass-plus"></i> Voir les écrans</span>
+              <span class="device-hint" aria-hidden="true"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#magnifying-glass-plus"></use></svg> Voir les écrans</span>
             </button>
             <figure class="device-phone" aria-hidden="true">
               <img src="assets/stea/tableau-de-bord-vue-mobile.webp" alt="" width="390" height="844" loading="lazy">
@@ -473,12 +472,12 @@
                 </g>
                 <circle class="moon" cx="282" cy="28" r="9"/>
               </svg>
-              <span class="scene-chip chip-a"><i class="fa-solid fa-file-signature"></i> Contrat signé</span>
-              <span class="scene-chip chip-b"><i class="fa-solid fa-circle-check"></i> Loyer payé</span>
+              <span class="scene-chip chip-a"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#file-signature"></use></svg> Contrat signé</span>
+              <span class="scene-chip chip-b"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#circle-check"></use></svg> Loyer payé</span>
             </div>
             <div class="project-head">
               <span class="project-kind">Projet d’études</span>
-              <span class="icon-gem" aria-hidden="true"><i class="fa-solid fa-building"></i></span>
+              <span class="icon-gem" aria-hidden="true"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#building"></use></svg></span>
             </div>
             <h3>Application de gestion locative</h3>
             <p>Conception et développement d’une application structurée pour la gestion des biens immobiliers, des contrats de location et des paiements de loyers.</p>
@@ -491,7 +490,7 @@
                 <div class="mini-bar"><span></span><span></span><span></span><span class="mini-url">plateforme.local/admin</span></div>
                 <div class="mini-screens">
                   <div class="mini-login">
-                    <span class="mini-avatar"><i class="fa-solid fa-lock"></i></span>
+                    <span class="mini-avatar"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#lock"></use></svg></span>
                     <span class="mini-input"></span>
                     <span class="mini-input short"></span>
                     <span class="mini-btn">Connexion</span>
@@ -508,7 +507,7 @@
             </div>
             <div class="project-head">
               <span class="project-kind">Développement web</span>
-              <span class="icon-gem" aria-hidden="true"><i class="fa-solid fa-globe"></i></span>
+              <span class="icon-gem" aria-hidden="true"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#globe"></use></svg></span>
             </div>
             <h3>Plateforme web dynamique</h3>
             <p>Site interactif avec base de données, authentification des utilisateurs et back-office d’administration pour gérer les contenus.</p>
@@ -559,7 +558,7 @@
             </div>
             <div class="project-head">
               <span class="project-kind">Réseaux &amp; infrastructures</span>
-              <span class="icon-gem" aria-hidden="true"><i class="fa-solid fa-diagram-project"></i></span>
+              <span class="icon-gem" aria-hidden="true"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#diagram-project"></use></svg></span>
             </div>
             <h3>Architecture réseau sécurisée</h3>
             <p>Simulation et configuration d’un réseau d’entreprise multisites : routage dynamique, segmentation en VLAN et listes de contrôle d’accès (ACL).</p>
@@ -568,7 +567,7 @@
         </div>
 
         <p class="projects-more reveal">
-          <a href="https://github.com/Ezoolim-Ela?tab=repositories" target="_blank" rel="noopener" class="link-arrow">Voir tous mes dépôts sur GitHub <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></a>
+          <a href="https://github.com/Ezoolim-Ela?tab=repositories" target="_blank" rel="noopener" class="link-arrow">Voir tous mes dépôts sur GitHub <svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#arrow-up-right-from-square"></use></svg></a>
         </p>
       </div>
     </section>
@@ -578,14 +577,14 @@
       <div class="gallery-inner">
         <div class="gallery-top">
           <p class="gallery-title">STEA — écrans de l’application <span class="gallery-count" id="gallery-count"></span></p>
-          <button type="button" class="icon-btn gallery-close" id="gallery-close" aria-label="Fermer la galerie"><i class="fa-solid fa-xmark" aria-hidden="true"></i></button>
+          <button type="button" class="icon-btn gallery-close" id="gallery-close" aria-label="Fermer la galerie"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#xmark"></use></svg></button>
         </div>
         <figure class="gallery-figure">
           <img id="gallery-img" src="" alt="">
           <figcaption id="gallery-cap"></figcaption>
         </figure>
-        <button type="button" class="gallery-nav prev" id="gallery-prev" aria-label="Écran précédent"><i class="fa-solid fa-chevron-left" aria-hidden="true"></i></button>
-        <button type="button" class="gallery-nav next" id="gallery-next" aria-label="Écran suivant"><i class="fa-solid fa-chevron-right" aria-hidden="true"></i></button>
+        <button type="button" class="gallery-nav prev" id="gallery-prev" aria-label="Écran précédent"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#chevron-left"></use></svg></button>
+        <button type="button" class="gallery-nav next" id="gallery-next" aria-label="Écran suivant"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#chevron-right"></use></svg></button>
         <div class="gallery-thumbs" id="gallery-thumbs" aria-label="Choisir un écran"></div>
       </div>
     </dialog>
@@ -602,14 +601,14 @@
             <h3>Un projet ? Une opportunité de stage ?</h3>
             <p>Écrivez-moi directement ou utilisez le formulaire : je vous réponds rapidement.</p>
             <ul class="contact-list">
-              <li><span class="icon-gem" aria-hidden="true"><i class="fa-solid fa-envelope"></i></span><div><span>E-mail</span><a href="mailto:agoezoolimela@gmail.com">agoezoolimela@gmail.com</a></div></li>
-              <li><span class="icon-gem" aria-hidden="true"><i class="fa-solid fa-phone"></i></span><div><span>Téléphone</span><a href="tel:+22871123262">+228 71 12 32 62</a></div></li>
-              <li><span class="icon-gem" aria-hidden="true"><i class="fa-solid fa-location-dot"></i></span><div><span>Localisation</span><p>Lomé, Togo</p></div></li>
+              <li><span class="icon-gem" aria-hidden="true"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#envelope"></use></svg></span><div><span>E-mail</span><a href="mailto:agoezoolimela@gmail.com">agoezoolimela@gmail.com</a></div></li>
+              <li><span class="icon-gem" aria-hidden="true"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#phone"></use></svg></span><div><span>Téléphone</span><a href="tel:+22871123262">+228 71 12 32 62</a></div></li>
+              <li><span class="icon-gem" aria-hidden="true"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#location-dot"></use></svg></span><div><span>Localisation</span><p>Lomé, Togo</p></div></li>
             </ul>
             <div class="social-row">
-              <a href="https://github.com/Ezoolim-Ela" target="_blank" rel="noopener" class="icon-btn" aria-label="GitHub"><i class="fa-brands fa-github" aria-hidden="true"></i></a>
-              <a href="https://linkedin.com/in/ago-ezoolim-ela" target="_blank" rel="noopener" class="icon-btn" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in" aria-hidden="true"></i></a>
-              <a href="assets/CV_Ago_Ezoolim-Ela.pdf" target="_blank" rel="noopener" class="icon-btn" aria-label="Mon CV (PDF)"><i class="fa-solid fa-file-arrow-down" aria-hidden="true"></i></a>
+              <a href="https://github.com/Ezoolim-Ela" target="_blank" rel="noopener" class="icon-btn" aria-label="GitHub"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#github"></use></svg></a>
+              <a href="https://linkedin.com/in/ago-ezoolim-ela" target="_blank" rel="noopener" class="icon-btn" aria-label="LinkedIn"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#linkedin-in"></use></svg></a>
+              <a href="assets/CV_Ago_Ezoolim-Ela.pdf" target="_blank" rel="noopener" class="icon-btn" aria-label="Mon CV (PDF)"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#file-arrow-down"></use></svg></a>
             </div>
           </div>
 
@@ -632,8 +631,8 @@
               <p class="field-error" id="message-error" role="alert"></p>
             </div>
             <button type="submit" class="btn btn-glow btn-block" id="form-submit">
-              <span class="btn-label"><i class="fa-solid fa-paper-plane" aria-hidden="true"></i> Envoyer le message</span>
-              <span class="btn-sending"><i class="fa-solid fa-circle-notch fa-spin" aria-hidden="true"></i> Envoi en cours…</span>
+              <span class="btn-label"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#paper-plane"></use></svg> Envoyer le message</span>
+              <span class="btn-sending"><svg class="icon icon-spin" aria-hidden="true" focusable="false"><use href="assets/icons.svg#circle-notch"></use></svg> Envoi en cours…</span>
             </button>
             <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
           </form>
@@ -667,24 +666,24 @@
         <div class="footer-col">
           <h3>Me retrouver</h3>
           <ul>
-            <li><a href="https://github.com/Ezoolim-Ela" target="_blank" rel="noopener"><i class="fa-brands fa-github" aria-hidden="true"></i> GitHub</a></li>
-            <li><a href="https://linkedin.com/in/ago-ezoolim-ela" target="_blank" rel="noopener"><i class="fa-brands fa-linkedin-in" aria-hidden="true"></i> LinkedIn</a></li>
-            <li><a href="mailto:agoezoolimela@gmail.com"><i class="fa-solid fa-envelope" aria-hidden="true"></i> agoezoolimela@gmail.com</a></li>
-            <li><a href="assets/CV_Ago_Ezoolim-Ela.pdf" target="_blank" rel="noopener"><i class="fa-solid fa-file-arrow-down" aria-hidden="true"></i> Télécharger mon CV</a></li>
+            <li><a href="https://github.com/Ezoolim-Ela" target="_blank" rel="noopener"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#github"></use></svg> GitHub</a></li>
+            <li><a href="https://linkedin.com/in/ago-ezoolim-ela" target="_blank" rel="noopener"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#linkedin-in"></use></svg> LinkedIn</a></li>
+            <li><a href="mailto:agoezoolimela@gmail.com"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#envelope"></use></svg> agoezoolimela@gmail.com</a></li>
+            <li><a href="assets/CV_Ago_Ezoolim-Ela.pdf" target="_blank" rel="noopener"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#file-arrow-down"></use></svg> Télécharger mon CV</a></li>
           </ul>
         </div>
       </div>
       <div class="footer-bottom">
         <p>&copy; <span id="year">2026</span> Ago Ezoolim-Ela · Site conçu et codé à la main — <a href="https://github.com/Ezoolim-Ela/Portfolio" target="_blank" rel="noopener">code source</a></p>
-        <a href="#accueil" class="footer-top">Retour en haut <i class="fa-solid fa-arrow-up" aria-hidden="true"></i></a>
+        <a href="#accueil" class="footer-top">Retour en haut <svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#arrow-up"></use></svg></a>
       </div>
     </div>
   </footer>
 
   <button class="back-to-top" id="back-to-top" type="button" aria-label="Retour en haut de page">
-    <i class="fa-solid fa-arrow-up" aria-hidden="true"></i>
+    <svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#arrow-up"></use></svg>
   </button>
 
-  <script src="script.js?v=8" defer></script>
+  <script src="script.js?v=9" defer></script>
 </body>
 </html>

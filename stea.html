@@ -38,7 +38,7 @@
   <!-- Police chargée sans bloquer le rendu (préchargement, puis activation) ; icônes : sprite SVG local assets/icons.svg -->
   <link rel="preload" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;1,9..144,500&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
   <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;1,9..144,500&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap"></noscript>
-  <link rel="stylesheet" href="styles.css?v=12">
+  <link rel="stylesheet" href="styles.css?v=13">
 </head>
 <body>
   <a class="skip-link" href="#contenu">Aller au contenu</a>
@@ -109,25 +109,25 @@
         <p class="eyebrow">01 · Le défi</p>
         <h2>Savoir à tout moment <em>ce qu’il y a en stock, où, et quoi recommander</em></h2>
         <div class="case-prose">
-          <p>STEA Trans Euro Afrika gère plusieurs entrepôts, des achats auprès de fournisseurs, des livraisons à ses clients et des retours. Sans outil central, ce type d’information se disperse dans des fichiers et des cahiers : l’état réel du stock devient incertain, les ruptures se découvrent trop tard et l’on ne sait plus qui a fait quoi.</p>
-          <p>L’application devait donc tenir <strong>un stock fiable et multi-entrepôts</strong>, couvrir <strong>tout le cycle achat → livraison → retour</strong> avec ses documents, <strong>alerter automatiquement</strong> avant la rupture, distinguer <strong>des rôles aux droits précis</strong> et rester <strong>simple à installer</strong> sur les postes Windows de l’entreprise, sans intervention technique sur place à chaque mise à jour.</p>
+          <p>STEA Trans Euro Afrika gère plusieurs entrepôts, des achats, des livraisons et des retours. Sans outil central, ce type d’information se disperse : l’état réel du stock devient incertain et les ruptures se découvrent trop tard.</p>
+          <p>L’application devait donc tenir <strong>un stock fiable sur plusieurs entrepôts</strong>, couvrir <strong>tout le cycle achat → livraison → retour</strong>, <strong>alerter avant la rupture</strong> et rester <strong>simple à installer</strong> sur les postes de l’entreprise.</p>
         </div>
 
         <div class="case-grid" data-stagger>
           <article class="case-card reveal">
             <span class="case-icon" aria-hidden="true"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#warehouse"></use></svg></span>
             <h3>Un stock qu’on peut croire</h3>
-            <p>Plusieurs entrepôts, des lots et des numéros de série, des inventaires et des réinitialisations tracées : chaque quantité affichée doit correspondre à la réalité.</p>
+            <p>Plusieurs entrepôts, des lots et des numéros de série : chaque quantité affichée doit correspondre à la réalité.</p>
           </article>
           <article class="case-card reveal">
             <span class="case-icon" aria-hidden="true"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#truck-ramp-box"></use></svg></span>
             <h3>Le cycle complet</h3>
-            <p>Bons de commande fournisseurs, livraisons, bons de livraison, retours et avoirs, encaissements : les documents s’enchaînent sans ressaisie.</p>
+            <p>Commandes, livraisons, retours : les documents s’enchaînent sans ressaisie.</p>
           </article>
           <article class="case-card reveal">
             <span class="case-icon" aria-hidden="true"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#user-shield"></use></svg></span>
             <h3>Des droits précis</h3>
-            <p>Un opérateur de stock, un logisticien, un comptable ou un agent commercial ne voient pas la même chose et ne peuvent pas faire les mêmes actions.</p>
+            <p>Chaque métier voit ce qui le concerne et n’agit que dans son périmètre.</p>
           </article>
         </div>
       </div>
@@ -139,48 +139,29 @@
         <p class="eyebrow">02 · Ma réponse</p>
         <h2>Une API solide, une interface claire, <em>une installation en un clic</em></h2>
         <div class="case-prose">
-          <p>J’ai séparé nettement les responsabilités : un <strong>serveur Spring Boot</strong> qui porte toutes les règles métier et la sécurité, une <strong>interface React</strong> qui ne fait que présenter et guider, et une <strong>application de bureau Electron</strong> qui embarque cette interface et se met à jour toute seule. La même interface est aussi servie en version web par le serveur : un seul code, deux canaux.</p>
+          <p>J’ai séparé nettement les responsabilités : un <strong>serveur</strong> qui porte les règles métier et la sécurité, une <strong>interface</strong> qui présente et guide, et une <strong>application de bureau</strong> qui embarque cette interface et se met à jour toute seule.</p>
         </div>
 
         <div class="arch">
           <div class="arch-box reveal">
             <h3><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#desktop"></use></svg> Application de bureau</h3>
-            <p>Electron + React 18, Tailwind CSS, Recharts. Installeur Windows, mise à jour automatique au lancement via GitHub Releases (electron-updater). L’adresse du serveur est lue dans un fichier de configuration distant : changer de serveur ne demande aucune nouvelle version.</p>
+            <p>Electron et React : un installeur Windows, et les mises à jour arrivent toutes seules au lancement.</p>
           </div>
           <div class="arch-link" aria-hidden="true"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#right-left"></use></svg>HTTPS · JSON</div>
           <div class="arch-box reveal">
             <h3><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#server"></use></svg> Serveur</h3>
-            <p>Spring Boot 3 / Java 17, API REST de 173 endpoints, 31 entités JPA sur MySQL. Authentification JWT, autorisations par rôle sur chaque endpoint, journal d’audit des activités.</p>
+            <p>Spring Boot et MySQL : une API REST qui porte les règles métier, l’authentification et les droits par rôle.</p>
           </div>
-          <p class="arch-note reveal"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#circle-info"></use></svg>Exploitation : serveur auto-hébergé et supervisé (base de données, serveur et tunnel relancés automatiquement en cas de coupure), exposé sur Internet par un tunnel sécurisé à adresse fixe, sauvegarde de la base et de la version précédente avant chaque déploiement.</p>
         </div>
 
-        <h3 style="margin-top: 40px; font-size: var(--fs-h3);">24 modules, un seul outil</h3>
+        <h3 style="margin-top: 40px; font-size: var(--fs-h3);">24 modules, regroupés en six familles</h3>
         <ul class="modules" aria-label="Modules de l’application">
-          <li><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#gauge-high"></use></svg>Tableau de bord</li>
-          <li><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#boxes-stacked"></use></svg>Articles</li>
-          <li><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#warehouse"></use></svg>Entrepôts</li>
-          <li><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#barcode"></use></svg>Lots et séries</li>
-          <li><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#right-left"></use></svg>Mouvements de stock</li>
-          <li><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#clipboard-check"></use></svg>Inventaires</li>
-          <li><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#bell"></use></svg>Réapprovisionnement</li>
-          <li><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#rotate-left"></use></svg>Réinitialisations de stock</li>
-          <li><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#users"></use></svg>Clients</li>
-          <li><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#industry"></use></svg>Fournisseurs</li>
-          <li><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#cart-shopping"></use></svg>Commandes</li>
-          <li><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#file-invoice"></use></svg>Bons de commande</li>
-          <li><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#truck"></use></svg>Livraisons</li>
-          <li><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#file-signature"></use></svg>Bons de livraison</li>
-          <li><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#rotate"></use></svg>Retours et avoirs</li>
-          <li><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#coins"></use></svg>Comptabilité</li>
-          <li><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#cash-register"></use></svg>Réinitialisations d’encaissements</li>
-          <li><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#chart-column"></use></svg>Statistiques</li>
-          <li><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#file-lines"></use></svg>Rapports</li>
-          <li><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#envelope"></use></svg>Messagerie</li>
-          <li><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#user-gear"></use></svg>Utilisateurs</li>
-          <li><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#sliders"></use></svg>Configuration</li>
-          <li><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#clock-rotate-left"></use></svg>Historique des activités</li>
-          <li><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#circle-question"></use></svg>Guide d’utilisation</li>
+          <li><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#boxes-stacked"></use></svg>Stock : articles, entrepôts, lots et séries, mouvements, inventaires</li>
+          <li><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#cart-shopping"></use></svg>Achats et ventes : clients, fournisseurs, commandes</li>
+          <li><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#truck"></use></svg>Livraisons : expéditions, bons, retours et avoirs</li>
+          <li><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#coins"></use></svg>Comptabilité : encaissements et suivi des règlements</li>
+          <li><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#chart-column"></use></svg>Pilotage : tableau de bord, statistiques, rapports</li>
+          <li><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#user-gear"></use></svg>Administration : utilisateurs, droits, configuration, historique</li>
         </ul>
       </div>
     </section>
@@ -191,25 +172,25 @@
         <p class="eyebrow">03 · Sécurité et qualité</p>
         <h2>L’écran cache, <em>le serveur interdit</em></h2>
         <div class="case-prose">
-          <p>Chaque règle de droits existe deux fois : une fois dans l’interface, pour ne montrer que ce qui est permis, et une fois dans le serveur, qui refuse ce qui ne l’est pas, quoi qu’envoie le client. Huit rôles se partagent l’application, dont trois profils d’agents en consultation seule, limités aux articles de leur service.</p>
+          <p>Chaque règle de droits existe deux fois : dans l’interface, pour ne montrer que ce qui est permis, et dans le serveur, qui refuse le reste. Huit rôles se partagent l’application, dont trois en consultation seule.</p>
         </div>
         <div class="case-grid" data-stagger>
           <article class="case-card reveal">
             <span class="case-icon" aria-hidden="true"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#key"></use></svg></span>
             <h3>Accès</h3>
             <ul>
-              <li>Authentification par jeton JWT (Spring Security)</li>
-              <li>Limitation des tentatives de connexion</li>
-              <li>Autorisations vérifiées endpoint par endpoint</li>
+              <li>Chaque compte a un rôle, et chaque rôle un périmètre</li>
+              <li>Les droits sont vérifiés côté serveur, pas seulement à l’écran</li>
+              
             </ul>
           </article>
           <article class="case-card reveal">
             <span class="case-icon" aria-hidden="true"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#clock-rotate-left"></use></svg></span>
             <h3>Traçabilité</h3>
             <ul>
-              <li>Journal d’audit : qui a fait quoi, et quand</li>
-              <li>Réinitialisations de stock et d’encaissements tracées</li>
-              <li>Sauvegarde de la base avant chaque déploiement</li>
+              <li>Un journal d’audit conserve qui a fait quoi, et quand</li>
+              <li>Les opérations sensibles sont tracées</li>
+              
             </ul>
           </article>
           <article class="case-card reveal">
@@ -217,8 +198,8 @@
             <h3>Vérification</h3>
             <ul>
               <li>141 tests automatisés côté serveur</li>
-              <li>Chaque évolution essayée sur une instance isolée avec une base jetable avant la mise en production</li>
-              <li>Procédure de déploiement écrite et rejouable</li>
+              <li>Chaque évolution est essayée sur une instance de test avant la mise en production</li>
+              
             </ul>
           </article>
         </div>
@@ -231,8 +212,8 @@
         <p class="eyebrow">04 · Résultats</p>
         <h2>En production, <em>et toujours en évolution</em></h2>
         <div class="case-prose">
-          <p>La première version de bureau a été publiée le 12 août 2026. Depuis, l’application évolue au rythme des besoins de l’entreprise : 29 versions livrées par mise à jour automatique en cinq semaines, sans jamais réinstaller un poste.</p>
-          <p>Exemple d’évolution demandée par l’entreprise : trois profils d’agents en consultation seule, chacun limité aux articles de son service. Maquette proposée le matin, validée dans la journée, serveur mis à jour le jour même.</p>
+          <p>La première version a été installée le 12 août 2026. Depuis, 29 versions ont été livrées par mise à jour automatique, sans jamais réinstaller un poste.</p>
+          <p>Exemple d’évolution demandée par l’entreprise : trois profils en consultation seule, limités à leur service. Maquette le matin, validée dans la journée, livrée le jour même.</p>
         </div>
 
         <ul class="case-figures" aria-label="STEA en chiffres">
@@ -272,15 +253,15 @@
         <ol class="lessons" data-stagger>
           <li class="reveal">
             <h3>Livrer, c’est plus que coder</h3>
-            <p>Un serveur en marche ne se remplace pas à chaud : arrêter, sauvegarder, remplacer, relancer, dans cet ordre. Je l’ai appris en cassant une fois le serveur, et j’en ai fait une procédure écrite que je suis à chaque déploiement.</p>
+            <p>Mettre à jour un outil utilisé tous les jours demande de la méthode. J’ai écrit ma procédure et je la suis à chaque fois, plutôt que d’improviser.</p>
           </li>
           <li class="reveal">
             <h3>Le serveur décide, l’écran suggère</h3>
-            <p>Masquer un bouton ne protège rien. Chaque règle de droits est vérifiée côté serveur, et l’interface ne fait que refléter ce qui est permis.</p>
+            <p>Masquer un bouton ne protège rien : les droits se vérifient côté serveur, l’interface ne fait que refléter ce qui est permis.</p>
           </li>
           <li class="reveal">
             <h3>Vérifier avant d’annoncer</h3>
-            <p>Avant de dire « c’est en ligne », je rejoue la fonctionnalité sur une instance isolée avec une base jetable. Une démonstration vaut mieux qu’une promesse.</p>
+            <p>Avant de dire « c’est en ligne », je rejoue la fonctionnalité sur une instance de test. Une démonstration vaut mieux qu’une promesse.</p>
           </li>
         </ol>
 
@@ -352,6 +333,6 @@
     <svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#arrow-up"></use></svg>
   </button>
 
-  <script src="script.js?v=12" defer></script>
+  <script src="script.js?v=13" defer></script>
 </body>
 </html>

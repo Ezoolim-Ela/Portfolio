@@ -55,9 +55,11 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;1,9..144,500&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
-  <link rel="stylesheet" href="styles.css?v=7">
+  <!-- Polices et icônes chargées sans bloquer le rendu (préchargement, puis activation) -->
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;1,9..144,500&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;1,9..144,500&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"></noscript>
+  <link rel="stylesheet" href="styles.css?v=8">
 </head>
 <body>
 
@@ -66,7 +68,7 @@
   <!-- ===== En-tête ===== -->
   <header class="topbar" id="topbar">
     <div class="container topbar-inner">
-      <a href="#accueil" class="brand" aria-label="Ago Ezoolim-Ela — retour à l’accueil">
+      <a href="#accueil" class="brand" aria-label="Ago Ezoolim-Ela">
         <span class="gem" aria-hidden="true">AE</span>
         <span class="brand-name">Ago <em>Ezoolim-Ela</em></span>
       </a>
@@ -82,7 +84,7 @@
       </nav>
 
       <div class="topbar-actions">
-        <a href="assets/CV_Ago_Ezoolim-Ela.pdf" class="btn btn-glass btn-sm btn-cv" target="_blank" rel="noopener">
+        <a href="assets/CV_Ago_Ezoolim-Ela.pdf" class="btn btn-glass btn-sm btn-cv" target="_blank" rel="noopener" aria-label="Mon CV (PDF)">
           <i class="fa-solid fa-file-arrow-down" aria-hidden="true"></i><span class="btn-cv-label">Mon CV</span>
         </a>
         <button class="icon-btn" id="theme-toggle" type="button" aria-label="Passer en mode sombre" aria-pressed="false">
@@ -121,7 +123,7 @@
 
         <div class="hero-portrait reveal" aria-hidden="false">
           <div class="portrait-ring">
-            <img src="assets/photo-ago-ezoolim-ela.jpg" alt="Portrait d’Ago Ezoolim-Ela, souriante" width="640" height="800" fetchpriority="high">
+            <img src="assets/photo-ago-ezoolim-ela.jpg" srcset="assets/photo-ago-ezoolim-ela-480.jpg 480w, assets/photo-ago-ezoolim-ela.jpg 640w" sizes="(max-width: 640px) min(240px, 68vw), (max-width: 1024px) min(280px, 70vw), 360px" alt="Portrait d’Ago Ezoolim-Ela, souriante" width="640" height="800" fetchpriority="high">
           </div>
           <div class="float-chip chip-1"><i class="fa-brands fa-java" aria-hidden="true"></i> Java · Spring Boot</div>
           <div class="float-chip chip-2"><i class="fa-solid fa-network-wired" aria-hidden="true"></i> Cisco CCNA 1 &amp; 2</div>
@@ -440,7 +442,7 @@
           <div class="device-duo">
             <button type="button" class="device-laptop" data-gallery-open="0" aria-label="Ouvrir la galerie des écrans de STEA">
               <span class="device-bar" aria-hidden="true"><span></span><span></span><span></span><span class="device-title">STEA · Tableau de bord</span></span>
-              <img src="assets/stea/tableau-de-bord-vue-desktop.webp" alt="Tableau de bord de STEA : indicateurs de stock, encaissements et tâches à traiter" width="1440" height="900" loading="lazy">
+              <img src="assets/stea/tableau-de-bord-vue-desktop.webp" srcset="assets/stea/tableau-de-bord-vue-desktop-720.webp 720w, assets/stea/tableau-de-bord-vue-desktop-1080.webp 1080w, assets/stea/tableau-de-bord-vue-desktop.webp 1440w" sizes="(max-width: 860px) calc(100vw - 60px), 520px" alt="Tableau de bord de STEA : indicateurs de stock, encaissements et tâches à traiter" width="1440" height="900" loading="lazy">
               <span class="device-hint" aria-hidden="true"><i class="fa-solid fa-magnifying-glass-plus"></i> Voir les écrans</span>
             </button>
             <figure class="device-phone" aria-hidden="true">
@@ -646,7 +648,7 @@
     <div class="container">
       <div class="footer-grid">
         <div class="footer-brand">
-          <a href="#accueil" class="brand" aria-label="Retour à l’accueil">
+          <a href="#accueil" class="brand" aria-label="Ago Ezoolim-Ela">
             <span class="gem" aria-hidden="true">AE</span>
             <span class="brand-name">Ago <em>Ezoolim-Ela</em></span>
           </a>
@@ -683,6 +685,6 @@
     <i class="fa-solid fa-arrow-up" aria-hidden="true"></i>
   </button>
 
-  <script src="script.js?v=7" defer></script>
+  <script src="script.js?v=8" defer></script>
 </body>
 </html>

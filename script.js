@@ -78,7 +78,7 @@
   function currentTheme() { return doc.getAttribute('data-theme') === 'dark' ? 'dark' : 'light'; }
   function applyTheme(theme, persist) {
     doc.setAttribute('data-theme', theme);
-    if (metaTheme) metaTheme.setAttribute('content', theme === 'dark' ? '#14102A' : '#F7F5FC');
+    if (metaTheme) metaTheme.setAttribute('content', theme === 'dark' ? '#0B1622' : '#F4F9FD');
     if (themeToggle) {
       themeToggle.setAttribute('aria-pressed', String(theme === 'dark'));
       themeToggle.setAttribute('aria-label', theme === 'dark' ? T.themeClair : T.themeSombre);
@@ -247,7 +247,7 @@
     scrollTexts.forEach(function (p, i) {
       var rect = p.getBoundingClientRect();
       var start = vh * 0.88;                 // le paragraphe commence à s'éclairer en entrant par le bas
-      var end = vh * 0.38;                   // et il est entièrement lu quand il atteint le tiers haut
+      var end = vh * 0.6;                    // et il est entièrement lu avant d’atteindre le milieu de l’écran
       var ratio = (start - rect.top) / (rect.height + (start - end));
       ratio = Math.max(0, Math.min(1, ratio));
       var words = scrollTextWords[i];

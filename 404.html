@@ -23,16 +23,18 @@
   <!-- Chemins absolus : GitHub Pages sert cette page depuis n’importe quelle adresse du site. -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;1,9..144,500&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
-  <link rel="stylesheet" href="/Portfolio/styles.css?v=7">
+  <!-- Polices et icônes chargées sans bloquer le rendu (préchargement, puis activation) -->
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;1,9..144,500&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;1,9..144,500&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"></noscript>
+  <link rel="stylesheet" href="/Portfolio/styles.css?v=8">
 </head>
 <body>
   <a class="skip-link" href="#contenu">Aller au contenu</a>
 
   <header class="topbar" id="topbar">
     <div class="container topbar-inner">
-      <a href="/Portfolio/" class="brand" aria-label="Ago Ezoolim-Ela — retour à l’accueil">
+      <a href="/Portfolio/" class="brand" aria-label="Ago Ezoolim-Ela">
         <span class="gem" aria-hidden="true">AE</span>
         <span class="brand-name">Ago <em>Ezoolim-Ela</em></span>
       </a>
@@ -46,7 +48,7 @@
         </ul>
       </nav>
       <div class="topbar-actions">
-        <a href="/Portfolio/assets/CV_Ago_Ezoolim-Ela.pdf" class="btn btn-glass btn-sm btn-cv" target="_blank" rel="noopener">
+        <a href="/Portfolio/assets/CV_Ago_Ezoolim-Ela.pdf" class="btn btn-glass btn-sm btn-cv" target="_blank" rel="noopener" aria-label="Mon CV (PDF)">
           <i class="fa-solid fa-file-arrow-down" aria-hidden="true"></i><span class="btn-cv-label">Mon CV</span>
         </a>
         <button class="icon-btn" id="theme-toggle" type="button" aria-label="Passer en mode sombre" aria-pressed="false">
@@ -87,6 +89,6 @@
     </div>
   </footer>
 
-  <script src="/Portfolio/script.js?v=7" defer></script>
+  <script src="/Portfolio/script.js?v=8" defer></script>
 </body>
 </html>

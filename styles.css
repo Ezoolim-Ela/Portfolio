@@ -743,9 +743,9 @@ body.gallery-open { overflow: hidden; }
 .case-figures li { padding: 18px 20px; border-radius: var(--radius); background: var(--surface); border: 1px solid var(--border); display: flex; flex-direction: column; gap: 4px; }
 .case-figures .figure-num { font-size: clamp(1.8rem, 1.4rem + 1.2vw, 2.4rem); }
 .case-figures .figure-label { font-size: 0.86rem; }
-.modules { display: grid; grid-template-columns: repeat(auto-fill, minmax(190px, 1fr)); gap: 10px; margin-top: 22px; }
-.modules li { display: flex; align-items: center; gap: 10px; padding: 10px 12px; border-radius: var(--radius-sm); background: var(--surface); border: 1px solid var(--border); font-size: 0.9rem; color: var(--text); }
-.modules li .icon { color: var(--primary); width: 18px; height: 18px; }
+.modules { display: grid; grid-template-columns: repeat(auto-fit, minmax(290px, 1fr)); gap: 12px; margin-top: 22px; }
+.modules li { display: flex; align-items: flex-start; gap: 10px; padding: 12px 14px; border-radius: var(--radius-sm); background: var(--surface); border: 1px solid var(--border); font-size: 0.9rem; line-height: 1.45; color: var(--text); }
+.modules li .icon { color: var(--primary); width: 18px; height: 18px; margin-top: 2px; }
 .shots { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 16px; margin-top: 26px; }
 .shots figure { margin: 0; border-radius: var(--radius); overflow: hidden; background: var(--surface); border: 1px solid var(--border); box-shadow: var(--shadow-sm); }
 .shots img { display: block; width: 100%; height: auto; }

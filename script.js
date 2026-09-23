@@ -247,7 +247,7 @@
     scrollTexts.forEach(function (p, i) {
       var rect = p.getBoundingClientRect();
       var start = vh * 0.88;                 // le paragraphe commence à s'éclairer en entrant par le bas
-      var end = vh * 0.38;                   // et il est entièrement lu quand il atteint le tiers haut
+      var end = vh * 0.6;                    // et il est entièrement lu avant d’atteindre le milieu de l’écran
       var ratio = (start - rect.top) / (rect.height + (start - end));
       ratio = Math.max(0, Math.min(1, ratio));
       var words = scrollTextWords[i];

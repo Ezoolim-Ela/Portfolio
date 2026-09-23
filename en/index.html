@@ -64,7 +64,7 @@
   <!-- Police chargée sans bloquer le rendu (préchargement, puis activation) ; icônes : sprite SVG local assets/icons.svg -->
   <link rel="preload" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;1,9..144,500&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
   <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;1,9..144,500&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap"></noscript>
-  <link rel="stylesheet" href="../styles.css?v=13">
+  <link rel="stylesheet" href="../styles.css?v=14">
 </head>
 <body>
 
@@ -150,14 +150,22 @@
             <p class="about-intro">I am <span class="rotator" aria-hidden="true"><span class="rotator-word" id="rotator-word">curious</span></span><span class="sr-only">curious, rigorous, creative and solution-driven.</span></p>
             <p class="scroll-text">Passionate about technology, I am currently in the second year of a Computer Science degree at <strong>IAI-TOGO</strong> (2025-2026), on the Software Engineering and Information Systems track.</p>
             <p class="scroll-text">I like understanding how systems work and finding solutions when something breaks. I give my full attention to my projects, academic and personal alike, and I am looking for an internship to learn alongside professionals while bringing my diligence and good spirits to the team.</p>
-            <ul class="meta-list">
-              <li><svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg#location-dot"></use></svg> Lomé, Togo</li>
-              <li><svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg#building-columns"></use></svg> IAI-TOGO (years 1 &amp; 2)</li>
-              <li><svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg#language"></use></svg> French · English · Kabiye</li>
-            </ul>
           </div>
 
-          <div class="about-cards" data-stagger>
+          <aside class="card about-facts reveal">
+              <p class="about-facts-title">At a glance</p>
+              <dl>
+                <div><dt><svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg#location-dot"></use></svg>Based in</dt><dd>Lomé, Togo</dd></div>
+                <div><dt><svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg#graduation-cap"></use></svg>Studies</dt><dd>2nd-year Computer Science, IAI-TOGO</dd></div>
+                <div><dt><svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg#certificate"></use></svg>Certifications</dt><dd>Cisco CCNA 1 &amp; 2</dd></div>
+                <div><dt><svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg#language"></use></svg>Languages</dt><dd>French · English · Kabiye</dd></div>
+                <div><dt><svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg#paper-plane"></use></svg>Looking for</dt><dd>A software development internship</dd></div>
+              </dl>
+              <a class="btn btn-glow about-facts-cta" href="#contact">Get in touch <svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg#arrow-right"></use></svg></a>
+            </aside>
+        </div>
+
+        <div class="about-cards" data-stagger>
             <article class="card highlight reveal">
               <span class="card-num">01</span>
               <h3>Solid fundamentals</h3>
@@ -171,9 +179,8 @@
             <article class="card highlight reveal">
               <span class="card-num">03</span>
               <h3>From idea to production</h3>
-              <p>STEA is installed on the company workstations, updates itself automatically and runs on a server I administer: I do not stop at the code, I ship and I maintain.</p>
+              <p>STEA is used every day by the client company and receives its updates without any intervention: I do not stop at the code, I ship and I maintain.</p>
             </article>
-          </div>
         </div>
       </div>
     </section>
@@ -691,6 +698,6 @@
     <svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg#arrow-up"></use></svg>
   </button>
 
-  <script src="../script.js?v=13" defer></script>
+  <script src="../script.js?v=14" defer></script>
 </body>
 </html>

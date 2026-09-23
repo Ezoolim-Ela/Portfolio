@@ -61,7 +61,7 @@
   <!-- Police chargée sans bloquer le rendu (préchargement, puis activation) ; icônes : sprite SVG local assets/icons.svg -->
   <link rel="preload" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;1,9..144,500&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
   <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;1,9..144,500&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap"></noscript>
-  <link rel="stylesheet" href="styles.css?v=13">
+  <link rel="stylesheet" href="styles.css?v=14">
 </head>
 <body>
 
@@ -147,14 +147,22 @@
             <p class="about-intro">Je suis <span class="rotator" aria-hidden="true"><span class="rotator-word" id="rotator-word">curieuse</span></span><span class="sr-only">curieuse, rigoureuse, créative et orientée solutions.</span></p>
             <p class="scroll-text">Passionnée par le numérique et les nouvelles technologies, je suis actuellement en deuxième année de Licence en Informatique à l’<strong>IAI-TOGO</strong> (2025-2026), en tronc commun orienté Génie Logiciel et Systèmes d’Information.</p>
             <p class="scroll-text">J’aime comprendre comment les systèmes fonctionnent et trouver des solutions quand quelque chose ne marche pas. Je m’investis pleinement dans mes projets, scolaires comme personnels, et je cherche un stage pour apprendre aux côtés de professionnels tout en apportant mon sérieux et ma bonne humeur à l’équipe.</p>
-            <ul class="meta-list">
-              <li><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#location-dot"></use></svg> Lomé, Togo</li>
-              <li><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#building-columns"></use></svg> IAI-TOGO (L1 &amp; L2)</li>
-              <li><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#language"></use></svg> Français · Anglais · Kabyè</li>
-            </ul>
           </div>
 
-          <div class="about-cards" data-stagger>
+          <aside class="card about-facts reveal">
+              <p class="about-facts-title">En bref</p>
+              <dl>
+                <div><dt><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#location-dot"></use></svg>Basée à</dt><dd>Lomé, Togo</dd></div>
+                <div><dt><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#graduation-cap"></use></svg>Formation</dt><dd>Licence 2 Informatique, IAI-TOGO</dd></div>
+                <div><dt><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#certificate"></use></svg>Certifications</dt><dd>Cisco CCNA 1 &amp; 2</dd></div>
+                <div><dt><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#language"></use></svg>Langues</dt><dd>Français · Anglais · Kabyè</dd></div>
+                <div><dt><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#paper-plane"></use></svg>Je recherche</dt><dd>Un stage en développement</dd></div>
+              </dl>
+              <a class="btn btn-glow about-facts-cta" href="#contact">Me contacter <svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#arrow-right"></use></svg></a>
+            </aside>
+        </div>
+
+        <div class="about-cards" data-stagger>
             <article class="card highlight reveal">
               <span class="card-num">01</span>
               <h3>Rigueur académique</h3>
@@ -168,9 +176,8 @@
             <article class="card highlight reveal">
               <span class="card-num">03</span>
               <h3>De l’idée à la production</h3>
-              <p>STEA est installée sur les postes de l’entreprise, se met à jour automatiquement et tourne sur un serveur que j’administre : je ne m’arrête pas au code, je livre et je maintiens.</p>
+              <p>STEA est utilisée chaque jour par l’entreprise cliente et reçoit ses mises à jour sans intervention : je ne m’arrête pas au code, je livre et je maintiens.</p>
             </article>
-          </div>
         </div>
       </div>
     </section>
@@ -688,6 +695,6 @@
     <svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#arrow-up"></use></svg>
   </button>
 
-  <script src="script.js?v=13" defer></script>
+  <script src="script.js?v=14" defer></script>
 </body>
 </html>

@@ -770,6 +770,14 @@ body.gallery-open { overflow: hidden; }
 @keyframes icon-spin { to { transform: rotate(360deg); } }
 .icon-spin { animation: icon-spin 1s linear infinite; }
 
+/* ---------- Sélecteur de langue ---------- */
+.lang-switch { display: inline-flex; align-items: center; gap: 2px; margin: 0; padding: 3px; border-radius: 10px; background: var(--surface-2); border: 1px solid var(--border); font-family: var(--font-body); font-size: 0.74rem; font-weight: 700; letter-spacing: 0.04em; }
+.lang-switch > * { display: block; padding: 5px 8px; border-radius: 7px; line-height: 1; color: var(--text-3); text-decoration: none; }
+.lang-switch a:hover { color: var(--primary); background: var(--surface); }
+.lang-switch [aria-current] { background: var(--primary); color: #fff; }
+[data-theme="dark"] .lang-switch [aria-current] { color: #14102A; }
+@media (max-width: 640px) { .lang-switch { font-size: 0.7rem; padding: 2px; } .lang-switch > * { padding: 5px 6px; } }
+
 /* ---------- Page 404 ---------- */
 .not-found { min-height: calc(100vh - var(--header-h)); display: flex; align-items: center; padding-block: clamp(3rem, 8vw, 6rem); background: linear-gradient(180deg, var(--surface-2) 0%, var(--bg) 100%); }
 .not-found .container { position: relative; }

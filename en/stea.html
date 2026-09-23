@@ -41,7 +41,7 @@
   <!-- Police chargée sans bloquer le rendu (préchargement, puis activation) ; icônes : sprite SVG local assets/icons.svg -->
   <link rel="preload" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;1,9..144,500&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
   <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;1,9..144,500&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap"></noscript>
-  <link rel="stylesheet" href="../styles.css?v=12">
+  <link rel="stylesheet" href="../styles.css?v=13">
 </head>
 <body>
   <a class="skip-link" href="#contenu">Skip to content</a>
@@ -112,25 +112,25 @@
         <p class="eyebrow">01 · The challenge</p>
         <h2>Knowing at any moment <em>what is in stock, where, and what to reorder</em></h2>
         <div class="case-prose">
-          <p>STEA Trans Euro Afrika runs several warehouses, buys from suppliers, delivers to customers and handles returns. Without a central tool, that kind of information scatters across files and notebooks: the real state of the stock becomes uncertain, shortages are discovered too late and nobody can tell who did what.</p>
-          <p>The application therefore had to keep <strong>a reliable, multi-warehouse stock</strong>, cover <strong>the whole purchase → delivery → return cycle</strong> with its documents, <strong>raise alerts automatically</strong> before a shortage, separate <strong>roles with precise rights</strong> and stay <strong>simple to install</strong> on the company Windows machines, with no on-site technical work at every update.</p>
+          <p>STEA Trans Euro Afrika runs several warehouses, buys, delivers and handles returns. Without a central tool, that kind of information scatters: the real state of the stock becomes uncertain and shortages are discovered too late.</p>
+          <p>The application therefore had to keep <strong>a reliable stock across several warehouses</strong>, cover <strong>the whole purchase → delivery → return cycle</strong>, <strong>raise alerts</strong> before a shortage and stay <strong>simple to install</strong> on the company machines.</p>
         </div>
 
         <div class="case-grid" data-stagger>
           <article class="case-card reveal">
             <span class="case-icon" aria-hidden="true"><svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg#warehouse"></use></svg></span>
             <h3>Stock you can trust</h3>
-            <p>Several warehouses, batches and serial numbers, stock counts and traced resets: every quantity displayed has to match reality.</p>
+            <p>Several warehouses, batches and serial numbers: every quantity displayed has to match reality.</p>
           </article>
           <article class="case-card reveal">
             <span class="case-icon" aria-hidden="true"><svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg#truck-ramp-box"></use></svg></span>
             <h3>The full cycle</h3>
-            <p>Supplier purchase orders, deliveries, delivery notes, returns and credit notes, payments received: the documents follow on from each other without re-typing.</p>
+            <p>Orders, deliveries, returns: the documents follow on from each other without re-typing.</p>
           </article>
           <article class="case-card reveal">
             <span class="case-icon" aria-hidden="true"><svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg#user-shield"></use></svg></span>
             <h3>Precise rights</h3>
-            <p>A stock operator, a logistics manager, an accountant and a sales agent do not see the same thing and cannot perform the same actions.</p>
+            <p>Each role sees what concerns it and acts only within its own scope.</p>
           </article>
         </div>
       </div>
@@ -142,48 +142,29 @@
         <p class="eyebrow">02 · My answer</p>
         <h2>A solid API, a clear interface, <em>a one-click install</em></h2>
         <div class="case-prose">
-          <p>I separated the responsibilities clearly: a <strong>Spring Boot server</strong> that carries all the business rules and the security, a <strong>React interface</strong> that only presents and guides, and an <strong>Electron desktop application</strong> that embeds that interface and updates itself. The same interface is also served as a web version by the server: one codebase, two channels.</p>
+          <p>I separated the responsibilities clearly: a <strong>server</strong> that carries the business rules and the security, an <strong>interface</strong> that presents and guides, and a <strong>desktop application</strong> that embeds that interface and updates itself.</p>
         </div>
 
         <div class="arch">
           <div class="arch-box reveal">
             <h3><svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg#desktop"></use></svg> Desktop application</h3>
-            <p>Electron + React 18, Tailwind CSS, Recharts. Windows installer, automatic update at launch through GitHub Releases (electron-updater). The server address is read from a remote configuration file: changing server requires no new release.</p>
+            <p>Electron and React: a Windows installer, and updates arrive on their own at launch.</p>
           </div>
           <div class="arch-link" aria-hidden="true"><svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg#right-left"></use></svg>HTTPS · JSON</div>
           <div class="arch-box reveal">
             <h3><svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg#server"></use></svg> Server</h3>
-            <p>Spring Boot 3 / Java 17, a REST API of 173 endpoints, 31 JPA entities on MySQL. JWT authentication, role-based authorisation on every endpoint, activity audit log.</p>
+            <p>Spring Boot and MySQL: a REST API carrying the business rules, the authentication and the role-based rights.</p>
           </div>
-          <p class="arch-note reveal"><svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg#circle-info"></use></svg>Operations: a self-hosted, supervised server (database, server and tunnel restarted automatically after an outage), exposed to the internet through a secure tunnel with a fixed address, with a backup of the database and of the previous release before every deployment.</p>
         </div>
 
-        <h3 style="margin-top: 40px; font-size: var(--fs-h3);">24 modules, one single tool</h3>
+        <h3 style="margin-top: 40px; font-size: var(--fs-h3);">24 modules, grouped into six families</h3>
         <ul class="modules" aria-label="Application modules">
-          <li><svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg#gauge-high"></use></svg>Dashboard</li>
-          <li><svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg#boxes-stacked"></use></svg>Items</li>
-          <li><svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg#warehouse"></use></svg>Warehouses</li>
-          <li><svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg#barcode"></use></svg>Batches and serials</li>
-          <li><svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg#right-left"></use></svg>Stock movements</li>
-          <li><svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg#clipboard-check"></use></svg>Stock counts</li>
-          <li><svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg#bell"></use></svg>Replenishment</li>
-          <li><svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg#rotate-left"></use></svg>Stock resets</li>
-          <li><svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg#users"></use></svg>Customers</li>
-          <li><svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg#industry"></use></svg>Suppliers</li>
-          <li><svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg#cart-shopping"></use></svg>Orders</li>
-          <li><svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg#file-invoice"></use></svg>Purchase orders</li>
-          <li><svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg#truck"></use></svg>Deliveries</li>
-          <li><svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg#file-signature"></use></svg>Delivery notes</li>
-          <li><svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg#rotate"></use></svg>Returns and credit notes</li>
-          <li><svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg#coins"></use></svg>Accounting</li>
-          <li><svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg#cash-register"></use></svg>Payment resets</li>
-          <li><svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg#chart-column"></use></svg>Statistics</li>
-          <li><svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg#file-lines"></use></svg>Reports</li>
-          <li><svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg#envelope"></use></svg>Messaging</li>
-          <li><svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg#user-gear"></use></svg>Users</li>
-          <li><svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg#sliders"></use></svg>Settings</li>
-          <li><svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg#clock-rotate-left"></use></svg>Activity log</li>
-          <li><svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg#circle-question"></use></svg>User guide</li>
+          <li><svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg#boxes-stacked"></use></svg>Stock: items, warehouses, batches and serials, movements, counts</li>
+          <li><svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg#cart-shopping"></use></svg>Buying and selling: customers, suppliers, orders</li>
+          <li><svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg#truck"></use></svg>Deliveries: shipments, notes, returns and credit notes</li>
+          <li><svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg#coins"></use></svg>Accounting: payments received and settlement tracking</li>
+          <li><svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg#chart-column"></use></svg>Steering: dashboard, statistics, reports</li>
+          <li><svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg#user-gear"></use></svg>Administration: users, rights, settings, history</li>
         </ul>
       </div>
     </section>
@@ -194,25 +175,25 @@
         <p class="eyebrow">03 · Security and quality</p>
         <h2>The screen hides, <em>the server forbids</em></h2>
         <div class="case-prose">
-          <p>Every access rule exists twice: once in the interface, to show only what is allowed, and once in the server, which refuses what is not, whatever the client sends. Eight roles share the application, including three read-only agent profiles limited to the items of their own department.</p>
+          <p>Every access rule exists twice: in the interface, to show only what is allowed, and in the server, which refuses the rest. Eight roles share the application, three of them read-only.</p>
         </div>
         <div class="case-grid" data-stagger>
           <article class="case-card reveal">
             <span class="case-icon" aria-hidden="true"><svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg#key"></use></svg></span>
             <h3>Access</h3>
             <ul>
-              <li>JWT token authentication (Spring Security)</li>
-              <li>Rate limiting on sign-in attempts</li>
-              <li>Authorisation checked endpoint by endpoint</li>
+              <li>Every account has a role, and every role a scope</li>
+              <li>Rights are checked on the server, not only on screen</li>
+              
             </ul>
           </article>
           <article class="case-card reveal">
             <span class="case-icon" aria-hidden="true"><svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg#clock-rotate-left"></use></svg></span>
             <h3>Traceability</h3>
             <ul>
-              <li>Audit log: who did what, and when</li>
-              <li>Stock and payment resets are traced</li>
-              <li>Database backup before every deployment</li>
+              <li>An audit log keeps who did what, and when</li>
+              <li>Sensitive operations are traced</li>
+              
             </ul>
           </article>
           <article class="case-card reveal">
@@ -220,8 +201,8 @@
             <h3>Verification</h3>
             <ul>
               <li>141 automated tests on the server side</li>
-              <li>Every change tried on an isolated instance with a throwaway database before going live</li>
-              <li>A written, repeatable deployment procedure</li>
+              <li>Every change is tried on a test instance before going live</li>
+              
             </ul>
           </article>
         </div>
@@ -234,8 +215,8 @@
         <p class="eyebrow">04 · Results</p>
         <h2>In production, <em>and still evolving</em></h2>
         <div class="case-prose">
-          <p>The first desktop release was published on 12 August 2026. Since then the application has evolved at the pace of the company’s needs: 29 releases delivered by automatic update in five weeks, without ever reinstalling a machine.</p>
-          <p>One example of a change requested by the company: three read-only agent profiles, each limited to the items of their own department. Mock-up proposed in the morning, approved the same day, server updated that same day.</p>
+          <p>The first version was installed on 12 August 2026. Since then 29 releases have been delivered by automatic update, without ever reinstalling a machine.</p>
+          <p>One example of a change requested by the company: three read-only profiles, limited to their own department. Mock-up in the morning, approved the same day, delivered that day.</p>
         </div>
 
         <ul class="case-figures" aria-label="STEA in numbers">
@@ -275,15 +256,15 @@
         <ol class="lessons" data-stagger>
           <li class="reveal">
             <h3>Shipping is more than coding</h3>
-            <p>A running server cannot be swapped in place: stop, back up, replace, restart, in that order. I learned it by breaking the server once, and turned it into a written procedure I follow at every deployment.</p>
+            <p>Updating a tool people use every day takes method. I wrote my procedure down and follow it every time, rather than improvising.</p>
           </li>
           <li class="reveal">
             <h3>The server decides, the screen suggests</h3>
-            <p>Hiding a button protects nothing. Every access rule is checked on the server, and the interface only reflects what is allowed.</p>
+            <p>Hiding a button protects nothing: rights are checked on the server, and the interface only reflects what is allowed.</p>
           </li>
           <li class="reveal">
             <h3>Check before announcing</h3>
-            <p>Before saying “it is live”, I replay the feature on an isolated instance with a throwaway database. A demonstration beats a promise.</p>
+            <p>Before saying “it is live”, I replay the feature on a test instance. A demonstration beats a promise.</p>
           </li>
         </ol>
 
@@ -355,6 +336,6 @@
     <svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg#arrow-up"></use></svg>
   </button>
 
-  <script src="../script.js?v=12" defer></script>
+  <script src="../script.js?v=13" defer></script>
 </body>
 </html>

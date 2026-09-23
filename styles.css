@@ -606,6 +606,8 @@ body.gallery-open { overflow: hidden; }
 .contact-form.is-sending .btn-sending { display: inline-flex; align-items: center; gap: 8px; }
 .contact-form.is-sending .btn { opacity: 0.8; pointer-events: none; }
 .form-status { font-size: 0.9rem; padding: 12px 14px; border-radius: 10px; }
+.form-status a { color: inherit; font-weight: 600; text-decoration: underline; text-underline-offset: 2px; }
+.form-status a:hover { color: var(--primary); }
 .form-status:empty { display: none; }
 .form-status.is-success { background: var(--success-soft); color: var(--success); }
 .form-status.is-error { background: var(--danger-soft); color: var(--danger); }

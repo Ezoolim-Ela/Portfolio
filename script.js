@@ -334,6 +334,28 @@
       fields[key].el.addEventListener('input', function () { setError(fields[key], ''); });
     });
 
+    /* Si le service d'envoi ne répond pas, le message n'est pas perdu : on prépare
+       un courriel déjà rempli avec ce que la personne vient d'écrire. */
+    function secours() {
+      var corps = 'Nom : ' + fields.name.el.value.trim()
+        + '\nE-mail : ' + fields.email.el.value.trim()
+        + '\n\n' + fields.message.el.value.trim();
+      var lien = 'mailto:agoezoolimela@gmail.com'
+        + '?subject=' + encodeURIComponent('Message depuis le portfolio')
+        + '&body=' + encodeURIComponent(corps);
+      if (!status) return;
+      status.className = 'form-status is-error';
+      status.textContent = '';
+      var p = document.createElement('span');
+      p.textContent = 'L’envoi automatique est indisponible. ';
+      var a = document.createElement('a');
+      a.href = lien;
+      a.textContent = 'Ouvrez votre messagerie avec ce message déjà rempli';
+      var fin = document.createElement('span');
+      fin.textContent = ', ou écrivez-moi à agoezoolimela@gmail.com.';
+      status.appendChild(p); status.appendChild(a); status.appendChild(fin);
+    }
+
     form.addEventListener('submit', function (e) {
       e.preventDefault();
       setStatus('', '');
@@ -354,7 +376,7 @@
             throw new Error(detail || 'Réponse inattendue du service.');
           });
         })
-        .catch(function () { setStatus('Impossible d’envoyer le message pour le moment. Écrivez-moi directement à agoezoolimela@gmail.com.', 'error'); })
+        .catch(function () { secours(); })
         .then(function () { form.classList.remove('is-sending'); });
     });
   }

@@ -78,7 +78,7 @@
   function currentTheme() { return doc.getAttribute('data-theme') === 'dark' ? 'dark' : 'light'; }
   function applyTheme(theme, persist) {
     doc.setAttribute('data-theme', theme);
-    if (metaTheme) metaTheme.setAttribute('content', theme === 'dark' ? '#14102A' : '#F7F5FC');
+    if (metaTheme) metaTheme.setAttribute('content', theme === 'dark' ? '#0B1622' : '#F4F9FD');
     if (themeToggle) {
       themeToggle.setAttribute('aria-pressed', String(theme === 'dark'));
       themeToggle.setAttribute('aria-label', theme === 'dark' ? T.themeClair : T.themeSombre);

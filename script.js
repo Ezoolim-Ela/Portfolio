@@ -3,6 +3,67 @@
    Thème, menu mobile, lien actif, apparition, parcours, galerie, formulaire
    ========================================================== */
 (function () {
+  /* ---------- Textes de l'interface, en français et en anglais ----------
+     La langue vient de l'attribut lang de <html> : les pages de en/ sont en anglais. */
+  var LANGUE = (document.documentElement.getAttribute('lang') || 'fr').slice(0, 2) === 'en' ? 'en' : 'fr';
+  var TEXTES = {
+    fr: {
+      themeClair: 'Passer en mode clair', themeSombre: 'Passer en mode sombre',
+      reduire: 'Réduire', voirDetail: 'Voir le détail',
+      reduireDetail: 'Réduire le détail : ', afficherDetail: 'Afficher le détail : ',
+      fermerMenu: 'Fermer le menu', ouvrirMenu: 'Ouvrir le menu',
+      mots: ['curieuse', 'rigoureuse', 'créative', 'orientée solutions'],
+      erreurNom: 'Merci d’indiquer votre nom.',
+      erreurEmail: 'Merci d’indiquer une adresse e-mail valide.',
+      erreurMessage: 'Votre message est un peu court (10 caractères minimum).',
+      envoye: 'Merci ! Votre message a bien été envoyé. Je vous réponds au plus vite.',
+      secoursDebut: 'L’envoi automatique est indisponible. ',
+      secoursLien: 'Ouvrez votre messagerie avec ce message déjà rempli',
+      secoursFin: ', ou écrivez-moi à agoezoolimela@gmail.com.',
+      sujet: 'Message depuis le portfolio', champNom: 'Nom', champEmail: 'E-mail',
+      ecrans: [
+        'Tableau de bord — indicateurs de stock, encaissements et tâches à traiter',
+        'Statistiques — tableau de bord configurable par widgets et période',
+        'Articles — liste avec seuils d’alerte, prix et niveaux de stock',
+        'Mouvements — entrées, sorties, transferts et ajustements de stock',
+        'Bons de commande — suivi des achats fournisseurs et de leurs statuts',
+        'Livraisons — expéditions en cours et documents associés',
+        'Réapprovisionnement — règles de seuil et alertes automatiques',
+        'Notifications — alertes de stock critique et messagerie interne'
+      ],
+      ecran: 'Écran '
+    },
+    en: {
+      themeClair: 'Switch to light mode', themeSombre: 'Switch to dark mode',
+      reduire: 'Collapse', voirDetail: 'See the detail',
+      reduireDetail: 'Collapse the detail: ', afficherDetail: 'Show the detail: ',
+      fermerMenu: 'Close the menu', ouvrirMenu: 'Open the menu',
+      mots: ['curious', 'rigorous', 'creative', 'solution-driven'],
+      erreurNom: 'Please give your name.',
+      erreurEmail: 'Please give a valid email address.',
+      erreurMessage: 'Your message is a little short (10 characters minimum).',
+      envoye: 'Thank you! Your message has been sent. I will answer shortly.',
+      secoursDebut: 'Automatic sending is unavailable. ',
+      secoursLien: 'Open your mail app with this message already filled in',
+      secoursFin: ', or write to me at agoezoolimela@gmail.com.',
+      sujet: 'Message from the portfolio', champNom: 'Name', champEmail: 'Email',
+      ecrans: [
+        'Dashboard — stock indicators, payments received and tasks to handle',
+        'Statistics — dashboard configurable by widget and period',
+        'Items — list with alert thresholds, prices and stock levels',
+        'Movements — stock in, out, transfers and adjustments',
+        'Purchase orders — tracking supplier orders and their status',
+        'Deliveries — shipments in progress and related documents',
+        'Replenishment — threshold rules and automatic alerts',
+        'Notifications — low-stock alerts and internal messaging'
+      ],
+      ecran: 'Screen '
+    }
+  };
+  var T = TEXTES[LANGUE];
+  /* Les pages anglaises vivent dans en/ : les fichiers communs sont un cran plus haut. */
+  var RACINE = LANGUE === 'en' ? '../' : '';
+
   'use strict';
 
   var doc = document.documentElement;
@@ -20,7 +81,7 @@
     if (metaTheme) metaTheme.setAttribute('content', theme === 'dark' ? '#14102A' : '#F7F5FC');
     if (themeToggle) {
       themeToggle.setAttribute('aria-pressed', String(theme === 'dark'));
-      themeToggle.setAttribute('aria-label', theme === 'dark' ? 'Passer en mode clair' : 'Passer en mode sombre');
+      themeToggle.setAttribute('aria-label', theme === 'dark' ? T.themeClair : T.themeSombre);
     }
     if (persist) { try { localStorage.setItem('theme', theme); } catch (e) { /* stockage indisponible */ } }
   }
@@ -82,11 +143,11 @@
     item.classList.toggle('is-open', open);
     item.querySelectorAll('[aria-expanded]').forEach(function (btn) { btn.setAttribute('aria-expanded', String(open)); });
     var toggleLabel = item.querySelector('.tl-toggle-label');
-    if (toggleLabel) toggleLabel.textContent = open ? 'Réduire' : 'Voir le détail';
+    if (toggleLabel) toggleLabel.textContent = open ? T.reduire : T.voirDetail;
     var marker = item.querySelector('.timeline-marker');
     if (marker) {
       var title = item.querySelector('h3') ? item.querySelector('h3').textContent : '';
-      marker.setAttribute('aria-label', (open ? 'Réduire le détail : ' : 'Afficher le détail : ') + title);
+      marker.setAttribute('aria-label', (open ? T.reduireDetail : T.afficherDetail) + title);
     }
   }
 
@@ -137,7 +198,7 @@
   /* ---------- À propos : mot tournant ---------- */
   var rotatorWord = document.getElementById('rotator-word');
   if (rotatorWord && !reduceMotion) {
-    var rotatorWords = ['curieuse', 'rigoureuse', 'créative', 'orientée solutions'];
+    var rotatorWords = T.mots;
     var rotatorIndex = 0;
     window.setInterval(function () {
       rotatorWord.classList.add('is-out');
@@ -226,7 +287,7 @@
     if (!nav || !navToggle) return;
     nav.classList.toggle('is-open', open);
     navToggle.setAttribute('aria-expanded', String(open));
-    navToggle.setAttribute('aria-label', open ? 'Fermer le menu' : 'Ouvrir le menu');
+    navToggle.setAttribute('aria-label', open ? T.fermerMenu : T.ouvrirMenu);
   }
 
   if (navToggle && nav) {
@@ -325,9 +386,9 @@
     }
     function validate() {
       var ok = true;
-      if (fields.name.el.value.trim().length < 2) { setError(fields.name, 'Merci d’indiquer votre nom.'); ok = false; } else setError(fields.name, '');
-      if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(fields.email.el.value.trim())) { setError(fields.email, 'Merci d’indiquer une adresse e-mail valide.'); ok = false; } else setError(fields.email, '');
-      if (fields.message.el.value.trim().length < 10) { setError(fields.message, 'Votre message est un peu court (10 caractères minimum).'); ok = false; } else setError(fields.message, '');
+      if (fields.name.el.value.trim().length < 2) { setError(fields.name, T.erreurNom); ok = false; } else setError(fields.name, '');
+      if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(fields.email.el.value.trim())) { setError(fields.email, T.erreurEmail); ok = false; } else setError(fields.email, '');
+      if (fields.message.el.value.trim().length < 10) { setError(fields.message, T.erreurMessage); ok = false; } else setError(fields.message, '');
       return ok;
     }
     Object.keys(fields).forEach(function (key) {
@@ -337,22 +398,22 @@
     /* Si le service d'envoi ne répond pas, le message n'est pas perdu : on prépare
        un courriel déjà rempli avec ce que la personne vient d'écrire. */
     function secours() {
-      var corps = 'Nom : ' + fields.name.el.value.trim()
-        + '\nE-mail : ' + fields.email.el.value.trim()
+      var corps = T.champNom + ' : ' + fields.name.el.value.trim()
+        + '\n' + T.champEmail + ' : ' + fields.email.el.value.trim()
         + '\n\n' + fields.message.el.value.trim();
       var lien = 'mailto:agoezoolimela@gmail.com'
-        + '?subject=' + encodeURIComponent('Message depuis le portfolio')
+        + '?subject=' + encodeURIComponent(T.sujet)
         + '&body=' + encodeURIComponent(corps);
       if (!status) return;
       status.className = 'form-status is-error';
       status.textContent = '';
       var p = document.createElement('span');
-      p.textContent = 'L’envoi automatique est indisponible. ';
+      p.textContent = T.secoursDebut;
       var a = document.createElement('a');
       a.href = lien;
-      a.textContent = 'Ouvrez votre messagerie avec ce message déjà rempli';
+      a.textContent = T.secoursLien;
       var fin = document.createElement('span');
-      fin.textContent = ', ou écrivez-moi à agoezoolimela@gmail.com.';
+      fin.textContent = T.secoursFin;
       status.appendChild(p); status.appendChild(a); status.appendChild(fin);
     }
 
@@ -365,12 +426,12 @@
         return;
       }
       var honeypot = form.querySelector('[name="_gotcha"]');
-      if (honeypot && honeypot.value) { form.reset(); setStatus('Merci ! Votre message a bien été envoyé.', 'success'); return; }
+      if (honeypot && honeypot.value) { form.reset(); setStatus(T.envoye, 'success'); return; }
 
       form.classList.add('is-sending');
       fetch(form.action, { method: 'POST', body: new FormData(form), headers: { 'Accept': 'application/json' } })
         .then(function (response) {
-          if (response.ok) { form.reset(); setStatus('Merci ! Votre message a bien été envoyé. Je vous réponds au plus vite.', 'success'); return; }
+          if (response.ok) { form.reset(); setStatus(T.envoye, 'success'); return; }
           return response.json().then(function (data) {
             var detail = data && data.errors ? data.errors.map(function (err) { return err.message; }).join(' ') : '';
             throw new Error(detail || 'Réponse inattendue du service.');
@@ -385,14 +446,14 @@
   var gallery = document.getElementById('galerie-stea');
   if (gallery && typeof gallery.showModal === 'function') {
     var screens = [
-      { src: 'assets/stea/tableau-de-bord-vue-desktop.webp', cap: 'Tableau de bord — indicateurs de stock, encaissements et tâches à traiter' },
-      { src: 'assets/stea/statistiques-widgets-desktop.webp', cap: 'Statistiques — tableau de bord configurable par widgets et période' },
-      { src: 'assets/stea/articles-liste-desktop.webp', cap: 'Articles — liste avec seuils d’alerte, prix et niveaux de stock' },
-      { src: 'assets/stea/mouvements-liste-desktop.webp', cap: 'Mouvements — entrées, sorties, transferts et ajustements de stock' },
-      { src: 'assets/stea/bons-de-commande-liste-desktop.webp', cap: 'Bons de commande — suivi des achats fournisseurs et de leurs statuts' },
-      { src: 'assets/stea/livraisons-liste-desktop.webp', cap: 'Livraisons — expéditions en cours et documents associés' },
-      { src: 'assets/stea/reapprovisionnement-liste-desktop.webp', cap: 'Réapprovisionnement — règles de seuil et alertes automatiques' },
-      { src: 'assets/stea/notifications-vue-desktop.webp', cap: 'Notifications — alertes de stock critique et messagerie interne' }
+      { src: RACINE + 'assets/stea/tableau-de-bord-vue-desktop.webp', cap: T.ecrans[0] },
+      { src: RACINE + 'assets/stea/statistiques-widgets-desktop.webp', cap: T.ecrans[1] },
+      { src: RACINE + 'assets/stea/articles-liste-desktop.webp', cap: T.ecrans[2] },
+      { src: RACINE + 'assets/stea/mouvements-liste-desktop.webp', cap: T.ecrans[3] },
+      { src: RACINE + 'assets/stea/bons-de-commande-liste-desktop.webp', cap: T.ecrans[4] },
+      { src: RACINE + 'assets/stea/livraisons-liste-desktop.webp', cap: T.ecrans[5] },
+      { src: RACINE + 'assets/stea/reapprovisionnement-liste-desktop.webp', cap: T.ecrans[6] },
+      { src: RACINE + 'assets/stea/notifications-vue-desktop.webp', cap: T.ecrans[7] }
     ];
     var gImg = document.getElementById('gallery-img');
     var gCap = document.getElementById('gallery-cap');
@@ -404,7 +465,7 @@
     screens.forEach(function (sc, i) {
       var b = document.createElement('button');
       b.type = 'button';
-      b.setAttribute('aria-label', 'Écran ' + (i + 1) + ' : ' + sc.cap);
+      b.setAttribute('aria-label', T.ecran + (i + 1) + ' : ' + sc.cap);
       var im = document.createElement('img');
       im.src = sc.src; im.alt = ''; im.loading = 'lazy';
       b.appendChild(im);

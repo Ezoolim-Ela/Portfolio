@@ -6,7 +6,7 @@
   <title>Ago Ezoolim-Ela — Software engineering & networks · Portfolio</title>
   <meta name="description" content="Portfolio of Ago Ezoolim-Ela, Software Engineering and Information Systems student at IAI-TOGO (Lomé, Togo) — Java, Spring Boot, PHP, React, SQL, Cisco CCNA 1 & 2 networks. Looking for an internship.">
   <meta name="color-scheme" content="light dark">
-  <meta name="theme-color" id="meta-theme-color" content="#F7F5FC">
+  <meta name="theme-color" id="meta-theme-color" content="#F4F9FD">
   <meta name="author" content="Ago Ezoolim-Ela">
   <link rel="canonical" href="https://ezoolim-ela.github.io/Portfolio/en/">
   <link rel="alternate" hreflang="fr" href="https://ezoolim-ela.github.io/Portfolio/">
@@ -55,7 +55,7 @@
       if (t !== 'dark' && t !== 'light') t = 'light';
       document.documentElement.setAttribute('data-theme', t);
       var m = document.getElementById('meta-theme-color');
-      if (m) m.setAttribute('content', t === 'dark' ? '#14102A' : '#F7F5FC');
+      if (m) m.setAttribute('content', t === 'dark' ? '#0B1622' : '#F4F9FD');
     })();
   </script>
 
@@ -64,7 +64,7 @@
   <!-- Police chargée sans bloquer le rendu (préchargement, puis activation) ; icônes : sprite SVG local assets/icons.svg -->
   <link rel="preload" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;1,9..144,500&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
   <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;1,9..144,500&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap"></noscript>
-  <link rel="stylesheet" href="../styles.css?v=13">
+  <link rel="stylesheet" href="../styles.css?v=15">
 </head>
 <body>
 
@@ -150,14 +150,22 @@
             <p class="about-intro">I am <span class="rotator" aria-hidden="true"><span class="rotator-word" id="rotator-word">curious</span></span><span class="sr-only">curious, rigorous, creative and solution-driven.</span></p>
             <p class="scroll-text">Passionate about technology, I am currently in the second year of a Computer Science degree at <strong>IAI-TOGO</strong> (2025-2026), on the Software Engineering and Information Systems track.</p>
             <p class="scroll-text">I like understanding how systems work and finding solutions when something breaks. I give my full attention to my projects, academic and personal alike, and I am looking for an internship to learn alongside professionals while bringing my diligence and good spirits to the team.</p>
-            <ul class="meta-list">
-              <li><svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg#location-dot"></use></svg> Lomé, Togo</li>
-              <li><svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg#building-columns"></use></svg> IAI-TOGO (years 1 &amp; 2)</li>
-              <li><svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg#language"></use></svg> French · English · Kabiye</li>
-            </ul>
           </div>
 
-          <div class="about-cards" data-stagger>
+          <aside class="card about-facts reveal">
+              <p class="about-facts-title">At a glance</p>
+              <dl>
+                <div><dt><svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg#location-dot"></use></svg>Based in</dt><dd>Lomé, Togo</dd></div>
+                <div><dt><svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg#graduation-cap"></use></svg>Studies</dt><dd>2nd-year Computer Science, IAI-TOGO</dd></div>
+                <div><dt><svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg#certificate"></use></svg>Certifications</dt><dd>Cisco CCNA 1 &amp; 2</dd></div>
+                <div><dt><svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg#language"></use></svg>Languages</dt><dd>French · English · Kabiye</dd></div>
+                <div><dt><svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg#paper-plane"></use></svg>Looking for</dt><dd>A software development internship</dd></div>
+              </dl>
+              <a class="btn btn-glow about-facts-cta" href="#contact">Get in touch <svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg#arrow-right"></use></svg></a>
+            </aside>
+        </div>
+
+        <div class="about-cards" data-stagger>
             <article class="card highlight reveal">
               <span class="card-num">01</span>
               <h3>Solid fundamentals</h3>
@@ -171,9 +179,8 @@
             <article class="card highlight reveal">
               <span class="card-num">03</span>
               <h3>From idea to production</h3>
-              <p>STEA is installed on the company workstations, updates itself automatically and runs on a server I administer: I do not stop at the code, I ship and I maintain.</p>
+              <p>STEA is used every day by the client company and receives its updates without any intervention: I do not stop at the code, I ship and I maintain.</p>
             </article>
-          </div>
         </div>
       </div>
     </section>
@@ -462,14 +469,14 @@
             <div class="scene scene-locatif" aria-hidden="true">
               <svg viewBox="0 0 320 180" class="scene-svg" focusable="false">
                 <defs>
-                  <linearGradient id="bld" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#8B5CF6"/><stop offset="1" stop-color="#5B21B6"/></linearGradient>
-                  <linearGradient id="bld2" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#C4B5FD"/><stop offset="1" stop-color="#A78BFA"/></linearGradient>
+                  <linearGradient id="bld" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#38BDF8"/><stop offset="1" stop-color="#0369A1"/></linearGradient>
+                  <linearGradient id="bld2" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#BAE6FD"/><stop offset="1" stop-color="#7DD3FC"/></linearGradient>
                 </defs>
-                <rect x="0" y="150" width="320" height="30" fill="#DDD6FE"/>
+                <rect x="0" y="150" width="320" height="30" fill="#E0F2FE"/>
                 <rect x="36" y="70" width="70" height="80" rx="4" fill="url(#bld2)" stroke="rgba(109,40,217,.25)"/>
                 <rect x="214" y="58" width="70" height="92" rx="4" fill="url(#bld2)" stroke="rgba(109,40,217,.25)"/>
                 <rect x="112" y="30" width="96" height="120" rx="5" fill="url(#bld)" stroke="rgba(76,29,149,.45)"/>
-                <rect x="150" y="122" width="20" height="28" rx="2" fill="#4C1D95" stroke="rgba(255,255,255,.5)"/>
+                <rect x="150" y="122" width="20" height="28" rx="2" fill="#075985" stroke="rgba(255,255,255,.5)"/>
                 <g class="windows">
                   <rect class="w" x="122" y="42" width="16" height="14" rx="2"/><rect class="w" x="152" y="42" width="16" height="14" rx="2"/><rect class="w" x="182" y="42" width="16" height="14" rx="2"/>
                   <rect class="w" x="122" y="66" width="16" height="14" rx="2"/><rect class="w" x="152" y="66" width="16" height="14" rx="2"/><rect class="w" x="182" y="66" width="16" height="14" rx="2"/>
@@ -691,6 +698,6 @@
     <svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg#arrow-up"></use></svg>
   </button>
 
-  <script src="../script.js?v=13" defer></script>
+  <script src="../script.js?v=15" defer></script>
 </body>
 </html>

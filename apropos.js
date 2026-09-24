@@ -1,10 +1,10 @@
 /* ==========================================================
    À propos « Éclosion »
    Un éventail de lames en relief (couleurs Indigo Steel) recouvre le titre.
-   Sur ordinateur, c'est le défilement qui joue l'animation, comme une vidéo :
-   l'éventail s'ouvre, tourne, puis ses lames s'envolent en spirale vers le
-   haut à droite et révèlent « À propos de moi ».
-   Sur téléphone, la même séquence se joue d'elle-même à l'arrivée.
+   Comme dans la vidéo de référence, la séquence se joue d'elle-même quand la
+   section arrive : l'éventail tourne, puis ses lames partent l'une après
+   l'autre en traînée vers le haut à droite, en se retournant, et révèlent
+   « À propos de moi » au centre. Un clic sur la scène la rejoue.
    ========================================================== */
 (function () {
   var track = document.querySelector('[data-bloom]');
@@ -60,83 +60,79 @@
   function easeOut(x) { return 1 - Math.pow(1 - x, 3); }
   function easeInOut(x) { return x < 0.5 ? 4 * x * x * x : 1 - Math.pow(-2 * x + 2, 3) / 2; }
 
-  // p de 0 à 1 : 0-0,22 ouverture · 0,22-0,42 rotation · 0,42-0,85 envol
+  // ordre de départ : les petites lames du cœur d'abord, puis les moyennes, puis les grandes
+  var order = lames.slice().sort(function (a, b) { return b.ring - a.ring || a.base - b.base; });
+  order.forEach(function (l, i) { l.start = 0.26 + i * 0.022; });
+
+  /* Séquence calquée sur la vidéo (p de 0 à 1, ~2,6 s) :
+     0-0,06 l'éventail ouvert apparaît · 0,04-0,3 il tourne et se resserre
+     0,26-1 les lames partent l'une après l'autre sur la même courbe,
+     en se retournant, et forment une traînée vers le haut à droite. */
   function pose(p) {
     lames.forEach(function (l) {
-      var open = easeOut(clamp(p / 0.22));
-      var turn = easeInOut(clamp((p - 0.22) / 0.2));
-      var fly = clamp((p - 0.42 - l.lag) / 0.36);
-      var f = fly * fly;
-      var rot = l.base - 40 * (1 - open) + 35 * turn + l.spin * fly;
-      var x = W * l.dx * f, y = -H * l.dy * (fly * 0.35 + f * 0.65);
-      var s = (0.3 + 0.7 * open) * (1 - 0.8 * fly);
-      var o = (0.4 + 0.6 * open) * (1 - f);
+      var appear = easeOut(clamp(p / 0.06));
+      var turn = easeInOut(clamp((p - 0.04) / 0.26));
+      var u = clamp((p - l.start) / 0.42);           // avancée de la lame sur la traînée
+      var e = u * u * (3 - 2 * u);
+      // courbe commune : part du centre, file à droite puis remonte (arc de spirale)
+      var x = W * 0.56 * e + W * 0.04 * Math.sin(e * Math.PI);
+      var y = -H * 0.52 * Math.pow(e, 1.7) + H * 0.05 * Math.sin(e * Math.PI);
+      var rot = l.base + 30 * turn + (l.spin + 120) * e;
+      var flip = 540 * e;                              // la lame se retourne en volant (effet 3D)
+      var s = (0.85 + 0.15 * appear - 0.1 * turn) * (1 - 0.75 * e);
+      var o = appear * (1 - clamp((u - 0.6) / 0.4));
       l.el.style.opacity = o.toFixed(3);
-      l.el.style.transform = 'translate(' + x.toFixed(1) + 'px,' + y.toFixed(1) + 'px) rotate(' + rot.toFixed(2) + 'deg) rotateY(' + l.tilt + 'deg) scale(' + s.toFixed(3) + ')';
+      l.el.style.transform = 'translate(' + x.toFixed(1) + 'px,' + y.toFixed(1) + 'px) rotate(' + rot.toFixed(2) + 'deg) rotateY(' + l.tilt + 'deg) rotateX(' + flip.toFixed(1) + 'deg) scale(' + s.toFixed(3) + ')';
     });
   }
 
   var kids = Array.prototype.slice.call(stage.children);
   var words = Array.prototype.slice.call(stage.querySelectorAll('.bloom-words > span'));
   function stageAt(p) {
+    // le titre apparaît au centre dès que l'éventail commence à se vider (comme le logo de la vidéo)
     kids.forEach(function (k, i) {
       if (k.classList.contains('bloom-words')) return;
-      var t = easeOut(clamp((p - 0.5 - i * 0.05) / 0.18));
+      var t = easeOut(clamp((p - 0.3 - i * 0.05) / 0.22));
       k.style.opacity = t.toFixed(3);
-      k.style.transform = 'translateY(' + (24 * (1 - t)).toFixed(1) + 'px) scale(' + (0.94 + 0.06 * t).toFixed(3) + ')';
+      k.style.transform = 'scale(' + (0.9 + 0.1 * t).toFixed(3) + ')';
+      k.style.filter = t < 1 ? 'blur(' + (6 * (1 - t)).toFixed(1) + 'px)' : 'none';
     });
     var wrap = stage.querySelector('.bloom-words');
-    if (wrap) { wrap.style.opacity = p > 0.6 ? 1 : 0; wrap.style.transform = 'none'; }
+    if (wrap) wrap.style.opacity = p > 0.45 ? 1 : 0;
     words.forEach(function (w, i) {
-      var t = easeOut(clamp((p - 0.62 - i * 0.05) / 0.14));
+      var t = easeOut(clamp((p - 0.5 - i * 0.07) / 0.2));
       w.style.display = 'inline-block';
       w.style.opacity = t.toFixed(3);
       w.style.transform = 'translateY(' + (0.6 * (1 - t)).toFixed(2) + 'em) rotate(' + (6 * (1 - t)).toFixed(2) + 'deg)';
     });
-    if (hint) hint.style.opacity = (1 - clamp(p / 0.08)).toFixed(3);
   }
 
-  var desktop = window.matchMedia('(min-width: 861px)');
-
-  /* ----- Ordinateur : le défilement joue la séquence ----- */
-  function scrollMode() {
-    track.classList.add('is-scroll');
+  /* La séquence se joue d'elle-même quand la section arrive à l'écran, comme la vidéo.
+     Un clic sur la scène la rejoue. */
+  var playing = false;
+  function play() {
+    if (playing) return;
+    playing = true;
     measure();
-    var ticking = false;
-    function update() {
-      ticking = false;
-      var r = track.getBoundingClientRect();
-      var span = r.height - (window.innerHeight - (parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--header-h')) || 72));
-      var p = clamp(-r.top / Math.max(1, span * 0.92));
+    var t0 = null, D = 2600;
+    function frame(t) {
+      if (t0 === null) t0 = t;
+      var p = clamp((t - t0) / D);
       pose(p); stageAt(p);
+      if (p < 1) requestAnimationFrame(frame); else playing = false;
     }
-    function onScroll() { if (!ticking) { ticking = true; requestAnimationFrame(update); } }
-    window.addEventListener('scroll', onScroll, { passive: true });
-    window.addEventListener('resize', function () { measure(); onScroll(); });
-    update();
+    requestAnimationFrame(frame);
   }
 
-  /* ----- Téléphone : la séquence se joue seule à l'arrivée ----- */
-  function timeMode() {
-    track.classList.add('is-armed');
-    measure();
-    pose(0);
-    var io = new IntersectionObserver(function (entries) {
-      if (!entries[0].isIntersecting) return;
-      io.disconnect();
-      var t0 = null, D = 2300;
-      function frame(t) {
-        if (t0 === null) t0 = t;
-        var p = clamp((t - t0) / D);
-        pose(p);
-        if (p > 0.5 && !track.classList.contains('is-open')) track.classList.add('is-open');
-        if (p < 1) requestAnimationFrame(frame);
-      }
-      requestAnimationFrame(frame);
-    }, { threshold: 0.45 });
-    io.observe(track);
-    window.addEventListener('resize', measure);
-  }
-
-  if (desktop.matches) scrollMode(); else timeMode();
+  track.classList.add('is-armed');
+  measure();
+  pose(0.001); stageAt(0);
+  var io = new IntersectionObserver(function (entries) {
+    if (!entries[0].isIntersecting) return;
+    io.disconnect();
+    play();
+  }, { threshold: 0.55 });
+  io.observe(track);
+  track.querySelector('.bloom-sticky').addEventListener('click', play);
+  window.addEventListener('resize', function () { if (!playing) { measure(); } });
 })();

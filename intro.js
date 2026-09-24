@@ -2,7 +2,7 @@
    « Coup de dés » — accueil vivant
    1. Ouverture : un dé est lancé, roule, se pose sur le 1,
       puis on plonge dans son point pour arriver sur l'accueil.
-   2. Accueil : vagues qui respirent, lumière qui suit la souris,
+   2. Accueil : blocs en relief qui s'emboîtent, lumière qui suit la souris,
       nom qui se lève lettre par lettre, et un dé à lancer
       qui révèle une facette du profil.
    ========================================================== */
@@ -87,20 +87,34 @@
     });
   }
 
-  /* ---------- Accueil : vagues vivantes ---------- */
-  var waves = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
-  waves.setAttribute('class', 'hero-waves');
-  waves.setAttribute('viewBox', '0 0 600 700');
-  waves.setAttribute('preserveAspectRatio', 'xMaxYMid slice');
-  waves.setAttribute('aria-hidden', 'true');
-  waves.innerHTML =
-    '<g class="wl wl1"><path d="M640 -20H190C330 100 240 260 340 370C430 470 320 610 270 720H640Z" fill="#1B3556"/></g>' +
-    '<g class="wl wl2"><path d="M640 -20H320C430 110 360 260 440 360C520 460 430 610 400 720H640Z" fill="#2C4C73"/></g>' +
-    '<g class="wl wl3"><path d="M640 -20H425C515 120 465 270 525 370C585 470 515 610 495 720H640Z" fill="#4A6C8F"/></g>' +
-    '<g class="wl wl4"><path d="M640 50C535 170 585 290 550 390C515 490 580 610 555 720H640Z" fill="#C3CCD6"/></g>' +
-    '<g class="wl wl5"><path d="M640 170C570 260 600 340 585 420C570 500 600 620 590 720H640Z" fill="#FFFFFF"/></g>' +
-    '<g class="wl wl1"><path d="M190 -20C330 100 240 260 340 370C430 470 320 610 270 720" fill="none" stroke="#FFFFFF" stroke-opacity=".35" stroke-width="2"/></g>';
-  hero.insertBefore(waves, hero.firstChild);
+  /* ---------- Accueil : blocs en relief qui s'emboîtent ---------- */
+  // x, y, largeur, hauteur (en % de l'accueil), couleur, profondeur de parallaxe, arrondis, sens d'arrivée
+  var BLOCS = [
+    [49, -12, 10, 64, '#34495E', 8, '0 0 28px 28px', -1],
+    [57, 6, 9, 42, '#A9D3D9', 30, '26px', 1, 'is-light'],
+    [64, -14, 19, 52, '#2C3E50', 16, '0 0 30px 60px', -1],
+    [81, -8, 23, 34, '#3A6B7A', 24, '0 0 0 34px', -1],
+    [71, 36, 14, 74, '#253545', 12, '28px 28px 0 0', 1],
+    [84, 28, 20, 44, '#4CA1AF', 38, '34px 0 0 34px', 1, 'm-hide'],
+    [58, 52, 15, 60, '#34495E', 20, '26px 26px 0 0', 1],
+    [86, 70, 18, 42, '#8FC7CF', 34, '30px 0 0 0', 1, 'is-light m-hide'],
+    [51, 74, 7, 40, '#2E4A5C', 6, '24px 24px 0 0', 1, 'm-hide']
+  ];
+  var relief = document.createElement('div');
+  relief.className = 'hero-relief';
+  relief.setAttribute('aria-hidden', 'true');
+  BLOCS.forEach(function (b, i) {
+    var d = document.createElement('span');
+    d.className = 'rb' + (b[8] ? ' ' + b[8] : '');
+    d.style.cssText = '--x:' + b[0] + '%;--y:' + b[1] + '%;--w:' + b[2] + '%;--h:' + b[3] + '%;--c:' + b[4] +
+      ';--k:' + b[5] + ';--r:' + b[6] + ';--from:' + (b[7] * 90) + 'px;--i:' + i;
+    relief.appendChild(d);
+  });
+  hero.insertBefore(relief, hero.firstChild);
+  var grain = document.createElement('div');
+  grain.className = 'hero-grain';
+  grain.setAttribute('aria-hidden', 'true');
+  hero.insertBefore(grain, hero.firstChild);
   var glow = document.createElement('div');
   glow.className = 'hero-light';
   glow.setAttribute('aria-hidden', 'true');

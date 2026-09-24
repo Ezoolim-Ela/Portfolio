@@ -37,13 +37,13 @@
 
   /* Le dé roule : il avance et fait un quart de tour par côté parcouru. */
   var rayon = track.querySelector('.dl-rayon');
-  function poser(x, penche) {
-    de.style.transform = 'translateX(' + x.toFixed(1) + 'px) translateY(' + (-penche * 16).toFixed(1) + 'px)';
-    // le faisceau part du dé : il le suit et s'ouvre au moment où il déverse
-    if (rayon) {
-      rayon.style.setProperty('--x', x.toFixed(1) + 'px');
-      rayon.style.setProperty('--ouvert', penche.toFixed(3));
+  var cube = track.querySelector('.dl-cube');
+  /* Le dé reste en place : il se penche au moment où il projette. */
+  function poser(penche) {
+    if (cube) {
+      cube.style.transform = 'rotateX(' + (-20 - penche * 22).toFixed(1) + 'deg) rotateY(' + (-26 + penche * 16).toFixed(1) + 'deg)';
     }
+    de.style.marginBottom = (penche * 10).toFixed(1) + 'px';
   }
 
   var ticking = false;
@@ -52,23 +52,16 @@
     var haut = parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--header-h')) || 72;
     var course = r.height - (window.innerHeight - haut);
     var p = clamp((haut - r.top) / Math.max(1, course));
-    var largeur = piste ? Math.max(120, piste.clientWidth - (de.offsetWidth || 74)) : 300;
 
     // une tranche de défilement par projet : le dé roule, livre, puis repart
     var pas = p * N;
     var i = Math.min(N - 1, Math.floor(pas));
     var u = clamp(pas - i);
 
-    var x, penche = 0, livre = false;
-    var dernier = i === N - 1;
-    if (u < 0.88 || dernier) {               // il roule vers la droite pendant tout le défilement
-      x = largeur * clamp(u / 0.88);
-      penche = Math.sin(clamp((u - 0.1) / 0.12) * Math.PI);   // il se penche pour déverser, en chemin
-      livre = u > 0.14;
-    } else {                                 // dernière fraction : il repart vite vers la gauche
-      x = largeur * (1 - doux(clamp((u - 0.88) / 0.12)));
-    }
-    poser(x, penche);
+    // une tranche par projet : il apparaît, reste projeté, puis laisse la place
+    var penche = Math.sin(clamp(u / 0.12) * Math.PI) * (u < 0.12 ? 1 : 0);
+    var livre = u > 0.08 && (u < 0.94 || i === N - 1);
+    poser(penche);
     montrer(livre ? i : -1);
     if (halo) halo.style.opacity = (livre ? 1 : 0).toFixed(2);
     if (rayon) {

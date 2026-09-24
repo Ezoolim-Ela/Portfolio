@@ -6,7 +6,7 @@
   <title>Ago Ezoolim-Ela — Génie logiciel & réseaux · Portfolio</title>
   <meta name="description" content="Portfolio d’Ago Ezoolim-Ela, étudiante en Génie Logiciel et Systèmes d’Information à l’IAI-TOGO (Lomé) — Java, Spring Boot, PHP, React, SQL, réseaux Cisco CCNA 1 & 2. À la recherche d’un stage.">
   <meta name="color-scheme" content="light dark">
-  <meta name="theme-color" id="meta-theme-color" content="#F4F9FD">
+  <meta name="theme-color" id="meta-theme-color" content="#FFFFFF">
   <meta name="author" content="Ago Ezoolim-Ela">
   <link rel="canonical" href="https://ezoolim-ela.github.io/Portfolio/">
   <link rel="alternate" hreflang="fr" href="https://ezoolim-ela.github.io/Portfolio/">
@@ -43,7 +43,7 @@
     "sameAs": ["https://github.com/Ezoolim-Ela", "https://linkedin.com/in/ago-ezoolim-ela"]
   }
   </script>
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%236D28D9'/%3E%3Ctext x='32' y='43' font-family='Georgia, serif' font-size='28' font-weight='700' fill='white' text-anchor='middle'%3EAE%3C/text%3E%3C/svg%3E">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%232C3E50'/%3E%3Ctext x='32' y='43' font-family='Arial, sans-serif' font-size='27' font-weight='800' fill='white' text-anchor='middle'%3EAE%3C/text%3E%3C/svg%3E">
 
   <script>
     (function () {
@@ -51,17 +51,23 @@
       try { t = localStorage.getItem('theme'); } catch (e) {}
       if (t !== 'dark' && t !== 'light') t = 'light';
       document.documentElement.setAttribute('data-theme', t);
+      try {
+        if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches &&
+            (location.search.indexOf('intro') > -1 || !sessionStorage.getItem('intro-vue'))) {
+          document.documentElement.classList.add('intro-pending');
+        }
+      } catch (e) {}
       var m = document.getElementById('meta-theme-color');
-      if (m) m.setAttribute('content', t === 'dark' ? '#0B1622' : '#F4F9FD');
+      if (m) m.setAttribute('content', t === 'dark' ? '#16202A' : '#FFFFFF');
     })();
   </script>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <!-- Police chargée sans bloquer le rendu (préchargement, puis activation) ; icônes : sprite SVG local assets/icons.svg -->
-  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;1,9..144,500&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
-  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;1,9..144,500&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap"></noscript>
-  <link rel="stylesheet" href="styles.css?v=15">
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Yellowtail&family=JetBrains+Mono:wght@500&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Yellowtail&family=JetBrains+Mono:wght@500&display=swap"></noscript>
+  <link rel="stylesheet" href="styles.css?v=36">
 </head>
 <body>
 
@@ -108,76 +114,75 @@
     <section class="hero" id="accueil">
       <div class="container hero-grid">
         <div class="hero-copy">
-          <p class="pill reveal"><span class="pill-dot" aria-hidden="true"></span> Disponible pour un stage pratique</p>
-          <p class="hello reveal">Bonjour, moi c’est</p>
-          <h1 class="hero-name reveal">Ago Ezoolim-Ela</h1>
-          <p class="hero-role reveal">Étudiante en <em>Génie Logiciel</em> &amp; Systèmes d’Information&nbsp;·&nbsp;<span class="nowrap">IAI-TOGO</span></p>
-          <p class="hero-lead reveal">Je conçois des applications utiles et bien structurées, du back-end Java aux interfaces web, et je m’intéresse de près aux réseaux (Cisco CCNA 1 &amp; 2). Je cherche un stage pour mettre ces compétences en pratique au sein d’une équipe.</p>
-          <div class="hero-actions reveal">
+          <p class="hello hero-enter" style="--d:2">Bonjour, moi c’est</p>
+          <h1 class="hero-name hero-enter" style="--d:3">Ago Ezoolim-Ela</h1>
+          <p class="hero-role hero-enter" style="--d:4">Étudiante en <em>Génie Logiciel</em> &amp; Systèmes d’Information&nbsp;·&nbsp;<span class="nowrap">IAI-TOGO</span></p>
+          <div class="hero-actions hero-enter" style="--d:6">
             <a href="#projets" class="btn btn-glow">Découvrir mes projets <svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#arrow-right"></use></svg></a>
             <a href="#contact" class="btn btn-glass">Me contacter</a>
           </div>
-          <ul class="hero-stats reveal" aria-label="En bref">
+          <ul class="hero-stats hero-enter" style="--d:7" aria-label="En bref">
             <li><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#check"></use></svg> Cisco CCNA 1 &amp; 2 certifiée</li>
             <li><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#check"></use></svg> Une application en production</li>
             <li><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#check"></use></svg> Lomé, Togo</li>
           </ul>
         </div>
 
-        <div class="hero-portrait reveal" aria-hidden="false">
-          <div class="portrait-ring">
-            <img src="assets/photo-ago-ezoolim-ela.jpg" srcset="assets/photo-ago-ezoolim-ela-480.jpg 480w, assets/photo-ago-ezoolim-ela.jpg 640w" sizes="(max-width: 640px) min(240px, 68vw), (max-width: 1024px) min(280px, 70vw), 360px" alt="Portrait d’Ago Ezoolim-Ela, souriante" width="640" height="800" fetchpriority="high">
-          </div>
-          <div class="float-chip chip-1"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#java"></use></svg> Java · Spring Boot</div>
-          <div class="float-chip chip-2"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#network-wired"></use></svg> Cisco CCNA 1 &amp; 2</div>
-          <div class="float-chip chip-3"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#react"></use></svg> React · PHP · SQL</div>
-        </div>
+        <div class="hero-dice" data-dice role="group" aria-label="Lancer le dé"></div>
       </div>
     </section>
 
     <!-- ===== À propos ===== -->
-    <section class="section" id="a-propos">
-      <div class="container">
-        <div class="section-head reveal">
-          <p class="eyebrow">Qui je suis</p>
-          <h2>À propos <em>de moi</em></h2>
+    <section class="section about-bloom" id="a-propos">
+      <!-- Ouverture « Éclosion » : un éventail de lames s'ouvre, tourne et s'envole au fil du défilement -->
+      <div class="bloom-track" data-bloom>
+        <div class="bloom-sticky">
+          <div class="bloom-fan" aria-hidden="true"></div>
+          <div class="bloom-stage">
+            <p class="eyebrow">Qui je suis</p>
+            <h2 class="bloom-title">À propos <em>de moi</em></h2>
+            <p class="bloom-words"><span class="bw">Curieuse</span><span class="bw alt">rigoureuse</span><span class="bw">Créative</span><span class="bw alt">orientée solutions</span></p>
+          </div>
+          <p class="bloom-hint" aria-hidden="true"><span></span>Faites défiler</p>
         </div>
+      </div>
+
+      <div class="container about-body">
         <div class="about-grid">
           <div class="about-text reveal">
-            <p class="about-intro">Je suis <span class="rotator" aria-hidden="true"><span class="rotator-word" id="rotator-word">curieuse</span></span><span class="sr-only">curieuse, rigoureuse, créative et orientée solutions.</span></p>
-            <p class="scroll-text">Passionnée par le numérique et les nouvelles technologies, je suis actuellement en deuxième année de Licence en Informatique à l’<strong>IAI-TOGO</strong> (2025-2026), en tronc commun orienté Génie Logiciel et Systèmes d’Information.</p>
+            <p class="about-lead">Passionnée par le numérique et les nouvelles technologies, je suis actuellement en deuxième année de Licence en Informatique à l’<strong>IAI-TOGO</strong> (2025-2026), en tronc commun orienté Génie Logiciel et Systèmes d’Information.</p>
             <p class="scroll-text">J’aime comprendre comment les systèmes fonctionnent et trouver des solutions quand quelque chose ne marche pas. Je m’investis pleinement dans mes projets, scolaires comme personnels, et je cherche un stage pour apprendre aux côtés de professionnels tout en apportant mon sérieux et ma bonne humeur à l’équipe.</p>
           </div>
 
-          <aside class="card about-facts reveal">
-              <p class="about-facts-title">En bref</p>
-              <dl>
+          <aside class="about-id reveal">
+            <p class="about-id-title">En bref</p>
+            <dl>
                 <div><dt><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#location-dot"></use></svg>Basée à</dt><dd>Lomé, Togo</dd></div>
                 <div><dt><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#graduation-cap"></use></svg>Formation</dt><dd>Licence 2 Informatique, IAI-TOGO</dd></div>
                 <div><dt><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#certificate"></use></svg>Certifications</dt><dd>Cisco CCNA 1 &amp; 2</dd></div>
                 <div><dt><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#language"></use></svg>Langues</dt><dd>Français · Anglais · Kabyè</dd></div>
                 <div><dt><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#paper-plane"></use></svg>Je recherche</dt><dd>Un stage en développement</dd></div>
               </dl>
-              <a class="btn btn-glow about-facts-cta" href="#contact">Me contacter <svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#arrow-right"></use></svg></a>
-            </aside>
+            <a class="btn btn-glow about-facts-cta" href="#contact">Me contacter <svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#arrow-right"></use></svg></a>
+          </aside>
         </div>
 
-        <div class="about-cards" data-stagger>
-            <article class="card highlight reveal">
-              <span class="card-num">01</span>
-              <h3>Rigueur académique</h3>
-              <p>Algorithmique, modélisation et architecture MVC : des bases solides pour concevoir des applications maintenables, du cahier des charges au code.</p>
-            </article>
-            <article class="card highlight reveal">
-              <span class="card-num">02</span>
-              <h3>Esprit technique</h3>
-              <p>Certifiée Cisco CCNA 1 &amp; 2 : je comprends ce qui se passe sous le capot, du routage et des VLAN jusqu’à la sécurisation d’un réseau d’entreprise sous Packet Tracer.</p>
-            </article>
-            <article class="card highlight reveal">
-              <span class="card-num">03</span>
-              <h3>De l’idée à la production</h3>
-              <p>STEA est utilisée chaque jour par l’entreprise cliente et reçoit ses mises à jour sans intervention : je ne m’arrête pas au code, je livre et je maintiens.</p>
-            </article>
+        <div class="petal-cards" data-stagger>
+          <article class="petal-card reveal" style="--c:#2C3E50">
+            <span class="petal-num">01</span>
+            <h3>Rigueur académique</h3>
+            <p>Algorithmique, modélisation et architecture MVC : des bases solides pour concevoir des applications maintenables, du cahier des charges au code.</p>
+          </article>
+          <article class="petal-card reveal" style="--c:#3A6B7A">
+            <span class="petal-num">02</span>
+            <h3>Esprit technique</h3>
+            <p>Certifiée Cisco CCNA 1 &amp; 2 : je comprends ce qui se passe sous le capot, du routage et des VLAN jusqu’à la sécurisation d’un réseau d’entreprise sous Packet Tracer.</p>
+          </article>
+          <article class="petal-card reveal" style="--c:#4CA1AF">
+            <span class="petal-num">03</span>
+            <h3>De l’idée à la production</h3>
+            <p>STEA est utilisée chaque jour par l’entreprise cliente et reçoit ses mises à jour sans intervention : je ne m’arrête pas au code, je livre et je maintiens.</p>
+          </article>
         </div>
       </div>
     </section>
@@ -185,14 +190,17 @@
     <!-- ===== Compétences ===== -->
     <section class="section" id="competences">
       <div class="container">
-        <div class="section-head reveal">
+        <div class="skills-top">
+          <div class="section-head reveal">
           <p class="eyebrow">Ma boîte à outils</p>
           <h2>Mes <em>compétences</em></h2>
           <p class="section-lead">Les technologies que j’utilise dans mes projets académiques et personnels.</p>
         </div>
+          <div class="skills-orbit" data-orbit aria-hidden="true"><canvas></canvas></div>
+        </div>
 
         <div class="skills-grid" data-stagger>
-          <article class="glass skill-group reveal">
+          <article class="glass skill-group reveal" data-ring="0">
             <h3><span class="icon-gem" aria-hidden="true"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#code"></use></svg></span> Programmation</h3>
             <ul class="chips">
               <li class="chip"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#java"></use></svg> Java <small>Swing · Spring Boot</small></li>
@@ -201,7 +209,7 @@
               <li class="chip"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#php"></use></svg> PHP</li>
             </ul>
           </article>
-          <article class="glass skill-group reveal">
+          <article class="glass skill-group reveal" data-ring="1">
             <h3><span class="icon-gem" aria-hidden="true"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#globe"></use></svg></span> Web &amp; données</h3>
             <ul class="chips">
               <li class="chip"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#html5"></use></svg> HTML5</li>
@@ -213,7 +221,7 @@
               <li class="chip"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#plug"></use></svg> API REST</li>
             </ul>
           </article>
-          <article class="glass skill-group reveal">
+          <article class="glass skill-group reveal" data-ring="2">
             <h3><span class="icon-gem" aria-hidden="true"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#network-wired"></use></svg></span> Réseaux &amp; outils</h3>
             <ul class="chips">
               <li class="chip"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#diagram-project"></use></svg> Cisco Packet Tracer</li>
@@ -466,14 +474,14 @@
             <div class="scene scene-locatif" aria-hidden="true">
               <svg viewBox="0 0 320 180" class="scene-svg" focusable="false">
                 <defs>
-                  <linearGradient id="bld" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#38BDF8"/><stop offset="1" stop-color="#0369A1"/></linearGradient>
-                  <linearGradient id="bld2" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#BAE6FD"/><stop offset="1" stop-color="#7DD3FC"/></linearGradient>
+                  <linearGradient id="bld" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#4CA1AF"/><stop offset="1" stop-color="#1E2B38"/></linearGradient>
+                  <linearGradient id="bld2" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#B9E0E6"/><stop offset="1" stop-color="#7CC4CF"/></linearGradient>
                 </defs>
-                <rect x="0" y="150" width="320" height="30" fill="#E0F2FE"/>
+                <rect x="0" y="150" width="320" height="30" fill="#E3EAF2"/>
                 <rect x="36" y="70" width="70" height="80" rx="4" fill="url(#bld2)" stroke="rgba(109,40,217,.25)"/>
                 <rect x="214" y="58" width="70" height="92" rx="4" fill="url(#bld2)" stroke="rgba(109,40,217,.25)"/>
                 <rect x="112" y="30" width="96" height="120" rx="5" fill="url(#bld)" stroke="rgba(76,29,149,.45)"/>
-                <rect x="150" y="122" width="20" height="28" rx="2" fill="#075985" stroke="rgba(255,255,255,.5)"/>
+                <rect x="150" y="122" width="20" height="28" rx="2" fill="#1E2B38" stroke="rgba(255,255,255,.5)"/>
                 <g class="windows">
                   <rect class="w" x="122" y="42" width="16" height="14" rx="2"/><rect class="w" x="152" y="42" width="16" height="14" rx="2"/><rect class="w" x="182" y="42" width="16" height="14" rx="2"/>
                   <rect class="w" x="122" y="66" width="16" height="14" rx="2"/><rect class="w" x="152" y="66" width="16" height="14" rx="2"/><rect class="w" x="182" y="66" width="16" height="14" rx="2"/>
@@ -695,6 +703,9 @@
     <svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#arrow-up"></use></svg>
   </button>
 
-  <script src="script.js?v=15" defer></script>
+  <script src="intro.js?v=11" defer></script>
+  <script src="apropos.js?v=4" defer></script>
+  <script src="anneaux.js?v=2" defer></script>
+  <script src="script.js?v=16" defer></script>
 </body>
 </html>

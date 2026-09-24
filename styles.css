@@ -1221,7 +1221,7 @@ h2 em, .case-section h2 em { font-size: 1.12em; line-height: 0.9; }
 .dl-projet { --c: #4CA1AF; }
 .dl-projet {
   position: absolute; inset: 0; display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
-  align-items: center; gap: clamp(1.4rem, 3.5vw, 3rem);
+  align-items: start; align-content: start; gap: clamp(1.4rem, 3.5vw, 3rem);
   opacity: 0; visibility: hidden; transform: translateY(74px) scale(0.93);
   transition: opacity 0.2s var(--ease), transform 0.45s var(--ease), visibility 0s linear 0.2s;
 }

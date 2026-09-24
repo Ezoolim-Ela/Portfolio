@@ -54,6 +54,12 @@
       try { t = localStorage.getItem('theme'); } catch (e) {}
       if (t !== 'dark' && t !== 'light') t = 'light';
       document.documentElement.setAttribute('data-theme', t);
+      try {
+        if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches &&
+            (location.search.indexOf('intro') > -1 || !sessionStorage.getItem('intro-vue'))) {
+          document.documentElement.classList.add('intro-pending');
+        }
+      } catch (e) {}
       var m = document.getElementById('meta-theme-color');
       if (m) m.setAttribute('content', t === 'dark' ? '#0C1A2C' : '#FFFFFF');
     })();
@@ -64,7 +70,7 @@
   <!-- Police chargée sans bloquer le rendu (préchargement, puis activation) ; icônes : sprite SVG local assets/icons.svg -->
   <link rel="preload" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;1,9..144,500&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Great+Vibes&family=JetBrains+Mono:wght@500&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
   <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;1,9..144,500&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Great+Vibes&family=JetBrains+Mono:wght@500&display=swap"></noscript>
-  <link rel="stylesheet" href="../styles.css?v=16">
+  <link rel="stylesheet" href="../styles.css?v=18">
 </head>
 <body>
 
@@ -111,30 +117,23 @@
     <section class="hero" id="home">
       <div class="container hero-grid">
         <div class="hero-copy">
-          <p class="pill reveal"><span class="pill-dot" aria-hidden="true"></span> Available for an internship</p>
-          <p class="hello reveal">Hello, I am</p>
-          <h1 class="hero-name reveal">Ago Ezoolim-Ela</h1>
-          <p class="hero-role reveal">Student in <em>Software Engineering</em> &amp; Information Systems&nbsp;·&nbsp;<span class="nowrap">IAI-TOGO</span></p>
-          <p class="hero-lead reveal">I build useful, well-structured applications, from Java back-ends to web interfaces, and I take a close interest in networks (Cisco CCNA 1 &amp; 2). I am looking for an internship to put these skills to work inside a team.</p>
-          <div class="hero-actions reveal">
+          <p class="pill hero-enter" style="--d:1"><span class="pill-dot" aria-hidden="true"></span> Available for an internship</p>
+          <p class="hello hero-enter" style="--d:2">Hello, I am</p>
+          <h1 class="hero-name hero-enter" style="--d:3">Ago Ezoolim-Ela</h1>
+          <p class="hero-role hero-enter" style="--d:4">Student in <em>Software Engineering</em> &amp; Information Systems&nbsp;·&nbsp;<span class="nowrap">IAI-TOGO</span></p>
+          <p class="hero-lead hero-enter" style="--d:5">I build useful, well-structured applications, from Java back-ends to web interfaces, and I take a close interest in networks (Cisco CCNA 1 &amp; 2). I am looking for an internship to put these skills to work inside a team.</p>
+          <div class="hero-actions hero-enter" style="--d:6">
             <a href="#projects" class="btn btn-glow">See my projects <svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg#arrow-right"></use></svg></a>
             <a href="#contact" class="btn btn-glass">Get in touch</a>
           </div>
-          <ul class="hero-stats reveal" aria-label="At a glance">
+          <ul class="hero-stats hero-enter" style="--d:7" aria-label="At a glance">
             <li><svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg#check"></use></svg> Cisco CCNA 1 &amp; 2 certified</li>
             <li><svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg#check"></use></svg> One application in production</li>
             <li><svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg#check"></use></svg> Lomé, Togo</li>
           </ul>
         </div>
 
-        <div class="hero-portrait reveal" aria-hidden="false">
-          <div class="portrait-ring">
-            <img src="../assets/photo-ago-ezoolim-ela.jpg" srcset="../assets/photo-ago-ezoolim-ela-480.jpg 480w, ../assets/photo-ago-ezoolim-ela.jpg 640w" sizes="(max-width: 640px) min(240px, 68vw), (max-width: 1024px) min(280px, 70vw), 360px" alt="Portrait of Ago Ezoolim-Ela, smiling" width="640" height="800" fetchpriority="high">
-          </div>
-          <div class="float-chip chip-1"><svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg#java"></use></svg> Java · Spring Boot</div>
-          <div class="float-chip chip-2"><svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg#network-wired"></use></svg> Cisco CCNA 1 &amp; 2</div>
-          <div class="float-chip chip-3"><svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg#react"></use></svg> React · PHP · SQL</div>
-        </div>
+        <div class="hero-dice" data-dice role="group" aria-label="Roll the dice"></div>
       </div>
     </section>
 
@@ -698,6 +697,7 @@
     <svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg#arrow-up"></use></svg>
   </button>
 
+  <script src="../intro.js?v=1" defer></script>
   <script src="../script.js?v=16" defer></script>
 </body>
 </html>

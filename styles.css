@@ -1201,115 +1201,148 @@ h2 em, .case-section h2 em { font-size: 1.12em; line-height: 0.9; }
 
 
 /* =========================================================
-   « Le dé lanceur » : un petit dé roule et déverse un projet
+   « Le dé lanceur » : un théâtre sombre, un dé qui roule et projette
    ========================================================= */
-.dl-track { position: relative; height: 400vh; }
+.dl-track { position: relative; height: 420vh; }
 .dl-sticky {
   position: sticky; top: var(--header-h); height: calc(100vh - var(--header-h));
   display: grid; align-items: center; overflow: hidden; isolation: isolate;
+  background: radial-gradient(85% 70% at 50% 108%, #2E4A57 0%, var(--navy) 62%);
+  --text: #FFFFFF; --text-2: #C4D3D9; --text-3: #94A7B1;
+  --surface: #22323C; --border: rgba(255, 255, 255, 0.14); --border-strong: rgba(255, 255, 255, 0.3);
+  color: var(--text);
 }
-/* la lumière prend la couleur du projet livré */
+.dl-sticky::before { content: ''; position: absolute; inset: 0; z-index: -2; background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='e'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.75' numOctaves='3' stitchTiles='stitch'/%3E%3CfeDiffuseLighting lighting-color='%23ffffff' surfaceScale='2.4'%3E%3CfeDistantLight azimuth='225' elevation='52'/%3E%3C/feDiffuseLighting%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23e)'/%3E%3C/svg%3E"); opacity: 0.1; mix-blend-mode: overlay; pointer-events: none; }
+/* la nappe de lumière colorée du projet livré */
 .dl-halo {
   position: absolute; inset: 0; z-index: -1; opacity: 0; pointer-events: none;
-  background: radial-gradient(62% 58% at 64% 32%, color-mix(in srgb, var(--c, #4CA1AF) 38%, transparent) 0%, transparent 72%);
+  background: radial-gradient(70% 62% at 50% 100%, color-mix(in srgb, var(--c, #4CA1AF) 55%, transparent) 0%, transparent 72%);
   transition: opacity 0.6s var(--ease), background 0.6s var(--ease);
 }
-.dl-scene { display: grid; grid-template-rows: minmax(0, 1fr) auto; gap: clamp(1rem, 2.5vw, 2rem); height: 100%; padding-block: clamp(1.2rem, 3vh, 2.4rem); }
+.dl-scene { display: grid; grid-template-rows: minmax(0, 1fr) auto; gap: clamp(0.8rem, 2vw, 1.6rem); height: 100%; padding-block: clamp(1.2rem, 3vh, 2.2rem) 0; }
 
-/* ----- la scène du projet ----- */
+/* ----- le projet projeté ----- */
 .dl-stage { position: relative; min-height: 0; }
-.dl-projet { --c: #4CA1AF; }
 .dl-projet {
-  position: absolute; inset: 0; display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
-  align-items: start; align-content: start; gap: clamp(1.4rem, 3.5vw, 3rem);
-  opacity: 0; visibility: hidden; transform: translateY(74px) scale(0.93);
-  transition: opacity 0.2s var(--ease), transform 0.45s var(--ease), visibility 0s linear 0.2s;
+  --c: #4CA1AF;
+  position: absolute; inset: 0; display: grid; grid-template-columns: minmax(0, 1.12fr) minmax(0, 0.88fr);
+  align-items: start; align-content: start; gap: clamp(1.4rem, 3vw, 2.6rem);
+  opacity: 0; visibility: hidden; transform: translateY(90px) scale(0.9);
+  transform-origin: 50% 120%;
+  transition: opacity 0.22s var(--ease), transform 0.5s var(--ease), visibility 0s linear 0.22s;
 }
-.dl-projet.is-on { opacity: 1; visibility: visible; transform: none; transition: opacity 0.45s var(--ease) 0.12s, transform 0.7s cubic-bezier(0.2, 0.85, 0.25, 1.02) 0.12s, visibility 0s; }
+.dl-projet.is-on {
+  opacity: 1; visibility: visible; transform: none;
+  transition: opacity 0.5s var(--ease) 0.1s, transform 0.85s cubic-bezier(0.16, 0.9, 0.24, 1.03) 0.1s, visibility 0s;
+}
 
-/* la capture */
+/* la capture, présentée de trois quarts dans la lumière */
 .dl-shot {
   position: relative; display: block; width: 100%; padding: 0; overflow: hidden;
-  border-radius: 18px; border: 1px solid var(--border); background: var(--surface);
-  box-shadow: 0 30px 60px -34px rgba(16, 26, 34, 0.55), 0 4px 14px -8px rgba(16, 26, 34, 0.25),
-    0 0 0 6px color-mix(in srgb, var(--c, #4CA1AF) 14%, transparent);
+  border-radius: 16px; border: 1px solid rgba(255, 255, 255, 0.16); background: #1B2830;
+  box-shadow: 0 42px 70px -30px rgba(0, 0, 0, 0.75),
+    0 0 70px -10px color-mix(in srgb, var(--c) 55%, transparent);
+  transform: perspective(1400px) rotateY(4deg) rotateX(1.5deg);
+  transition: transform 0.85s var(--ease);
 }
+.dl-projet.is-on .dl-shot { transform: perspective(1400px) rotateY(-3deg) rotateX(1deg); }
 .dl-shot img { display: block; width: 100%; height: auto; }
 .dl-shot-vrai { cursor: zoom-in; padding-top: 26px; }
-.dl-bar { position: absolute; top: 0; left: 0; right: 0; height: 26px; display: flex; align-items: center; gap: 6px; padding-left: 12px; background: var(--surface-2); border-bottom: 1px solid var(--border); }
-.dl-bar i { width: 8px; height: 8px; border-radius: 50%; background: var(--border-strong); }
+.dl-bar { position: absolute; top: 0; left: 0; right: 0; height: 26px; display: flex; align-items: center; gap: 6px; padding-left: 12px; background: rgba(255, 255, 255, 0.07); border-bottom: 1px solid rgba(255, 255, 255, 0.1); }
+.dl-bar i { width: 8px; height: 8px; border-radius: 50%; background: rgba(255, 255, 255, 0.25); }
 .dl-loupe {
   position: absolute; right: 12px; bottom: 12px; display: inline-flex; align-items: center; justify-content: center;
-  width: 36px; height: 36px; border-radius: 50%; background: rgba(16, 26, 34, 0.72); color: #FFFFFF;
+  width: 38px; height: 38px; border-radius: 50%; background: rgba(255, 255, 255, 0.92); color: var(--navy);
   opacity: 0; transition: opacity 0.25s var(--ease);
 }
 .dl-shot-vrai:hover .dl-loupe, .dl-shot-vrai:focus-visible .dl-loupe { opacity: 1; }
-/* les illustrations gardent leur cadre */
 .dl-shot .scene { margin: 0; border-radius: 0; }
 
 /* le texte */
-.dl-num { font-family: var(--font-display); font-weight: 800; font-size: clamp(2.2rem, 1.4rem + 2.6vw, 3.4rem); line-height: 1; letter-spacing: -0.04em; color: transparent; -webkit-text-stroke: 1.5px var(--border-strong); margin-bottom: 8px; }
-.dl-kind { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; margin-bottom: 10px; }
-.dl-projet h3 { font-size: clamp(1.35rem, 1.05rem + 1.3vw, 2rem); letter-spacing: -0.02em; margin-bottom: 10px; text-wrap: balance; }
-.dl-desc { color: var(--text-2); font-size: var(--fs-md); line-height: 1.6; max-width: 48ch; }
-.dl-projet .tags { margin-top: 14px; }
-.dl-projet .project-links { margin-top: 18px; }
-
-/* ----- la piste et le dé ----- */
-.dl-bas { display: grid; gap: clamp(0.8rem, 2vw, 1.4rem); }
-.dl-piste { --taille: clamp(64px, 6.6vw, 88px); position: relative; height: 96px; }
-.dl-sol { position: absolute; left: 0; right: 0; bottom: 14px; height: 1px; background: linear-gradient(90deg, transparent, var(--border-strong) 12%, var(--border-strong) 88%, transparent); }
-.dl-de {
-  position: absolute; left: 0; bottom: 16px; width: var(--taille); height: var(--taille);
+.dl-num {
+  position: absolute; right: 0; top: -0.18em; z-index: -1;
+  font-family: var(--font-display); font-weight: 800; font-size: clamp(5rem, 3rem + 8vw, 11rem); line-height: 0.8;
+  letter-spacing: -0.05em; color: rgba(255, 255, 255, 0.05);
 }
+.dl-texte { position: relative; padding-top: clamp(0.5rem, 2vh, 1.5rem); }
+.dl-kind { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; margin-bottom: 12px; }
+.dl-kind .project-kind { background: rgba(255, 255, 255, 0.1); color: #C7E6EB; border-color: transparent; }
+.dl-projet h3 { font-size: clamp(1.4rem, 1.05rem + 1.5vw, 2.2rem); letter-spacing: -0.02em; margin-bottom: 12px; text-wrap: balance; }
+.dl-desc { color: var(--text-2); font-size: var(--fs-md); line-height: 1.6; max-width: 46ch; }
+.dl-projet .tags { margin-top: 16px; }
+.dl-projet .tags li { background: rgba(255, 255, 255, 0.08); border-color: rgba(255, 255, 255, 0.12); color: #D6E3E8; }
+.dl-projet .project-links { margin-top: 20px; }
+.dl-projet .btn-glass { background: rgba(255, 255, 255, 0.08); color: #FFFFFF; border-color: rgba(255, 255, 255, 0.2); }
+.dl-projet .btn-glass:hover { border-color: #FFFFFF; }
+.dl-projet .btn-glow { background: #FFFFFF; color: var(--navy); box-shadow: 0 10px 26px -14px rgba(0, 0, 0, 0.8); }
+
+/* ----- la piste, le dé et sa lumière ----- */
+.dl-bas { display: grid; gap: clamp(0.6rem, 1.6vw, 1.1rem); padding-bottom: clamp(0.8rem, 2vh, 1.4rem); }
+.dl-piste { --taille: clamp(78px, 8vw, 110px); position: relative; height: calc(var(--taille) + 46px); perspective: 900px; perspective-origin: 50% 70%; }
+.dl-sol {
+  position: absolute; left: 0; right: 0; bottom: 18px; height: 2px;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.28) 14%, rgba(255, 255, 255, 0.28) 86%, transparent);
+}
+.dl-de { position: absolute; left: 0; bottom: 20px; width: var(--taille); height: var(--taille); }
 .dl-cube { position: absolute; inset: 0; transform-style: preserve-3d; }
 .dl-face {
   position: absolute; inset: 0; display: grid; grid-template: repeat(3, 1fr) / repeat(3, 1fr); padding: 16%;
-  border-radius: 18%; background: linear-gradient(152deg, #FFFFFF 0%, #F0F4F6 46%, #C9D6DC 100%);
-  box-shadow: inset 0 0 0 1.5px rgba(16, 26, 34, 0.14), inset 0 -10px 20px rgba(16, 26, 34, 0.18);
+  border-radius: 18%; background: linear-gradient(152deg, #FFFFFF 0%, #EFF4F6 46%, #C2D0D7 100%);
+  box-shadow: inset 0 0 0 1.5px rgba(16, 26, 34, 0.16), inset 0 -10px 20px rgba(16, 26, 34, 0.2);
   backface-visibility: hidden;
 }
-.dl-face i { width: 80%; aspect-ratio: 1; place-self: center; border-radius: 50%; background: radial-gradient(circle at 34% 30%, #55758C 0%, var(--navy) 58%); box-shadow: inset 0 1.5px 2px rgba(0, 0, 0, 0.45), 0 0 0 0.5px rgba(16, 26, 34, 0.15); }
+.dl-face i { width: 80%; aspect-ratio: 1; place-self: center; border-radius: 50%; background: radial-gradient(circle at 34% 30%, #55758C 0%, var(--navy) 58%); box-shadow: inset 0 1.5px 2px rgba(0, 0, 0, 0.45); }
 .dl-front { transform: translateZ(calc(var(--taille) / 2)); }
 .dl-back { transform: rotateY(180deg) translateZ(calc(var(--taille) / 2)); }
 .dl-right { transform: rotateY(90deg) translateZ(calc(var(--taille) / 2)); }
 .dl-left { transform: rotateY(-90deg) translateZ(calc(var(--taille) / 2)); }
 .dl-top { transform: rotateX(90deg) translateZ(calc(var(--taille) / 2)); }
 .dl-bottom { transform: rotateX(-90deg) translateZ(calc(var(--taille) / 2)); }
-/* au moment où il déverse, le dé se penche vers la scène */
-.dl-piste { perspective: 760px; perspective-origin: 50% 70%; }
+/* la flaque de lumière sous le dé */
 .dl-de::after {
-  content: ''; position: absolute; left: 50%; bottom: -13px; width: 135%; height: 14px; translate: -50% 0;
-  border-radius: 50%; background: radial-gradient(closest-side, rgba(16, 26, 34, 0.38), transparent);
-  filter: blur(3px);
+  content: ''; position: absolute; left: 50%; bottom: -16px; width: 200%; height: 26px; translate: -50% 0;
+  border-radius: 50%; filter: blur(6px);
+  background: radial-gradient(closest-side, color-mix(in srgb, var(--c, #4CA1AF) 70%, transparent), transparent);
+  opacity: 0.85;
+}
+
+/* le faisceau : net près du dé, largement ouvert vers le projet */
+.dl-rayon {
+  position: absolute; left: calc(var(--taille) / 2); bottom: calc(var(--taille) * 0.45); z-index: -1; pointer-events: none;
+  width: min(1000px, 74vw); height: 74vh; margin-left: calc(min(1000px, 74vw) / -2); translate: var(--x, 0) 0;
+  clip-path: polygon(47.5% 100%, 52.5% 100%, 100% 0, 0 0);
+  opacity: 0; transition: opacity 0.5s var(--ease);
+  mix-blend-mode: screen;
+}
+.dl-rayon::before {
+  content: ''; position: absolute; inset: 0;
+  background: linear-gradient(to top, color-mix(in srgb, var(--c, #4CA1AF) 92%, transparent) 0%, color-mix(in srgb, var(--c, #4CA1AF) 40%, transparent) 34%, transparent 86%);
+  filter: blur(9px);
 }
 
 /* ----- les pastilles ----- */
 .dl-puces { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; }
 .dl-puce {
-  display: inline-flex; align-items: center; gap: 8px; padding: 8px 14px; border-radius: 999px; cursor: pointer;
-  background: var(--surface); border: 1px solid var(--border); color: var(--text-2);
-  font: 500 0.84rem var(--font-body); transition: border-color 0.3s, color 0.3s, background-color 0.3s;
+  display: inline-flex; align-items: center; gap: 8px; padding: 8px 15px; border-radius: 999px; cursor: pointer;
+  background: rgba(255, 255, 255, 0.07); border: 1px solid rgba(255, 255, 255, 0.14); color: #C4D3D9;
+  font: 500 0.85rem var(--font-body); transition: border-color 0.3s, color 0.3s, background-color 0.3s;
 }
-.dl-puce:hover { border-color: var(--border-strong); color: var(--text); }
-.dl-puce.is-on { background: var(--primary); border-color: var(--primary); color: #FFFFFF; }
-[data-theme="dark"] .dl-puce.is-on { color: var(--navy); }
-.dl-puce-num { font-family: var(--font-mono); font-size: 0.72rem; opacity: 0.75; }
+.dl-puce:hover { border-color: rgba(255, 255, 255, 0.5); color: #FFFFFF; }
+.dl-puce.is-on { background: #FFFFFF; border-color: #FFFFFF; color: var(--navy); }
+.dl-puce-num { font-family: var(--font-mono); font-size: 0.72rem; opacity: 0.7; }
 
 @media (max-width: 980px) {
-  .dl-track { height: 340vh; }
-  .dl-projet { grid-template-columns: 1fr; align-content: start; gap: 1rem; text-align: center; }
+  .dl-track { height: 360vh; }
+  .dl-projet { grid-template-columns: 1fr; gap: 1rem; text-align: center; }
   .dl-kind, .dl-projet .tags, .dl-projet .project-links { justify-content: center; }
   .dl-desc { margin-inline: auto; }
   .dl-num { display: none; }
   .dl-shot { max-width: 520px; margin-inline: auto; }
-  .dl-piste { height: 76px; }
 }
 @media (max-width: 640px) {
   .dl-track { height: auto; }
-  .dl-sticky { position: relative; top: 0; height: auto; padding-block: 1rem 2rem; }
-  .dl-stage { min-height: 420px; }
-  .dl-projet .project-links { display: flex; }
+  .dl-sticky { position: relative; top: 0; height: auto; padding-block: 1.6rem 2rem; }
+  .dl-stage { min-height: 440px; }
   .dl-piste { display: none; }
 }
 @media (prefers-reduced-motion: reduce) {
@@ -1319,15 +1352,14 @@ h2 em, .case-section h2 em { font-size: 1.12em; line-height: 0.9; }
   .dl-projet { position: relative; inset: auto; opacity: 1; visibility: visible; transform: none; transition: none; }
   .dl-piste { display: none; }
 }
-
-/* le faisceau : le dé projette le projet au-dessus de lui */
-.dl-rayon {
-  position: absolute; left: calc(var(--taille) / 2); bottom: 52px; z-index: -1; pointer-events: none;
-  width: min(560px, 52vw); height: 60vh; margin-left: calc(min(560px, 52vw) / -2); translate: var(--x, 0) 0;
-  background: linear-gradient(to top, color-mix(in srgb, var(--c, #4CA1AF) 70%, transparent) 0%, color-mix(in srgb, var(--c, #4CA1AF) 26%, transparent) 40%, transparent 84%);
-  clip-path: polygon(46.5% 100%, 53.5% 100%, 100% 0, 0 0);
-  filter: blur(5px);
-  opacity: 0; transition: opacity 0.55s var(--ease);
+/* des poussières de lumière montent dans le faisceau : le vide s'anime */
+.dl-rayon::after {
+  content: ''; position: absolute; inset: 0;
+  background-image: radial-gradient(circle, rgba(255, 255, 255, 0.95) 0 1.3px, transparent 1.8px);
+  background-size: 52px 52px;
+  -webkit-mask-image: linear-gradient(to top, #000 0%, transparent 72%);
+  mask-image: linear-gradient(to top, #000 0%, transparent 72%);
+  opacity: 0.55; animation: dl-poussiere 7s linear infinite;
 }
-/* le projet surgit du dé plutôt que d'apparaître sur place */
-.dl-projet { transform-origin: 50% 100%; }
+@keyframes dl-poussiere { to { background-position: 0 -260px; } }
+@media (prefers-reduced-motion: reduce) { .dl-rayon::after { animation: none; } }

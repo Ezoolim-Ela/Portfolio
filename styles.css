@@ -1123,11 +1123,10 @@ h1, h2, .case-hero h1, .case-section h2 { font-weight: 700; letter-spacing: -0.0
 .about-intro, .featured h3, .contact-info h3, .gallery-title { font-weight: 700; letter-spacing: -0.02em; }
 .stat-num, .figure-num, .dice-card-num, .not-found-code { font-weight: 800; letter-spacing: -0.03em; }
 /* le mot mis en avant : écriture manuscrite franche, lisible sur la texture */
-h2 em, .case-section h2 em, .hero-name em, .not-found .hero-name em, .rotator-word {
+h2 em, .case-section h2 em, .not-found .hero-name em, .rotator-word {
   font-family: var(--font-script); font-style: normal; font-weight: 400; letter-spacing: 0; color: var(--primary);
 }
 h2 em, .case-section h2 em { font-size: 1.12em; line-height: 0.9; }
-.hero-name em { font-size: 1.06em; line-height: 0.92; }
 .rotator-word { font-size: 1.1em; padding-right: 0.08em; }
 .hello { font-size: 1.8rem; }
 .project-quote p { font-family: var(--font-body); }
@@ -1268,6 +1267,3 @@ h2 em, .case-section h2 em { font-size: 1.12em; line-height: 0.9; }
   .skills-orbit { height: 300px; order: -1; }
 }
 [data-theme="dark"] .skill-group[data-ring="0"] { --ring: #5D7A96; }
-
-/* accueil : un seul titre de bienvenue, qui tient sur deux ou trois lignes */
-.hero-name { max-width: 13ch; margin-bottom: 32px; }

@@ -77,13 +77,21 @@
     var text = nameEl.textContent;
     nameEl.setAttribute('aria-label', text);
     nameEl.textContent = '';
-    text.split('').forEach(function (ch, i) {
-      var s = document.createElement('span');
-      s.className = 'ch';
-      s.setAttribute('aria-hidden', 'true');
-      s.style.setProperty('--i', i);
-      s.textContent = ch === ' ' ? ' ' : ch;
-      nameEl.appendChild(s);
+    // chaque mot reste insécable : le nom ne se coupe jamais au milieu d'un mot
+    var n = 0;
+    text.split(' ').forEach(function (word, w) {
+      if (w > 0) nameEl.appendChild(document.createTextNode(' '));
+      var box = document.createElement('span');
+      box.className = 'word';
+      box.setAttribute('aria-hidden', 'true');
+      word.split('').forEach(function (ch) {
+        var s = document.createElement('span');
+        s.className = 'ch';
+        s.style.setProperty('--i', n++);
+        s.textContent = ch;
+        box.appendChild(s);
+      });
+      nameEl.appendChild(box);
     });
   }
 

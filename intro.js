@@ -74,28 +74,41 @@
     return cube;
   }
 
-  /* ---------- Accueil : lettres du nom ---------- */
+  /* ---------- Accueil : le titre se lève lettre par lettre ---------- */
   var nameEl = hero.querySelector('.hero-name');
   if (nameEl && !reduceMotion) {
-    var text = nameEl.textContent;
-    nameEl.setAttribute('aria-label', text);
-    nameEl.textContent = '';
-    // chaque mot reste insécable : le nom ne se coupe jamais au milieu d'un mot
+    nameEl.setAttribute('aria-label', nameEl.textContent.replace(/\s+/g, ' ').trim());
     var n = 0;
-    text.split(' ').forEach(function (word, w) {
-      if (w > 0) nameEl.appendChild(document.createTextNode(' '));
-      var box = document.createElement('span');
-      box.className = 'word';
-      box.setAttribute('aria-hidden', 'true');
-      word.split('').forEach(function (ch) {
-        var s = document.createElement('span');
-        s.className = 'ch';
-        s.style.setProperty('--i', n++);
-        s.textContent = ch;
-        box.appendChild(s);
+    (function decouper(node) {
+      Array.prototype.slice.call(node.childNodes).forEach(function (child) {
+        if (child.nodeType === 3) {
+          // du texte : une lettre par span, les mots restant insécables
+          var frag = document.createDocumentFragment();
+          child.textContent.split(/(\s+)/).forEach(function (part) {
+            if (!part) return;
+            if (/^\s+$/.test(part)) { frag.appendChild(document.createTextNode(' ')); return; }
+            var box = document.createElement('span');
+            box.className = 'word';
+            box.setAttribute('aria-hidden', 'true');
+            part.split('').forEach(function (ch) {
+              var lettre = document.createElement('span');
+              lettre.className = 'ch';
+              lettre.style.setProperty('--i', n++);
+              lettre.textContent = ch;
+              box.appendChild(lettre);
+            });
+            frag.appendChild(box);
+          });
+          node.replaceChild(frag, child);
+        } else if (child.nodeType === 1) {
+          // le mot en écriture manuscrite reste d'un seul tenant : ses lettres sont liées
+          child.classList.add('ch');
+          child.style.setProperty('--i', n);
+          child.setAttribute('aria-hidden', 'true');
+          n += child.textContent.length;
+        }
       });
-      nameEl.appendChild(box);
-    });
+    })(nameEl);
   }
 
   /* ---------- Accueil : blocs en relief qui s'emboîtent ---------- */

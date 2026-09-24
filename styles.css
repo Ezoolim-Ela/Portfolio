@@ -1208,3 +1208,8 @@ h2 em, .case-section h2 em { font-size: 1.12em; line-height: 0.9; }
   .petal-cards { grid-template-columns: 1fr; }
   .bloom-sticky { min-height: 460px; padding: 70px 16px 50px; }
 }
+/* Éclosion en lecture automatique (comme la vidéo) : scène d'un seul écran, sans défilement figé */
+.bloom-sticky { min-height: clamp(460px, 72vh, 720px); cursor: default; }
+.bloom-hint { display: none; }
+.js .bloom-track.is-armed .bloom-stage > * { opacity: 0; }
+.js .bloom-track.is-armed .bloom-words > span { opacity: 0; }

@@ -1164,118 +1164,6 @@ h2 em, .case-section h2 em { font-size: 1.12em; line-height: 0.9; }
 
 
 /* =========================================================
-   « Le dé des projets » : chaque face porte un projet
-   ========================================================= */
-.pd-track { position: relative; height: 420vh; }
-.pd-sticky { position: sticky; top: var(--header-h); height: calc(100vh - var(--header-h)); display: grid; align-items: center; overflow: hidden; }
-.pd-grid { display: grid; grid-template-columns: minmax(0, 1.02fr) minmax(0, 0.98fr); align-items: center; gap: clamp(1.5rem, 4vw, 4rem); }
-
-/* ----- le panneau de détail ----- */
-.pd-panel { position: relative; min-height: 430px; }
-.pd-detail { position: absolute; inset: 0; opacity: 0; visibility: hidden; transform: translateY(16px); transition: opacity 0.18s var(--ease), transform 0.4s var(--ease), visibility 0s linear 0.18s; }
-.pd-detail.is-on { opacity: 1; visibility: visible; transform: none; transition: opacity 0.4s var(--ease) 0.16s, transform 0.5s var(--ease) 0.16s, visibility 0s; }
-.pd-num { font-family: var(--font-display); font-weight: 800; font-size: clamp(2.4rem, 1.6rem + 2.6vw, 3.6rem); line-height: 1; letter-spacing: -0.04em; color: transparent; -webkit-text-stroke: 1.5px var(--border-strong); margin-bottom: 10px; }
-.pd-kind { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; margin-bottom: 12px; }
-.pd-detail h3 { font-size: clamp(1.4rem, 1.1rem + 1.3vw, 2rem); letter-spacing: -0.02em; margin-bottom: 12px; text-wrap: balance; }
-.pd-text { color: var(--text-2); font-size: var(--fs-md); line-height: 1.6; max-width: 54ch; }
-.pd-detail .project-context { margin-top: 18px; }
-.pd-detail .project-figures { margin-top: 16px; }
-.pd-detail .tags { margin-top: 16px; }
-.pd-detail .project-links { margin-top: 20px; }
-
-/* ----- la scène ----- */
-.pd-stage { position: relative; display: grid; justify-items: center; gap: clamp(1.6rem, 4vw, 2.6rem); }
-.pd-perspective { position: relative; container-type: inline-size; width: min(clamp(240px, 27vw, 340px), 72vw); aspect-ratio: 1; perspective: 1400px; }
-.pd-cube {
-  --s: 100%;
-  position: relative; width: 100%; height: 100%; transform-style: preserve-3d;
-  transform: rotateX(-14deg) rotateY(0deg);
-  animation: pd-float 7s ease-in-out infinite;
-}
-
-@keyframes pd-float { 0%, 100% { translate: 0 0; } 50% { translate: 0 -12px; } }
-
-.pd-face, .pd-core { position: absolute; inset: 0; border-radius: 11%; backface-visibility: hidden; }
-.pd-core { background: #1B2733; }
-.pd-face.side, .pd-face.top, .pd-face.bottom {
-  display: grid; align-content: space-between; padding: 9%;
-  background: linear-gradient(155deg, color-mix(in srgb, var(--c, #22303D) 82%, #FFFFFF) 0%, var(--c, #22303D) 52%, color-mix(in srgb, var(--c, #22303D) 78%, #000000) 100%);
-  box-shadow: inset 2px 2px 0 rgba(255, 255, 255, 0.10), inset -4px -6px 14px rgba(0, 0, 0, 0.30);
-  color: #FFFFFF; overflow: hidden;
-}
-.pd-face.side::after, .pd-face.top::after {
-  content: ''; position: absolute; inset: 0; border-radius: inherit; background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='e'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.75' numOctaves='3' stitchTiles='stitch'/%3E%3CfeDiffuseLighting lighting-color='%23ffffff' surfaceScale='2.4'%3E%3CfeDistantLight azimuth='225' elevation='52'/%3E%3C/feDiffuseLighting%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23e)'/%3E%3C/svg%3E"); opacity: 0.35; mix-blend-mode: overlay; pointer-events: none;
-}
-.pd-face.top { --c: #2C3E50; place-items: center; align-content: center; }
-.pd-face.bottom { --c: #1B2733; }
-.pd-mono { transform: rotate(180deg); font-family: var(--font-display); font-weight: 800; font-size: 26cqw; letter-spacing: -0.04em; color: rgba(255, 255, 255, 0.25); }
-
-/* placement des six faces */
-.pd-face.f0 { transform: translateZ(50cqw); }
-.pd-core.front { transform: translateZ(calc(50cqw - 3px)); }
-.pd-face.f1 { transform: rotateY(90deg) translateZ(50cqw); }
-.pd-face.f2 { transform: rotateY(180deg) translateZ(50cqw); }
-.pd-face.f3 { transform: rotateY(-90deg) translateZ(50cqw); }
-.pd-face.top { transform: rotateX(90deg) translateZ(50cqw); }
-.pd-face.bottom { transform: rotateX(-90deg) translateZ(50cqw); }
-.pd-core.right { transform: rotateY(90deg) translateZ(calc(50cqw - 3px)); }
-.pd-core.back { transform: rotateY(180deg) translateZ(calc(50cqw - 3px)); }
-.pd-core.left { transform: rotateY(-90deg) translateZ(calc(50cqw - 3px)); }
-.pd-core.up { transform: rotateX(90deg) translateZ(calc(50cqw - 3px)); }
-.pd-core.down { transform: rotateX(-90deg) translateZ(calc(50cqw - 3px)); }
-
-/* contenu d'une face */
-.pd-face-num { font-family: var(--font-display); font-weight: 800; font-size: 15cqw; line-height: 1; letter-spacing: -0.04em; color: rgba(255, 255, 255, 0.32); }
-.pd-face-ico { position: absolute; right: 8%; top: 8%; display: grid; place-items: center; width: 16cqw; aspect-ratio: 1; border-radius: 28%; background: rgba(255, 255, 255, 0.14); color: #C7E6EB; }
-.pd-face-ico .icon { width: 52%; height: 52%; }
-.pd-face-kind { font-size: 4.4cqw; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: #9ED3DB; margin-top: auto; }
-.pd-face-title { font-family: var(--font-display); font-weight: 700; font-size: 10cqw; line-height: 1.08; letter-spacing: -0.025em; margin-top: 1.5cqw; text-wrap: balance; }
-.pd-face-tags { display: flex; flex-wrap: wrap; gap: 2cqw; margin-top: 4cqw; }
-.pd-face-tags li { padding: 1cqw 2.6cqw; border-radius: 999px; background: rgba(255, 255, 255, 0.12); border: 1px solid rgba(255, 255, 255, 0.18); font-size: 4.1cqw; font-weight: 500; white-space: nowrap; }
-
-.pd-shadow { position: absolute; left: 50%; bottom: -7%; width: 64%; height: 6%; translate: -50% 0; border-radius: 50%; background: radial-gradient(closest-side, rgba(20, 30, 40, 0.34), transparent); }
-
-/* ----- les pastilles ----- */
-.pd-dots { position: relative; z-index: 2; display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; }
-.pd-dot {
-  display: inline-flex; align-items: center; gap: 8px; padding: 8px 14px; border-radius: 999px; cursor: pointer;
-  background: var(--surface); border: 1px solid var(--border); color: var(--text-2);
-  font: 500 0.84rem var(--font-body); transition: border-color 0.3s, color 0.3s, background-color 0.3s;
-}
-.pd-dot:hover { border-color: var(--border-strong); color: var(--text); }
-.pd-dot.is-on { background: var(--primary); border-color: var(--primary); color: #FFFFFF; }
-[data-theme="dark"] .pd-dot.is-on { color: var(--navy); }
-.pd-dot-num { font-family: var(--font-mono); font-size: 0.72rem; opacity: 0.75; }
-
-@media (max-width: 980px) {
-  .pd-track { height: 380vh; }
-  .pd-grid { grid-template-columns: 1fr; gap: 1.2rem; justify-items: center; text-align: center; }
-  .pd-stage { order: -1; }
-  .pd-perspective { width: min(240px, 58vw); }
-  .pd-panel { min-height: 300px; width: 100%; }
-  .pd-detail { align-content: start; }
-  .pd-kind, .pd-dots { justify-content: center; }
-  .pd-text { margin-inline: auto; }
-  .pd-detail .project-context, .pd-detail .project-figures { display: none; }
-  .pd-detail .tags, .pd-detail .project-links { justify-content: center; }
-}
-@media (max-width: 640px) {
-  .pd-sticky { height: auto; position: relative; top: 0; padding-block: 1.5rem 2rem; }
-  .pd-track { height: auto; }
-  .pd-panel { min-height: 260px; }
-}
-@media (prefers-reduced-motion: reduce) {
-  .pd-cube { animation: none !important; }
-  .pd-track { height: auto; }
-  .pd-sticky { position: relative; top: 0; height: auto; padding-block: 2rem; }
-}
-
-/* la face de devant s'éclaire légèrement */
-.pd-face.side { transition: filter 0.5s var(--ease); filter: brightness(0.82); }
-.pd-face.side.is-front { filter: brightness(1); }
-.pd-shadow { filter: blur(6px); }
-
-/* =========================================================
    « Le déversement » : les compétences sortent de la sculpture
    ========================================================= */
 /* dès que le déversement prend la main, la cascade simple se tait */
@@ -1309,4 +1197,126 @@ h2 em, .case-section h2 em { font-size: 1.12em; line-height: 0.9; }
 }
 @media (prefers-reduced-motion: reduce) {
   .skills-orbit, .skills-top { transition: none; }
+}
+
+
+/* =========================================================
+   « Le dé lanceur » : un petit dé roule et déverse un projet
+   ========================================================= */
+.dl-track { position: relative; height: 400vh; }
+.dl-sticky {
+  position: sticky; top: var(--header-h); height: calc(100vh - var(--header-h));
+  display: grid; align-items: center; overflow: hidden; isolation: isolate;
+}
+/* la lumière prend la couleur du projet livré */
+.dl-halo {
+  position: absolute; inset: 0; z-index: -1; opacity: 0; pointer-events: none;
+  background: radial-gradient(62% 58% at 64% 32%, color-mix(in srgb, var(--c, #4CA1AF) 38%, transparent) 0%, transparent 72%);
+  transition: opacity 0.6s var(--ease), background 0.6s var(--ease);
+}
+.dl-scene { display: grid; grid-template-rows: minmax(0, 1fr) auto; gap: clamp(1rem, 2.5vw, 2rem); height: 100%; padding-block: clamp(1.2rem, 3vh, 2.4rem); }
+
+/* ----- la scène du projet ----- */
+.dl-stage { position: relative; min-height: 0; }
+.dl-projet { --c: #4CA1AF; }
+.dl-projet {
+  position: absolute; inset: 0; display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+  align-items: center; gap: clamp(1.4rem, 3.5vw, 3rem);
+  opacity: 0; visibility: hidden; transform: translateY(26px) scale(0.985);
+  transition: opacity 0.2s var(--ease), transform 0.45s var(--ease), visibility 0s linear 0.2s;
+}
+.dl-projet.is-on { opacity: 1; visibility: visible; transform: none; transition: opacity 0.45s var(--ease) 0.14s, transform 0.6s var(--ease) 0.14s, visibility 0s; }
+
+/* la capture */
+.dl-shot {
+  position: relative; display: block; width: 100%; padding: 0; overflow: hidden;
+  border-radius: 18px; border: 1px solid var(--border); background: var(--surface);
+  box-shadow: 0 30px 60px -34px rgba(16, 26, 34, 0.55), 0 4px 14px -8px rgba(16, 26, 34, 0.25),
+    0 0 0 6px color-mix(in srgb, var(--c, #4CA1AF) 14%, transparent);
+}
+.dl-shot img { display: block; width: 100%; height: auto; }
+.dl-shot-vrai { cursor: zoom-in; padding-top: 26px; }
+.dl-bar { position: absolute; top: 0; left: 0; right: 0; height: 26px; display: flex; align-items: center; gap: 6px; padding-left: 12px; background: var(--surface-2); border-bottom: 1px solid var(--border); }
+.dl-bar i { width: 8px; height: 8px; border-radius: 50%; background: var(--border-strong); }
+.dl-loupe {
+  position: absolute; right: 12px; bottom: 12px; display: inline-flex; align-items: center; justify-content: center;
+  width: 36px; height: 36px; border-radius: 50%; background: rgba(16, 26, 34, 0.72); color: #FFFFFF;
+  opacity: 0; transition: opacity 0.25s var(--ease);
+}
+.dl-shot-vrai:hover .dl-loupe, .dl-shot-vrai:focus-visible .dl-loupe { opacity: 1; }
+/* les illustrations gardent leur cadre */
+.dl-shot .scene { margin: 0; border-radius: 0; }
+
+/* le texte */
+.dl-num { font-family: var(--font-display); font-weight: 800; font-size: clamp(2.2rem, 1.4rem + 2.6vw, 3.4rem); line-height: 1; letter-spacing: -0.04em; color: transparent; -webkit-text-stroke: 1.5px var(--border-strong); margin-bottom: 8px; }
+.dl-kind { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; margin-bottom: 10px; }
+.dl-projet h3 { font-size: clamp(1.35rem, 1.05rem + 1.3vw, 2rem); letter-spacing: -0.02em; margin-bottom: 10px; text-wrap: balance; }
+.dl-desc { color: var(--text-2); font-size: var(--fs-md); line-height: 1.6; max-width: 48ch; }
+.dl-projet .tags { margin-top: 14px; }
+.dl-projet .project-links { margin-top: 18px; }
+
+/* ----- la piste et le dé ----- */
+.dl-bas { display: grid; gap: clamp(0.8rem, 2vw, 1.4rem); }
+.dl-piste { position: relative; height: 96px; }
+.dl-sol { position: absolute; left: 0; right: 0; bottom: 14px; height: 1px; background: linear-gradient(90deg, transparent, var(--border-strong) 12%, var(--border-strong) 88%, transparent); }
+.dl-de {
+  --taille: clamp(56px, 6vw, 76px); --penche: 0;
+  position: absolute; left: 0; bottom: 15px; width: var(--taille); height: var(--taille);
+  transform-style: preserve-3d; transform-origin: 50% 50%;
+  filter: drop-shadow(0 12px 14px rgba(16, 26, 34, 0.32));
+}
+.dl-face {
+  position: absolute; inset: 0; display: grid; grid-template: repeat(3, 1fr) / repeat(3, 1fr); padding: 15%;
+  border-radius: 20%; background: linear-gradient(150deg, #FFFFFF 0%, #EDF2F4 58%, #D8E2E6 100%);
+  box-shadow: inset 0 0 0 1px rgba(16, 26, 34, 0.08), inset 0 -8px 16px rgba(16, 26, 34, 0.12);
+  backface-visibility: hidden;
+}
+.dl-face i { width: 74%; aspect-ratio: 1; place-self: center; border-radius: 50%; background: radial-gradient(circle at 36% 32%, #4A6A80 0%, var(--navy) 62%); box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.35); }
+.dl-front { transform: translateZ(calc(var(--taille) / 2)); }
+.dl-back { transform: rotateY(180deg) translateZ(calc(var(--taille) / 2)); }
+.dl-right { transform: rotateY(90deg) translateZ(calc(var(--taille) / 2)); }
+.dl-left { transform: rotateY(-90deg) translateZ(calc(var(--taille) / 2)); }
+.dl-top { transform: rotateX(90deg) translateZ(calc(var(--taille) / 2)); }
+.dl-bottom { transform: rotateX(-90deg) translateZ(calc(var(--taille) / 2)); }
+/* au moment où il déverse, le dé se penche vers la scène */
+.dl-piste { perspective: 900px; }
+.dl-de::after {
+  content: ''; position: absolute; left: 50%; bottom: -11px; width: 120%; height: 10px; translate: -50% 0;
+  border-radius: 50%; background: radial-gradient(closest-side, rgba(16, 26, 34, 0.35), transparent);
+}
+
+/* ----- les pastilles ----- */
+.dl-puces { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; }
+.dl-puce {
+  display: inline-flex; align-items: center; gap: 8px; padding: 8px 14px; border-radius: 999px; cursor: pointer;
+  background: var(--surface); border: 1px solid var(--border); color: var(--text-2);
+  font: 500 0.84rem var(--font-body); transition: border-color 0.3s, color 0.3s, background-color 0.3s;
+}
+.dl-puce:hover { border-color: var(--border-strong); color: var(--text); }
+.dl-puce.is-on { background: var(--primary); border-color: var(--primary); color: #FFFFFF; }
+[data-theme="dark"] .dl-puce.is-on { color: var(--navy); }
+.dl-puce-num { font-family: var(--font-mono); font-size: 0.72rem; opacity: 0.75; }
+
+@media (max-width: 980px) {
+  .dl-track { height: 340vh; }
+  .dl-projet { grid-template-columns: 1fr; align-content: start; gap: 1rem; text-align: center; }
+  .dl-kind, .dl-projet .tags, .dl-projet .project-links { justify-content: center; }
+  .dl-desc { margin-inline: auto; }
+  .dl-num { display: none; }
+  .dl-shot { max-width: 520px; margin-inline: auto; }
+  .dl-piste { height: 76px; }
+}
+@media (max-width: 640px) {
+  .dl-track { height: auto; }
+  .dl-sticky { position: relative; top: 0; height: auto; padding-block: 1rem 2rem; }
+  .dl-stage { min-height: 420px; }
+  .dl-projet .project-links { display: flex; }
+  .dl-piste { display: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .dl-track { height: auto; }
+  .dl-sticky { position: relative; top: 0; height: auto; padding-block: 2rem; }
+  .dl-stage { display: grid; gap: 3rem; min-height: 0; }
+  .dl-projet { position: relative; inset: auto; opacity: 1; visibility: visible; transform: none; transition: none; }
+  .dl-piste { display: none; }
 }

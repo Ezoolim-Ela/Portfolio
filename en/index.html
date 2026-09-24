@@ -70,7 +70,7 @@
   <!-- Police chargée sans bloquer le rendu (préchargement, puis activation) ; icônes : sprite SVG local assets/icons.svg -->
   <link rel="preload" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Yellowtail&family=JetBrains+Mono:wght@500&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
   <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Yellowtail&family=JetBrains+Mono:wght@500&display=swap"></noscript>
-  <link rel="stylesheet" href="../styles.css?v=54">
+  <link rel="stylesheet" href="../styles.css?v=56">
 </head>
 <body>
 
@@ -135,111 +135,166 @@
 
     <!-- ===== Projets ===== -->
     <section class="section" id="projects">
-      <!-- « Le dé des projets » : chaque face porte un projet, le défilement fait tourner le dé -->
+      <!-- « Le dé lanceur » : le dé roule et déverse un projet à chaque arrêt -->
       <div class="container">
         <div class="section-head reveal">
           <p class="eyebrow">Achievements</p>
           <h2>My <em>projects</em></h2>
-          <p class="section-lead">Four projects, four faces. Scroll: the die turns and introduces each of them.</p>
+          <p class="section-lead">Scroll: the die rolls and pours out one project at a time.</p>
         </div>
       </div>
 
-      <div class="pd-track" data-de-projets>
-        <div class="pd-sticky">
-          <div class="container pd-grid">
-            <div class="pd-panel">
-          <article class="pd-detail is-on" data-pd="0">
-            <p class="pd-num" aria-hidden="true">01</p>
-            <div class="pd-kind">
-              <span class="project-kind gold">Flagship project · 2026</span><span class="live-badge"><span class="live-dot" aria-hidden="true"></span> In production</span>
-            </div>
-            <h3>STEA — Logistics management and stock tracking</h3>
-            <p class="pd-text">A stock and logistics management application built for STEA Trans Euro Afrika SARL, in Lomé. It covers the whole cycle, from purchases to deliveries, and runs today on the company workstations.</p>
-            <dl class="project-context">
-              <div><dt>My role</dt><dd>Design and development of the whole system: back-end, interface, desktop application and deployment.</dd></div>
-              <div><dt>Duration</dt><dd>July – September 2026 · in production since August 2026</dd></div>
-            </dl>
-            <ul class="project-figures" aria-label="STEA"><li><span class="figure-num" data-count="24">0</span><span class="figure-label">business modules</span></li><li><span class="figure-num" data-count="8">0</span><span class="figure-label">user roles</span></li><li><span class="figure-num" data-count="173">0</span><span class="figure-label">REST endpoints</span></li><li><span class="figure-num" data-count="141">0</span><span class="figure-label">automated tests</span></li><li><span class="figure-num" data-count="29">0</span><span class="figure-label">releases published</span></li></ul>
-            <ul class="tags"><li>Java 17</li><li>Spring Boot</li><li>MySQL</li><li>JWT</li><li>React</li><li>Tailwind CSS</li><li>Recharts</li><li>Electron</li></ul>
-            <div class="project-links">
-              <a href="../stea.html" class="btn btn-glow btn-sm"><svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg#book-open"></use></svg> Case study</a>
-              <button type="button" class="btn btn-glass btn-sm" data-gallery-open="0"><svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg#images"></use></svg> View the screens</button>
-              <a href="https://github.com/Ezoolim-Ela/stea_stock_application" target="_blank" rel="noopener" class="btn btn-glass btn-sm"><svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg#github"></use></svg> Source code</a>
-              <a href="https://github.com/Ezoolim-Ela/stea-desktop" target="_blank" rel="noopener" class="btn btn-glass btn-sm"><svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg#desktop"></use></svg> Desktop app</a>
-            </div>
-          </article>
-          <article class="pd-detail" data-pd="1">
-            <p class="pd-num" aria-hidden="true">02</p>
-            <div class="pd-kind">
-              <span class="project-kind">Academic project</span>
-            </div>
-            <h3>Rental management application</h3>
-            <p class="pd-text">Managing properties, rental contracts and rent payments.</p>
-            <ul class="tags"><li>Java</li><li>SQL Server</li><li>MVC</li></ul>
-          </article>
-          <article class="pd-detail" data-pd="2">
-            <p class="pd-num" aria-hidden="true">03</p>
-            <div class="pd-kind">
-              <span class="project-kind">Web development</span>
-            </div>
-            <h3>Dynamic web platform</h3>
-            <p class="pd-text">An interactive site with a database, authentication and an administration back-office.</p>
-            <ul class="tags"><li>PHP</li><li>MySQL</li><li>HTML / CSS</li></ul>
-          </article>
-          <article class="pd-detail" data-pd="3">
-            <p class="pd-num" aria-hidden="true">04</p>
-            <div class="pd-kind">
-              <span class="project-kind">Networks &amp; infrastructure</span>
-            </div>
-            <h3>Secured network architecture</h3>
-            <p class="pd-text">A multi-site company network simulated and configured, with segmentation and access control.</p>
-            <ul class="tags"><li>Cisco Packet Tracer</li><li>CCNA</li><li>Routing</li></ul>
-          </article>
+      <div class="dl-track" data-de-lanceur>
+        <div class="dl-sticky">
+          <span class="dl-halo" aria-hidden="true"></span>
+          <div class="container dl-scene">
+            <div class="dl-stage">
+            <article class="dl-projet is-on" data-dl="0" data-c="#4CA1AF" style="--c:#4CA1AF">
+              <button type="button" class="dl-shot dl-shot-vrai" data-gallery-open="0" aria-label="View the screens">
+                <span class="dl-bar" aria-hidden="true"><i></i><i></i><i></i></span>
+                <img src="../assets/stea/tableau-de-bord-vue-desktop.webp" srcset="../assets/stea/tableau-de-bord-vue-desktop-720.webp 720w, ../assets/stea/tableau-de-bord-vue-desktop-1080.webp 1080w, ../assets/stea/tableau-de-bord-vue-desktop.webp 1440w" sizes="(max-width: 980px) calc(100vw - 48px), 560px" alt="STEA dashboard: stock indicators, payments received and tasks to handle" width="1440" height="900" loading="lazy">
+                <span class="dl-loupe" aria-hidden="true"><svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg#magnifying-glass-plus"></use></svg></span>
+              </button>
+              <div class="dl-texte">
+                <p class="dl-num" aria-hidden="true">01</p>
+                <p class="dl-kind"><span class="project-kind gold">Flagship project · 2026</span><span class="live-badge"><span class="live-dot" aria-hidden="true"></span> In production</span></p>
+                <h3>STEA — Logistics management and stock tracking</h3>
+                <p class="dl-desc">A stock and logistics management application built for STEA Trans Euro Afrika SARL, in Lomé. It covers the whole cycle, from purchases to deliveries, and runs today on the company workstations.</p>
+                <ul class="tags"><li>Java 17</li><li>Spring Boot</li><li>MySQL</li><li>JWT</li><li>React</li><li>Tailwind CSS</li><li>Recharts</li><li>Electron</li></ul>
+                <div class="project-links">
+                  <a href="../stea.html" class="btn btn-glow btn-sm"><svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg#book-open"></use></svg> Case study</a>
+                  <button type="button" class="btn btn-glass btn-sm" data-gallery-open="0"><svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg#images"></use></svg> View the screens</button>
+                  <a href="https://github.com/Ezoolim-Ela/stea_stock_application" target="_blank" rel="noopener" class="btn btn-glass btn-sm"><svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg#github"></use></svg> Source code</a>
+                  <a href="https://github.com/Ezoolim-Ela/stea-desktop" target="_blank" rel="noopener" class="btn btn-glass btn-sm"><svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg#desktop"></use></svg> Desktop app</a>
+                </div>
+              </div>
+            </article>
+            <article class="dl-projet" data-dl="1" data-c="#7FBAC4" style="--c:#7FBAC4">
+              <div class="dl-shot"><div class="scene scene-locatif" aria-hidden="true">
+              <svg viewBox="0 0 320 180" class="scene-svg" focusable="false">
+                <defs>
+                  <linearGradient id="bld" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#4CA1AF"/><stop offset="1" stop-color="#1E2B38"/></linearGradient>
+                  <linearGradient id="bld2" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#B9E0E6"/><stop offset="1" stop-color="#7CC4CF"/></linearGradient>
+                </defs>
+                <rect x="0" y="150" width="320" height="30" fill="#E3EAF2"/>
+                <rect x="36" y="70" width="70" height="80" rx="4" fill="url(#bld2)" stroke="rgba(109,40,217,.25)"/>
+                <rect x="214" y="58" width="70" height="92" rx="4" fill="url(#bld2)" stroke="rgba(109,40,217,.25)"/>
+                <rect x="112" y="30" width="96" height="120" rx="5" fill="url(#bld)" stroke="rgba(76,29,149,.45)"/>
+                <rect x="150" y="122" width="20" height="28" rx="2" fill="#1E2B38" stroke="rgba(255,255,255,.5)"/>
+                <g class="windows">
+                  <rect class="w" x="122" y="42" width="16" height="14" rx="2"/><rect class="w" x="152" y="42" width="16" height="14" rx="2"/><rect class="w" x="182" y="42" width="16" height="14" rx="2"/>
+                  <rect class="w" x="122" y="66" width="16" height="14" rx="2"/><rect class="w" x="152" y="66" width="16" height="14" rx="2"/><rect class="w" x="182" y="66" width="16" height="14" rx="2"/>
+                  <rect class="w" x="122" y="90" width="16" height="14" rx="2"/><rect class="w" x="152" y="90" width="16" height="14" rx="2"/><rect class="w" x="182" y="90" width="16" height="14" rx="2"/>
+                  <rect class="w s" x="48" y="82" width="12" height="11" rx="2"/><rect class="w s" x="70" y="82" width="12" height="11" rx="2"/><rect class="w s" x="48" y="104" width="12" height="11" rx="2"/><rect class="w s" x="70" y="104" width="12" height="11" rx="2"/>
+                  <rect class="w s" x="226" y="70" width="12" height="11" rx="2"/><rect class="w s" x="248" y="70" width="12" height="11" rx="2"/><rect class="w s" x="226" y="94" width="12" height="11" rx="2"/><rect class="w s" x="248" y="94" width="12" height="11" rx="2"/>
+                </g>
+                <circle class="moon" cx="282" cy="28" r="9"/>
+              </svg>
+              <span class="scene-chip chip-a"><svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg#file-signature"></use></svg> Contract signed</span>
+              <span class="scene-chip chip-b"><svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg#circle-check"></use></svg> Rent paid</span>
+            </div></div>
+              <div class="dl-texte">
+                <p class="dl-num" aria-hidden="true">02</p>
+                <p class="dl-kind"><span class="project-kind">Academic project</span></p>
+                <h3>Rental management application</h3>
+                <p class="dl-desc">Managing properties, rental contracts and rent payments.</p>
+                <ul class="tags"><li>Java</li><li>SQL Server</li><li>MVC</li></ul>
+              </div>
+            </article>
+            <article class="dl-projet" data-dl="2" data-c="#5AA9B8" style="--c:#5AA9B8">
+              <div class="dl-shot"><div class="scene scene-web" aria-hidden="true">
+              <div class="mini-browser">
+                <div class="mini-bar"><span></span><span></span><span></span><span class="mini-url">plateforme.local/admin</span></div>
+                <div class="mini-screens">
+                  <div class="mini-login">
+                    <span class="mini-avatar"><svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg#lock"></use></svg></span>
+                    <span class="mini-input"></span>
+                    <span class="mini-input short"></span>
+                    <span class="mini-btn">Sign in</span>
+                  </div>
+                  <div class="mini-admin">
+                    <div class="mini-row head"><span class="mini-cell"></span><span class="mini-cell"></span><span class="mini-cell"></span></div>
+                    <div class="mini-row"><span class="mini-cell w"></span><span class="mini-cell"></span><span class="mini-pill on"></span></div>
+                    <div class="mini-row"><span class="mini-cell w"></span><span class="mini-cell"></span><span class="mini-pill"></span></div>
+                    <div class="mini-row"><span class="mini-cell w"></span><span class="mini-cell"></span><span class="mini-pill on"></span></div>
+                  </div>
+                </div>
+                <span class="mini-cursor"></span>
+              </div>
+            </div></div>
+              <div class="dl-texte">
+                <p class="dl-num" aria-hidden="true">03</p>
+                <p class="dl-kind"><span class="project-kind">Web development</span></p>
+                <h3>Dynamic web platform</h3>
+                <p class="dl-desc">An interactive site with a database, authentication and an administration back-office.</p>
+                <ul class="tags"><li>PHP</li><li>MySQL</li><li>HTML / CSS</li></ul>
+              </div>
+            </article>
+            <article class="dl-projet" data-dl="3" data-c="#3E7C8C" style="--c:#3E7C8C">
+              <div class="dl-shot"><div class="scene scene-reseau" aria-hidden="true">
+              <svg viewBox="0 0 320 180" class="scene-svg" focusable="false">
+                <defs>
+                  <filter id="glow" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="2.5" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+                </defs>
+                <path id="lnk1" class="link" d="M70,128 L160,48"/>
+                <path id="lnk2" class="link" d="M160,48 L250,128"/>
+                <path id="lnk3" class="link vpn" d="M70,128 L250,128"/>
+                <g class="site">
+                  <circle class="router" cx="160" cy="48" r="13"/>
+                  <text x="160" y="52" class="ric">R</text>
+                  <text x="142" y="52" class="lbl left">HQ · Lomé</text>
+                  <rect class="sw" x="140" y="70" width="40" height="8" rx="2"/>
+                  <rect class="pc v10" x="138" y="86" width="9" height="9" rx="2"/><rect class="pc v20" x="155" y="86" width="9" height="9" rx="2"/><rect class="pc v30" x="172" y="86" width="9" height="9" rx="2"/>
+                </g>
+                <g class="site">
+                  <circle class="router" cx="70" cy="128" r="13"/>
+                  <text x="70" y="132" class="ric">R</text>
+                  <text x="70" y="162" class="lbl">Site 2</text>
+                  <rect class="sw" x="22" y="100" width="34" height="8" rx="2"/>
+                  <rect class="pc v10" x="22" y="86" width="8" height="8" rx="2"/><rect class="pc v20" x="35" y="86" width="8" height="8" rx="2"/><rect class="pc v30" x="48" y="86" width="8" height="8" rx="2"/>
+                </g>
+                <g class="site">
+                  <circle class="router" cx="250" cy="128" r="13"/>
+                  <text x="250" y="132" class="ric">R</text>
+                  <text x="250" y="162" class="lbl">Site 3</text>
+                  <rect class="sw" x="264" y="100" width="34" height="8" rx="2"/>
+                  <rect class="pc v10" x="264" y="86" width="8" height="8" rx="2"/><rect class="pc v20" x="277" y="86" width="8" height="8" rx="2"/><rect class="pc v30" x="290" y="86" width="8" height="8" rx="2"/>
+                </g>
+                <g class="acl" transform="translate(205,84)">
+                  <path d="M0,-9 L8,-5 L8,2 C8,7 4,10 0,12 C-4,10 -8,7 -8,2 L-8,-5 Z" class="shield"/>
+                  <text x="0" y="24" class="lbl small">ACL</text>
+                </g>
+                <text x="160" y="142" class="lbl small">Site-to-site VPN</text>
+                <circle class="pkt p1" r="3.2" filter="url(#glow)"><animateMotion dur="3.2s" repeatCount="indefinite"><mpath href="#lnk1"/></animateMotion></circle>
+                <circle class="pkt p2" r="3.2" filter="url(#glow)"><animateMotion dur="2.8s" begin="0.8s" repeatCount="indefinite"><mpath href="#lnk2"/></animateMotion></circle>
+                <circle class="pkt p3" r="3.2" filter="url(#glow)"><animateMotion dur="4s" begin="1.4s" repeatCount="indefinite"><mpath href="#lnk3"/></animateMotion></circle>
+                <circle class="pkt p1" r="2.6" filter="url(#glow)"><animateMotion dur="3.2s" begin="1.6s" repeatCount="indefinite" keyPoints="1;0" keyTimes="0;1" calcMode="linear"><mpath href="#lnk1"/></animateMotion></circle>
+              </svg>
+              <span class="scene-legend"><i class="v10"></i> VLAN 10 <i class="v20"></i> VLAN 20 <i class="v30"></i> VLAN 30</span>
+            </div></div>
+              <div class="dl-texte">
+                <p class="dl-num" aria-hidden="true">04</p>
+                <p class="dl-kind"><span class="project-kind">Networks &amp; infrastructure</span></p>
+                <h3>Secured network architecture</h3>
+                <p class="dl-desc">A multi-site company network simulated and configured, with segmentation and access control.</p>
+                <ul class="tags"><li>Cisco Packet Tracer</li><li>CCNA</li><li>Routing</li></ul>
+              </div>
+            </article>
             </div>
 
-            <div class="pd-stage">
-              <div class="pd-perspective">
-                <div class="pd-cube" role="img" aria-label="The project die">
-          <span class="pd-face side f0" style="--c:#22303D" aria-hidden="true">
-            <span class="pd-face-num">01</span>
-            <span class="pd-face-ico"><svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg#boxes-stacked"></use></svg></span>
-            <span class="pd-face-kind">Flagship</span>
-            <span class="pd-face-title">STEA</span>
-            <ul class="pd-face-tags"><li>Java 17</li><li>Spring Boot</li><li>MySQL</li></ul>
-          </span>
-          <span class="pd-face side f1" style="--c:#2F5566" aria-hidden="true">
-            <span class="pd-face-num">02</span>
-            <span class="pd-face-ico"><svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg#building"></use></svg></span>
-            <span class="pd-face-kind">Academic</span>
-            <span class="pd-face-title">Rental management</span>
-            <ul class="pd-face-tags"><li>Java</li><li>SQL Server</li><li>MVC</li></ul>
-          </span>
-          <span class="pd-face side f2" style="--c:#1E4A50" aria-hidden="true">
-            <span class="pd-face-num">03</span>
-            <span class="pd-face-ico"><svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg#globe"></use></svg></span>
-            <span class="pd-face-kind">Web</span>
-            <span class="pd-face-title">Web platform</span>
-            <ul class="pd-face-tags"><li>PHP</li><li>MySQL</li><li>HTML / CSS</li></ul>
-          </span>
-          <span class="pd-face side f3" style="--c:#3A4A5C" aria-hidden="true">
-            <span class="pd-face-num">04</span>
-            <span class="pd-face-ico"><svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg#diagram-project"></use></svg></span>
-            <span class="pd-face-kind">Networks</span>
-            <span class="pd-face-title">Secured network</span>
-            <ul class="pd-face-tags"><li>Cisco Packet Tracer</li><li>CCNA</li><li>Routing</li></ul>
-          </span>
-          <span class="pd-face top" aria-hidden="true"><span class="pd-mono">AE</span></span>
-          <span class="pd-face bottom" aria-hidden="true"></span>
-          <span class="pd-core front" aria-hidden="true"></span>
-          <span class="pd-core right" aria-hidden="true"></span>
-          <span class="pd-core back" aria-hidden="true"></span>
-          <span class="pd-core left" aria-hidden="true"></span>
-          <span class="pd-core up" aria-hidden="true"></span>
-          <span class="pd-core down" aria-hidden="true"></span>
+            <div class="dl-bas">
+              <div class="dl-piste">
+                <span class="dl-sol" aria-hidden="true"></span>
+                <div class="dl-de" role="img" aria-label="Die: it pours out a project at each stop">
+                  <span class="dl-face dl-front"><i style="grid-area:2/2"></i></span>
+              <span class="dl-face dl-back"><i style="grid-area:1/1"></i><i style="grid-area:1/3"></i><i style="grid-area:2/1"></i><i style="grid-area:2/3"></i><i style="grid-area:3/1"></i><i style="grid-area:3/3"></i></span>
+              <span class="dl-face dl-right"><i style="grid-area:1/3"></i><i style="grid-area:2/2"></i><i style="grid-area:3/1"></i></span>
+              <span class="dl-face dl-left"><i style="grid-area:1/1"></i><i style="grid-area:1/3"></i><i style="grid-area:3/1"></i><i style="grid-area:3/3"></i></span>
+              <span class="dl-face dl-top"><i style="grid-area:1/3"></i><i style="grid-area:3/1"></i></span>
+              <span class="dl-face dl-bottom"><i style="grid-area:1/1"></i><i style="grid-area:1/3"></i><i style="grid-area:2/2"></i><i style="grid-area:3/1"></i><i style="grid-area:3/3"></i></span>
                 </div>
-                <span class="pd-shadow" aria-hidden="true"></span>
               </div>
-              <ol class="pd-dots" role="tablist" aria-label="Choose a project"><li><button type="button" class="pd-dot is-on" role="tab" aria-selected="true" tabindex="0"><span class="pd-dot-num">01</span><span class="pd-dot-label">STEA</span></button></li><li><button type="button" class="pd-dot" role="tab" aria-selected="false" tabindex="-1"><span class="pd-dot-num">02</span><span class="pd-dot-label">Rental management</span></button></li><li><button type="button" class="pd-dot" role="tab" aria-selected="false" tabindex="-1"><span class="pd-dot-num">03</span><span class="pd-dot-label">Web platform</span></button></li><li><button type="button" class="pd-dot" role="tab" aria-selected="false" tabindex="-1"><span class="pd-dot-num">04</span><span class="pd-dot-label">Secured network</span></button></li></ol>
+              <ol class="dl-puces" role="tablist" aria-label="Choose a project"><li><button type="button" class="dl-puce is-on" role="tab" aria-selected="true" tabindex="0"><span class="dl-puce-num">01</span> STEA</button></li><li><button type="button" class="dl-puce" role="tab" aria-selected="false" tabindex="-1"><span class="dl-puce-num">02</span> Rental management</button></li><li><button type="button" class="dl-puce" role="tab" aria-selected="false" tabindex="-1"><span class="dl-puce-num">03</span> Web platform</button></li><li><button type="button" class="dl-puce" role="tab" aria-selected="false" tabindex="-1"><span class="dl-puce-num">04</span> Secured network</button></li></ol>
             </div>
           </div>
         </div>
@@ -640,7 +695,7 @@
 
   <script src="../intro.js?v=12" defer></script>
   <script src="../apropos.js?v=4" defer></script>
-  <script src="../projets.js?v=5" defer></script>
+  <script src="../projets.js?v=8" defer></script>
   <script src="../anneaux.js?v=6" defer></script>
   <script src="../script.js?v=19" defer></script>
 </body>

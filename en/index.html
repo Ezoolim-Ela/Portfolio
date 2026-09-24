@@ -70,7 +70,7 @@
   <!-- Police chargée sans bloquer le rendu (préchargement, puis activation) ; icônes : sprite SVG local assets/icons.svg -->
   <link rel="preload" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Yellowtail&family=JetBrains+Mono:wght@500&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
   <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Yellowtail&family=JetBrains+Mono:wght@500&display=swap"></noscript>
-  <link rel="stylesheet" href="../styles.css?v=27">
+  <link rel="stylesheet" href="../styles.css?v=29">
 </head>
 <body>
 
@@ -193,14 +193,17 @@
     <!-- ===== Compétences ===== -->
     <section class="section" id="skills">
       <div class="container">
-        <div class="section-head reveal">
+        <div class="skills-top">
+          <div class="section-head reveal">
           <p class="eyebrow">My toolbox</p>
           <h2>My <em>skills</em></h2>
           <p class="section-lead">The technologies I use in my academic and personal projects.</p>
         </div>
+          <div class="skills-orbit" data-orbit aria-hidden="true"><canvas></canvas></div>
+        </div>
 
         <div class="skills-grid" data-stagger>
-          <article class="glass skill-group reveal">
+          <article class="glass skill-group reveal" data-ring="0">
             <h3><span class="icon-gem" aria-hidden="true"><svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg#code"></use></svg></span> Programming</h3>
             <ul class="chips">
               <li class="chip"><svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg#java"></use></svg> Java <small>Swing · Spring Boot</small></li>
@@ -209,7 +212,7 @@
               <li class="chip"><svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg#php"></use></svg> PHP</li>
             </ul>
           </article>
-          <article class="glass skill-group reveal">
+          <article class="glass skill-group reveal" data-ring="1">
             <h3><span class="icon-gem" aria-hidden="true"><svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg#globe"></use></svg></span> Web &amp; data</h3>
             <ul class="chips">
               <li class="chip"><svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg#html5"></use></svg> HTML5</li>
@@ -221,7 +224,7 @@
               <li class="chip"><svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg#plug"></use></svg> API REST</li>
             </ul>
           </article>
-          <article class="glass skill-group reveal">
+          <article class="glass skill-group reveal" data-ring="2">
             <h3><span class="icon-gem" aria-hidden="true"><svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg#network-wired"></use></svg></span> Networks &amp; tools</h3>
             <ul class="chips">
               <li class="chip"><svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg#diagram-project"></use></svg> Cisco Packet Tracer</li>
@@ -705,6 +708,7 @@
 
   <script src="../intro.js?v=3" defer></script>
   <script src="../apropos.js?v=4" defer></script>
+  <script src="../anneaux.js?v=2" defer></script>
   <script src="../script.js?v=16" defer></script>
 </body>
 </html>

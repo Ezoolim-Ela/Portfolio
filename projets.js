@@ -66,14 +66,13 @@
     var u = clamp(pas - i);
 
     var x, penche = 0, livre = false;
-    if (u < 0.13) {                          // il roule vers la droite
-      x = largeur * doux(u / 0.13);
-    } else if (u < 0.9 || i === N - 1) {     // il se penche, déverse, et le projet reste affiché
-      x = largeur;
-      penche = Math.sin(clamp((u - 0.13) / 0.1) * Math.PI);
-      livre = true;
-    } else {                                 // il repart en roulant vers la gauche
-      x = largeur * (1 - doux(clamp((u - 0.9) / 0.1)));
+    var dernier = i === N - 1;
+    if (u < 0.88 || dernier) {               // il roule vers la droite pendant tout le défilement
+      x = largeur * clamp(u / 0.88);
+      penche = Math.sin(clamp((u - 0.1) / 0.12) * Math.PI);   // il se penche pour déverser, en chemin
+      livre = u > 0.14;
+    } else {                                 // dernière fraction : il repart vite vers la gauche
+      x = largeur * (1 - doux(clamp((u - 0.88) / 0.12)));
     }
     poser(x, penche);
     montrer(livre ? i : -1);

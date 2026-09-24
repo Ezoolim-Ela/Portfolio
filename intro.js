@@ -1,7 +1,8 @@
 /* ==========================================================
    « Coup de dés » — accueil vivant
-   1. Ouverture : un dé est lancé, roule, se pose sur le 1,
-      puis on plonge dans son point pour arriver sur l'accueil.
+   1. Ouverture « carte » : un cadre se pose en pivotant, le monogramme AE
+      s'ouvre sur le nom complet (un éclat lumineux balaie le passage),
+      puis la carte s'efface sur l'accueil.
    2. Accueil : blocs en relief qui s'emboîtent, lumière qui suit la souris,
       nom qui se lève lettre par lettre, et un dé à lancer
       qui révèle une facette du profil.
@@ -14,7 +15,8 @@
   if (!hero) { html.classList.remove('intro-pending'); return; }
 
   var T = EN ? {
-    coup: 'A roll of the dice…', passer: 'Skip',
+    tag: 'Software engineering & information systems',
+    bas: 'IAI-TOGO · Lomé · Portfolio 2026', passer: 'Skip',
     lancer: 'Roll the dice', relancer: 'Roll again',
     invite: 'Nothing here is left to chance.',
     de: 'Six-sided die: roll it to discover one side of my profile',
@@ -28,7 +30,8 @@
     ],
     contact: 'Get in touch'
   } : {
-    coup: 'Un coup de dés…', passer: 'Passer',
+    tag: 'Génie logiciel & systèmes d’information',
+    bas: 'IAI-TOGO · Lomé · Portfolio 2026', passer: 'Passer',
     lancer: 'Lancer le dé', relancer: 'Relancer',
     invite: 'Ici, rien n’est laissé au hasard.',
     de: 'Dé à six faces : lancez-le pour découvrir une facette de mon profil',
@@ -233,10 +236,13 @@
     rollBtn.addEventListener('click', roll);
   }
 
-  /* ---------- Ouverture « coup de dés » ---------- */
+  /* ---------- Ouverture « carte » ---------- */
   function done() {
     html.classList.remove('intro-pending', 'intro-playing');
-    html.classList.add('intro-done');
+    // deux images plus tard : l'état de départ a été peint, les entrées de l'accueil peuvent jouer
+    requestAnimationFrame(function () {
+      requestAnimationFrame(function () { html.classList.add('intro-done'); });
+    });
     try { sessionStorage.setItem('intro-vue', '1'); } catch (e) {}
   }
 
@@ -246,19 +252,35 @@
   intro.className = 'intro';
   intro.setAttribute('aria-hidden', 'true');
   intro.innerHTML =
-    '<p class="intro-brand"><span class="gem">AE</span> Ago Ezoolim-Ela</p>' +
-    '<div class="intro-scene"><div class="intro-throw"></div><span class="intro-shadow"></span></div>' +
-    '<p class="intro-caption"></p>';
-  intro.querySelector('.intro-caption').textContent = T.coup;
+    '<span class="intro-border"></span>' +
+    '<div class="intro-card">' +
+      '<div class="intro-logo">' +
+        '<span class="intro-mono">AE</span>' +
+        '<span class="intro-full">Ago Ezoolim-Ela</span>' +
+        '<span class="intro-trail"></span>' +
+      '</div>' +
+      '<p class="intro-tag"></p>' +
+    '</div>' +
+    '<p class="intro-bottom"></p>';
+  intro.querySelector('.intro-tag').textContent = T.tag;
+  intro.querySelector('.intro-bottom').textContent = T.bas;
   var skip = document.createElement('button');
   skip.type = 'button';
   skip.className = 'intro-skip';
   skip.textContent = T.passer;
   intro.appendChild(skip);
-  intro.querySelector('.intro-throw').appendChild(buildDice('dice-intro'));
   document.body.appendChild(intro);
   html.classList.add('intro-playing');
   document.body.style.overflow = 'hidden';
+
+  // le monogramme s'élargit jusqu'au nom complet : on mesure les deux largeurs
+  var logo = intro.querySelector('.intro-logo');
+  var mono = intro.querySelector('.intro-mono');
+  var full = intro.querySelector('.intro-full');
+  function measureIntro() {
+    logo.style.setProperty('--w0', mono.offsetWidth + 'px');
+    logo.style.setProperty('--w1', (full.offsetLeft + full.offsetWidth) + 'px');
+  }
 
   var timers = [];
   function finish() {
@@ -266,16 +288,30 @@
     intro.classList.add('is-gone');
     document.body.style.overflow = '';
     done();
-    setTimeout(function () { if (intro.parentNode) intro.parentNode.removeChild(intro); }, 700);
+    setTimeout(function () { if (intro.parentNode) intro.parentNode.removeChild(intro); }, 800);
   }
   skip.addEventListener('click', finish);
   document.addEventListener('keydown', function onKey(e) {
     if (e.key === 'Escape' || e.key === 'Enter' || e.key === ' ') { document.removeEventListener('keydown', onKey); finish(); }
   });
 
-  // 0 → 1,7 s : lancer et rebonds ; 2,05 s : plongée dans le point ; 2,7 s : l'accueil apparaît
-  requestAnimationFrame(function () { intro.classList.add('is-throwing'); });
-  timers.push(setTimeout(function () { intro.classList.add('is-landed'); }, 1750));
-  timers.push(setTimeout(function () { intro.classList.add('is-diving'); }, 2050));
-  timers.push(setTimeout(finish, 2700));
+  // on attend les polices avant de mesurer (sinon la largeur d'arrivée serait fausse)
+  var lance = false;
+  function lancer() {
+    if (lance) return;
+    lance = true;
+    measureIntro();
+    window.addEventListener('resize', measureIntro);
+    requestAnimationFrame(function () {
+      requestAnimationFrame(function () { intro.classList.add('is-open'); });
+    });
+    // 0,1 s le cadre se pose · 0,45 s le nom s'ouvre · 1,2 s la signature s'espace · 2,6 s l'accueil
+    timers.push(setTimeout(finish, 2600));
+  }
+  if (document.fonts && document.fonts.ready) {
+    document.fonts.ready.then(lancer);
+    timers.push(setTimeout(lancer, 600)); // filet : on ne bloque jamais plus de 0,6 s
+  } else {
+    lancer();
+  }
 })();

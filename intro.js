@@ -16,7 +16,7 @@
 
   var T = EN ? {
     tag: 'Software engineering & information systems',
-    bas: 'IAI-TOGO · Lomé · Portfolio 2026', passer: 'Skip',
+    bas: 'Welcome to my portfolio', passer: 'Skip',
     lancer: 'Roll the dice', relancer: 'Roll again',
     invite: 'Nothing here is left to chance.',
     de: 'Six-sided die: roll it to discover one side of my profile',
@@ -31,7 +31,7 @@
     contact: 'Get in touch'
   } : {
     tag: 'Génie logiciel & systèmes d’information',
-    bas: 'IAI-TOGO · Lomé · Portfolio 2026', passer: 'Passer',
+    bas: 'Bienvenue sur mon portfolio', passer: 'Passer',
     lancer: 'Lancer le dé', relancer: 'Relancer',
     invite: 'Ici, rien n’est laissé au hasard.',
     de: 'Dé à six faces : lancez-le pour découvrir une facette de mon profil',
@@ -278,8 +278,17 @@
   var mono = intro.querySelector('.intro-mono');
   var full = intro.querySelector('.intro-full');
   function measureIntro() {
+    logo.style.fontSize = '';                       // on repart de la taille prévue par la feuille de style
     logo.style.setProperty('--w0', mono.offsetWidth + 'px');
-    logo.style.setProperty('--w1', (full.offsetLeft + full.offsetWidth) + 'px');
+    var w1 = full.offsetLeft + full.offsetWidth;
+    var max = document.documentElement.clientWidth - 48;
+    if (w1 > max) {                                  // écran étroit : le nom est réduit pour tenir en entier
+      var base = parseFloat(getComputedStyle(logo).fontSize) || 32;
+      logo.style.fontSize = (base * max / w1) + 'px';
+      logo.style.setProperty('--w0', mono.offsetWidth + 'px');
+      w1 = full.offsetLeft + full.offsetWidth;
+    }
+    logo.style.setProperty('--w1', w1 + 'px');
   }
 
   var timers = [];

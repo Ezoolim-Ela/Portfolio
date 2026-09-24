@@ -1274,3 +1274,29 @@ h2 em, .case-section h2 em { font-size: 1.12em; line-height: 0.9; }
 .pd-face.side { transition: filter 0.5s var(--ease); filter: brightness(0.82); }
 .pd-face.side.is-front { filter: brightness(1); }
 .pd-shadow { filter: blur(6px); }
+
+/* =========================================================
+   « Le déversement » : les compétences sortent de la sculpture
+   ========================================================= */
+/* dès que le déversement prend la main, la cascade simple se tait */
+#competences.pour-ready.is-inview .chip,
+#competences.pour-ready.is-inview .cert { animation: none; opacity: 0; }
+#competences.pour-ready .skill-group { opacity: 0; transform: scale(0.97); }
+#competences.pour-ready.is-pouring .skill-group {
+  animation: carte-ouvre 0.6s cubic-bezier(0.2, 0.8, 0.2, 1) both; animation-delay: var(--d, 0s);
+}
+#competences.pour-ready.is-pouring .chip,
+#competences.pour-ready.is-pouring .cert {
+  animation: verser 0.9s cubic-bezier(0.22, 0.9, 0.28, 1.06) both; animation-delay: var(--d, 0s);
+}
+@keyframes carte-ouvre { from { opacity: 0; transform: scale(0.97); } to { opacity: 1; transform: none; } }
+@keyframes verser {
+  0% { opacity: 0; transform: translate(var(--dx, 0), var(--dy, 0)) scale(0.3) rotate(var(--rot, 0deg)); }
+  16% { opacity: 1; }
+  55% { transform: translate(calc(var(--dx, 0) * 0.34), calc(var(--dy, 0) * 0.34 - 14px)) scale(0.78) rotate(calc(var(--rot, 0deg) * 0.35)); }
+  100% { opacity: 1; transform: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  #competences.pour-ready .skill-group { opacity: 1; transform: none; }
+  #competences.pour-ready.is-pouring .chip, #competences.pour-ready.is-pouring .cert, #competences.pour-ready.is-pouring .skill-group { animation: none; opacity: 1; transform: none; }
+}

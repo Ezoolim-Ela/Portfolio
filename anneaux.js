@@ -15,6 +15,29 @@
   var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   var groups = Array.prototype.slice.call(document.querySelectorAll('[data-ring]'));
 
+  /* ---------- « Le déversement » : la sculpture bascule et vide les compétences dans les cartes ---------- */
+  var section = box.closest('.section');
+  var puces = section ? Array.prototype.slice.call(section.querySelectorAll('.chip, .cert')) : [];
+  var cartes = section ? Array.prototype.slice.call(section.querySelectorAll('.skill-group')) : [];
+  if (!reduceMotion && section && puces.length) section.classList.add('pour-ready');
+  var verseDebut = -1;                       // instant du basculement, en secondes
+
+  function deverser() {
+    var r = box.getBoundingClientRect();
+    var ox = r.left + r.width / 2, oy = r.top + r.height * 0.47;   // le cœur de la sculpture
+    var graine = 3;
+    var tirage = function () { graine = (graine * 16807) % 2147483647; return (graine - 1) / 2147483646; };
+    cartes.forEach(function (c, i) { c.style.setProperty('--d', (i * 0.09).toFixed(2) + 's'); });
+    puces.forEach(function (el, i) {
+      var b = el.getBoundingClientRect();
+      el.style.setProperty('--dx', Math.round(ox - (b.left + b.width / 2)) + 'px');
+      el.style.setProperty('--dy', Math.round(oy - (b.top + b.height / 2)) + 'px');
+      el.style.setProperty('--rot', ((tirage() - 0.5) * 90).toFixed(1) + 'deg');
+      el.style.setProperty('--d', (0.05 + i * 0.045).toFixed(3) + 's');
+    });
+    section.classList.add('is-pouring');
+  }
+
   // Couleurs Indigo Steel : indigo, bleu-vert, bleu clair
   var RINGS = [
     { color: '#2C3E50', light: '#6F8AA6', n: 44, tiltX: 72, tiltZ: -28 },
@@ -89,8 +112,9 @@
   });
 
   function ease(x) { return x < 0 ? 0 : (x > 1 ? 1 : 1 - Math.pow(1 - x, 3)); }
+  function clamp01(x) { return x < 0 ? 0 : (x > 1 ? 1 : x); }
 
-  var start = null, running = false, visible = false, raf = null;
+  var start = null, running = false, visible = false, raf = null, filet = null;
   function draw(now) {
     raf = null;
     if (start === null) start = now;
@@ -100,7 +124,11 @@
     mx += (tmx - mx) * 0.06; my += (tmy - my) * 0.06;
     for (var k = 0; k < 3; k++) focusAmt[k] += ((focus === k ? 1 : (focus === -1 ? 0 : -1)) - focusAmt[k]) * 0.12;
 
-    var ry = spin + mx * 0.8, rx = -0.25 + my * 0.5;
+    // au moment du déversement, la sculpture s'emballe puis se penche avant de se remettre d'aplomb
+    if (verseDebut < 0 && build > 1.75) { verseDebut = t; deverser(); if (filet) { clearTimeout(filet); filet = null; } }
+    var v = verseDebut < 0 ? 0 : clamp01((t - verseDebut) / 1.6);
+    var basc = v === 0 ? 0 : Math.sin(v * Math.PI);
+    var ry = spin + mx * 0.8 + basc * 2.4, rx = -0.25 + my * 0.5 + basc * 0.5;
     var cy = Math.cos(ry), sy = Math.sin(ry), cx = Math.cos(rx), sx = Math.sin(rx);
     var f = 3.2; // distance de la caméra (en rayons)
 
@@ -164,7 +192,12 @@
   window.addEventListener('resize', function () { resize(); if (!running) requestAnimationFrame(draw); });
   var io = new IntersectionObserver(function (entries) {
     visible = entries[0].isIntersecting;
-    if (visible) { box.classList.add('is-live'); run(); } else stop();
+    if (visible) {
+      box.classList.add('is-live');
+      run();
+      // filet : si le dessin ne démarre pas, les compétences s'affichent quand même
+      if (verseDebut < 0 && !filet) filet = setTimeout(function () { if (verseDebut < 0) { verseDebut = 0; deverser(); } }, 4000);
+    } else stop();
   }, { threshold: 0.25 });
   io.observe(box);
   if (reduceMotion) { box.classList.add('is-live'); requestAnimationFrame(draw); }

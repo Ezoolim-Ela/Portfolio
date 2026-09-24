@@ -15,8 +15,8 @@
   if (!hero) { html.classList.remove('intro-pending'); return; }
 
   var T = EN ? {
-    tag: 'Software engineering & information systems',
-    bas: 'Welcome to my portfolio', passer: 'Skip',
+    grand: 'Welcome to my portfolio', tag: 'Ago Ezoolim-Ela',
+    bas: 'Software engineering & information systems', passer: 'Skip',
     lancer: 'Roll the dice', relancer: 'Roll again',
     invite: 'Nothing here is left to chance.',
     de: 'Six-sided die: roll it to discover one side of my profile',
@@ -30,8 +30,8 @@
     ],
     contact: 'Get in touch'
   } : {
-    tag: 'Génie logiciel & systèmes d’information',
-    bas: 'Bienvenue sur mon portfolio', passer: 'Passer',
+    grand: 'Bienvenue sur mon portfolio', tag: 'Ago Ezoolim-Ela',
+    bas: 'Génie logiciel & systèmes d’information', passer: 'Passer',
     lancer: 'Lancer le dé', relancer: 'Relancer',
     invite: 'Ici, rien n’est laissé au hasard.',
     de: 'Dé à six faces : lancez-le pour découvrir une facette de mon profil',
@@ -256,12 +256,13 @@
     '<div class="intro-card">' +
       '<div class="intro-logo">' +
         '<span class="intro-mono">AE</span>' +
-        '<span class="intro-full">Ago Ezoolim-Ela</span>' +
+        '<span class="intro-full"></span>' +
         '<span class="intro-trail"></span>' +
       '</div>' +
       '<p class="intro-tag"></p>' +
     '</div>' +
     '<p class="intro-bottom"></p>';
+  intro.querySelector('.intro-full').textContent = T.grand;
   intro.querySelector('.intro-tag').textContent = T.tag;
   intro.querySelector('.intro-bottom').textContent = T.bas;
   var skip = document.createElement('button');

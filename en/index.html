@@ -70,7 +70,7 @@
   <!-- Police chargée sans bloquer le rendu (préchargement, puis activation) ; icônes : sprite SVG local assets/icons.svg -->
   <link rel="preload" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Yellowtail&family=JetBrains+Mono:wght@500&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
   <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Yellowtail&family=JetBrains+Mono:wght@500&display=swap"></noscript>
-  <link rel="stylesheet" href="../styles.css?v=36">
+  <link rel="stylesheet" href="../styles.css?v=39">
 </head>
 <body>
 
@@ -86,10 +86,10 @@
 
       <nav class="site-nav" id="site-nav" aria-label="Main navigation">
         <ul class="nav-list">
-          <li><a href="#about" class="nav-link">About</a></li>
-          <li><a href="#skills" class="nav-link">Skills</a></li>
-          <li><a href="#background" class="nav-link">Background</a></li>
           <li><a href="#projects" class="nav-link">Projects</a></li>
+          <li><a href="#about" class="nav-link">About</a></li>
+          <li><a href="#background" class="nav-link">Background</a></li>
+          <li><a href="#skills" class="nav-link">Skills</a></li>
           <li><a href="#contact" class="nav-link">Contact</a></li>
         </ul>
       </nav>
@@ -132,280 +132,6 @@
         </div>
 
         <div class="hero-dice" data-dice role="group" aria-label="Roll the dice"></div>
-      </div>
-    </section>
-
-    <!-- ===== À propos ===== -->
-    <section class="section about-bloom" id="about">
-      <!-- Ouverture « Éclosion » : un éventail de lames s'ouvre, tourne et s'envole au fil du défilement -->
-      <div class="bloom-track" data-bloom>
-        <div class="bloom-sticky">
-          <div class="bloom-fan" aria-hidden="true"></div>
-          <div class="bloom-stage">
-            <p class="eyebrow">Who I am</p>
-            <h2 class="bloom-title">About <em>me</em></h2>
-            <p class="bloom-words"><span class="bw">Curious</span><span class="bw alt">rigorous</span><span class="bw">Creative</span><span class="bw alt">solution-driven</span></p>
-          </div>
-          <p class="bloom-hint" aria-hidden="true"><span></span>Scroll down</p>
-        </div>
-      </div>
-
-      <div class="container about-body">
-        <div class="about-grid">
-          <div class="about-text reveal">
-            <p class="about-lead">Passionate about technology, I am currently in the second year of a Computer Science degree at <strong>IAI-TOGO</strong> (2025-2026), on the Software Engineering and Information Systems track.</p>
-            <p class="scroll-text">I like understanding how systems work and finding solutions when something breaks. I give my full attention to my projects, academic and personal alike, and I am looking for an internship to learn alongside professionals while bringing my diligence and good spirits to the team.</p>
-          </div>
-
-          <aside class="about-id reveal">
-            <p class="about-id-title">At a glance</p>
-            <dl>
-                <div><dt><svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg#location-dot"></use></svg>Based in</dt><dd>Lomé, Togo</dd></div>
-                <div><dt><svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg#graduation-cap"></use></svg>Studies</dt><dd>2nd-year Computer Science, IAI-TOGO</dd></div>
-                <div><dt><svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg#certificate"></use></svg>Certifications</dt><dd>Cisco CCNA 1 &amp; 2</dd></div>
-                <div><dt><svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg#language"></use></svg>Languages</dt><dd>French · English · Kabiye</dd></div>
-                <div><dt><svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg#paper-plane"></use></svg>Looking for</dt><dd>A software development internship</dd></div>
-              </dl>
-            <a class="btn btn-glow about-facts-cta" href="#contact">Get in touch <svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg#arrow-right"></use></svg></a>
-          </aside>
-        </div>
-
-        <div class="petal-cards" data-stagger>
-          <article class="petal-card reveal" style="--c:#2C3E50">
-            <span class="petal-num">01</span>
-            <h3>Solid fundamentals</h3>
-            <p>Algorithms, data modelling and MVC architecture: the foundations for designing maintainable applications, from the specification to the code.</p>
-          </article>
-          <article class="petal-card reveal" style="--c:#3A6B7A">
-            <span class="petal-num">02</span>
-            <h3>Technical curiosity</h3>
-            <p>Cisco CCNA 1 &amp; 2 certified: I understand what happens under the hood, from routing and VLANs to securing a company network in Packet Tracer.</p>
-          </article>
-          <article class="petal-card reveal" style="--c:#4CA1AF">
-            <span class="petal-num">03</span>
-            <h3>From idea to production</h3>
-            <p>STEA is used every day by the client company and receives its updates without any intervention: I do not stop at the code, I ship and I maintain.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- ===== Compétences ===== -->
-    <section class="section" id="skills">
-      <div class="container">
-        <div class="skills-top">
-          <div class="section-head reveal">
-          <p class="eyebrow">My toolbox</p>
-          <h2>My <em>skills</em></h2>
-          <p class="section-lead">The technologies I use in my academic and personal projects.</p>
-        </div>
-          <div class="skills-orbit" data-orbit aria-hidden="true"><canvas></canvas></div>
-        </div>
-
-        <div class="skills-grid" data-stagger>
-          <article class="glass skill-group reveal" data-ring="0">
-            <h3><span class="icon-gem" aria-hidden="true"><svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg#code"></use></svg></span> Programming</h3>
-            <ul class="chips">
-              <li class="chip"><svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg#java"></use></svg> Java <small>Swing · Spring Boot</small></li>
-              <li class="chip"><svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg#python"></use></svg> Python</li>
-              <li class="chip"><svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg#c"></use></svg> C language</li>
-              <li class="chip"><svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg#php"></use></svg> PHP</li>
-            </ul>
-          </article>
-          <article class="glass skill-group reveal" data-ring="1">
-            <h3><span class="icon-gem" aria-hidden="true"><svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg#globe"></use></svg></span> Web &amp; data</h3>
-            <ul class="chips">
-              <li class="chip"><svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg#html5"></use></svg> HTML5</li>
-              <li class="chip"><svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg#css3-alt"></use></svg> CSS3</li>
-              <li class="chip"><svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg#js"></use></svg> JavaScript</li>
-              <li class="chip"><svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg#react"></use></svg> React</li>
-              <li class="chip"><svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg#database"></use></svg> MySQL</li>
-              <li class="chip"><svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg#server"></use></svg> SQL Server</li>
-              <li class="chip"><svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg#plug"></use></svg> API REST</li>
-            </ul>
-          </article>
-          <article class="glass skill-group reveal" data-ring="2">
-            <h3><span class="icon-gem" aria-hidden="true"><svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg#network-wired"></use></svg></span> Networks &amp; tools</h3>
-            <ul class="chips">
-              <li class="chip"><svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg#diagram-project"></use></svg> Cisco Packet Tracer</li>
-              <li class="chip"><svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg#shield-halved"></use></svg> VLAN · Routing · ACL</li>
-              <li class="chip"><svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg#git-alt"></use></svg> Git &amp; GitHub</li>
-              <li class="chip"><svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg#terminal"></use></svg> VS Code</li>
-            </ul>
-          </article>
-        </div>
-
-        <div class="certs reveal" aria-label="Certifications">
-          <div class="cert">
-            <span class="cert-check" aria-hidden="true"><svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg#check"></use></svg></span>
-            <div><strong>Cisco CCNA 1</strong><span>Introduction to Networks · passed</span></div>
-          </div>
-          <div class="cert">
-            <span class="cert-check" aria-hidden="true"><svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg#check"></use></svg></span>
-            <div><strong>Cisco CCNA 2</strong><span>Switching, Routing and Wireless Essentials · passed</span></div>
-          </div>
-          <div class="cert">
-            <span class="cert-check" aria-hidden="true"><svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg#check"></use></svg></span>
-            <div><strong>Office skills, IAI-TOGO</strong><span>Microsoft Office · certified</span></div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ===== Parcours ===== -->
-    <section class="section" id="background">
-      <div class="container">
-        <div class="section-head reveal">
-          <p class="eyebrow">My background</p>
-          <h2>Education &amp; <em>certifications</em></h2>
-          <p class="section-lead">Click a milestone to see what I did there.</p>
-        </div>
-
-        <div class="journey-stats reveal" aria-label="In numbers">
-          <div class="stat">
-            <span class="stat-icon" aria-hidden="true"><svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg#graduation-cap"></use></svg></span>
-            <span class="stat-num" data-count="2">0</span>
-            <span class="stat-label">years at IAI-TOGO</span>
-          </div>
-          <div class="stat">
-            <span class="stat-icon" aria-hidden="true"><svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg#certificate"></use></svg></span>
-            <span class="stat-num" data-count="2">0</span>
-            <span class="stat-label">Cisco certifications</span>
-          </div>
-          <div class="stat">
-            <span class="stat-icon" aria-hidden="true"><svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg#diagram-project"></use></svg></span>
-            <span class="stat-num" data-count="4">0</span>
-            <span class="stat-label">projects delivered</span>
-          </div>
-          <div class="stat">
-            <span class="stat-icon" aria-hidden="true"><svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg#language"></use></svg></span>
-            <span class="stat-num" data-count="3">0</span>
-            <span class="stat-label">languages spoken</span>
-          </div>
-        </div>
-
-        <nav class="journey-map reveal" aria-label="Jump to a milestone">
-          <button type="button" class="map-step" data-step="0"><span class="map-dot" aria-hidden="true"></span>Aug. 2026 · STEA</button>
-          <button type="button" class="map-step" data-step="1"><span class="map-dot" aria-hidden="true"></span>2025 — 2026</button>
-          <button type="button" class="map-step" data-step="2"><span class="map-dot" aria-hidden="true"></span>2024 — 2025</button>
-          <button type="button" class="map-step" data-step="3"><span class="map-dot" aria-hidden="true"></span>Certifications</button>
-        </nav>
-
-        <div class="timeline-wrap">
-        <span class="today-node" aria-hidden="true"><span class="today-dot"></span>Today</span>
-        <ol class="timeline" data-stagger>
-          <li class="timeline-item reveal" id="etape-0">
-            <span class="timeline-date">Aug. 2026</span>
-            <button type="button" class="timeline-marker" aria-expanded="false" aria-controls="detail-0" aria-label="Show details: STEA in production"><svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg#rocket"></use></svg></button>
-            <div class="glass timeline-body">
-              <h3>STEA goes into production</h3>
-              <p>My first software used by a company: designed, developed, deployed and maintained end to end for STEA Trans Euro Afrika SARL, in Lomé.</p>
-              <ul class="tags"><li>Spring Boot</li><li>React</li><li>MySQL</li><li>Electron</li></ul>
-              <button type="button" class="tl-toggle" aria-expanded="false" aria-controls="detail-0"><span class="tl-toggle-label">See the detail</span> <svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg#chevron-down"></use></svg></button>
-              <div class="tl-details" id="detail-0">
-                <div class="tl-details-inner">
-                  <p class="tl-details-title">Key milestones</p>
-                  <ul class="tl-check">
-                    <li>July 2026: design of the database and the first screens</li>
-                    <li>12 August 2026: first version installed at the company</li>
-                    <li>August – September 2026: 29 releases delivered by automatic updates</li>
-                    
-                  </ul>
-                  <p class="tl-details-title">Read more</p>
-                  <ul class="tl-links">
-                    <li><a href="stea.html" class="tl-link"><svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg#book-open"></use></svg> Full case study <small>challenge · answer · results</small></a></li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </li>
-          <li class="timeline-item reveal" id="etape-1">
-            <span class="timeline-date">2025 — 2026</span>
-            <button type="button" class="timeline-marker" aria-expanded="false" aria-controls="detail-1" aria-label="Show details: second-year Computer Science"><svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg#graduation-cap"></use></svg></button>
-            <div class="glass timeline-body">
-              <h3>Computer Science, year 2 · IAI-TOGO</h3>
-              <p>Software Engineering &amp; Information Systems track: designing structured applications (Java, MVC architecture), relational databases, web development.</p>
-              <ul class="tags"><li>Java</li><li>MVC</li><li>SQL Server</li><li>PHP</li></ul>
-              <button type="button" class="tl-toggle" aria-expanded="false" aria-controls="detail-1"><span class="tl-toggle-label">See the detail</span> <svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg#chevron-down"></use></svg></button>
-              <div class="tl-details" id="detail-1">
-                <div class="tl-details-inner">
-                  <p class="tl-details-title">That year’s work</p>
-                  <ul class="tl-links">
-                    <li><a href="#stea-project" class="tl-link"><svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg#boxes-stacked"></use></svg> STEA — logistics management <small>Spring Boot · React</small></a></li>
-                    <li><a href="#projects" class="tl-link"><svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg#building"></use></svg> Rental management application <small>Java · SQL Server</small></a></li>
-                    <li><a href="#projects" class="tl-link"><svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg#globe"></use></svg> Dynamic web platform <small>PHP · MySQL</small></a></li>
-                  </ul>
-                  <p class="tl-details-title">Skills practised</p>
-                  <ul class="tags"><li>MVC architecture</li><li>Data modelling</li><li>REST API</li><li>JWT authentication</li><li>React interfaces</li></ul>
-                </div>
-              </div>
-            </div>
-          </li>
-          <li class="timeline-item reveal" id="etape-2">
-            <span class="timeline-date">2024 — 2025</span>
-            <button type="button" class="timeline-marker" aria-expanded="false" aria-controls="detail-2" aria-label="Show details: first-year Computer Science"><svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg#book-open"></use></svg></button>
-            <div class="glass timeline-body">
-              <h3>Computer Science, year 1 · IAI-TOGO</h3>
-              <p>Computing fundamentals: algorithms, programming, web development and an introduction to networks.</p>
-              <ul class="tags"><li>Algorithms</li><li>Python</li><li>HTML / CSS</li></ul>
-              <button type="button" class="tl-toggle" aria-expanded="false" aria-controls="detail-2"><span class="tl-toggle-label">See the detail</span> <svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg#chevron-down"></use></svg></button>
-              <div class="tl-details" id="detail-2">
-                <div class="tl-details-inner">
-                  <p class="tl-details-title">Foundations laid</p>
-                  <ul class="tl-check">
-                    <li>Algorithms and structured programming (Python, C)</li>
-                    <li>First web pages in HTML / CSS</li>
-                    <li>Introduction to networks, leading to the Cisco certifications</li>
-                  </ul>
-                  <p class="tl-details-title">Related project</p>
-                  <ul class="tl-links">
-                    <li><a href="#projects" class="tl-link"><svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg#diagram-project"></use></svg> Secured network architecture <small>Packet Tracer</small></a></li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </li>
-          <li class="timeline-item reveal" id="etape-3">
-            <span class="timeline-date">Certifications</span>
-            <button type="button" class="timeline-marker" aria-expanded="false" aria-controls="detail-3" aria-label="Show details: Cisco certifications"><svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg#certificate"></use></svg></button>
-            <div class="glass timeline-body">
-              <h3>Cisco CCNA 1 &amp; 2 · Cisco Networking Academy</h3>
-              <p>Network fundamentals, routing and switching, VLANs, access control lists and device configuration in Packet Tracer.</p>
-              <ul class="tags"><li>CCNA 1</li><li>CCNA 2</li><li>Packet Tracer</li></ul>
-              <button type="button" class="tl-toggle" aria-expanded="false" aria-controls="detail-3"><span class="tl-toggle-label">See the detail</span> <svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg#chevron-down"></use></svg></button>
-              <div class="tl-details" id="detail-3">
-                <div class="tl-details-inner">
-                  <div class="tl-columns">
-                    <div>
-                      <p class="tl-details-title">CCNA 1 · Introduction to Networks</p>
-                      <ul class="tl-check">
-                        <li>OSI and TCP/IP models</li>
-                        <li>IPv4 / IPv6 addressing and subnetting</li>
-                        <li>Ethernet and basic switching</li>
-                        <li>Initial configuration of Cisco devices</li>
-                      </ul>
-                    </div>
-                    <div>
-                      <p class="tl-details-title">CCNA 2 · Routing and switching</p>
-                      <ul class="tl-check">
-                        <li>VLANs, trunking and inter-VLAN routing</li>
-                        <li>Static and dynamic routing</li>
-                        <li>DHCP and access control lists (ACL)</li>
-                        <li>Switch security</li>
-                      </ul>
-                    </div>
-                  </div>
-                  <p class="tl-details-title">Put into practice in</p>
-                  <ul class="tl-links">
-                    <li><a href="#projects" class="tl-link"><svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg#diagram-project"></use></svg> Secured network architecture <small>multi-site · VLAN · ACL</small></a></li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </li>
-        </ol>
-        <span class="timeline-comet" aria-hidden="true"></span>
-        </div>
       </div>
     </section>
 
@@ -611,6 +337,280 @@
       </div>
     </dialog>
 
+    <!-- ===== À propos ===== -->
+    <section class="section about-bloom" id="about">
+      <!-- Ouverture « Éclosion » : un éventail de lames s'ouvre, tourne et s'envole au fil du défilement -->
+      <div class="bloom-track" data-bloom>
+        <div class="bloom-sticky">
+          <div class="bloom-fan" aria-hidden="true"></div>
+          <div class="bloom-stage">
+            <p class="eyebrow">Who I am</p>
+            <h2 class="bloom-title">About <em>me</em></h2>
+            <p class="bloom-words"><span class="bw">Curious</span><span class="bw alt">rigorous</span><span class="bw">Creative</span><span class="bw alt">solution-driven</span></p>
+          </div>
+          <p class="bloom-hint" aria-hidden="true"><span></span>Scroll down</p>
+        </div>
+      </div>
+
+      <div class="container about-body">
+        <div class="about-grid">
+          <div class="about-text reveal">
+            <p class="about-lead">Passionate about technology, I am currently in the second year of a Computer Science degree at <strong>IAI-TOGO</strong> (2025-2026), on the Software Engineering and Information Systems track.</p>
+            <p class="scroll-text">I like understanding how systems work and finding solutions when something breaks. I give my full attention to my projects, academic and personal alike, and I am looking for an internship to learn alongside professionals while bringing my diligence and good spirits to the team.</p>
+          </div>
+
+          <aside class="about-id reveal">
+            <p class="about-id-title">At a glance</p>
+            <dl>
+                <div><dt><svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg#location-dot"></use></svg>Based in</dt><dd>Lomé, Togo</dd></div>
+                <div><dt><svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg#graduation-cap"></use></svg>Studies</dt><dd>2nd-year Computer Science, IAI-TOGO</dd></div>
+                <div><dt><svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg#certificate"></use></svg>Certifications</dt><dd>Cisco CCNA 1 &amp; 2</dd></div>
+                <div><dt><svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg#language"></use></svg>Languages</dt><dd>French · English · Kabiye</dd></div>
+                <div><dt><svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg#paper-plane"></use></svg>Looking for</dt><dd>A software development internship</dd></div>
+              </dl>
+            <a class="btn btn-glow about-facts-cta" href="#contact">Get in touch <svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg#arrow-right"></use></svg></a>
+          </aside>
+        </div>
+
+        <div class="petal-cards" data-stagger>
+          <article class="petal-card reveal" style="--c:#2C3E50">
+            <span class="petal-num">01</span>
+            <h3>Solid fundamentals</h3>
+            <p>Algorithms, data modelling and MVC architecture: the foundations for designing maintainable applications, from the specification to the code.</p>
+          </article>
+          <article class="petal-card reveal" style="--c:#3A6B7A">
+            <span class="petal-num">02</span>
+            <h3>Technical curiosity</h3>
+            <p>Cisco CCNA 1 &amp; 2 certified: I understand what happens under the hood, from routing and VLANs to securing a company network in Packet Tracer.</p>
+          </article>
+          <article class="petal-card reveal" style="--c:#4CA1AF">
+            <span class="petal-num">03</span>
+            <h3>From idea to production</h3>
+            <p>STEA is used every day by the client company and receives its updates without any intervention: I do not stop at the code, I ship and I maintain.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Parcours ===== -->
+    <section class="section" id="background">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="eyebrow">My background</p>
+          <h2>Education &amp; <em>certifications</em></h2>
+          <p class="section-lead">Click a milestone to see what I did there.</p>
+        </div>
+
+        <div class="journey-stats reveal" aria-label="In numbers">
+          <div class="stat">
+            <span class="stat-icon" aria-hidden="true"><svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg#graduation-cap"></use></svg></span>
+            <span class="stat-num" data-count="2">0</span>
+            <span class="stat-label">years at IAI-TOGO</span>
+          </div>
+          <div class="stat">
+            <span class="stat-icon" aria-hidden="true"><svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg#certificate"></use></svg></span>
+            <span class="stat-num" data-count="2">0</span>
+            <span class="stat-label">Cisco certifications</span>
+          </div>
+          <div class="stat">
+            <span class="stat-icon" aria-hidden="true"><svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg#diagram-project"></use></svg></span>
+            <span class="stat-num" data-count="4">0</span>
+            <span class="stat-label">projects delivered</span>
+          </div>
+          <div class="stat">
+            <span class="stat-icon" aria-hidden="true"><svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg#language"></use></svg></span>
+            <span class="stat-num" data-count="3">0</span>
+            <span class="stat-label">languages spoken</span>
+          </div>
+        </div>
+
+        <nav class="journey-map reveal" aria-label="Jump to a milestone">
+          <button type="button" class="map-step" data-step="0"><span class="map-dot" aria-hidden="true"></span>Aug. 2026 · STEA</button>
+          <button type="button" class="map-step" data-step="1"><span class="map-dot" aria-hidden="true"></span>2025 — 2026</button>
+          <button type="button" class="map-step" data-step="2"><span class="map-dot" aria-hidden="true"></span>2024 — 2025</button>
+          <button type="button" class="map-step" data-step="3"><span class="map-dot" aria-hidden="true"></span>Certifications</button>
+        </nav>
+
+        <div class="timeline-wrap">
+        <span class="today-node" aria-hidden="true"><span class="today-dot"></span>Today</span>
+        <ol class="timeline" data-stagger>
+          <li class="timeline-item reveal" id="etape-0">
+            <span class="timeline-date">Aug. 2026</span>
+            <button type="button" class="timeline-marker" aria-expanded="false" aria-controls="detail-0" aria-label="Show details: STEA in production"><svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg#rocket"></use></svg></button>
+            <div class="glass timeline-body">
+              <h3>STEA goes into production</h3>
+              <p>My first software used by a company: designed, developed, deployed and maintained end to end for STEA Trans Euro Afrika SARL, in Lomé.</p>
+              <ul class="tags"><li>Spring Boot</li><li>React</li><li>MySQL</li><li>Electron</li></ul>
+              <button type="button" class="tl-toggle" aria-expanded="false" aria-controls="detail-0"><span class="tl-toggle-label">See the detail</span> <svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg#chevron-down"></use></svg></button>
+              <div class="tl-details" id="detail-0">
+                <div class="tl-details-inner">
+                  <p class="tl-details-title">Key milestones</p>
+                  <ul class="tl-check">
+                    <li>July 2026: design of the database and the first screens</li>
+                    <li>12 August 2026: first version installed at the company</li>
+                    <li>August – September 2026: 29 releases delivered by automatic updates</li>
+                    
+                  </ul>
+                  <p class="tl-details-title">Read more</p>
+                  <ul class="tl-links">
+                    <li><a href="stea.html" class="tl-link"><svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg#book-open"></use></svg> Full case study <small>challenge · answer · results</small></a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li class="timeline-item reveal" id="etape-1">
+            <span class="timeline-date">2025 — 2026</span>
+            <button type="button" class="timeline-marker" aria-expanded="false" aria-controls="detail-1" aria-label="Show details: second-year Computer Science"><svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg#graduation-cap"></use></svg></button>
+            <div class="glass timeline-body">
+              <h3>Computer Science, year 2 · IAI-TOGO</h3>
+              <p>Software Engineering &amp; Information Systems track: designing structured applications (Java, MVC architecture), relational databases, web development.</p>
+              <ul class="tags"><li>Java</li><li>MVC</li><li>SQL Server</li><li>PHP</li></ul>
+              <button type="button" class="tl-toggle" aria-expanded="false" aria-controls="detail-1"><span class="tl-toggle-label">See the detail</span> <svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg#chevron-down"></use></svg></button>
+              <div class="tl-details" id="detail-1">
+                <div class="tl-details-inner">
+                  <p class="tl-details-title">That year’s work</p>
+                  <ul class="tl-links">
+                    <li><a href="#stea-project" class="tl-link"><svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg#boxes-stacked"></use></svg> STEA — logistics management <small>Spring Boot · React</small></a></li>
+                    <li><a href="#projects" class="tl-link"><svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg#building"></use></svg> Rental management application <small>Java · SQL Server</small></a></li>
+                    <li><a href="#projects" class="tl-link"><svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg#globe"></use></svg> Dynamic web platform <small>PHP · MySQL</small></a></li>
+                  </ul>
+                  <p class="tl-details-title">Skills practised</p>
+                  <ul class="tags"><li>MVC architecture</li><li>Data modelling</li><li>REST API</li><li>JWT authentication</li><li>React interfaces</li></ul>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li class="timeline-item reveal" id="etape-2">
+            <span class="timeline-date">2024 — 2025</span>
+            <button type="button" class="timeline-marker" aria-expanded="false" aria-controls="detail-2" aria-label="Show details: first-year Computer Science"><svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg#book-open"></use></svg></button>
+            <div class="glass timeline-body">
+              <h3>Computer Science, year 1 · IAI-TOGO</h3>
+              <p>Computing fundamentals: algorithms, programming, web development and an introduction to networks.</p>
+              <ul class="tags"><li>Algorithms</li><li>Python</li><li>HTML / CSS</li></ul>
+              <button type="button" class="tl-toggle" aria-expanded="false" aria-controls="detail-2"><span class="tl-toggle-label">See the detail</span> <svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg#chevron-down"></use></svg></button>
+              <div class="tl-details" id="detail-2">
+                <div class="tl-details-inner">
+                  <p class="tl-details-title">Foundations laid</p>
+                  <ul class="tl-check">
+                    <li>Algorithms and structured programming (Python, C)</li>
+                    <li>First web pages in HTML / CSS</li>
+                    <li>Introduction to networks, leading to the Cisco certifications</li>
+                  </ul>
+                  <p class="tl-details-title">Related project</p>
+                  <ul class="tl-links">
+                    <li><a href="#projects" class="tl-link"><svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg#diagram-project"></use></svg> Secured network architecture <small>Packet Tracer</small></a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li class="timeline-item reveal" id="etape-3">
+            <span class="timeline-date">Certifications</span>
+            <button type="button" class="timeline-marker" aria-expanded="false" aria-controls="detail-3" aria-label="Show details: Cisco certifications"><svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg#certificate"></use></svg></button>
+            <div class="glass timeline-body">
+              <h3>Cisco CCNA 1 &amp; 2 · Cisco Networking Academy</h3>
+              <p>Network fundamentals, routing and switching, VLANs, access control lists and device configuration in Packet Tracer.</p>
+              <ul class="tags"><li>CCNA 1</li><li>CCNA 2</li><li>Packet Tracer</li></ul>
+              <button type="button" class="tl-toggle" aria-expanded="false" aria-controls="detail-3"><span class="tl-toggle-label">See the detail</span> <svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg#chevron-down"></use></svg></button>
+              <div class="tl-details" id="detail-3">
+                <div class="tl-details-inner">
+                  <div class="tl-columns">
+                    <div>
+                      <p class="tl-details-title">CCNA 1 · Introduction to Networks</p>
+                      <ul class="tl-check">
+                        <li>OSI and TCP/IP models</li>
+                        <li>IPv4 / IPv6 addressing and subnetting</li>
+                        <li>Ethernet and basic switching</li>
+                        <li>Initial configuration of Cisco devices</li>
+                      </ul>
+                    </div>
+                    <div>
+                      <p class="tl-details-title">CCNA 2 · Routing and switching</p>
+                      <ul class="tl-check">
+                        <li>VLANs, trunking and inter-VLAN routing</li>
+                        <li>Static and dynamic routing</li>
+                        <li>DHCP and access control lists (ACL)</li>
+                        <li>Switch security</li>
+                      </ul>
+                    </div>
+                  </div>
+                  <p class="tl-details-title">Put into practice in</p>
+                  <ul class="tl-links">
+                    <li><a href="#projects" class="tl-link"><svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg#diagram-project"></use></svg> Secured network architecture <small>multi-site · VLAN · ACL</small></a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </li>
+        </ol>
+        <span class="timeline-comet" aria-hidden="true"></span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Compétences ===== -->
+    <section class="section" id="skills">
+      <div class="container">
+        <div class="skills-top">
+          <div class="section-head reveal">
+          <p class="eyebrow">My toolbox</p>
+          <h2>My <em>skills</em></h2>
+          <p class="section-lead">The technologies I use in my academic and personal projects.</p>
+        </div>
+          <div class="skills-orbit" data-orbit aria-hidden="true"><canvas></canvas></div>
+        </div>
+
+        <div class="skills-grid" data-stagger>
+          <article class="glass skill-group reveal" data-ring="0">
+            <h3><span class="icon-gem" aria-hidden="true"><svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg#code"></use></svg></span> Programming</h3>
+            <ul class="chips">
+              <li class="chip"><svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg#java"></use></svg> Java <small>Swing · Spring Boot</small></li>
+              <li class="chip"><svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg#python"></use></svg> Python</li>
+              <li class="chip"><svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg#c"></use></svg> C language</li>
+              <li class="chip"><svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg#php"></use></svg> PHP</li>
+            </ul>
+          </article>
+          <article class="glass skill-group reveal" data-ring="1">
+            <h3><span class="icon-gem" aria-hidden="true"><svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg#globe"></use></svg></span> Web &amp; data</h3>
+            <ul class="chips">
+              <li class="chip"><svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg#html5"></use></svg> HTML5</li>
+              <li class="chip"><svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg#css3-alt"></use></svg> CSS3</li>
+              <li class="chip"><svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg#js"></use></svg> JavaScript</li>
+              <li class="chip"><svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg#react"></use></svg> React</li>
+              <li class="chip"><svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg#database"></use></svg> MySQL</li>
+              <li class="chip"><svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg#server"></use></svg> SQL Server</li>
+              <li class="chip"><svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg#plug"></use></svg> API REST</li>
+            </ul>
+          </article>
+          <article class="glass skill-group reveal" data-ring="2">
+            <h3><span class="icon-gem" aria-hidden="true"><svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg#network-wired"></use></svg></span> Networks &amp; tools</h3>
+            <ul class="chips">
+              <li class="chip"><svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg#diagram-project"></use></svg> Cisco Packet Tracer</li>
+              <li class="chip"><svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg#shield-halved"></use></svg> VLAN · Routing · ACL</li>
+              <li class="chip"><svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg#git-alt"></use></svg> Git &amp; GitHub</li>
+              <li class="chip"><svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg#terminal"></use></svg> VS Code</li>
+            </ul>
+          </article>
+        </div>
+
+        <div class="certs reveal" aria-label="Certifications">
+          <div class="cert">
+            <span class="cert-check" aria-hidden="true"><svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg#check"></use></svg></span>
+            <div><strong>Cisco CCNA 1</strong><span>Introduction to Networks · passed</span></div>
+          </div>
+          <div class="cert">
+            <span class="cert-check" aria-hidden="true"><svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg#check"></use></svg></span>
+            <div><strong>Cisco CCNA 2</strong><span>Switching, Routing and Wireless Essentials · passed</span></div>
+          </div>
+          <div class="cert">
+            <span class="cert-check" aria-hidden="true"><svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg#check"></use></svg></span>
+            <div><strong>Office skills, IAI-TOGO</strong><span>Microsoft Office · certified</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- ===== Contact ===== -->
     <section class="section" id="contact">
       <div class="container">
@@ -678,10 +678,10 @@
         <nav class="footer-col" aria-label="Site map">
           <h3>Navigation</h3>
           <ul>
-            <li><a href="#about">About</a></li>
-            <li><a href="#skills">Skills</a></li>
-            <li><a href="#background">Background</a></li>
             <li><a href="#projects">Projects</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#background">Background</a></li>
+            <li><a href="#skills">Skills</a></li>
             <li><a href="#contact">Contact</a></li>
           </ul>
         </nav>
@@ -709,6 +709,6 @@
   <script src="../intro.js?v=11" defer></script>
   <script src="../apropos.js?v=4" defer></script>
   <script src="../anneaux.js?v=2" defer></script>
-  <script src="../script.js?v=16" defer></script>
+  <script src="../script.js?v=19" defer></script>
 </body>
 </html>

@@ -311,9 +311,11 @@
     if (!sections.length) return;
     var offset = (header ? header.offsetHeight : 0) + 120;
     var atBottom = window.innerHeight + y >= document.documentElement.scrollHeight - 2;
+    // les sections sont parcourues dans l'ordre de la page, qui n'est pas forcément celui du menu
+    var ordre = sections.slice().sort(function (a, b) { return a.offsetTop - b.offsetTop; });
     var current = '';
-    if (atBottom) current = sections[sections.length - 1].id;
-    else for (var i = 0; i < sections.length; i++) if (sections[i].offsetTop - offset <= y) current = sections[i].id;
+    if (atBottom) current = ordre[ordre.length - 1].id;
+    else for (var i = 0; i < ordre.length; i++) if (ordre[i].offsetTop - offset <= y) current = ordre[i].id;
     navLinks.forEach(function (link) {
       var on = link.getAttribute('href') === '#' + current;
       link.classList.toggle('is-active', on);

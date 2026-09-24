@@ -1280,12 +1280,18 @@ h2 em, .case-section h2 em { font-size: 1.12em; line-height: 0.9; }
 
 /* ----- la piste, le dé et sa lumière ----- */
 .dl-bas { display: grid; gap: clamp(0.6rem, 1.6vw, 1.1rem); padding-bottom: clamp(0.8rem, 2vh, 1.4rem); }
-.dl-piste { --taille: clamp(78px, 8vw, 110px); position: relative; height: clamp(150px, 19vh, 200px); perspective: 900px; perspective-origin: 50% 70%; }
+.dl-piste { --taille: clamp(84px, 8.5vw, 118px); position: relative; height: clamp(130px, 16vh, 170px); perspective: 900px; perspective-origin: 50% 70%; }
 .dl-sol {
-  position: absolute; left: 0; right: 0; bottom: 18px; height: 2px;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.28) 14%, rgba(255, 255, 255, 0.28) 86%, transparent);
+  position: absolute; left: 50%; bottom: 20px; width: min(420px, 60%); height: 2px; translate: -50% 0;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3) 24%, rgba(255, 255, 255, 0.3) 76%, transparent);
 }
-.dl-de { position: absolute; left: 0; bottom: 18px; width: var(--taille); height: 0; }
+/* le dé ne bouge plus : il est posé au centre et projette */
+.dl-de {
+  position: absolute; left: 50%; bottom: 22px; width: var(--taille); height: var(--taille);
+  margin-left: calc(var(--taille) / -2);
+  animation: de-flotte 6s ease-in-out infinite;
+}
+@keyframes de-flotte { 0%, 100% { translate: 0 0; } 50% { translate: 0 -7px; } }
 /* la flaque de lumière sous le dé */
 .dl-de::after {
   content: ''; position: absolute; left: 50%; bottom: -16px; width: 200%; height: 26px; translate: -50% 0;
@@ -1296,8 +1302,8 @@ h2 em, .case-section h2 em { font-size: 1.12em; line-height: 0.9; }
 
 /* le faisceau : net près du dé, largement ouvert vers le projet */
 .dl-rayon {
-  position: absolute; left: calc(var(--taille) / 2); bottom: calc(var(--taille) * 0.45); z-index: -1; pointer-events: none;
-  width: min(1000px, 74vw); height: 74vh; margin-left: calc(min(1000px, 74vw) / -2); translate: var(--x, 0) 0;
+  position: absolute; left: 50%; bottom: calc(var(--taille) * 0.55); z-index: -1; pointer-events: none;
+  width: min(1060px, 78vw); height: 74vh; margin-left: calc(min(1060px, 78vw) / -2);
   clip-path: polygon(47.5% 100%, 52.5% 100%, 100% 0, 0 0);
   opacity: 0; transition: opacity 0.5s var(--ease);
   mix-blend-mode: screen;
@@ -1378,141 +1384,20 @@ h2 em, .case-section h2 em { font-size: 1.12em; line-height: 0.9; }
 }
 .dl-shot { outline: 1px solid color-mix(in srgb, var(--c) 45%, transparent); outline-offset: 5px; }
 
-/* ----- Les cubes qui s'assemblent (d'après l'effet fourni), aux couleurs du site ----- */
-.dl-de .cubes {
-  --duree: 3s;
-  --pose: rotateY(-47deg) rotateX(-15deg) rotateZ(15deg);
-  --cube: var(--c, #4CA1AF);
-  --cube-clair: color-mix(in srgb, var(--c, #4CA1AF) 62%, #FFFFFF);
-  position: absolute; left: 50%; bottom: calc(-218px * var(--zoom, 0.55)); width: 200px; height: 320px;
-  transform: translateX(-50%) scale(var(--zoom, 0.55)); transform-origin: 50% 100%;
-  transform-style: preserve-3d; pointer-events: none;
+
+/* ----- le dé, posé et lumineux ----- */
+.dl-cube { position: absolute; inset: 0; transform-style: preserve-3d; transform: rotateX(-20deg) rotateY(-26deg); }
+.dl-face {
+  position: absolute; inset: 0; display: grid; grid-template: repeat(3, 1fr) / repeat(3, 1fr); padding: 16%;
+  border-radius: 18%; background: linear-gradient(152deg, #FFFFFF 0%, #EFF4F6 46%, #C2D0D7 100%);
+  box-shadow: inset 0 0 0 1.5px rgba(16, 26, 34, 0.16), inset 0 -10px 20px rgba(16, 26, 34, 0.2);
+  backface-visibility: hidden;
 }
-.dl-de .ground { position: absolute; left: -50px; bottom: -120px; transform-style: preserve-3d;
-  transform: rotateY(-47deg) rotateX(-15deg) rotateZ(15deg); }
-.dl-de .ground div {
-  width: 200px; height: 200px; transform-style: preserve-3d;
-  background: linear-gradient(45deg, var(--cube) 0%, var(--cube) 50%, var(--cube-clair) 50%, var(--cube-clair) 100%);
-  transform: rotateX(90deg) rotateY(0deg) translate(-48px, -120px) translateZ(100px) scale(0);
-  animation: cube-ground var(--duree) linear forwards infinite;
-}
-.dl-de .box { --x: 0; --y: 0; position: absolute; transform: translate(var(--x), var(--y));
-  animation: var(--duree) linear forwards infinite; }
-.dl-de .box div {
-  width: 48px; height: 48px; position: relative; background-color: var(--cube);
-  transform-style: preserve-3d; transform: var(--pose) scale(0);
-  animation: var(--duree) ease forwards infinite;
-}
-.dl-de .box div::before, .dl-de .box div::after {
-  --rx: 90deg; --ry: 0deg; --z: 24px; --y2: -24px; --x2: 0;
-  content: ''; position: absolute; background-color: inherit; width: inherit; height: inherit;
-  transform: rotateX(var(--rx)) rotateY(var(--ry)) translate(var(--x2), var(--y2)) translateZ(var(--z));
-  filter: brightness(var(--b, 1.25));
-}
-.dl-de .box div::after { --rx: 0deg; --ry: 90deg; --x2: 24px; --y2: 0; --b: 1.45; }
-.dl-de .box.box0 { --x: -220px; --y: -120px; left: 58px; top: 108px; animation-name: cube-move0; }
-.dl-de .box.box0 div { animation-name: cube-scale0; }
-.dl-de .box.box1 { --x: -260px; --y: 120px; left: 25px; top: 120px; animation-name: cube-move1; }
-.dl-de .box.box1 div { animation-name: cube-scale1; }
-.dl-de .box.box2 { --x: 120px; --y: -190px; left: 58px; top: 64px; animation-name: cube-move2; }
-.dl-de .box.box2 div { animation-name: cube-scale2; }
-.dl-de .box.box3 { --x: 280px; --y: -40px; left: 91px; top: 120px; animation-name: cube-move3; }
-.dl-de .box.box3 div { animation-name: cube-scale3; }
-.dl-de .box.box4 { --x: 60px; --y: 200px; left: 58px; top: 132px; animation-name: cube-move4; }
-.dl-de .box.box4 div { animation-name: cube-scale4; }
-.dl-de .box.box5 { --x: -220px; --y: -120px; left: 25px; top: 76px; animation-name: cube-move5; }
-.dl-de .box.box5 div { animation-name: cube-scale5; }
-.dl-de .box.box6 { --x: -260px; --y: 120px; left: 91px; top: 76px; animation-name: cube-move6; }
-.dl-de .box.box6 div { animation-name: cube-scale6; }
-.dl-de .box.box7 { --x: -240px; --y: 200px; left: 58px; top: 87px; animation-name: cube-move7; }
-.dl-de .box.box7 div { animation-name: cube-scale7; }
-@keyframes cube-move0 {
-  12% { transform: translate(var(--x), var(--y)); }
-  25%, 52% { transform: translate(0, 0); }
-  80% { transform: translate(0, -32px); }
-  90%, 100% { transform: translate(0, 188px); }
-}
-@keyframes cube-scale0 {
-  6% { transform: var(--pose) scale(0); }
-  14%, 100% { transform: var(--pose) scale(1); }
-}
-@keyframes cube-move1 {
-  16% { transform: translate(var(--x), var(--y)); }
-  29%, 52% { transform: translate(0, 0); }
-  80% { transform: translate(0, -32px); }
-  90%, 100% { transform: translate(0, 188px); }
-}
-@keyframes cube-scale1 {
-  10% { transform: var(--pose) scale(0); }
-  18%, 100% { transform: var(--pose) scale(1); }
-}
-@keyframes cube-move2 {
-  20% { transform: translate(var(--x), var(--y)); }
-  33%, 52% { transform: translate(0, 0); }
-  80% { transform: translate(0, -32px); }
-  90%, 100% { transform: translate(0, 188px); }
-}
-@keyframes cube-scale2 {
-  14% { transform: var(--pose) scale(0); }
-  22%, 100% { transform: var(--pose) scale(1); }
-}
-@keyframes cube-move3 {
-  24% { transform: translate(var(--x), var(--y)); }
-  37%, 52% { transform: translate(0, 0); }
-  80% { transform: translate(0, -32px); }
-  90%, 100% { transform: translate(0, 188px); }
-}
-@keyframes cube-scale3 {
-  18% { transform: var(--pose) scale(0); }
-  26%, 100% { transform: var(--pose) scale(1); }
-}
-@keyframes cube-move4 {
-  28% { transform: translate(var(--x), var(--y)); }
-  41%, 52% { transform: translate(0, 0); }
-  80% { transform: translate(0, -32px); }
-  90%, 100% { transform: translate(0, 188px); }
-}
-@keyframes cube-scale4 {
-  22% { transform: var(--pose) scale(0); }
-  30%, 100% { transform: var(--pose) scale(1); }
-}
-@keyframes cube-move5 {
-  32% { transform: translate(var(--x), var(--y)); }
-  45%, 52% { transform: translate(0, 0); }
-  80% { transform: translate(0, -32px); }
-  90%, 100% { transform: translate(0, 188px); }
-}
-@keyframes cube-scale5 {
-  26% { transform: var(--pose) scale(0); }
-  34%, 100% { transform: var(--pose) scale(1); }
-}
-@keyframes cube-move6 {
-  36% { transform: translate(var(--x), var(--y)); }
-  49%, 52% { transform: translate(0, 0); }
-  80% { transform: translate(0, -32px); }
-  90%, 100% { transform: translate(0, 188px); }
-}
-@keyframes cube-scale6 {
-  30% { transform: var(--pose) scale(0); }
-  38%, 100% { transform: var(--pose) scale(1); }
-}
-@keyframes cube-move7 {
-  40% { transform: translate(var(--x), var(--y)); }
-  53%, 52% { transform: translate(0, 0); }
-  80% { transform: translate(0, -32px); }
-  90%, 100% { transform: translate(0, 188px); }
-}
-@keyframes cube-scale7 {
-  34% { transform: var(--pose) scale(0); }
-  42%, 100% { transform: var(--pose) scale(1); }
-}
-@keyframes cube-ground {
-  0%, 65% { transform: rotateX(90deg) rotateY(0deg) translate(-48px, -120px) translateZ(100px) scale(0); }
-  75%, 90% { transform: rotateX(90deg) rotateY(0deg) translate(-48px, -120px) translateZ(100px) scale(1); }
-  100% { transform: rotateX(90deg) rotateY(0deg) translate(-48px, -120px) translateZ(100px) scale(0); }
-}
-@media (max-width: 980px) { .dl-de .cubes { --zoom: 0.4; } }
-@media (prefers-reduced-motion: reduce) {
-  .dl-de .box, .dl-de .box div, .dl-de .ground div { animation: none; }
-  .dl-de .box div { transform: var(--pose) scale(1); }
-}
+.dl-face i { width: 80%; aspect-ratio: 1; place-self: center; border-radius: 50%; background: radial-gradient(circle at 34% 30%, #55758C 0%, var(--navy) 58%); box-shadow: inset 0 1.5px 2px rgba(0, 0, 0, 0.45); }
+.dl-front { transform: translateZ(calc(var(--taille) / 2)); }
+.dl-back { transform: rotateY(180deg) translateZ(calc(var(--taille) / 2)); }
+.dl-right { transform: rotateY(90deg) translateZ(calc(var(--taille) / 2)); }
+.dl-left { transform: rotateY(-90deg) translateZ(calc(var(--taille) / 2)); }
+.dl-top { transform: rotateX(90deg) translateZ(calc(var(--taille) / 2)); }
+.dl-bottom { transform: rotateX(-90deg) translateZ(calc(var(--taille) / 2)); }
+@media (prefers-reduced-motion: reduce) { .dl-de { animation: none; } }

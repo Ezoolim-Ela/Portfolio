@@ -67,7 +67,7 @@
   <!-- Police chargée sans bloquer le rendu (préchargement, puis activation) ; icônes : sprite SVG local assets/icons.svg -->
   <link rel="preload" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Yellowtail&family=JetBrains+Mono:wght@500&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
   <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Yellowtail&family=JetBrains+Mono:wght@500&display=swap"></noscript>
-  <link rel="stylesheet" href="styles.css?v=38">
+  <link rel="stylesheet" href="styles.css?v=39">
 </head>
 <body>
 
@@ -83,8 +83,8 @@
 
       <nav class="site-nav" id="site-nav" aria-label="Navigation principale">
         <ul class="nav-list">
-          <li><a href="#a-propos" class="nav-link">À propos</a></li>
           <li><a href="#projets" class="nav-link">Projets</a></li>
+          <li><a href="#a-propos" class="nav-link">À propos</a></li>
           <li><a href="#parcours" class="nav-link">Parcours</a></li>
           <li><a href="#competences" class="nav-link">Compétences</a></li>
           <li><a href="#contact" class="nav-link">Contact</a></li>
@@ -129,61 +129,6 @@
         </div>
 
         <div class="hero-dice" data-dice role="group" aria-label="Lancer le dé"></div>
-      </div>
-    </section>
-
-    <!-- ===== À propos ===== -->
-    <section class="section about-bloom" id="a-propos">
-      <!-- Ouverture « Éclosion » : un éventail de lames s'ouvre, tourne et s'envole au fil du défilement -->
-      <div class="bloom-track" data-bloom>
-        <div class="bloom-sticky">
-          <div class="bloom-fan" aria-hidden="true"></div>
-          <div class="bloom-stage">
-            <p class="eyebrow">Qui je suis</p>
-            <h2 class="bloom-title">À propos <em>de moi</em></h2>
-            <p class="bloom-words"><span class="bw">Curieuse</span><span class="bw alt">rigoureuse</span><span class="bw">Créative</span><span class="bw alt">orientée solutions</span></p>
-          </div>
-          <p class="bloom-hint" aria-hidden="true"><span></span>Faites défiler</p>
-        </div>
-      </div>
-
-      <div class="container about-body">
-        <div class="about-grid">
-          <div class="about-text reveal">
-            <p class="about-lead">Passionnée par le numérique et les nouvelles technologies, je suis actuellement en deuxième année de Licence en Informatique à l’<strong>IAI-TOGO</strong> (2025-2026), en tronc commun orienté Génie Logiciel et Systèmes d’Information.</p>
-            <p class="scroll-text">J’aime comprendre comment les systèmes fonctionnent et trouver des solutions quand quelque chose ne marche pas. Je m’investis pleinement dans mes projets, scolaires comme personnels, et je cherche un stage pour apprendre aux côtés de professionnels tout en apportant mon sérieux et ma bonne humeur à l’équipe.</p>
-          </div>
-
-          <aside class="about-id reveal">
-            <p class="about-id-title">En bref</p>
-            <dl>
-                <div><dt><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#location-dot"></use></svg>Basée à</dt><dd>Lomé, Togo</dd></div>
-                <div><dt><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#graduation-cap"></use></svg>Formation</dt><dd>Licence 2 Informatique, IAI-TOGO</dd></div>
-                <div><dt><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#certificate"></use></svg>Certifications</dt><dd>Cisco CCNA 1 &amp; 2</dd></div>
-                <div><dt><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#language"></use></svg>Langues</dt><dd>Français · Anglais · Kabyè</dd></div>
-                <div><dt><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#paper-plane"></use></svg>Je recherche</dt><dd>Un stage en développement</dd></div>
-              </dl>
-            <a class="btn btn-glow about-facts-cta" href="#contact">Me contacter <svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#arrow-right"></use></svg></a>
-          </aside>
-        </div>
-
-        <div class="petal-cards" data-stagger>
-          <article class="petal-card reveal" style="--c:#2C3E50">
-            <span class="petal-num">01</span>
-            <h3>Rigueur académique</h3>
-            <p>Algorithmique, modélisation et architecture MVC : des bases solides pour concevoir des applications maintenables, du cahier des charges au code.</p>
-          </article>
-          <article class="petal-card reveal" style="--c:#3A6B7A">
-            <span class="petal-num">02</span>
-            <h3>Esprit technique</h3>
-            <p>Certifiée Cisco CCNA 1 &amp; 2 : je comprends ce qui se passe sous le capot, du routage et des VLAN jusqu’à la sécurisation d’un réseau d’entreprise sous Packet Tracer.</p>
-          </article>
-          <article class="petal-card reveal" style="--c:#4CA1AF">
-            <span class="petal-num">03</span>
-            <h3>De l’idée à la production</h3>
-            <p>STEA est utilisée chaque jour par l’entreprise cliente et reçoit ses mises à jour sans intervention : je ne m’arrête pas au code, je livre et je maintiens.</p>
-          </article>
-        </div>
       </div>
     </section>
 
@@ -388,6 +333,61 @@
         <div class="gallery-thumbs" id="gallery-thumbs" aria-label="Choisir un écran"></div>
       </div>
     </dialog>
+
+    <!-- ===== À propos ===== -->
+    <section class="section about-bloom" id="a-propos">
+      <!-- Ouverture « Éclosion » : un éventail de lames s'ouvre, tourne et s'envole au fil du défilement -->
+      <div class="bloom-track" data-bloom>
+        <div class="bloom-sticky">
+          <div class="bloom-fan" aria-hidden="true"></div>
+          <div class="bloom-stage">
+            <p class="eyebrow">Qui je suis</p>
+            <h2 class="bloom-title">À propos <em>de moi</em></h2>
+            <p class="bloom-words"><span class="bw">Curieuse</span><span class="bw alt">rigoureuse</span><span class="bw">Créative</span><span class="bw alt">orientée solutions</span></p>
+          </div>
+          <p class="bloom-hint" aria-hidden="true"><span></span>Faites défiler</p>
+        </div>
+      </div>
+
+      <div class="container about-body">
+        <div class="about-grid">
+          <div class="about-text reveal">
+            <p class="about-lead">Passionnée par le numérique et les nouvelles technologies, je suis actuellement en deuxième année de Licence en Informatique à l’<strong>IAI-TOGO</strong> (2025-2026), en tronc commun orienté Génie Logiciel et Systèmes d’Information.</p>
+            <p class="scroll-text">J’aime comprendre comment les systèmes fonctionnent et trouver des solutions quand quelque chose ne marche pas. Je m’investis pleinement dans mes projets, scolaires comme personnels, et je cherche un stage pour apprendre aux côtés de professionnels tout en apportant mon sérieux et ma bonne humeur à l’équipe.</p>
+          </div>
+
+          <aside class="about-id reveal">
+            <p class="about-id-title">En bref</p>
+            <dl>
+                <div><dt><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#location-dot"></use></svg>Basée à</dt><dd>Lomé, Togo</dd></div>
+                <div><dt><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#graduation-cap"></use></svg>Formation</dt><dd>Licence 2 Informatique, IAI-TOGO</dd></div>
+                <div><dt><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#certificate"></use></svg>Certifications</dt><dd>Cisco CCNA 1 &amp; 2</dd></div>
+                <div><dt><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#language"></use></svg>Langues</dt><dd>Français · Anglais · Kabyè</dd></div>
+                <div><dt><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#paper-plane"></use></svg>Je recherche</dt><dd>Un stage en développement</dd></div>
+              </dl>
+            <a class="btn btn-glow about-facts-cta" href="#contact">Me contacter <svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#arrow-right"></use></svg></a>
+          </aside>
+        </div>
+
+        <div class="petal-cards" data-stagger>
+          <article class="petal-card reveal" style="--c:#2C3E50">
+            <span class="petal-num">01</span>
+            <h3>Rigueur académique</h3>
+            <p>Algorithmique, modélisation et architecture MVC : des bases solides pour concevoir des applications maintenables, du cahier des charges au code.</p>
+          </article>
+          <article class="petal-card reveal" style="--c:#3A6B7A">
+            <span class="petal-num">02</span>
+            <h3>Esprit technique</h3>
+            <p>Certifiée Cisco CCNA 1 &amp; 2 : je comprends ce qui se passe sous le capot, du routage et des VLAN jusqu’à la sécurisation d’un réseau d’entreprise sous Packet Tracer.</p>
+          </article>
+          <article class="petal-card reveal" style="--c:#4CA1AF">
+            <span class="petal-num">03</span>
+            <h3>De l’idée à la production</h3>
+            <p>STEA est utilisée chaque jour par l’entreprise cliente et reçoit ses mises à jour sans intervention : je ne m’arrête pas au code, je livre et je maintiens.</p>
+          </article>
+        </div>
+      </div>
+    </section>
 
     <!-- ===== Parcours ===== -->
     <section class="section" id="parcours">
@@ -675,8 +675,8 @@
         <nav class="footer-col" aria-label="Plan du site">
           <h3>Navigation</h3>
           <ul>
-            <li><a href="#a-propos">À propos</a></li>
             <li><a href="#projets">Projets</a></li>
+            <li><a href="#a-propos">À propos</a></li>
             <li><a href="#parcours">Parcours</a></li>
             <li><a href="#competences">Compétences</a></li>
             <li><a href="#contact">Contact</a></li>
@@ -706,6 +706,6 @@
   <script src="intro.js?v=11" defer></script>
   <script src="apropos.js?v=4" defer></script>
   <script src="anneaux.js?v=2" defer></script>
-  <script src="script.js?v=18" defer></script>
+  <script src="script.js?v=19" defer></script>
 </body>
 </html>

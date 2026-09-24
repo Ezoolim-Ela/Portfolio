@@ -70,7 +70,7 @@
   <!-- Police chargée sans bloquer le rendu (préchargement, puis activation) ; icônes : sprite SVG local assets/icons.svg -->
   <link rel="preload" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Yellowtail&family=JetBrains+Mono:wght@500&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
   <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Yellowtail&family=JetBrains+Mono:wght@500&display=swap"></noscript>
-  <link rel="stylesheet" href="../styles.css?v=38">
+  <link rel="stylesheet" href="../styles.css?v=39">
 </head>
 <body>
 
@@ -86,8 +86,8 @@
 
       <nav class="site-nav" id="site-nav" aria-label="Main navigation">
         <ul class="nav-list">
-          <li><a href="#about" class="nav-link">About</a></li>
           <li><a href="#projects" class="nav-link">Projects</a></li>
+          <li><a href="#about" class="nav-link">About</a></li>
           <li><a href="#background" class="nav-link">Background</a></li>
           <li><a href="#skills" class="nav-link">Skills</a></li>
           <li><a href="#contact" class="nav-link">Contact</a></li>
@@ -132,61 +132,6 @@
         </div>
 
         <div class="hero-dice" data-dice role="group" aria-label="Roll the dice"></div>
-      </div>
-    </section>
-
-    <!-- ===== À propos ===== -->
-    <section class="section about-bloom" id="about">
-      <!-- Ouverture « Éclosion » : un éventail de lames s'ouvre, tourne et s'envole au fil du défilement -->
-      <div class="bloom-track" data-bloom>
-        <div class="bloom-sticky">
-          <div class="bloom-fan" aria-hidden="true"></div>
-          <div class="bloom-stage">
-            <p class="eyebrow">Who I am</p>
-            <h2 class="bloom-title">About <em>me</em></h2>
-            <p class="bloom-words"><span class="bw">Curious</span><span class="bw alt">rigorous</span><span class="bw">Creative</span><span class="bw alt">solution-driven</span></p>
-          </div>
-          <p class="bloom-hint" aria-hidden="true"><span></span>Scroll down</p>
-        </div>
-      </div>
-
-      <div class="container about-body">
-        <div class="about-grid">
-          <div class="about-text reveal">
-            <p class="about-lead">Passionate about technology, I am currently in the second year of a Computer Science degree at <strong>IAI-TOGO</strong> (2025-2026), on the Software Engineering and Information Systems track.</p>
-            <p class="scroll-text">I like understanding how systems work and finding solutions when something breaks. I give my full attention to my projects, academic and personal alike, and I am looking for an internship to learn alongside professionals while bringing my diligence and good spirits to the team.</p>
-          </div>
-
-          <aside class="about-id reveal">
-            <p class="about-id-title">At a glance</p>
-            <dl>
-                <div><dt><svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg#location-dot"></use></svg>Based in</dt><dd>Lomé, Togo</dd></div>
-                <div><dt><svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg#graduation-cap"></use></svg>Studies</dt><dd>2nd-year Computer Science, IAI-TOGO</dd></div>
-                <div><dt><svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg#certificate"></use></svg>Certifications</dt><dd>Cisco CCNA 1 &amp; 2</dd></div>
-                <div><dt><svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg#language"></use></svg>Languages</dt><dd>French · English · Kabiye</dd></div>
-                <div><dt><svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg#paper-plane"></use></svg>Looking for</dt><dd>A software development internship</dd></div>
-              </dl>
-            <a class="btn btn-glow about-facts-cta" href="#contact">Get in touch <svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg#arrow-right"></use></svg></a>
-          </aside>
-        </div>
-
-        <div class="petal-cards" data-stagger>
-          <article class="petal-card reveal" style="--c:#2C3E50">
-            <span class="petal-num">01</span>
-            <h3>Solid fundamentals</h3>
-            <p>Algorithms, data modelling and MVC architecture: the foundations for designing maintainable applications, from the specification to the code.</p>
-          </article>
-          <article class="petal-card reveal" style="--c:#3A6B7A">
-            <span class="petal-num">02</span>
-            <h3>Technical curiosity</h3>
-            <p>Cisco CCNA 1 &amp; 2 certified: I understand what happens under the hood, from routing and VLANs to securing a company network in Packet Tracer.</p>
-          </article>
-          <article class="petal-card reveal" style="--c:#4CA1AF">
-            <span class="petal-num">03</span>
-            <h3>From idea to production</h3>
-            <p>STEA is used every day by the client company and receives its updates without any intervention: I do not stop at the code, I ship and I maintain.</p>
-          </article>
-        </div>
       </div>
     </section>
 
@@ -391,6 +336,61 @@
         <div class="gallery-thumbs" id="gallery-thumbs" aria-label="Choose a screen"></div>
       </div>
     </dialog>
+
+    <!-- ===== À propos ===== -->
+    <section class="section about-bloom" id="about">
+      <!-- Ouverture « Éclosion » : un éventail de lames s'ouvre, tourne et s'envole au fil du défilement -->
+      <div class="bloom-track" data-bloom>
+        <div class="bloom-sticky">
+          <div class="bloom-fan" aria-hidden="true"></div>
+          <div class="bloom-stage">
+            <p class="eyebrow">Who I am</p>
+            <h2 class="bloom-title">About <em>me</em></h2>
+            <p class="bloom-words"><span class="bw">Curious</span><span class="bw alt">rigorous</span><span class="bw">Creative</span><span class="bw alt">solution-driven</span></p>
+          </div>
+          <p class="bloom-hint" aria-hidden="true"><span></span>Scroll down</p>
+        </div>
+      </div>
+
+      <div class="container about-body">
+        <div class="about-grid">
+          <div class="about-text reveal">
+            <p class="about-lead">Passionate about technology, I am currently in the second year of a Computer Science degree at <strong>IAI-TOGO</strong> (2025-2026), on the Software Engineering and Information Systems track.</p>
+            <p class="scroll-text">I like understanding how systems work and finding solutions when something breaks. I give my full attention to my projects, academic and personal alike, and I am looking for an internship to learn alongside professionals while bringing my diligence and good spirits to the team.</p>
+          </div>
+
+          <aside class="about-id reveal">
+            <p class="about-id-title">At a glance</p>
+            <dl>
+                <div><dt><svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg#location-dot"></use></svg>Based in</dt><dd>Lomé, Togo</dd></div>
+                <div><dt><svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg#graduation-cap"></use></svg>Studies</dt><dd>2nd-year Computer Science, IAI-TOGO</dd></div>
+                <div><dt><svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg#certificate"></use></svg>Certifications</dt><dd>Cisco CCNA 1 &amp; 2</dd></div>
+                <div><dt><svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg#language"></use></svg>Languages</dt><dd>French · English · Kabiye</dd></div>
+                <div><dt><svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg#paper-plane"></use></svg>Looking for</dt><dd>A software development internship</dd></div>
+              </dl>
+            <a class="btn btn-glow about-facts-cta" href="#contact">Get in touch <svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg#arrow-right"></use></svg></a>
+          </aside>
+        </div>
+
+        <div class="petal-cards" data-stagger>
+          <article class="petal-card reveal" style="--c:#2C3E50">
+            <span class="petal-num">01</span>
+            <h3>Solid fundamentals</h3>
+            <p>Algorithms, data modelling and MVC architecture: the foundations for designing maintainable applications, from the specification to the code.</p>
+          </article>
+          <article class="petal-card reveal" style="--c:#3A6B7A">
+            <span class="petal-num">02</span>
+            <h3>Technical curiosity</h3>
+            <p>Cisco CCNA 1 &amp; 2 certified: I understand what happens under the hood, from routing and VLANs to securing a company network in Packet Tracer.</p>
+          </article>
+          <article class="petal-card reveal" style="--c:#4CA1AF">
+            <span class="petal-num">03</span>
+            <h3>From idea to production</h3>
+            <p>STEA is used every day by the client company and receives its updates without any intervention: I do not stop at the code, I ship and I maintain.</p>
+          </article>
+        </div>
+      </div>
+    </section>
 
     <!-- ===== Parcours ===== -->
     <section class="section" id="background">
@@ -678,8 +678,8 @@
         <nav class="footer-col" aria-label="Site map">
           <h3>Navigation</h3>
           <ul>
-            <li><a href="#about">About</a></li>
             <li><a href="#projects">Projects</a></li>
+            <li><a href="#about">About</a></li>
             <li><a href="#background">Background</a></li>
             <li><a href="#skills">Skills</a></li>
             <li><a href="#contact">Contact</a></li>
@@ -709,6 +709,6 @@
   <script src="../intro.js?v=11" defer></script>
   <script src="../apropos.js?v=4" defer></script>
   <script src="../anneaux.js?v=2" defer></script>
-  <script src="../script.js?v=18" defer></script>
+  <script src="../script.js?v=19" defer></script>
 </body>
 </html>

@@ -1,54 +1,74 @@
 /* ==========================================================
-   « Le dé des projets »
-   Un dé dont chaque face porte un projet. Le défilement le fait tourner :
-   il marque une pause sur chaque face, et le projet correspondant s'affiche
-   à côté. On peut aussi cliquer une pastille ou le dé pour passer au suivant.
+   « Le dé lanceur »
+   Un petit dé roule le long d'une piste. À chaque arrêt il se penche et
+   déverse un projet : la capture et sa description apparaissent au-dessus,
+   dans une lumière à la couleur du projet. On continue à faire défiler :
+   le projet s'en va, le dé repart en roulant vers la gauche, et il livre
+   le suivant. Tout est piloté par le défilement.
    ========================================================== */
 (function () {
-  var track = document.querySelector('[data-de-projets]');
+  var track = document.querySelector('[data-de-lanceur]');
   if (!track) return;
-  var cube = track.querySelector('.pd-cube');
-  var details = Array.prototype.slice.call(track.querySelectorAll('.pd-detail'));
-  var dots = Array.prototype.slice.call(track.querySelectorAll('.pd-dot'));
-  var faces = Array.prototype.slice.call(track.querySelectorAll('.pd-face.side'));
-  var N = details.length;
-  if (!cube || N < 2) return;
+  var de = track.querySelector('.dl-de');
+  var piste = track.querySelector('.dl-piste');
+  var projets = Array.prototype.slice.call(track.querySelectorAll('.dl-projet'));
+  var puces = Array.prototype.slice.call(track.querySelectorAll('.dl-puce'));
+  var halo = track.querySelector('.dl-halo');
+  var N = projets.length;
+  if (!de || !N) return;
   var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  var courant = -1;
-  function afficher(i) {
+  function clamp(x) { return x < 0 ? 0 : (x > 1 ? 1 : x); }
+  function doux(x) { return x < 0.5 ? 4 * x * x * x : 1 - Math.pow(-2 * x + 2, 3) / 2; }
+
+  var courant = -2;
+  function montrer(i) {
     if (i === courant) return;
     courant = i;
-    details.forEach(function (d, k) { d.classList.toggle('is-on', k === i); });
-    dots.forEach(function (d, k) {
-      d.classList.toggle('is-on', k === i);
-      d.setAttribute('aria-selected', k === i ? 'true' : 'false');
-      d.tabIndex = k === i ? 0 : -1;
+    projets.forEach(function (p, k) { p.classList.toggle('is-on', k === i); });
+    puces.forEach(function (p, k) {
+      p.classList.toggle('is-on', k === i);
+      p.setAttribute('aria-selected', k === i ? 'true' : 'false');
+      p.tabIndex = k === i ? 0 : -1;
     });
-    faces.forEach(function (f, k) { f.classList.toggle('is-front', k === i); });
+    if (halo && i >= 0) halo.style.setProperty('--c', projets[i].getAttribute('data-c') || '#4CA1AF');
+    track.classList.toggle('a-livre', i >= 0);
   }
 
-  function poser(angle) {
-    cube.style.transform = 'rotateX(-14deg) rotateY(' + angle.toFixed(2) + 'deg)';
+  /* Le dé roule : il avance et fait un quart de tour par côté parcouru. */
+  function poser(x, penche) {
+    var taille = de.offsetWidth || 74;
+    var tour = (x / taille) * 90;
+    de.style.transform = 'translateX(' + x.toFixed(1) + 'px) translateY(' + (-penche * 14).toFixed(1) + 'px)'
+      + ' rotateX(' + (-10 - penche * 30).toFixed(1) + 'deg) rotateZ(' + tour.toFixed(1) + 'deg)';
   }
 
-  function clamp(x) { return x < 0 ? 0 : (x > 1 ? 1 : x); }
-  function ease(x) { return x < 0.5 ? 4 * x * x * x : 1 - Math.pow(-2 * x + 2, 3) / 2; }
-
-  /* ---------- Défilement : une pause par face, puis un quart de tour ---------- */
   var ticking = false;
   function mesurer() {
     var r = track.getBoundingClientRect();
     var haut = parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--header-h')) || 72;
     var course = r.height - (window.innerHeight - haut);
     var p = clamp((haut - r.top) / Math.max(1, course));
-    // une tranche de défilement par face : elle marque une pause, puis fait un quart de tour
+    var largeur = piste ? Math.max(120, piste.clientWidth - (de.offsetWidth || 74)) : 300;
+
+    // une tranche de défilement par projet : le dé roule, livre, puis repart
     var pas = p * N;
-    var q = Math.min(N - 1, Math.floor(pas));
-    var u = clamp(pas - q);
-    var tourne = q === N - 1 ? 0 : ease(clamp((u - 0.45) / 0.55));  // la dernière face n'a plus à tourner
-    poser(-(q + tourne) * 90);
-    afficher(u < 0.75 ? q : Math.min(q + 1, N - 1));
+    var i = Math.min(N - 1, Math.floor(pas));
+    var u = clamp(pas - i);
+
+    var x, penche = 0, livre = false;
+    if (u < 0.13) {                          // il roule vers la droite
+      x = largeur * doux(u / 0.13);
+    } else if (u < 0.9 || i === N - 1) {     // il se penche, déverse, et le projet reste affiché
+      x = largeur;
+      penche = Math.sin(clamp((u - 0.13) / 0.1) * Math.PI);
+      livre = true;
+    } else {                                 // il repart en roulant vers la gauche
+      x = largeur * (1 - doux(clamp((u - 0.9) / 0.1)));
+    }
+    poser(x, penche);
+    montrer(livre ? i : -1);
+    if (halo) halo.style.opacity = (livre ? 1 : 0).toFixed(2);
   }
   function auDefilement() {
     if (ticking) return;
@@ -56,53 +76,31 @@
     requestAnimationFrame(function () { ticking = false; mesurer(); });
   }
 
-  /* ---------- Clic : on va directement à une face ---------- */
-  var anim = null;
-  function allerA(i) {
-    if (reduceMotion) { poser(-i * 90); afficher(i); return; }
-    if (anim) cancelAnimationFrame(anim);
-    var depart = courant < 0 ? 0 : courant, t0 = null;
-    afficher(i);
-    (function frame(t) {
-      if (t0 === null) t0 = t;
-      var k = clamp((t - t0) / 700);
-      poser(-(depart + (i - depart) * ease(k)) * 90);
-      if (k < 1) anim = requestAnimationFrame(frame);
-    })(performance.now());
-  }
-
-  dots.forEach(function (d, i) {
-    d.addEventListener('click', function () {
-      // on se replace au bon endroit du défilement : la scène suit
+  /* Les pastilles amènent directement au projet voulu. */
+  puces.forEach(function (b, i) {
+    b.addEventListener('click', function () {
       var haut = parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--header-h')) || 72;
-      // .pd-track n'est pas positionné par rapport à la page : on prend sa position absolue
       var hautTrack = track.getBoundingClientRect().top + window.scrollY;
       var course = track.offsetHeight - (window.innerHeight - haut);
-      if (course < 60) { allerA(i); return; }   // petit écran : la scène ne défile pas, on tourne le dé
-      var cible = hautTrack - haut + course * (i / (N - 1));
-      window.scrollTo({ top: Math.round(cible) + 2, behavior: reduceMotion ? 'auto' : 'smooth' });
+      if (course < 60) { montrer(i); return; }   // petit écran : la scène ne défile pas
+      var cible = hautTrack - haut + course * ((i + 0.5) / N);
+      window.scrollTo({ top: Math.round(cible), behavior: reduceMotion ? 'auto' : 'smooth' });
     });
-    d.addEventListener('keydown', function (e) {
+    b.addEventListener('keydown', function (e) {
       var j = e.key === 'ArrowRight' ? i + 1 : (e.key === 'ArrowLeft' ? i - 1 : -1);
       if (j < 0 || j >= N) return;
       e.preventDefault();
-      dots[j].focus(); dots[j].click();
+      puces[j].focus(); puces[j].click();
     });
   });
 
-  if (reduceMotion) { poser(0); afficher(0); return; }
+  if (reduceMotion) {
+    projets.forEach(function (p) { p.classList.add('is-on'); });
+    track.classList.add('a-livre', 'sans-animation');
+    return;
+  }
 
   window.addEventListener('scroll', auDefilement, { passive: true });
   window.addEventListener('resize', auDefilement);
   mesurer();
-  // le dé se pose dès que la scène touche l'écran (elle fait plusieurs hauteurs : pas de seuil en %)
-  if ('IntersectionObserver' in window) {
-    var io = new IntersectionObserver(function (e) {
-      if (e[0].isIntersecting) { track.classList.add('is-live'); io.disconnect(); }
-    }, { threshold: 0 });
-    io.observe(track);
-  } else {
-    track.classList.add('is-live');
-  }
-  if (window.allerAFaceProjet === undefined) window.allerAFaceProjet = allerA;
 })();

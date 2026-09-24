@@ -938,16 +938,6 @@ html.intro-pending::after {
 }
 
 
-/* le bas de carte, posé sur le trait du cadre (qu'il interrompt) */
-.intro-bottom {
-  position: absolute; left: 50%; bottom: calc(clamp(14px, 2.6vw, 34px) - 0.72em); z-index: 1;
-  transform: translateX(-50%); padding: 0 0.5em 0 0.9em; white-space: nowrap;
-  background: var(--navy); color: var(--sky);
-  font-size: clamp(0.58rem, 0.5rem + 0.26vw, 0.76rem); font-weight: 600; text-transform: uppercase;
-  letter-spacing: 0.75em; opacity: 0;
-  transition: opacity 0.7s ease 0.85s, letter-spacing 0.9s cubic-bezier(0.2, 0.8, 0.2, 1) 0.85s;
-}
-.intro.is-open .intro-bottom { opacity: 1; letter-spacing: 0.28em; }
 
 .intro-skip {
   position: absolute; top: calc(clamp(14px, 2.6vw, 34px) + 18px); right: calc(clamp(14px, 2.6vw, 34px) + 18px);
@@ -960,11 +950,10 @@ html.intro-pending::after {
 
 @media (max-width: 640px) {
   .intro-full { -webkit-text-stroke-width: 1.8px; }
-  .intro.is-open .intro-bottom { letter-spacing: 0.16em; }
   .intro-skip { top: auto; bottom: calc(clamp(14px, 2.6vw, 34px) + 46px); right: 50%; transform: translateX(50%); }
 }
 @media (prefers-reduced-motion: reduce) {
-  .intro-border, .intro-logo, .intro-bottom { transition: none; }
+  .intro-border, .intro-logo { transition: none; }
   .intro-logo, .intro-trail { animation: none !important; }
 }
 

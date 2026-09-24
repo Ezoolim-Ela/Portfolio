@@ -15,8 +15,7 @@
   if (!hero) { html.classList.remove('intro-pending'); return; }
 
   var T = EN ? {
-    grand: 'Welcome to my portfolio',
-    bas: 'Software engineering & information systems', passer: 'Skip',
+    grand: 'Welcome to my portfolio', passer: 'Skip',
     lancer: 'Roll the dice', relancer: 'Roll again',
     invite: 'Nothing here is left to chance.',
     de: 'Six-sided die: roll it to discover one side of my profile',
@@ -30,8 +29,7 @@
     ],
     contact: 'Get in touch'
   } : {
-    grand: 'Bienvenue sur mon portfolio',
-    bas: 'Génie logiciel & systèmes d’information', passer: 'Passer',
+    grand: 'Bienvenue sur mon portfolio', passer: 'Passer',
     lancer: 'Lancer le dé', relancer: 'Relancer',
     invite: 'Ici, rien n’est laissé au hasard.',
     de: 'Dé à six faces : lancez-le pour découvrir une facette de mon profil',
@@ -259,10 +257,8 @@
         '<span class="intro-full"></span>' +
         '<span class="intro-trail"></span>' +
       '</div>' +
-    '</div>' +
-    '<p class="intro-bottom"></p>';
+    '</div>';
   intro.querySelector('.intro-full').textContent = T.grand;
-  intro.querySelector('.intro-bottom').textContent = T.bas;
   var skip = document.createElement('button');
   skip.type = 'button';
   skip.className = 'intro-skip';

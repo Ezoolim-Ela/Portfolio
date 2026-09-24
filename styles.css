@@ -1213,3 +1213,23 @@ h2 em, .case-section h2 em { font-size: 1.12em; line-height: 0.9; }
 .bloom-hint { display: none; }
 .js .bloom-track.is-armed .bloom-stage > * { opacity: 0; }
 .js .bloom-track.is-armed .bloom-words > span { opacity: 0; }
+
+
+/* =========================================================
+   Compétences « Anneaux » : sphères qui s'assemblent en anneaux entrelacés
+   ========================================================= */
+.skills-top { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr); align-items: center; gap: clamp(1.5rem, 4vw, 3rem); margin-bottom: clamp(1.5rem, 3vw, 2.5rem); }
+.skills-top .section-head { margin-bottom: 0; }
+.skills-orbit { position: relative; height: clamp(300px, 34vw, 440px); }
+.skills-orbit canvas { position: absolute; inset: 0; display: block; }
+/* chaque carte porte la couleur de son anneau */
+.skill-group[data-ring] { --ring: #2C3E50; transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1), border-color 0.4s, box-shadow 0.4s; }
+.skill-group[data-ring="1"] { --ring: #4CA1AF; }
+.skill-group[data-ring="2"] { --ring: #7FBAC4; }
+.skill-group[data-ring] .icon-gem { background: var(--ring); color: #FFFFFF; box-shadow: inset 0 -3px 6px rgba(0, 0, 0, 0.2), 0 6px 14px -6px var(--ring); border-radius: 50%; }
+.skill-group[data-ring]:hover { border-color: var(--ring); }
+@media (max-width: 860px) {
+  .skills-top { grid-template-columns: 1fr; }
+  .skills-orbit { height: 300px; order: -1; }
+}
+[data-theme="dark"] .skill-group[data-ring="0"] { --ring: #5D7A96; }

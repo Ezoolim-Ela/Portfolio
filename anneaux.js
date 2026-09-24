@@ -82,7 +82,9 @@
         ring: ri, tx: x2, ty: y2, tz: z1,
         sx: side * (1.3 + rnd() * 0.55), sy: (rnd() - 0.5) * 0.5, sz: (rnd() - 0.5) * 0.8,
         size: 0.075 + rnd() * 0.03,
-        delay: ri * 0.12 + rnd() * 0.45
+        delay: ri * 0.12 + rnd() * 0.45,
+        // dispersion : quand la sculpture se décompose, chaque sphère part de son côté
+        retard: rnd() * 0.55, fuite: 0.6 + rnd() * 0.8, dérive: (rnd() - 0.5) * 1.4
       });
     }
   });
@@ -138,7 +140,7 @@
     // ombre au sol, qui se forme avec l'assemblage
     var formed = ease(build / 2.2);
     var sh = ctx.createRadialGradient(W / 2, H * 0.9, 0, W / 2, H * 0.9, R * 1.2);
-    sh.addColorStop(0, 'rgba(20,30,40,' + (0.22 * formed).toFixed(3) + ')'); sh.addColorStop(1, 'rgba(20,30,40,0)');
+    sh.addColorStop(0, 'rgba(20,30,40,' + (0.22 * formed * (1 - clamp01((v - 0.25) / 0.5))).toFixed(3) + ')'); sh.addColorStop(1, 'rgba(20,30,40,0)');
     ctx.fillStyle = sh; ctx.save(); ctx.translate(W / 2, H * 0.9); ctx.scale(1, 0.18); ctx.translate(-W / 2, -H * 0.9);
     ctx.beginPath(); ctx.arc(W / 2, H * 0.9, R * 1.2, 0, Math.PI * 2); ctx.fill(); ctx.restore();
 
@@ -155,12 +157,21 @@
       var X = p * x1 + (1 - p) * bx, Y = p * y2 + (1 - p) * by, Z = p * z2 + (1 - p) * bz;
       var persp = f / (f + Z);
       var fa = focusAmt[b.ring];
-      list.push({
-        z: Z, x: W / 2 + X * R * persp, y: H * 0.47 + Y * R * persp,
-        r: b.size * R * persp * (1 + 0.35 * Math.max(0, fa)),
-        a: (build < b.delay ? 0 : Math.min(1, (build - b.delay) * 4)) * (fa < 0 ? 1 + 0.72 * fa : 1),
-        img: ringImg(b.ring), p: p, dx: (b.tx - b.sx) * R * persp
-      });
+      var sx = W / 2 + X * R * persp, sy = H * 0.47 + Y * R * persp;
+      var rr = b.size * R * persp * (1 + 0.35 * Math.max(0, fa));
+      var aa = (build < b.delay ? 0 : Math.min(1, (build - b.delay) * 4)) * (fa < 0 ? 1 + 0.72 * fa : 1);
+      // décomposition : la sphère s'échappe vers le bas, s'écarte et s'éteint
+      if (verseDebut >= 0) {
+        var dec = clamp01((t - verseDebut - b.retard) / 0.85);
+        if (dec > 0) {
+          var e = dec * dec;
+          sy += e * H * b.fuite;
+          sx += dec * R * b.dérive;
+          rr *= 1 - 0.85 * dec;
+          aa *= 1 - dec;
+        }
+      }
+      list.push({ z: Z, x: sx, y: sy, r: rr, a: aa, img: ringImg(b.ring), p: p, dx: (b.tx - b.sx) * R * persp });
     });
     list.sort(function (a, b) { return b.z - a.z; });
     list.forEach(function (s) {
@@ -178,6 +189,13 @@
     });
     ctx.globalAlpha = 1;
 
+    if (verseDebut >= 0 && t - verseDebut > 2.5) {
+      // la sculpture s'est entièrement décomposée : on libère la place
+      if (section) section.classList.add('is-emptied');
+      ctx.clearRect(0, 0, W, H);
+      stop();
+      return;
+    }
     if (running && !reduceMotion) raf = requestAnimationFrame(draw);
   }
 

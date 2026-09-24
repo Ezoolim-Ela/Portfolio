@@ -1148,7 +1148,7 @@ h2 em, .case-section h2 em { font-size: 1.12em; line-height: 0.9; }
    ========================================================= */
 .skills-top { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr); align-items: center; gap: clamp(1.5rem, 4vw, 3rem); margin-bottom: clamp(1.5rem, 3vw, 2.5rem); }
 .skills-top .section-head { margin-bottom: 0; }
-.skills-orbit { position: relative; height: clamp(300px, 34vw, 440px); }
+.skills-orbit { position: relative; height: clamp(300px, 34vw, 440px); transition: height 0.8s cubic-bezier(0.65, 0, 0.35, 1), opacity 0.4s ease; }
 .skills-orbit canvas { position: absolute; inset: 0; display: block; }
 /* chaque carte porte la couleur de son anneau */
 .skill-group[data-ring] { --ring: #2C3E50; transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1), border-color 0.4s, box-shadow 0.4s; }
@@ -1299,4 +1299,14 @@ h2 em, .case-section h2 em { font-size: 1.12em; line-height: 0.9; }
 @media (prefers-reduced-motion: reduce) {
   #competences.pour-ready .skill-group { opacity: 1; transform: none; }
   #competences.pour-ready.is-pouring .chip, #competences.pour-ready.is-pouring .cert, #competences.pour-ready.is-pouring .skill-group { animation: none; opacity: 1; transform: none; }
+}
+
+/* la sculpture s'est décomposée : sa place se referme et le titre reprend la largeur */
+#competences.is-emptied .skills-orbit { height: 0; opacity: 0; }
+@media (min-width: 981px) {
+  #competences.is-emptied .skills-top { grid-template-columns: minmax(0, 1fr) 0fr; }
+  .skills-top { transition: grid-template-columns 0.8s cubic-bezier(0.65, 0, 0.35, 1); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .skills-orbit, .skills-top { transition: none; }
 }

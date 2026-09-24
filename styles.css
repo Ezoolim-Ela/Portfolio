@@ -1209,7 +1209,9 @@ h2 em, .case-section h2 em { font-size: 1.12em; line-height: 0.9; }
   display: grid; align-items: center; overflow: hidden; isolation: isolate;
   background: radial-gradient(85% 70% at 50% 108%, #2E4A57 0%, var(--navy) 62%);
   --text: #FFFFFF; --text-2: #C4D3D9; --text-3: #94A7B1;
-  --surface: #22323C; --border: rgba(255, 255, 255, 0.14); --border-strong: rgba(255, 255, 255, 0.3);
+  --surface: #22323C; --surface-2: #1C2933; --bg: #1B2830;
+  --border: rgba(255, 255, 255, 0.14); --border-strong: rgba(255, 255, 255, 0.28);
+  --primary: #9ED3DB; --primary-soft: rgba(158, 211, 219, 0.16); --primary-soft-text: #C7E6EB;
   color: var(--text);
 }
 .dl-sticky::before { content: ''; position: absolute; inset: 0; z-index: -2; background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='e'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.75' numOctaves='3' stitchTiles='stitch'/%3E%3CfeDiffuseLighting lighting-color='%23ffffff' surfaceScale='2.4'%3E%3CfeDistantLight azimuth='225' elevation='52'/%3E%3C/feDiffuseLighting%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23e)'/%3E%3C/svg%3E"); opacity: 0.1; mix-blend-mode: overlay; pointer-events: none; }
@@ -1363,3 +1365,29 @@ h2 em, .case-section h2 em { font-size: 1.12em; line-height: 0.9; }
 }
 @keyframes dl-poussiere { to { background-position: 0 -260px; } }
 @media (prefers-reduced-motion: reduce) { .dl-rayon::after { animation: none; } }
+
+/* ----- les illustrations se fondent dans la scène sombre ----- */
+.dl-shot .scene { background: linear-gradient(180deg, rgba(158, 211, 219, 0.1), #16222A); border-color: rgba(255, 255, 255, 0.08); }
+.dl-shot .scene svg [fill="#E3EAF2"] { fill: #223039; }            /* le sol de la ville */
+.dl-shot .scene-locatif .w { fill: #BFE6EC; stroke: rgba(255, 255, 255, 0.25); }
+.dl-shot .scene-chip { background: rgba(255, 255, 255, 0.1); border-color: rgba(255, 255, 255, 0.16); color: #EAF3F5; box-shadow: none; }
+.dl-shot .mini-browser { background: #1E2C35; border-color: rgba(255, 255, 255, 0.14); }
+.dl-shot .mini-bar { background: rgba(255, 255, 255, 0.06); border-color: rgba(255, 255, 255, 0.1); }
+.dl-shot .mini-url { background: rgba(255, 255, 255, 0.05); border-color: rgba(255, 255, 255, 0.1); color: #8FA7B1; }
+.dl-shot .mini-cell, .dl-shot .mini-input { background: rgba(255, 255, 255, 0.1); border-color: rgba(255, 255, 255, 0.14); }
+.dl-shot .mini-cell.w, .dl-shot .mini-pill, .dl-shot .mini-row.head .mini-cell { background: rgba(255, 255, 255, 0.16); }
+.dl-shot .scene-reseau .lbl { fill: #9FB6C0; }
+.dl-shot .scene-reseau .sw { fill: rgba(255, 255, 255, 0.22); }
+.dl-shot .scene-reseau .router { fill: #22323C; stroke: #9ED3DB; }
+.dl-shot .scene-reseau .ric { fill: #E8F4F6; }
+.dl-shot .scene-reseau .link { stroke: rgba(255, 255, 255, 0.28); }
+
+/* ----- l'image paraît vraiment projetée ----- */
+.dl-shot::after {
+  content: ''; position: absolute; inset: 0; pointer-events: none; border-radius: inherit;
+  background:
+    linear-gradient(to top, color-mix(in srgb, var(--c) 34%, transparent) 0%, transparent 58%),
+    radial-gradient(120% 90% at 50% 130%, rgba(255, 255, 255, 0.22) 0%, transparent 62%);
+  mix-blend-mode: screen;
+}
+.dl-shot { outline: 1px solid color-mix(in srgb, var(--c) 45%, transparent); outline-offset: 5px; }

@@ -1260,18 +1260,17 @@ h2 em, .case-section h2 em { font-size: 1.12em; line-height: 0.9; }
 .dl-piste { position: relative; height: 96px; }
 .dl-sol { position: absolute; left: 0; right: 0; bottom: 14px; height: 1px; background: linear-gradient(90deg, transparent, var(--border-strong) 12%, var(--border-strong) 88%, transparent); }
 .dl-de {
-  --taille: clamp(56px, 6vw, 76px); --penche: 0;
-  position: absolute; left: 0; bottom: 15px; width: var(--taille); height: var(--taille);
-  transform-style: preserve-3d; transform-origin: 50% 50%;
-  filter: drop-shadow(0 12px 14px rgba(16, 26, 34, 0.32));
+  --taille: clamp(64px, 6.6vw, 88px);
+  position: absolute; left: 0; bottom: 16px; width: var(--taille); height: var(--taille);
 }
+.dl-cube { position: absolute; inset: 0; transform-style: preserve-3d; }
 .dl-face {
-  position: absolute; inset: 0; display: grid; grid-template: repeat(3, 1fr) / repeat(3, 1fr); padding: 15%;
-  border-radius: 20%; background: linear-gradient(150deg, #FFFFFF 0%, #EDF2F4 58%, #D8E2E6 100%);
-  box-shadow: inset 0 0 0 1px rgba(16, 26, 34, 0.08), inset 0 -8px 16px rgba(16, 26, 34, 0.12);
+  position: absolute; inset: 0; display: grid; grid-template: repeat(3, 1fr) / repeat(3, 1fr); padding: 16%;
+  border-radius: 18%; background: linear-gradient(152deg, #FFFFFF 0%, #F0F4F6 46%, #C9D6DC 100%);
+  box-shadow: inset 0 0 0 1.5px rgba(16, 26, 34, 0.14), inset 0 -10px 20px rgba(16, 26, 34, 0.18);
   backface-visibility: hidden;
 }
-.dl-face i { width: 74%; aspect-ratio: 1; place-self: center; border-radius: 50%; background: radial-gradient(circle at 36% 32%, #4A6A80 0%, var(--navy) 62%); box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.35); }
+.dl-face i { width: 80%; aspect-ratio: 1; place-self: center; border-radius: 50%; background: radial-gradient(circle at 34% 30%, #55758C 0%, var(--navy) 58%); box-shadow: inset 0 1.5px 2px rgba(0, 0, 0, 0.45), 0 0 0 0.5px rgba(16, 26, 34, 0.15); }
 .dl-front { transform: translateZ(calc(var(--taille) / 2)); }
 .dl-back { transform: rotateY(180deg) translateZ(calc(var(--taille) / 2)); }
 .dl-right { transform: rotateY(90deg) translateZ(calc(var(--taille) / 2)); }
@@ -1279,10 +1278,11 @@ h2 em, .case-section h2 em { font-size: 1.12em; line-height: 0.9; }
 .dl-top { transform: rotateX(90deg) translateZ(calc(var(--taille) / 2)); }
 .dl-bottom { transform: rotateX(-90deg) translateZ(calc(var(--taille) / 2)); }
 /* au moment où il déverse, le dé se penche vers la scène */
-.dl-piste { perspective: 900px; }
+.dl-piste { perspective: 760px; perspective-origin: 50% 70%; }
 .dl-de::after {
-  content: ''; position: absolute; left: 50%; bottom: -11px; width: 120%; height: 10px; translate: -50% 0;
-  border-radius: 50%; background: radial-gradient(closest-side, rgba(16, 26, 34, 0.35), transparent);
+  content: ''; position: absolute; left: 50%; bottom: -13px; width: 135%; height: 14px; translate: -50% 0;
+  border-radius: 50%; background: radial-gradient(closest-side, rgba(16, 26, 34, 0.38), transparent);
+  filter: blur(3px);
 }
 
 /* ----- les pastilles ----- */

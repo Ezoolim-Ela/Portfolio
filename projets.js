@@ -36,11 +36,14 @@
   }
 
   /* Le dé roule : il avance et fait un quart de tour par côté parcouru. */
+  var cube = track.querySelector('.dl-cube');
   function poser(x, penche) {
     var taille = de.offsetWidth || 74;
-    var tour = (x / taille) * 90;
-    de.style.transform = 'translateX(' + x.toFixed(1) + 'px) translateY(' + (-penche * 14).toFixed(1) + 'px)'
-      + ' rotateX(' + (-10 - penche * 30).toFixed(1) + 'deg) rotateZ(' + tour.toFixed(1) + 'deg)';
+    var tour = (x / taille) * 90;          // un quart de tour par côté parcouru
+    de.style.transform = 'translateX(' + x.toFixed(1) + 'px) translateY(' + (-penche * 16).toFixed(1) + 'px)';
+    if (cube) {
+      cube.style.transform = 'rotateX(' + (-20 - penche * 26).toFixed(1) + 'deg) rotateY(' + (-24 + penche * 20).toFixed(1) + 'deg) rotateZ(' + tour.toFixed(1) + 'deg)';
+    }
   }
 
   var ticking = false;

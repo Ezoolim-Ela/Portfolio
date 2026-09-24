@@ -36,19 +36,13 @@
   }
 
   /* Le dé roule : il avance et fait un quart de tour par côté parcouru. */
-  var cube = track.querySelector('.dl-cube');
   var rayon = track.querySelector('.dl-rayon');
   function poser(x, penche) {
-    var taille = de.offsetWidth || 74;
-    var tour = (x / taille) * 90;          // un quart de tour par côté parcouru
     de.style.transform = 'translateX(' + x.toFixed(1) + 'px) translateY(' + (-penche * 16).toFixed(1) + 'px)';
     // le faisceau part du dé : il le suit et s'ouvre au moment où il déverse
     if (rayon) {
       rayon.style.setProperty('--x', x.toFixed(1) + 'px');
       rayon.style.setProperty('--ouvert', penche.toFixed(3));
-    }
-    if (cube) {
-      cube.style.transform = 'rotateX(' + (-20 - penche * 26).toFixed(1) + 'deg) rotateY(' + (-24 + penche * 20).toFixed(1) + 'deg) rotateZ(' + tour.toFixed(1) + 'deg)';
     }
   }
 

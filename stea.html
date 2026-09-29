@@ -20,7 +20,7 @@
   <meta property="og:url" content="https://ezoolim-ela.github.io/Portfolio/stea.html">
   <meta property="og:image" content="https://ezoolim-ela.github.io/Portfolio/assets/stea/tableau-de-bord-vue-desktop.webp">
   <meta name="twitter:card" content="summary_large_image">
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%232C3E50'/%3E%3Ctext x='32' y='43' font-family='Arial, sans-serif' font-size='27' font-weight='800' fill='white' text-anchor='middle'%3EAE%3C/text%3E%3C/svg%3E">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%234A1932'/%3E%3Ctext x='32' y='43' font-family='Arial, sans-serif' font-size='27' font-weight='800' fill='white' text-anchor='middle'%3EAE%3C/text%3E%3C/svg%3E">
 
   <script>
     (function () {
@@ -29,16 +29,20 @@
       if (t !== 'dark' && t !== 'light') t = 'light';
       document.documentElement.setAttribute('data-theme', t);
       var m = document.getElementById('meta-theme-color');
-      if (m) m.setAttribute('content', t === 'dark' ? '#0C1A2C' : '#FFFFFF');
+      if (m) m.setAttribute('content', t === 'dark' ? '#170A11' : '#FFFFFF');
     })();
   </script>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://api.fontshare.com" crossorigin>
+  <link rel="preload" href="https://api.fontshare.com/v2/css?f%5B%5D=clash-display@600,700&f%5B%5D=satoshi@400,500,700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://api.fontshare.com/v2/css?f%5B%5D=clash-display@600,700&f%5B%5D=satoshi@400,500,700&display=swap"></noscript>
   <!-- Police chargée sans bloquer le rendu (préchargement, puis activation) ; icônes : sprite SVG local assets/icons.svg -->
-  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Yellowtail&family=JetBrains+Mono:wght@500&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
-  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Yellowtail&family=JetBrains+Mono:wght@500&display=swap"></noscript>
-  <link rel="stylesheet" href="styles.css?v=67">
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Parisienne&family=JetBrains+Mono:wght@500&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Parisienne&family=JetBrains+Mono:wght@500&display=swap"></noscript>
+  <link rel="stylesheet" href="styles.css?v=169">
+  <script src="transitions.js?v=2"></script>
 </head>
 <body>
   <a class="skip-link" href="#contenu">Aller au contenu</a>
@@ -54,25 +58,25 @@
       <nav class="site-nav" id="site-nav" aria-label="Navigation principale">
         <ul class="nav-list">
           <li><a href="index.html#projets" class="nav-link is-active" aria-current="page">Projets</a></li>
-          <li><a href="index.html#a-propos" class="nav-link">À propos</a></li>
           <li><a href="index.html#parcours" class="nav-link">Parcours</a></li>
           <li><a href="index.html#competences" class="nav-link">Compétences</a></li>
+          <li><a href="index.html#a-propos" class="nav-link">À propos</a></li>
           <li><a href="index.html#contact" class="nav-link">Contact</a></li>
         </ul>
       </nav>
 
       <div class="topbar-actions">
         <a href="assets/CV_Ago_Ezoolim-Ela.pdf" class="btn btn-glass btn-sm btn-cv" target="_blank" rel="noopener" aria-label="Mon CV (PDF)">
-          <svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#file-arrow-down"></use></svg><span class="btn-cv-label">Mon CV</span>
+          <svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg?v=3#file-arrow-down"></use></svg><span class="btn-cv-label">Mon CV</span>
         </a>
         <p class="lang-switch"><span aria-current="true">FR</span><a href="en/stea.html" hreflang="en">EN</a></p>
         <button class="icon-btn" id="theme-toggle" type="button" aria-label="Passer en mode sombre" aria-pressed="false">
-          <svg class="icon icon-moon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#moon"></use></svg>
-          <svg class="icon icon-sun" aria-hidden="true" focusable="false"><use href="assets/icons.svg#sun"></use></svg>
+          <svg class="icon icon-moon" aria-hidden="true" focusable="false"><use href="assets/icons.svg?v=3#moon"></use></svg>
+          <svg class="icon icon-sun" aria-hidden="true" focusable="false"><use href="assets/icons.svg?v=3#sun"></use></svg>
         </button>
         <button class="icon-btn nav-toggle" id="nav-toggle" type="button" aria-controls="site-nav" aria-expanded="false" aria-label="Ouvrir le menu">
-          <svg class="icon icon-open" aria-hidden="true" focusable="false"><use href="assets/icons.svg#bars"></use></svg>
-          <svg class="icon icon-close" aria-hidden="true" focusable="false"><use href="assets/icons.svg#xmark"></use></svg>
+          <svg class="icon icon-open" aria-hidden="true" focusable="false"><use href="assets/icons.svg?v=3#bars"></use></svg>
+          <svg class="icon icon-close" aria-hidden="true" focusable="false"><use href="assets/icons.svg?v=3#xmark"></use></svg>
         </button>
       </div>
     </div>
@@ -83,7 +87,7 @@
     <!-- ===== En-tête de l’étude de cas ===== -->
     <section class="case-hero" id="stea">
       <div class="container">
-        <a href="index.html#projets" class="case-back"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#arrow-left"></use></svg> Retour aux projets</a>
+        <a href="index.html#projets" class="case-back"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg?v=3#arrow-left"></use></svg> Retour aux projets</a>
         <p class="eyebrow">Étude de cas · projet phare</p>
         <h1>STEA, de l’idée à la <em style="font-style: italic; font-weight: 500; color: var(--primary);">production</em></h1>
         <p class="section-lead">Comment j’ai conçu, développé et déployé, de bout en bout, une application de gestion logistique et de suivi des stocks aujourd’hui utilisée par STEA Trans Euro Afrika SARL, à Lomé.</p>
@@ -96,9 +100,9 @@
         </dl>
 
         <div class="case-cta">
-          <button type="button" class="btn btn-glow btn-sm" data-gallery-open="0"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#images"></use></svg> Voir les écrans</button>
-          <a href="https://github.com/Ezoolim-Ela/stea_stock_application" target="_blank" rel="noopener" class="btn btn-glass btn-sm"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#github"></use></svg> Code source</a>
-          <a href="https://github.com/Ezoolim-Ela/stea-desktop/releases" target="_blank" rel="noopener" class="btn btn-glass btn-sm"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#desktop"></use></svg> Versions publiées</a>
+          <button type="button" class="btn btn-glow btn-sm" data-gallery-open="0"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg?v=3#images"></use></svg> Voir les écrans</button>
+          <a href="https://github.com/Ezoolim-Ela/stea-desktop" target="_blank" rel="noopener" class="btn btn-glass btn-sm"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg?v=3#github"></use></svg> Dépôt GitHub</a>
+          <a href="https://github.com/Ezoolim-Ela/stea-desktop/releases" target="_blank" rel="noopener" class="btn btn-glass btn-sm"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg?v=3#desktop"></use></svg> Versions publiées</a>
         </div>
       </div>
     </section>
@@ -115,17 +119,17 @@
 
         <div class="case-grid" data-stagger>
           <article class="case-card reveal">
-            <span class="case-icon" aria-hidden="true"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#warehouse"></use></svg></span>
+            <span class="case-icon" aria-hidden="true"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg?v=3#warehouse"></use></svg></span>
             <h3>Un stock qu’on peut croire</h3>
             <p>Plusieurs entrepôts, des lots et des numéros de série : chaque quantité affichée doit correspondre à la réalité.</p>
           </article>
           <article class="case-card reveal">
-            <span class="case-icon" aria-hidden="true"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#truck-ramp-box"></use></svg></span>
+            <span class="case-icon" aria-hidden="true"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg?v=3#truck-ramp-box"></use></svg></span>
             <h3>Le cycle complet</h3>
             <p>Commandes, livraisons, retours : les documents s’enchaînent sans ressaisie.</p>
           </article>
           <article class="case-card reveal">
-            <span class="case-icon" aria-hidden="true"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#user-shield"></use></svg></span>
+            <span class="case-icon" aria-hidden="true"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg?v=3#user-shield"></use></svg></span>
             <h3>Des droits précis</h3>
             <p>Chaque métier voit ce qui le concerne et n’agit que dans son périmètre.</p>
           </article>
@@ -144,24 +148,24 @@
 
         <div class="arch">
           <div class="arch-box reveal">
-            <h3><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#desktop"></use></svg> Application de bureau</h3>
+            <h3><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg?v=3#desktop"></use></svg> Application de bureau</h3>
             <p>Electron et React : un installeur Windows, et les mises à jour arrivent toutes seules au lancement.</p>
           </div>
-          <div class="arch-link" aria-hidden="true"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#right-left"></use></svg>HTTPS · JSON</div>
+          <div class="arch-link" aria-hidden="true"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg?v=3#right-left"></use></svg>HTTPS · JSON</div>
           <div class="arch-box reveal">
-            <h3><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#server"></use></svg> Serveur</h3>
+            <h3><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg?v=3#server"></use></svg> Serveur</h3>
             <p>Spring Boot et MySQL : une API REST qui porte les règles métier, l’authentification et les droits par rôle.</p>
           </div>
         </div>
 
         <h3 style="margin-top: 40px; font-size: var(--fs-h3);">24 modules, regroupés en six familles</h3>
         <ul class="modules" aria-label="Modules de l’application">
-          <li><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#boxes-stacked"></use></svg>Stock : articles, entrepôts, lots et séries, mouvements, inventaires</li>
-          <li><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#cart-shopping"></use></svg>Achats et ventes : clients, fournisseurs, commandes</li>
-          <li><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#truck"></use></svg>Livraisons : expéditions, bons, retours et avoirs</li>
-          <li><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#coins"></use></svg>Comptabilité : encaissements et suivi des règlements</li>
-          <li><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#chart-column"></use></svg>Pilotage : tableau de bord, statistiques, rapports</li>
-          <li><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#user-gear"></use></svg>Administration : utilisateurs, droits, configuration, historique</li>
+          <li><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg?v=3#boxes-stacked"></use></svg>Stock : articles, entrepôts, lots et séries, mouvements, inventaires</li>
+          <li><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg?v=3#cart-shopping"></use></svg>Achats et ventes : clients, fournisseurs, commandes</li>
+          <li><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg?v=3#truck"></use></svg>Livraisons : expéditions, bons, retours et avoirs</li>
+          <li><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg?v=3#coins"></use></svg>Comptabilité : encaissements et suivi des règlements</li>
+          <li><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg?v=3#chart-column"></use></svg>Pilotage : tableau de bord, statistiques, rapports</li>
+          <li><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg?v=3#user-gear"></use></svg>Administration : utilisateurs, droits, configuration, historique</li>
         </ul>
       </div>
     </section>
@@ -176,7 +180,7 @@
         </div>
         <div class="case-grid" data-stagger>
           <article class="case-card reveal">
-            <span class="case-icon" aria-hidden="true"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#key"></use></svg></span>
+            <span class="case-icon" aria-hidden="true"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg?v=3#key"></use></svg></span>
             <h3>Accès</h3>
             <ul>
               <li>Chaque compte a un rôle, et chaque rôle un périmètre</li>
@@ -185,7 +189,7 @@
             </ul>
           </article>
           <article class="case-card reveal">
-            <span class="case-icon" aria-hidden="true"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#clock-rotate-left"></use></svg></span>
+            <span class="case-icon" aria-hidden="true"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg?v=3#clock-rotate-left"></use></svg></span>
             <h3>Traçabilité</h3>
             <ul>
               <li>Un journal d’audit conserve qui a fait quoi, et quand</li>
@@ -194,7 +198,7 @@
             </ul>
           </article>
           <article class="case-card reveal">
-            <span class="case-icon" aria-hidden="true"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#vial-circle-check"></use></svg></span>
+            <span class="case-icon" aria-hidden="true"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg?v=3#vial-circle-check"></use></svg></span>
             <h3>Vérification</h3>
             <ul>
               <li>141 tests automatisés côté serveur</li>
@@ -266,7 +270,7 @@
         </ol>
 
         <div class="case-cta">
-          <a href="index.html#contact" class="btn btn-glow"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#paper-plane"></use></svg> Parlons de votre projet</a>
+          <a href="index.html#contact" class="btn btn-glow"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg?v=3#paper-plane"></use></svg> Parlons de votre projet</a>
           <a href="index.html#projets" class="btn btn-glass">Retour aux projets</a>
         </div>
       </div>
@@ -279,14 +283,14 @@
     <div class="gallery-inner">
       <div class="gallery-top">
         <p class="gallery-title">STEA — écrans de l’application <span class="gallery-count" id="gallery-count"></span></p>
-        <button type="button" class="icon-btn gallery-close" id="gallery-close" aria-label="Fermer la galerie"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#xmark"></use></svg></button>
+        <button type="button" class="icon-btn gallery-close" id="gallery-close" aria-label="Fermer la galerie"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg?v=3#xmark"></use></svg></button>
       </div>
       <figure class="gallery-figure">
         <img id="gallery-img" src="" alt="">
         <figcaption id="gallery-cap"></figcaption>
       </figure>
-      <button type="button" class="gallery-nav prev" id="gallery-prev" aria-label="Écran précédent"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#chevron-left"></use></svg></button>
-      <button type="button" class="gallery-nav next" id="gallery-next" aria-label="Écran suivant"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#chevron-right"></use></svg></button>
+      <button type="button" class="gallery-nav prev" id="gallery-prev" aria-label="Écran précédent"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg?v=3#chevron-left"></use></svg></button>
+      <button type="button" class="gallery-nav next" id="gallery-next" aria-label="Écran suivant"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg?v=3#chevron-right"></use></svg></button>
       <div class="gallery-thumbs" id="gallery-thumbs" aria-label="Choisir un écran"></div>
     </div>
   </dialog>
@@ -300,39 +304,39 @@
             <span class="gem" aria-hidden="true">AE</span>
             <span class="brand-name">Ago <em>Ezoolim-Ela</em></span>
           </a>
-          <p>Étudiante en Génie Logiciel à l’IAI-TOGO, passionnée par le développement et les réseaux.</p>
+          <p>Titulaire d’une licence en informatique (IAI-TOGO), passionnée par le développement et les réseaux.</p>
         </div>
         <nav class="footer-col" aria-label="Plan du site">
           <h3>Navigation</h3>
           <ul>
             <li><a href="index.html#projets">Projets</a></li>
-            <li><a href="index.html#a-propos">À propos</a></li>
             <li><a href="index.html#parcours">Parcours</a></li>
             <li><a href="index.html#competences">Compétences</a></li>
+            <li><a href="index.html#a-propos">À propos</a></li>
             <li><a href="index.html#contact">Contact</a></li>
           </ul>
         </nav>
         <div class="footer-col">
           <h3>Me retrouver</h3>
           <ul>
-            <li><a href="https://github.com/Ezoolim-Ela" target="_blank" rel="noopener"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#github"></use></svg> GitHub</a></li>
-            <li><a href="https://linkedin.com/in/ago-ezoolim-ela" target="_blank" rel="noopener"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#linkedin-in"></use></svg> LinkedIn</a></li>
-            <li><a href="mailto:agoezoolimela@gmail.com"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#envelope"></use></svg> agoezoolimela@gmail.com</a></li>
-            <li><a href="assets/CV_Ago_Ezoolim-Ela.pdf" target="_blank" rel="noopener"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#file-arrow-down"></use></svg> Télécharger mon CV</a></li>
+            <li><a href="https://github.com/Ezoolim-Ela" target="_blank" rel="noopener"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg?v=3#github"></use></svg> GitHub</a></li>
+            <li><a href="https://linkedin.com/in/ago-ezoolim-ela" target="_blank" rel="noopener"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg?v=3#linkedin-in"></use></svg> LinkedIn</a></li>
+            <li><a href="mailto:agoezoolimela@gmail.com"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg?v=3#envelope"></use></svg> agoezoolimela@gmail.com</a></li>
+            <li><a href="assets/CV_Ago_Ezoolim-Ela.pdf" target="_blank" rel="noopener"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg?v=3#file-arrow-down"></use></svg> Télécharger mon CV</a></li>
           </ul>
         </div>
       </div>
       <div class="footer-bottom">
         <p>&copy; <span id="year">2026</span> Ago Ezoolim-Ela · Site conçu et codé à la main — <a href="https://github.com/Ezoolim-Ela/Portfolio" target="_blank" rel="noopener">code source</a></p>
-        <a href="#contenu" class="footer-top">Retour en haut <svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#arrow-up"></use></svg></a>
+        <a href="#contenu" class="footer-top">Retour en haut <svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg?v=3#arrow-up"></use></svg></a>
       </div>
     </div>
   </footer>
 
   <button class="back-to-top" id="back-to-top" type="button" aria-label="Retour en haut de page">
-    <svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg#arrow-up"></use></svg>
+    <svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg?v=3#arrow-up"></use></svg>
   </button>
 
-  <script src="script.js?v=18" defer></script>
+  <script src="script.js?v=26" defer></script>
 </body>
 </html>

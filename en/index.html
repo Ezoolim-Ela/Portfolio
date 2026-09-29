@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Ago Ezoolim-Ela — Software engineering & networks · Portfolio</title>
-  <meta name="description" content="Portfolio of Ago Ezoolim-Ela, Software Engineering and Information Systems student at IAI-TOGO (Lomé, Togo) — Java, Spring Boot, PHP, React, SQL, Cisco CCNA 1 & 2 networks. Looking for an internship.">
+  <meta name="description" content="Portfolio of Ago Ezoolim-Ela, application developer with a bachelor’s degree in computer science (Software Engineering & Information Systems, IAI-TOGO, Lomé, Togo) — Java, Spring Boot, PHP, React, SQL, Cisco CCNA 1 & 2 networks.">
   <meta name="color-scheme" content="light dark">
   <meta name="theme-color" id="meta-theme-color" content="#FFFFFF">
   <meta name="author" content="Ago Ezoolim-Ela">
@@ -19,15 +19,15 @@
   <meta property="og:locale" content="en_US">
   <meta property="og:site_name" content="Portfolio of Ago Ezoolim-Ela">
   <meta property="og:title" content="Ago Ezoolim-Ela — Software engineering & networks">
-  <meta property="og:description" content="Student at IAI-TOGO (Lomé, Togo). Java · Spring Boot · React · MySQL · Cisco CCNA 1 & 2. A logistics management application running in production. Available for an internship.">
+  <meta property="og:description" content="Application developer, bachelor’s in computer science (IAI-TOGO, Lomé, Togo). Java · Spring Boot · React · MySQL · Cisco CCNA 1 & 2. A logistics management application running in production.">
   <meta property="og:url" content="https://ezoolim-ela.github.io/Portfolio/en/">
   <meta property="og:image" content="https://ezoolim-ela.github.io/Portfolio/assets/og-image.jpg">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
-  <meta property="og:image:alt" content="Ago Ezoolim-Ela — Software Engineering & Information Systems student, IAI-TOGO">
+  <meta property="og:image:alt" content="Ago Ezoolim-Ela — Application developer · Software Engineering & Information Systems">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Ago Ezoolim-Ela — Software engineering & networks">
-  <meta name="twitter:description" content="Java · Spring Boot · React · MySQL · Cisco CCNA 1 & 2. A logistics management application running in production. Available for an internship.">
+  <meta name="twitter:description" content="Java · Spring Boot · React · MySQL · Cisco CCNA 1 & 2. A logistics management application running in production.">
   <meta name="twitter:image" content="https://ezoolim-ela.github.io/Portfolio/assets/og-image.jpg">
   <script type="application/ld+json">
   {
@@ -35,10 +35,9 @@
     "@type": "Person",
     "name": "Ago Ezoolim-Ela",
     "url": "https://ezoolim-ela.github.io/Portfolio/en/",
-    "image": "https://ezoolim-ela.github.io/Portfolio/assets/photo-ago-ezoolim-ela.jpg",
     "email": "mailto:agoezoolimela@gmail.com",
     "telephone": "+228 71 12 32 62",
-    "jobTitle": "Software Engineering & Information Systems student",
+    "jobTitle": "Application developer",
     "address": { "@type": "PostalAddress", "addressLocality": "Lomé", "addressCountry": "TG" },
     "alumniOf": { "@type": "CollegeOrUniversity", "name": "IAI-TOGO" },
     "knowsAbout": ["Java", "Spring Boot", "React", "MySQL", "SQL Server", "PHP", "Cisco networks", "Cisco CCNA"],
@@ -46,7 +45,7 @@
     "sameAs": ["https://github.com/Ezoolim-Ela", "https://linkedin.com/in/ago-ezoolim-ela"]
   }
   </script>
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%232C3E50'/%3E%3Ctext x='32' y='43' font-family='Arial, sans-serif' font-size='27' font-weight='800' fill='white' text-anchor='middle'%3EAE%3C/text%3E%3C/svg%3E">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%234A1932'/%3E%3Ctext x='32' y='43' font-family='Arial, sans-serif' font-size='27' font-weight='800' fill='white' text-anchor='middle'%3EAE%3C/text%3E%3C/svg%3E">
 
   <script>
     (function () {
@@ -54,23 +53,26 @@
       try { t = localStorage.getItem('theme'); } catch (e) {}
       if (t !== 'dark' && t !== 'light') t = 'light';
       document.documentElement.setAttribute('data-theme', t);
-      try {
-        if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches &&
-            (location.search.indexOf('intro') > -1 || !sessionStorage.getItem('intro-vue'))) {
-          document.documentElement.classList.add('intro-pending');
-        }
-      } catch (e) {}
+      // l'accueil attend intro.js pour faire son entrée (filet : il s'affiche seul au bout de 3 s)
+      if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        document.documentElement.classList.add('intro-pending');
+        setTimeout(function () { document.documentElement.classList.remove('intro-pending'); }, 3000);
+      }
       var m = document.getElementById('meta-theme-color');
-      if (m) m.setAttribute('content', t === 'dark' ? '#16202A' : '#FFFFFF');
+      if (m) m.setAttribute('content', t === 'dark' ? '#170A11' : '#FFFFFF');
     })();
   </script>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://api.fontshare.com" crossorigin>
   <!-- Police chargée sans bloquer le rendu (préchargement, puis activation) ; icônes : sprite SVG local assets/icons.svg -->
-  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Yellowtail&family=JetBrains+Mono:wght@500&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
-  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Yellowtail&family=JetBrains+Mono:wght@500&display=swap"></noscript>
-  <link rel="stylesheet" href="../styles.css?v=67">
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300..700&family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Parisienne&family=Archivo:wdth,wght@125,700;125,800&family=JetBrains+Mono:wght@500&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300..700&family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Parisienne&family=Archivo:wdth,wght@125,700;125,800&family=JetBrains+Mono:wght@500&display=swap"></noscript>
+  <link rel="preload" href="https://api.fontshare.com/v2/css?f%5B%5D=clash-display@600,700&f%5B%5D=satoshi@400,500,700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://api.fontshare.com/v2/css?f%5B%5D=clash-display@600,700&f%5B%5D=satoshi@400,500,700&display=swap"></noscript>
+  <link rel="stylesheet" href="../styles.css?v=169">
+  <script src="../transitions.js?v=2"></script>
 </head>
 <body>
 
@@ -87,25 +89,25 @@
       <nav class="site-nav" id="site-nav" aria-label="Main navigation">
         <ul class="nav-list">
           <li><a href="#projects" class="nav-link">Projects</a></li>
-          <li><a href="#about" class="nav-link">About</a></li>
           <li><a href="#background" class="nav-link">Background</a></li>
           <li><a href="#skills" class="nav-link">Skills</a></li>
+          <li><a href="#about" class="nav-link">About</a></li>
           <li><a href="#contact" class="nav-link">Contact</a></li>
         </ul>
       </nav>
 
       <div class="topbar-actions">
         <a href="../assets/CV_Ago_Ezoolim-Ela_EN.pdf" class="btn btn-glass btn-sm btn-cv" target="_blank" rel="noopener" aria-label="My CV (PDF)">
-          <svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg#file-arrow-down"></use></svg><span class="btn-cv-label">My CV</span>
+          <svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg?v=3#file-arrow-down"></use></svg><span class="btn-cv-label">My CV</span>
         </a>
         <p class="lang-switch"><a href="../index.html" hreflang="fr">FR</a><span aria-current="true">EN</span></p>
         <button class="icon-btn" id="theme-toggle" type="button" aria-label="Switch to dark mode" aria-pressed="false">
-          <svg class="icon icon-moon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg#moon"></use></svg>
-          <svg class="icon icon-sun" aria-hidden="true" focusable="false"><use href="../assets/icons.svg#sun"></use></svg>
+          <svg class="icon icon-moon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg?v=3#moon"></use></svg>
+          <svg class="icon icon-sun" aria-hidden="true" focusable="false"><use href="../assets/icons.svg?v=3#sun"></use></svg>
         </button>
         <button class="icon-btn nav-toggle" id="nav-toggle" type="button" aria-controls="site-nav" aria-expanded="false" aria-label="Open the menu">
-          <svg class="icon icon-open" aria-hidden="true" focusable="false"><use href="../assets/icons.svg#bars"></use></svg>
-          <svg class="icon icon-close" aria-hidden="true" focusable="false"><use href="../assets/icons.svg#xmark"></use></svg>
+          <svg class="icon icon-open" aria-hidden="true" focusable="false"><use href="../assets/icons.svg?v=3#bars"></use></svg>
+          <svg class="icon icon-close" aria-hidden="true" focusable="false"><use href="../assets/icons.svg?v=3#xmark"></use></svg>
         </button>
       </div>
     </div>
@@ -113,74 +115,124 @@
 
   <main id="contenu">
 
-    <!-- ===== Accueil ===== -->
-    <section class="hero" id="home">
-      <div class="container hero-grid">
-        <div class="hero-copy">
-          <p class="hello hero-enter" style="--d:2">Hello, I am</p>
-          <h1 class="hero-name hero-enter" style="--d:3">Ago Ezoolim-Ela</h1>
-          <p class="hero-role hero-enter" style="--d:4">Student in <em>Software Engineering</em> &amp; Information Systems&nbsp;·&nbsp;<span class="nowrap">IAI-TOGO</span></p>
-          <div class="hero-actions hero-enter" style="--d:6">
-            <a href="#projects" class="btn btn-glow">See my projects <svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg#arrow-right"></use></svg></a>
-            <a href="#contact" class="btn btn-glass">Get in touch</a>
-          </div>
-          <ul class="hero-stats hero-enter" style="--d:7" aria-label="At a glance">
-            <li><svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg#check"></use></svg> Cisco CCNA 1 &amp; 2 certified</li>
-            <li><svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg#check"></use></svg> One application in production</li>
-            <li><svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg#check"></use></svg> Lomé, Togo</li>
-          </ul>
+    <!-- ===== Accueil « La roue » : d’après la vidéo de référence — PORTFOLIO qui s’enroule devant une bande, la roue des projets ===== -->
+    <section class="hero hero-roue" id="home" data-polices="Archivo">
+      <div class="hr-tete">
+        <span class="hr-bande" aria-hidden="true"></span>
+        <span class="hr-plus hr-plus--1" aria-hidden="true"></span><span class="hr-plus hr-plus--2" aria-hidden="true"></span>
+        <span class="hr-plus hr-plus--3" aria-hidden="true"></span><span class="hr-plus hr-plus--4" aria-hidden="true"></span>
+        <div class="container hr-haut">
+          <p class="hr-bienvenue hero-enter" style="--d:1">Welcome<br>to my</p>
+          <span class="hr-cible hero-enter" style="--d:1" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><circle cx="12" cy="12" r="10.4" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M12 5.2 18.8 12 12 18.8 5.2 12Z" fill="none" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="12" r="2.1" fill="currentColor"/></svg></span>
         </div>
+        <div class="container hr-centre">
+          <span class="hr-fleche hr-fleche--g" aria-hidden="true"></span>
+          <h1 class="hr-titre hero-enter" style="--d:2"><span class="sr-only">Ago Ezoolim-Ela’s portfolio</span><span class="hr-mot" aria-hidden="true">PORTFOLIO</span></h1>
+          <span class="hr-fleche hr-fleche--d" aria-hidden="true"></span>
+          <div class="hr-legendes hero-enter" style="--d:3">
+            <p class="hr-nom">Ago Ezoolim-Ela</p>
+            <p class="hr-metier">Application developer</p>
+          </div>
+        </div>
+      </div>
+      <div class="hr-roue hero-enter" style="--d:4">
+        <ul class="hr-anneau" aria-label="My projects">
+            <li class="hr-place" style="--k:0"><button type="button" class="hr-carte hr-carte--0" data-projet="0" aria-label="Open the project: STEA — Logistics management and stock tracking"><span class="hr-carte-haut"><span class="hr-num">01</span><span class="hr-genre">Flagship project</span></span><span class="hr-visuel" aria-hidden="true"></span><span class="hr-carte-titre">STEA</span><span class="hr-carte-sous">Logistics and stock tracking</span></button></li>
+            <li class="hr-place" style="--k:11"><button type="button" class="hr-carte hr-carte--1" data-projet="1" aria-label="Open the project: Rental management application"><span class="hr-carte-haut"><span class="hr-num">02</span><span class="hr-genre">Academic project</span></span><span class="hr-visuel" aria-hidden="true"></span><span class="hr-carte-titre">Rental management</span><span class="hr-carte-sous">Properties, leases and rents</span></button></li>
+            <li class="hr-place" style="--k:10"><button type="button" class="hr-carte hr-carte--2" data-projet="2" aria-label="Open the project: Dynamic web platform"><span class="hr-carte-haut"><span class="hr-num">03</span><span class="hr-genre">Web development</span></span><span class="hr-visuel" aria-hidden="true"></span><span class="hr-carte-titre">Web platform</span><span class="hr-carte-sous">Dynamic site and back office</span></button></li>
+            <li class="hr-place" style="--k:1"><button type="button" class="hr-carte hr-carte--3" data-projet="3" aria-label="Open the project: Secured network architecture"><span class="hr-carte-haut"><span class="hr-num">04</span><span class="hr-genre">Networks</span></span><span class="hr-visuel" aria-hidden="true"></span><span class="hr-carte-titre">Secured network</span><span class="hr-carte-sous">Company network in Packet Tracer</span></button></li>
+        </ul>
+        <div class="hr-cadran" aria-hidden="true">
+          <svg viewBox="0 0 400 400" focusable="false"><defs><path id="hr-cercle-home" d="M200 200m-150 0a150 150 0 1 1 300 0a150 150 0 1 1-300 0"/></defs>
+            <text><textPath href="#hr-cercle-home" textLength="935" lengthAdjust="spacing">AGO EZOOLIM-ELA · PORTFOLIO · AGO EZOOLIM-ELA · PORTFOLIO · AGO EZOOLIM-ELA · PORTFOLIO · </textPath></text></svg>
+        </div>
+        <a class="hr-moi" href="#about"><span aria-hidden="true">▲</span>Me</a>
       </div>
     </section>
 
     <!-- ===== Projets ===== -->
     <section class="section" id="projects">
-      <!-- « Le dé lanceur » : le dé roule et déverse un projet à chaque arrêt -->
-      <div class="container">
-        <div class="section-head reveal">
-          <p class="eyebrow">Achievements</p>
-          <h2>My <em>projects</em></h2>
-          <p class="section-lead">Scroll: the die rolls and pours out one project at a time.</p>
-        </div>
-      </div>
-
-      <div class="dl-track" data-de-lanceur>
-        <div class="dl-sticky">
-          <span class="dl-halo" aria-hidden="true"></span>
-          <div class="container dl-scene">
-            <div class="dl-stage">
-            <article class="dl-projet is-on" data-dl="0" data-c="#4CA1AF" style="--c:#4CA1AF">
-              <button type="button" class="dl-shot dl-shot-vrai" data-gallery-open="0" aria-label="View the screens">
-                <span class="dl-bar" aria-hidden="true"><i></i><i></i><i></i></span>
-                <img src="../assets/stea/tableau-de-bord-vue-desktop.webp" srcset="../assets/stea/tableau-de-bord-vue-desktop-720.webp 720w, ../assets/stea/tableau-de-bord-vue-desktop-1080.webp 1080w, ../assets/stea/tableau-de-bord-vue-desktop.webp 1440w" sizes="(max-width: 980px) calc(100vw - 48px), 560px" alt="STEA dashboard: stock indicators, payments received and tasks to handle" width="1440" height="900" loading="lazy">
-                <span class="dl-loupe" aria-hidden="true"><svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg#magnifying-glass-plus"></use></svg></span>
-              </button>
-              <div class="dl-texte">
-                <p class="dl-num" aria-hidden="true">01</p>
-                <p class="dl-kind"><span class="project-kind gold">Flagship project · 2026</span><span class="live-badge"><span class="live-dot" aria-hidden="true"></span> In production</span></p>
-                <h3>STEA — Logistics management and stock tracking</h3>
-                <p class="dl-desc">A stock and logistics management application built for STEA Trans Euro Afrika SARL, in Lomé. It covers the whole cycle, from purchases to deliveries, and runs today on the company workstations.</p>
-                <ul class="tags"><li>Java 17</li><li>Spring Boot</li><li>MySQL</li><li>JWT</li><li>React</li><li>Tailwind CSS</li><li>Recharts</li><li>Electron</li></ul>
-                <div class="project-links">
-                  <a href="../stea.html" class="btn btn-glow btn-sm"><svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg#book-open"></use></svg> Case study</a>
-                  <button type="button" class="btn btn-glass btn-sm" data-gallery-open="0"><svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg#images"></use></svg> View the screens</button>
-                  <a href="https://github.com/Ezoolim-Ela/stea_stock_application" target="_blank" rel="noopener" class="btn btn-glass btn-sm"><svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg#github"></use></svg> Source code</a>
-                  <a href="https://github.com/Ezoolim-Ela/stea-desktop" target="_blank" rel="noopener" class="btn btn-glass btn-sm"><svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg#desktop"></use></svg> Desktop app</a>
+      <!-- “The hive”: a cell lights up, opens, the project rises out of it — one click and it grows into the whole project -->
+      <div class="rh-track" data-ruche data-mode="defile">
+        <div class="rh-sticky">
+          <span class="rh-champ" aria-hidden="true"></span>
+          <span class="rh-lueur" aria-hidden="true"></span>
+          <div class="rh-scene">
+            <div class="container rh-head">
+              <div class="section-head reveal">
+                <p class="eyebrow">Achievements</p>
+                <h2>My <em>projects</em></h2>
+                <p class="section-lead">My projects scroll by: <span class="rh-aide-souris">rest the pointer to stop them, </span>click a project to discover the full story.</p>
+              </div>
+            </div>
+            <div class="rh-rangs" data-stagger>
+              <div class="rh-rang reveal" data-axe="y" data-sens="haut">
+                <div class="rh-piste" data-piste="a">
+            <article class="rh-projet is-on" data-rh="0" data-c="#CDAE98" style="--c:#CDAE98">
+              <div class="rh-vitrine">
+                <div class="rh-ancre">
+                  <span class="rh-aura" aria-hidden="true"></span>
+                  <span class="rh-cell" aria-hidden="true">
+                    <span class="rh-volet rh-volet-haut"><i></i></span>
+                    <span class="rh-volet rh-volet-bas"><i></i></span>
+                    <span class="rh-fente"></span>
+                  </span>
+                  <button type="button" class="rh-ecran" data-rh-open="0" aria-label="Open the project: STEA — Logistics management and stock tracking">
+                    <span class="rh-ecran-in">
+                      <span class="rh-bar" aria-hidden="true"><i></i><i></i><i></i></span>
+                      <img src="../assets/stea/tableau-de-bord-vue-desktop.webp" srcset="../assets/stea/tableau-de-bord-vue-desktop-720.webp 720w, ../assets/stea/tableau-de-bord-vue-desktop-1080.webp 1080w, ../assets/stea/tableau-de-bord-vue-desktop.webp 1440w" sizes="(max-width: 980px) calc(100vw - 48px), 560px" alt="STEA dashboard: stock indicators, payments received and tasks to handle" width="1440" height="900" loading="lazy">
+                    </span>
+                    <span class="rh-ouvrir" aria-hidden="true"><svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg?v=3#arrow-up-right-from-square"></use></svg> Open the project</span>
+                  </button>
                 </div>
               </div>
+              <div class="rh-texte">
+                <p class="rh-num" aria-hidden="true">01</p>
+                <p class="rh-kind"><span class="project-kind gold">Flagship project · 2026</span><span class="live-badge"><span class="live-dot" aria-hidden="true"></span> In production</span></p>
+                <h3>STEA — Logistics management and stock tracking</h3>
+                <p class="rh-desc">A stock and logistics management application built for STEA Trans Euro Afrika SARL, in Lomé. It covers the whole cycle, from purchases to deliveries, and runs today on the company workstations.</p>
+                <ul class="tags"><li>Java 17</li><li>Spring Boot</li><li>MySQL</li><li>JWT</li><li>React</li><li>Tailwind CSS</li><li>Recharts</li><li>Electron</li></ul>
+                <div class="rh-actions">
+                  <button type="button" class="btn btn-glow btn-sm" data-rh-open="0"><svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg?v=3#arrow-up-right-from-square"></use></svg> Open the project</button>
+                  <a href="stea.html" class="btn btn-glass btn-sm"><svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg?v=3#book-open"></use></svg> Case study</a>
+                </div>
+              </div>
+              <div class="rh-plus" hidden>
+                <div class="rh-plus-points">
+                  <p class="rh-contexte">STEA Trans Euro Afrika runs several warehouses, purchases, deliveries and returns. With no central tool, the information scatters: the real state of the stock becomes uncertain and shortages are found out too late.</p>
+                  <h4>What it does</h4>
+                  <ul class="rh-points"><li>Stock you can trust: several warehouses, batches, serial numbers.</li><li>The whole cycle — orders, deliveries, returns — with no re-keying between documents.</li><li>The alert before the shortage, not after: thresholds, restocking, notifications.</li><li>Precise rights: every role sees what concerns it and acts only within its scope.</li><li>24 modules in six families, installed in one click on the company workstations.</li></ul>
+                </div>
+                <div class="rh-plus-faits">
+                  <h4>At a glance</h4>
+                  <ul class="rh-faits"><li><b>Role</b><span>Design, development and deployment</span></li><li><b>Year</b><span>2026</span></li><li><b>Setting</b><span>STEA Trans Euro Afrika SARL, Lomé</span></li><li><b>Status</b><span>In production</span></li></ul>
+                </div>
+                <div class="rh-plus-actions"><a href="stea.html" class="btn btn-glow btn-sm"><svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg?v=3#book-open"></use></svg> Case study</a><button type="button" class="btn btn-glass btn-sm" data-gallery-open="0"><svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg?v=3#images"></use></svg> View the screens</button><a href="https://github.com/Ezoolim-Ela/stea-desktop" target="_blank" rel="noopener" class="btn btn-glass btn-sm"><svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg?v=3#desktop"></use></svg> Desktop app</a></div>
+              </div>
             </article>
-            <article class="dl-projet" data-dl="1" data-c="#74BECB" style="--c:#74BECB">
-              <div class="dl-shot"><div class="scene scene-locatif" aria-hidden="true">
+            <article class="rh-projet" data-rh="1" data-c="#AB8975" style="--c:#AB8975">
+              <div class="rh-vitrine">
+                <div class="rh-ancre">
+                  <span class="rh-aura" aria-hidden="true"></span>
+                  <span class="rh-cell" aria-hidden="true">
+                    <span class="rh-volet rh-volet-haut"><i></i></span>
+                    <span class="rh-volet rh-volet-bas"><i></i></span>
+                    <span class="rh-fente"></span>
+                  </span>
+                  <button type="button" class="rh-ecran" data-rh-open="1" aria-label="Open the project: Rental management application">
+                    <span class="rh-ecran-in">
+                      <span class="rh-bar" aria-hidden="true"><i></i><i></i><i></i></span>
+                      <div class="scene scene-locatif" aria-hidden="true">
               <svg viewBox="0 0 320 180" class="scene-svg" focusable="false">
                 <defs>
-                  <linearGradient id="bld" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#4CA1AF"/><stop offset="1" stop-color="#1E2B38"/></linearGradient>
-                  <linearGradient id="bld2" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#B9E0E6"/><stop offset="1" stop-color="#7CC4CF"/></linearGradient>
+                  <linearGradient id="bld" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#6A2449"/><stop offset="1" stop-color="#3A1328"/></linearGradient>
+                  <linearGradient id="bld2" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#EBDACB"/><stop offset="1" stop-color="#CDAE98"/></linearGradient>
                 </defs>
-                <rect x="0" y="150" width="320" height="30" fill="#E3EAF2"/>
-                <rect x="36" y="70" width="70" height="80" rx="4" fill="url(#bld2)" stroke="rgba(109,40,217,.25)"/>
-                <rect x="214" y="58" width="70" height="92" rx="4" fill="url(#bld2)" stroke="rgba(109,40,217,.25)"/>
-                <rect x="112" y="30" width="96" height="120" rx="5" fill="url(#bld)" stroke="rgba(76,29,149,.45)"/>
-                <rect x="150" y="122" width="20" height="28" rx="2" fill="#1E2B38" stroke="rgba(255,255,255,.5)"/>
+                <rect x="0" y="150" width="320" height="30" fill="#EEE6DE"/>
+                <rect x="36" y="70" width="70" height="80" rx="4" fill="url(#bld2)" stroke="rgba(74,25,50,.25)"/>
+                <rect x="214" y="58" width="70" height="92" rx="4" fill="url(#bld2)" stroke="rgba(74,25,50,.25)"/>
+                <rect x="112" y="30" width="96" height="120" rx="5" fill="url(#bld)" stroke="rgba(42,18,32,.45)"/>
+                <rect x="150" y="122" width="20" height="28" rx="2" fill="#3A1328" stroke="rgba(255,255,255,.5)"/>
                 <g class="windows">
                   <rect class="w" x="122" y="42" width="16" height="14" rx="2"/><rect class="w" x="152" y="42" width="16" height="14" rx="2"/><rect class="w" x="182" y="42" width="16" height="14" rx="2"/>
                   <rect class="w" x="122" y="66" width="16" height="14" rx="2"/><rect class="w" x="152" y="66" width="16" height="14" rx="2"/><rect class="w" x="182" y="66" width="16" height="14" rx="2"/>
@@ -190,24 +242,55 @@
                 </g>
                 <circle class="moon" cx="282" cy="28" r="9"/>
               </svg>
-              <span class="scene-chip chip-a"><svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg#file-signature"></use></svg> Contract signed</span>
-              <span class="scene-chip chip-b"><svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg#circle-check"></use></svg> Rent paid</span>
-            </div></div>
-              <div class="dl-texte">
-                <p class="dl-num" aria-hidden="true">02</p>
-                <p class="dl-kind"><span class="project-kind">Academic project</span></p>
+              <span class="scene-chip chip-a"><svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg?v=3#file-signature"></use></svg> Contract signed</span>
+              <span class="scene-chip chip-b"><svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg?v=3#circle-check"></use></svg> Rent paid</span>
+            </div>
+                    </span>
+                    <span class="rh-ouvrir" aria-hidden="true"><svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg?v=3#arrow-up-right-from-square"></use></svg> Open the project</span>
+                  </button>
+                </div>
+              </div>
+              <div class="rh-texte">
+                <p class="rh-num" aria-hidden="true">02</p>
+                <p class="rh-kind"><span class="project-kind">Academic project</span></p>
                 <h3>Rental management application</h3>
-                <p class="dl-desc">Managing properties, rental contracts and rent payments.</p>
+                <p class="rh-desc">Managing properties, rental contracts and rent payments.</p>
                 <ul class="tags"><li>Java</li><li>SQL Server</li><li>MVC</li></ul>
+                <div class="rh-actions">
+                  <button type="button" class="btn btn-glow btn-sm" data-rh-open="1"><svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg?v=3#arrow-up-right-from-square"></use></svg> Open the project</button>
+                  
+                </div>
+              </div>
+              <div class="rh-plus" hidden>
+                <div class="rh-plus-points">
+                  <p class="rh-contexte">A set of properties, tenants, contracts and rents falling due every month: kept in a spreadsheet, the information always ends up drifting.</p>
+                  <h4>What it does</h4>
+                  <ul class="rh-points"><li>Properties, tenants and contracts held in the same model.</li><li>Rent schedule and payment tracking, month by month.</li><li>Receipts and statements produced from the entered data, never retyped.</li><li>MVC architecture: the business logic stays out of the screen.</li></ul>
+                </div>
+                <div class="rh-plus-faits">
+                  <h4>At a glance</h4>
+                  <ul class="rh-faits"><li><b>Role</b><span>Analysis, modelling and development</span></li><li><b>Setting</b><span>Academic project</span></li><li><b>Database</b><span>SQL Server</span></li></ul>
+                </div>
               </div>
             </article>
-            <article class="dl-projet" data-dl="2" data-c="#3E8FA8" style="--c:#3E8FA8">
-              <div class="dl-shot"><div class="scene scene-web" aria-hidden="true">
+            <article class="rh-projet" data-rh="2" data-c="#D6A5C0" style="--c:#D6A5C0">
+              <div class="rh-vitrine">
+                <div class="rh-ancre">
+                  <span class="rh-aura" aria-hidden="true"></span>
+                  <span class="rh-cell" aria-hidden="true">
+                    <span class="rh-volet rh-volet-haut"><i></i></span>
+                    <span class="rh-volet rh-volet-bas"><i></i></span>
+                    <span class="rh-fente"></span>
+                  </span>
+                  <button type="button" class="rh-ecran" data-rh-open="2" aria-label="Open the project: Dynamic web platform">
+                    <span class="rh-ecran-in">
+                      <span class="rh-bar" aria-hidden="true"><i></i><i></i><i></i></span>
+                      <div class="scene scene-web" aria-hidden="true">
               <div class="mini-browser">
                 <div class="mini-bar"><span></span><span></span><span></span><span class="mini-url">plateforme.local/admin</span></div>
                 <div class="mini-screens">
                   <div class="mini-login">
-                    <span class="mini-avatar"><svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg#lock"></use></svg></span>
+                    <span class="mini-avatar"><svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg?v=3#lock"></use></svg></span>
                     <span class="mini-input"></span>
                     <span class="mini-input short"></span>
                     <span class="mini-btn">Sign in</span>
@@ -221,17 +304,48 @@
                 </div>
                 <span class="mini-cursor"></span>
               </div>
-            </div></div>
-              <div class="dl-texte">
-                <p class="dl-num" aria-hidden="true">03</p>
-                <p class="dl-kind"><span class="project-kind">Web development</span></p>
+            </div>
+                    </span>
+                    <span class="rh-ouvrir" aria-hidden="true"><svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg?v=3#arrow-up-right-from-square"></use></svg> Open the project</span>
+                  </button>
+                </div>
+              </div>
+              <div class="rh-texte">
+                <p class="rh-num" aria-hidden="true">03</p>
+                <p class="rh-kind"><span class="project-kind">Web development</span></p>
                 <h3>Dynamic web platform</h3>
-                <p class="dl-desc">An interactive site with a database, authentication and an administration back-office.</p>
+                <p class="rh-desc">An interactive site with a database, authentication and an administration back-office.</p>
                 <ul class="tags"><li>PHP</li><li>MySQL</li><li>HTML / CSS</li></ul>
+                <div class="rh-actions">
+                  <button type="button" class="btn btn-glow btn-sm" data-rh-open="2"><svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg?v=3#arrow-up-right-from-square"></use></svg> Open the project</button>
+                  
+                </div>
+              </div>
+              <div class="rh-plus" hidden>
+                <div class="rh-plus-points">
+                  <p class="rh-contexte">A public site that has to stay current without touching the code: everything on screen comes from the database and is managed from the back-office.</p>
+                  <h4>What it does</h4>
+                  <ul class="rh-points"><li>Authentication, sessions and distinct roles.</li><li>A complete back-office: create, edit, remove the content.</li><li>Prepared statements on the server: input never reaches the SQL.</li><li>A responsive interface, hand-written, with no framework.</li></ul>
+                </div>
+                <div class="rh-plus-faits">
+                  <h4>At a glance</h4>
+                  <ul class="rh-faits"><li><b>Role</b><span>Full development</span></li><li><b>Setting</b><span>Web project</span></li><li><b>Stack</b><span>PHP · MySQL</span></li></ul>
+                </div>
               </div>
             </article>
-            <article class="dl-projet" data-dl="3" data-c="#2B6C80" style="--c:#2B6C80">
-              <div class="dl-shot"><div class="scene scene-reseau" aria-hidden="true">
+            <article class="rh-projet" data-rh="3" data-c="#C0648B" style="--c:#C0648B">
+              <div class="rh-vitrine">
+                <div class="rh-ancre">
+                  <span class="rh-aura" aria-hidden="true"></span>
+                  <span class="rh-cell" aria-hidden="true">
+                    <span class="rh-volet rh-volet-haut"><i></i></span>
+                    <span class="rh-volet rh-volet-bas"><i></i></span>
+                    <span class="rh-fente"></span>
+                  </span>
+                  <button type="button" class="rh-ecran" data-rh-open="3" aria-label="Open the project: Secured network architecture">
+                    <span class="rh-ecran-in">
+                      <span class="rh-bar" aria-hidden="true"><i></i><i></i><i></i></span>
+                      <div class="scene scene-reseau" aria-hidden="true">
               <svg viewBox="0 0 320 180" class="scene-svg" focusable="false">
                 <defs>
                   <filter id="glow" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="2.5" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
@@ -271,32 +385,41 @@
                 <circle class="pkt p1" r="2.6" filter="url(#glow)"><animateMotion dur="3.2s" begin="1.6s" repeatCount="indefinite" keyPoints="1;0" keyTimes="0;1" calcMode="linear"><mpath href="#lnk1"/></animateMotion></circle>
               </svg>
               <span class="scene-legend"><i class="v10"></i> VLAN 10 <i class="v20"></i> VLAN 20 <i class="v30"></i> VLAN 30</span>
-            </div></div>
-              <div class="dl-texte">
-                <p class="dl-num" aria-hidden="true">04</p>
-                <p class="dl-kind"><span class="project-kind">Networks &amp; infrastructure</span></p>
+            </div>
+                    </span>
+                    <span class="rh-ouvrir" aria-hidden="true"><svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg?v=3#arrow-up-right-from-square"></use></svg> Open the project</span>
+                  </button>
+                </div>
+              </div>
+              <div class="rh-texte">
+                <p class="rh-num" aria-hidden="true">04</p>
+                <p class="rh-kind"><span class="project-kind">Networks &amp; infrastructure</span></p>
                 <h3>Secured network architecture</h3>
-                <p class="dl-desc">A multi-site company network simulated and configured, with segmentation and access control.</p>
+                <p class="rh-desc">A multi-site company network simulated and configured, with segmentation and access control.</p>
                 <ul class="tags"><li>Cisco Packet Tracer</li><li>CCNA</li><li>Routing</li></ul>
+                <div class="rh-actions">
+                  <button type="button" class="btn btn-glow btn-sm" data-rh-open="3"><svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg?v=3#arrow-up-right-from-square"></use></svg> Open the project</button>
+                  
+                </div>
+              </div>
+              <div class="rh-plus" hidden>
+                <div class="rh-plus-points">
+                  <p class="rh-contexte">Three sites — a head office in Lomé, two branches — to be linked without opening the internal network to everyone.</p>
+                  <h4>What it does</h4>
+                  <ul class="rh-points"><li>VLAN segmentation, one per business function.</li><li>Inter-VLAN routing and an addressing plan held end to end.</li><li>Site-to-site VPN between the head office and the branches.</li><li>Access control lists to keep the flows apart.</li><li>A model built and validated in Cisco Packet Tracer.</li></ul>
+                </div>
+                <div class="rh-plus-faits">
+                  <h4>At a glance</h4>
+                  <ul class="rh-faits"><li><b>Role</b><span>Design and configuration</span></li><li><b>Setting</b><span>Academic project</span></li><li><b>Tools</b><span>Packet Tracer · CCNA</span></li></ul>
+                </div>
               </div>
             </article>
+                </div>
+              </div>
             </div>
 
-            <div class="dl-bas">
-              <div class="dl-piste">
-                <span class="dl-sol" aria-hidden="true"></span>
-                <span class="dl-rayon" aria-hidden="true"></span>
-                <div class="dl-de" role="img" aria-label="The die projects the project">
-                  <div class="dl-cube">
-                    <span class="dl-face dl-front"><i style="grid-area:2/2"></i></span>
-                    <span class="dl-face dl-back"><i style="grid-area:1/1"></i><i style="grid-area:1/3"></i><i style="grid-area:2/1"></i><i style="grid-area:2/3"></i><i style="grid-area:3/1"></i><i style="grid-area:3/3"></i></span>
-                    <span class="dl-face dl-right"><i style="grid-area:1/3"></i><i style="grid-area:2/2"></i><i style="grid-area:3/1"></i></span>
-                    <span class="dl-face dl-left"><i style="grid-area:1/1"></i><i style="grid-area:1/3"></i><i style="grid-area:3/1"></i><i style="grid-area:3/3"></i></span>
-                    <span class="dl-face dl-top"><i style="grid-area:1/3"></i><i style="grid-area:3/1"></i></span>
-                    <span class="dl-face dl-bottom"><i style="grid-area:1/1"></i><i style="grid-area:1/3"></i><i style="grid-area:2/2"></i><i style="grid-area:3/1"></i><i style="grid-area:3/3"></i></span>
-                  </div>
-              </div>
-              <ol class="dl-puces" role="tablist" aria-label="Choose a project"><li><button type="button" class="dl-puce is-on" role="tab" aria-selected="true" tabindex="0"><span class="dl-puce-num">01</span> STEA</button></li><li><button type="button" class="dl-puce" role="tab" aria-selected="false" tabindex="-1"><span class="dl-puce-num">02</span> Rental management</button></li><li><button type="button" class="dl-puce" role="tab" aria-selected="false" tabindex="-1"><span class="dl-puce-num">03</span> Web platform</button></li><li><button type="button" class="dl-puce" role="tab" aria-selected="false" tabindex="-1"><span class="dl-puce-num">04</span> Secured network</button></li></ol>
+            <div class="container rh-bas reveal reveal--fondu">
+              <ol class="rh-puces" aria-label="Choose a project"><li><button type="button" class="rh-puce" style="--c:#CDAE98"><span class="rh-puce-hex">01</span> STEA</button></li><li><button type="button" class="rh-puce" style="--c:#AB8975"><span class="rh-puce-hex">02</span> Rental management</button></li><li><button type="button" class="rh-puce" style="--c:#D6A5C0"><span class="rh-puce-hex">03</span> Web platform</button></li><li><button type="button" class="rh-puce" style="--c:#C0648B"><span class="rh-puce-hex">04</span> Secured network</button></li></ol>
             </div>
           </div>
         </div>
@@ -304,82 +427,48 @@
 
       <div class="container">
         <p class="projects-more reveal">
-          <a href="https://github.com/Ezoolim-Ela?tab=repositories" target="_blank" rel="noopener" class="link-arrow">See all my repositories on GitHub <svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg#arrow-up-right-from-square"></use></svg></a>
+          <a href="https://github.com/Ezoolim-Ela?tab=repositories" target="_blank" rel="noopener" class="link-arrow">See all my repositories on GitHub <svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg?v=3#arrow-up-right-from-square"></use></svg></a>
         </p>
       </div>
     </section>
+
+    <!-- Le grand format : l'alvéole s'ouvre sur tout le projet -->
+    <dialog class="rh-fiche" id="rh-fiche" aria-label="Project detail">
+      <div class="rh-fiche-in">
+        <button type="button" class="rh-retour" data-rh-close><svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg?v=3#arrow-left"></use></svg> Back</button>
+        <div class="rh-fiche-defile">
+          <div class="rh-fiche-visuel" data-rh-visuel aria-hidden="true"></div>
+          <div class="rh-fiche-texte">
+            <p class="rh-fiche-titre" data-rh-kind></p>
+            <h3 data-rh-titre></h3>
+            <p class="rh-desc" data-rh-desc></p>
+            <div class="rh-fiche-grille">
+              <div data-rh-points></div>
+              <div data-rh-faits></div>
+            </div>
+            <ul class="tags" data-rh-tags></ul>
+            <div class="rh-actions" data-rh-actions></div>
+          </div>
+        </div>
+      </div>
+    </dialog>
 
     <!-- Galerie des écrans de STEA -->
     <dialog class="gallery" id="galerie-stea" aria-label="Screens of the STEA application">
       <div class="gallery-inner">
         <div class="gallery-top">
           <p class="gallery-title">STEA — application screens <span class="gallery-count" id="gallery-count"></span></p>
-          <button type="button" class="icon-btn gallery-close" id="gallery-close" aria-label="Close the gallery"><svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg#xmark"></use></svg></button>
+          <button type="button" class="icon-btn gallery-close" id="gallery-close" aria-label="Close the gallery"><svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg?v=3#xmark"></use></svg></button>
         </div>
         <figure class="gallery-figure">
           <img id="gallery-img" src="" alt="">
           <figcaption id="gallery-cap"></figcaption>
         </figure>
-        <button type="button" class="gallery-nav prev" id="gallery-prev" aria-label="Previous screen"><svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg#chevron-left"></use></svg></button>
-        <button type="button" class="gallery-nav next" id="gallery-next" aria-label="Next screen"><svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg#chevron-right"></use></svg></button>
+        <button type="button" class="gallery-nav prev" id="gallery-prev" aria-label="Previous screen"><svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg?v=3#chevron-left"></use></svg></button>
+        <button type="button" class="gallery-nav next" id="gallery-next" aria-label="Next screen"><svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg?v=3#chevron-right"></use></svg></button>
         <div class="gallery-thumbs" id="gallery-thumbs" aria-label="Choose a screen"></div>
       </div>
     </dialog>
-
-    <!-- ===== À propos ===== -->
-    <section class="section about-bloom" id="about">
-      <!-- Ouverture « Éclosion » : un éventail de lames s'ouvre, tourne et s'envole au fil du défilement -->
-      <div class="bloom-track" data-bloom>
-        <div class="bloom-sticky">
-          <div class="bloom-fan" aria-hidden="true"></div>
-          <div class="bloom-stage">
-            <p class="eyebrow">Who I am</p>
-            <h2 class="bloom-title">About <em>me</em></h2>
-            <p class="bloom-words"><span class="bw">Curious</span><span class="bw alt">rigorous</span><span class="bw">Creative</span><span class="bw alt">solution-driven</span></p>
-          </div>
-          <p class="bloom-hint" aria-hidden="true"><span></span>Scroll down</p>
-        </div>
-      </div>
-
-      <div class="container about-body">
-        <div class="about-grid">
-          <div class="about-text reveal">
-            <p class="about-lead">Passionate about technology, I am currently in the second year of a Computer Science degree at <strong>IAI-TOGO</strong> (2025-2026), on the Software Engineering and Information Systems track.</p>
-            <p class="scroll-text">I like understanding how systems work and finding solutions when something breaks. I give my full attention to my projects, academic and personal alike, and I am looking for an internship to learn alongside professionals while bringing my diligence and good spirits to the team.</p>
-          </div>
-
-          <aside class="about-id reveal">
-            <p class="about-id-title">At a glance</p>
-            <dl>
-                <div><dt><svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg#location-dot"></use></svg>Based in</dt><dd>Lomé, Togo</dd></div>
-                <div><dt><svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg#graduation-cap"></use></svg>Studies</dt><dd>2nd-year Computer Science, IAI-TOGO</dd></div>
-                <div><dt><svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg#certificate"></use></svg>Certifications</dt><dd>Cisco CCNA 1 &amp; 2</dd></div>
-                <div><dt><svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg#language"></use></svg>Languages</dt><dd>French · English · Kabiye</dd></div>
-                <div><dt><svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg#paper-plane"></use></svg>Looking for</dt><dd>A software development internship</dd></div>
-              </dl>
-            <a class="btn btn-glow about-facts-cta" href="#contact">Get in touch <svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg#arrow-right"></use></svg></a>
-          </aside>
-        </div>
-
-        <div class="petal-cards" data-stagger>
-          <article class="petal-card reveal" style="--c:#2C3E50">
-            <span class="petal-num">01</span>
-            <h3>Solid fundamentals</h3>
-            <p>Algorithms, data modelling and MVC architecture: the foundations for designing maintainable applications, from the specification to the code.</p>
-          </article>
-          <article class="petal-card reveal" style="--c:#3A6B7A">
-            <span class="petal-num">02</span>
-            <h3>Technical curiosity</h3>
-            <p>Cisco CCNA 1 &amp; 2 certified: I understand what happens under the hood, from routing and VLANs to securing a company network in Packet Tracer.</p>
-          </article>
-          <article class="petal-card reveal" style="--c:#4CA1AF">
-            <span class="petal-num">03</span>
-            <h3>From idea to production</h3>
-            <p>STEA is used every day by the client company and receives its updates without any intervention: I do not stop at the code, I ship and I maintain.</p>
-          </article>
-        </div>
-      </div>
-    </section>
 
     <!-- ===== Parcours ===== -->
     <section class="section" id="background">
@@ -390,24 +479,24 @@
           <p class="section-lead">Click a milestone to see what I did there.</p>
         </div>
 
-        <div class="journey-stats reveal" aria-label="In numbers">
-          <div class="stat">
-            <span class="stat-icon" aria-hidden="true"><svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg#graduation-cap"></use></svg></span>
+        <div class="journey-stats" data-stagger aria-label="In numbers">
+          <div class="stat reveal">
+            <span class="stat-icon" aria-hidden="true"><svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg?v=3#graduation-cap"></use></svg></span>
             <span class="stat-num" data-count="2">0</span>
             <span class="stat-label">years at IAI-TOGO</span>
           </div>
-          <div class="stat">
-            <span class="stat-icon" aria-hidden="true"><svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg#certificate"></use></svg></span>
+          <div class="stat reveal">
+            <span class="stat-icon" aria-hidden="true"><svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg?v=3#certificate"></use></svg></span>
             <span class="stat-num" data-count="2">0</span>
             <span class="stat-label">Cisco certifications</span>
           </div>
-          <div class="stat">
-            <span class="stat-icon" aria-hidden="true"><svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg#diagram-project"></use></svg></span>
+          <div class="stat reveal">
+            <span class="stat-icon" aria-hidden="true"><svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg?v=3#diagram-project"></use></svg></span>
             <span class="stat-num" data-count="4">0</span>
             <span class="stat-label">projects delivered</span>
           </div>
-          <div class="stat">
-            <span class="stat-icon" aria-hidden="true"><svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg#language"></use></svg></span>
+          <div class="stat reveal">
+            <span class="stat-icon" aria-hidden="true"><svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg?v=3#language"></use></svg></span>
             <span class="stat-num" data-count="3">0</span>
             <span class="stat-label">languages spoken</span>
           </div>
@@ -425,12 +514,12 @@
         <ol class="timeline" data-stagger>
           <li class="timeline-item reveal" id="etape-0">
             <span class="timeline-date">Aug. 2026</span>
-            <button type="button" class="timeline-marker" aria-expanded="false" aria-controls="detail-0" aria-label="Show details: STEA in production"><svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg#rocket"></use></svg></button>
+            <button type="button" class="timeline-marker" aria-expanded="false" aria-controls="detail-0" aria-label="Show details: STEA in production"><svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg?v=3#rocket"></use></svg></button>
             <div class="glass timeline-body">
               <h3>STEA goes into production</h3>
               <p>My first software used by a company: designed, developed, deployed and maintained end to end for STEA Trans Euro Afrika SARL, in Lomé.</p>
               <ul class="tags"><li>Spring Boot</li><li>React</li><li>MySQL</li><li>Electron</li></ul>
-              <button type="button" class="tl-toggle" aria-expanded="false" aria-controls="detail-0"><span class="tl-toggle-label">See the detail</span> <svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg#chevron-down"></use></svg></button>
+              <button type="button" class="tl-toggle" aria-expanded="false" aria-controls="detail-0"><span class="tl-toggle-label">See the detail</span> <svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg?v=3#chevron-down"></use></svg></button>
               <div class="tl-details" id="detail-0">
                 <div class="tl-details-inner">
                   <p class="tl-details-title">Key milestones</p>
@@ -442,7 +531,7 @@
                   </ul>
                   <p class="tl-details-title">Read more</p>
                   <ul class="tl-links">
-                    <li><a href="stea.html" class="tl-link"><svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg#book-open"></use></svg> Full case study <small>challenge · answer · results</small></a></li>
+                    <li><a href="stea.html" class="tl-link"><svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg?v=3#book-open"></use></svg> Full case study <small>challenge · answer · results</small></a></li>
                   </ul>
                 </div>
               </div>
@@ -450,19 +539,19 @@
           </li>
           <li class="timeline-item reveal" id="etape-1">
             <span class="timeline-date">2025 — 2026</span>
-            <button type="button" class="timeline-marker" aria-expanded="false" aria-controls="detail-1" aria-label="Show details: second-year Computer Science"><svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg#graduation-cap"></use></svg></button>
+            <button type="button" class="timeline-marker" aria-expanded="false" aria-controls="detail-1" aria-label="Show details: Bachelor’s in Computer Science"><svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg?v=3#graduation-cap"></use></svg></button>
             <div class="glass timeline-body">
-              <h3>Computer Science, year 2 · IAI-TOGO</h3>
-              <p>Software Engineering &amp; Information Systems track: designing structured applications (Java, MVC architecture), relational databases, web development.</p>
+              <h3>Bachelor’s in Computer Science · IAI-TOGO</h3>
+              <p><strong>Degree obtained in 2026.</strong> Software Engineering &amp; Information Systems track: designing structured applications (Java, MVC architecture), relational databases, web development.</p>
               <ul class="tags"><li>Java</li><li>MVC</li><li>SQL Server</li><li>PHP</li></ul>
-              <button type="button" class="tl-toggle" aria-expanded="false" aria-controls="detail-1"><span class="tl-toggle-label">See the detail</span> <svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg#chevron-down"></use></svg></button>
+              <button type="button" class="tl-toggle" aria-expanded="false" aria-controls="detail-1"><span class="tl-toggle-label">See the detail</span> <svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg?v=3#chevron-down"></use></svg></button>
               <div class="tl-details" id="detail-1">
                 <div class="tl-details-inner">
                   <p class="tl-details-title">That year’s work</p>
                   <ul class="tl-links">
-                    <li><a href="#stea-project" class="tl-link"><svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg#boxes-stacked"></use></svg> STEA — logistics management <small>Spring Boot · React</small></a></li>
-                    <li><a href="#projects" class="tl-link"><svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg#building"></use></svg> Rental management application <small>Java · SQL Server</small></a></li>
-                    <li><a href="#projects" class="tl-link"><svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg#globe"></use></svg> Dynamic web platform <small>PHP · MySQL</small></a></li>
+                    <li><a href="#stea-project" class="tl-link"><svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg?v=3#boxes-stacked"></use></svg> STEA — logistics management <small>Spring Boot · React</small></a></li>
+                    <li><a href="#projects" class="tl-link"><svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg?v=3#building"></use></svg> Rental management application <small>Java · SQL Server</small></a></li>
+                    <li><a href="#projects" class="tl-link"><svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg?v=3#globe"></use></svg> Dynamic web platform <small>PHP · MySQL</small></a></li>
                   </ul>
                   <p class="tl-details-title">Skills practised</p>
                   <ul class="tags"><li>MVC architecture</li><li>Data modelling</li><li>REST API</li><li>JWT authentication</li><li>React interfaces</li></ul>
@@ -472,12 +561,12 @@
           </li>
           <li class="timeline-item reveal" id="etape-2">
             <span class="timeline-date">2024 — 2025</span>
-            <button type="button" class="timeline-marker" aria-expanded="false" aria-controls="detail-2" aria-label="Show details: first-year Computer Science"><svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg#book-open"></use></svg></button>
+            <button type="button" class="timeline-marker" aria-expanded="false" aria-controls="detail-2" aria-label="Show details: first-year Computer Science"><svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg?v=3#book-open"></use></svg></button>
             <div class="glass timeline-body">
               <h3>Computer Science, year 1 · IAI-TOGO</h3>
               <p>Computing fundamentals: algorithms, programming, web development and an introduction to networks.</p>
               <ul class="tags"><li>Algorithms</li><li>Python</li><li>HTML / CSS</li></ul>
-              <button type="button" class="tl-toggle" aria-expanded="false" aria-controls="detail-2"><span class="tl-toggle-label">See the detail</span> <svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg#chevron-down"></use></svg></button>
+              <button type="button" class="tl-toggle" aria-expanded="false" aria-controls="detail-2"><span class="tl-toggle-label">See the detail</span> <svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg?v=3#chevron-down"></use></svg></button>
               <div class="tl-details" id="detail-2">
                 <div class="tl-details-inner">
                   <p class="tl-details-title">Foundations laid</p>
@@ -488,7 +577,7 @@
                   </ul>
                   <p class="tl-details-title">Related project</p>
                   <ul class="tl-links">
-                    <li><a href="#projects" class="tl-link"><svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg#diagram-project"></use></svg> Secured network architecture <small>Packet Tracer</small></a></li>
+                    <li><a href="#projects" class="tl-link"><svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg?v=3#diagram-project"></use></svg> Secured network architecture <small>Packet Tracer</small></a></li>
                   </ul>
                 </div>
               </div>
@@ -496,12 +585,12 @@
           </li>
           <li class="timeline-item reveal" id="etape-3">
             <span class="timeline-date">Certifications</span>
-            <button type="button" class="timeline-marker" aria-expanded="false" aria-controls="detail-3" aria-label="Show details: Cisco certifications"><svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg#certificate"></use></svg></button>
+            <button type="button" class="timeline-marker" aria-expanded="false" aria-controls="detail-3" aria-label="Show details: Cisco certifications"><svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg?v=3#certificate"></use></svg></button>
             <div class="glass timeline-body">
               <h3>Cisco CCNA 1 &amp; 2 · Cisco Networking Academy</h3>
               <p>Network fundamentals, routing and switching, VLANs, access control lists and device configuration in Packet Tracer.</p>
               <ul class="tags"><li>CCNA 1</li><li>CCNA 2</li><li>Packet Tracer</li></ul>
-              <button type="button" class="tl-toggle" aria-expanded="false" aria-controls="detail-3"><span class="tl-toggle-label">See the detail</span> <svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg#chevron-down"></use></svg></button>
+              <button type="button" class="tl-toggle" aria-expanded="false" aria-controls="detail-3"><span class="tl-toggle-label">See the detail</span> <svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg?v=3#chevron-down"></use></svg></button>
               <div class="tl-details" id="detail-3">
                 <div class="tl-details-inner">
                   <div class="tl-columns">
@@ -526,7 +615,7 @@
                   </div>
                   <p class="tl-details-title">Put into practice in</p>
                   <ul class="tl-links">
-                    <li><a href="#projects" class="tl-link"><svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg#diagram-project"></use></svg> Secured network architecture <small>multi-site · VLAN · ACL</small></a></li>
+                    <li><a href="#projects" class="tl-link"><svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg?v=3#diagram-project"></use></svg> Secured network architecture <small>multi-site · VLAN · ACL</small></a></li>
                   </ul>
                 </div>
               </div>
@@ -540,61 +629,78 @@
 
     <!-- ===== Compétences ===== -->
     <section class="section" id="skills">
-      <div class="container">
-        <div class="skills-top">
+      <!-- « L’orbite » : d’après l’image fournie — Java au cœur, les autres compétences en orbite, une famille par anneau -->
+      <div class="or-bloc">
+        <div class="container or-scene">
           <div class="section-head reveal">
-          <p class="eyebrow">My toolbox</p>
-          <h2>My <em>skills</em></h2>
-          <p class="section-lead">The technologies I use in my academic and personal projects.</p>
-        </div>
-          <div class="skills-orbit" data-orbit aria-hidden="true"><canvas></canvas></div>
-        </div>
-
-        <div class="skills-grid" data-stagger>
-          <article class="glass skill-group reveal" data-ring="0">
-            <h3><span class="icon-gem" aria-hidden="true"><svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg#code"></use></svg></span> Programming</h3>
-            <ul class="chips">
-              <li class="chip"><svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg#java"></use></svg> Java <small>Swing · Spring Boot</small></li>
-              <li class="chip"><svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg#python"></use></svg> Python</li>
-              <li class="chip"><svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg#c"></use></svg> C language</li>
-              <li class="chip"><svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg#php"></use></svg> PHP</li>
-            </ul>
-          </article>
-          <article class="glass skill-group reveal" data-ring="1">
-            <h3><span class="icon-gem" aria-hidden="true"><svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg#globe"></use></svg></span> Web &amp; data</h3>
-            <ul class="chips">
-              <li class="chip"><svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg#html5"></use></svg> HTML5</li>
-              <li class="chip"><svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg#css3-alt"></use></svg> CSS3</li>
-              <li class="chip"><svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg#js"></use></svg> JavaScript</li>
-              <li class="chip"><svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg#react"></use></svg> React</li>
-              <li class="chip"><svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg#database"></use></svg> MySQL</li>
-              <li class="chip"><svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg#server"></use></svg> SQL Server</li>
-              <li class="chip"><svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg#plug"></use></svg> API REST</li>
-            </ul>
-          </article>
-          <article class="glass skill-group reveal" data-ring="2">
-            <h3><span class="icon-gem" aria-hidden="true"><svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg#network-wired"></use></svg></span> Networks &amp; tools</h3>
-            <ul class="chips">
-              <li class="chip"><svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg#diagram-project"></use></svg> Cisco Packet Tracer</li>
-              <li class="chip"><svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg#shield-halved"></use></svg> VLAN · Routing · ACL</li>
-              <li class="chip"><svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg#git-alt"></use></svg> Git &amp; GitHub</li>
-              <li class="chip"><svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg#terminal"></use></svg> VS Code</li>
-            </ul>
-          </article>
-        </div>
-
-        <div class="certs reveal" aria-label="Certifications">
+            <p class="eyebrow">My toolbox</p>
+            <h2>My <em>skills</em></h2>
+            <p class="section-lead">Fifteen technologies orbiting Java: hover over one to see what I do with it.</p>
+          </div>
+          <div class="or-systeme" data-orbite>
+            <svg class="or-orbites or-orbites--large" viewBox="0 0 1100 610" aria-hidden="true" focusable="false"><defs><linearGradient id="or-degrade-large" x1="0" x2="1" y1="0" y2="0"><stop offset="0" stop-color="#CDAE98"/><stop offset=".5" stop-color="#D6A5C0"/><stop offset="1" stop-color="#C0648B"/></linearGradient></defs><g transform="rotate(-8 550 300)"><g class="or-orbite" data-famille="1"><path id="or-large-1" class="or-lueur" d="M258 300a292 126 0 1 0 584 0a292 126 0 1 0 -584 0" pathLength="1"/><path class="or-trace" d="M258 300a292 126 0 1 0 584 0a292 126 0 1 0 -584 0" pathLength="1"/><circle class="or-etincelle" r="3.2"><animateMotion dur="11s" repeatCount="indefinite" begin="-2s"><mpath href="#or-large-1"/></animateMotion></circle><circle class="or-etincelle or-etincelle--2" r="2.4"><animateMotion dur="17.6s" repeatCount="indefinite" begin="-5s" keyPoints="1;0" keyTimes="0;1" calcMode="linear"><mpath href="#or-large-1"/></animateMotion></circle></g><g class="or-orbite" data-famille="2"><path id="or-large-2" class="or-lueur" d="M132 300a418 186 0 1 0 836 0a418 186 0 1 0 -836 0" pathLength="1"/><path class="or-trace" d="M132 300a418 186 0 1 0 836 0a418 186 0 1 0 -836 0" pathLength="1"/><circle class="or-etincelle" r="3.2"><animateMotion dur="16s" repeatCount="indefinite" begin="-4s"><mpath href="#or-large-2"/></animateMotion></circle><circle class="or-etincelle or-etincelle--2" r="2.4"><animateMotion dur="25.6s" repeatCount="indefinite" begin="-10s" keyPoints="1;0" keyTimes="0;1" calcMode="linear"><mpath href="#or-large-2"/></animateMotion></circle></g><g class="or-orbite" data-famille="3"><path id="or-large-3" class="or-lueur" d="M22 300a528 240 0 1 0 1056 0a528 240 0 1 0 -1056 0" pathLength="1"/><path class="or-trace" d="M22 300a528 240 0 1 0 1056 0a528 240 0 1 0 -1056 0" pathLength="1"/><circle class="or-etincelle" r="3.2"><animateMotion dur="21s" repeatCount="indefinite" begin="-6s"><mpath href="#or-large-3"/></animateMotion></circle><circle class="or-etincelle or-etincelle--2" r="2.4"><animateMotion dur="33.6s" repeatCount="indefinite" begin="-15s" keyPoints="1;0" keyTimes="0;1" calcMode="linear"><mpath href="#or-large-3"/></animateMotion></circle></g></g><circle class="or-noeud" cx="47.2" cy="287.8" r="4"/><circle class="or-noeud" cx="1052.8" cy="312.2" r="4"/><circle class="or-noeud" cx="734.5" cy="111.4" r="4"/><circle class="or-noeud" cx="333.8" cy="484.2" r="4"/><circle class="or-noeud" cx="665.4" cy="403.3" r="4"/></svg>
+            <svg class="or-orbites or-orbites--compact" viewBox="0 0 460 460" aria-hidden="true" focusable="false"><defs><linearGradient id="or-degrade-compact" x1="0" x2="1" y1="0" y2="0"><stop offset="0" stop-color="#CDAE98"/><stop offset=".5" stop-color="#D6A5C0"/><stop offset="1" stop-color="#C0648B"/></linearGradient></defs><g><g class="or-orbite" data-famille="1"><path id="or-compact-1" class="or-lueur" d="M130 230a100 100 0 1 0 200 0a100 100 0 1 0 -200 0" pathLength="1"/><path class="or-trace" d="M130 230a100 100 0 1 0 200 0a100 100 0 1 0 -200 0" pathLength="1"/><circle class="or-etincelle" r="2.6"><animateMotion dur="11s" repeatCount="indefinite" begin="-2s"><mpath href="#or-compact-1"/></animateMotion></circle><circle class="or-etincelle or-etincelle--2" r="2"><animateMotion dur="17.6s" repeatCount="indefinite" begin="-5s" keyPoints="1;0" keyTimes="0;1" calcMode="linear"><mpath href="#or-compact-1"/></animateMotion></circle></g><g class="or-orbite" data-famille="2"><path id="or-compact-2" class="or-lueur" d="M78 230a152 152 0 1 0 304 0a152 152 0 1 0 -304 0" pathLength="1"/><path class="or-trace" d="M78 230a152 152 0 1 0 304 0a152 152 0 1 0 -304 0" pathLength="1"/><circle class="or-etincelle" r="2.6"><animateMotion dur="16s" repeatCount="indefinite" begin="-4s"><mpath href="#or-compact-2"/></animateMotion></circle><circle class="or-etincelle or-etincelle--2" r="2"><animateMotion dur="25.6s" repeatCount="indefinite" begin="-10s" keyPoints="1;0" keyTimes="0;1" calcMode="linear"><mpath href="#or-compact-2"/></animateMotion></circle></g><g class="or-orbite" data-famille="3"><path id="or-compact-3" class="or-lueur" d="M36 230a194 194 0 1 0 388 0a194 194 0 1 0 -388 0" pathLength="1"/><path class="or-trace" d="M36 230a194 194 0 1 0 388 0a194 194 0 1 0 -388 0" pathLength="1"/><circle class="or-etincelle" r="2.6"><animateMotion dur="21s" repeatCount="indefinite" begin="-6s"><mpath href="#or-compact-3"/></animateMotion></circle><circle class="or-etincelle or-etincelle--2" r="2"><animateMotion dur="33.6s" repeatCount="indefinite" begin="-15s" keyPoints="1;0" keyTimes="0;1" calcMode="linear"><mpath href="#or-compact-3"/></animateMotion></circle></g></g><circle class="or-noeud" cx="47.7" cy="163.6" r="3"/><circle class="or-noeud" cx="412.3" cy="296.4" r="3"/><circle class="or-noeud" cx="306.0" cy="98.4" r="3"/><circle class="or-noeud" cx="142.8" cy="354.5" r="3"/><circle class="or-noeud" cx="264.2" cy="324.0" r="3"/></svg>
+            <div class="or-astres" aria-label="My skills" role="group">
+          <ul class="or-famille" data-famille="1" aria-label="Programming">
+            <li class="or-astre or-rond or-coeur or-vers-d" data-famille="1" tabindex="-1" style="--x:50.000%;--y:49.180%;--t:170;--mx:50.000%;--my:50.000%;--mt:104;--c:#E76F00;--n:0"><span class="or-badge" aria-hidden="true"><span class="or-flotte"><span class="or-forme"><svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg?v=3#java"></use></svg></span></span></span><span class="or-nom">Java</span><span class="or-bulle"><span class="or-bulle-nom" aria-hidden="true">Java</span><span class="or-bulle-det">Swing · JDBC</span></span></li>
+            <li class="or-astre or-rond or-vers-g" data-famille="1" tabindex="-1" style="--x:28.418%;--y:65.541%;--t:80;--mx:34.761%;--my:65.500%;--mt:48;--c:#6DB33F;--n:1"><span class="or-badge" aria-hidden="true"><span class="or-flotte"><span class="or-forme"><svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg?v=3#spring"></use></svg></span></span></span><span class="or-nom">Spring Boot</span><span class="or-bulle"><span class="or-bulle-nom" aria-hidden="true">Spring Boot</span><span class="or-bulle-det">REST · JPA · Security</span></span></li>
+            <li class="or-astre or-rond or-vers-g" data-famille="1" tabindex="-1" style="--x:41.009%;--y:31.459%;--t:66;--mx:30.543%;--my:40.304%;--mt:42;--c:#3776AB;--n:2"><span class="or-badge" aria-hidden="true"><span class="or-flotte"><span class="or-forme"><svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg?v=3#python"></use></svg></span></span></span><span class="or-nom">Python</span><span class="or-bulle"><span class="or-bulle-nom" aria-hidden="true">Python</span><span class="or-bulle-det">Scripts · Automation</span></span></li>
+            <li class="or-astre or-rond or-vers-d or-vers-b" data-famille="1" tabindex="-1" style="--x:61.964%;--y:28.180%;--t:64;--mx:65.239%;--my:34.500%;--mt:42;--c:#A8B9CC;--n:3"><span class="or-badge" aria-hidden="true"><span class="or-flotte"><span class="or-forme"><svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg?v=3#c"></use></svg></span></span></span><span class="or-nom">C</span><span class="or-bulle"><span class="or-bulle-nom" aria-hidden="true">C</span><span class="or-bulle-det">Algorithms · Memory</span></span></li>
+            <li class="or-astre or-rond or-vers-d" data-famille="1" tabindex="-1" style="--x:58.991%;--y:66.902%;--t:64;--mx:65.500%;--my:65.239%;--mt:42;--c:#8892BF;--n:4"><span class="or-badge" aria-hidden="true"><span class="or-flotte"><span class="or-forme"><svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg?v=3#php"></use></svg></span></span></span><span class="or-nom">PHP</span><span class="or-bulle"><span class="or-bulle-nom" aria-hidden="true">PHP</span><span class="or-bulle-det">Dynamic sites</span></span></li>
+          </ul>
+          <ul class="or-famille" data-famille="2" aria-label="Web & data">
+            <li class="or-astre or-carre or-vers-d or-vers-b" data-famille="2" tabindex="-1" style="--x:66.282%;--y:73.607%;--t:64;--mx:40.891%;--my:18.239%;--mt:42;--c:#E34F26;--n:5"><span class="or-badge" aria-hidden="true"><span class="or-flotte"><span class="or-forme"><svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg?v=3#html5"></use></svg></span></span></span><span class="or-nom">HTML5</span><span class="or-bulle"><span class="or-bulle-nom" aria-hidden="true">HTML5</span><span class="or-bulle-det">Structure · Accessibility</span></span></li>
+            <li class="or-astre or-carre or-vers-g or-vers-b" data-famille="2" tabindex="-1" style="--x:40.927%;--y:80.852%;--t:64;--mx:76.565%;--my:30.348%;--mt:42;--c:#1572B6;--n:6"><span class="or-badge" aria-hidden="true"><span class="or-flotte"><span class="or-forme"><svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg?v=3#css3-alt"></use></svg></span></span></span><span class="or-nom">CSS3</span><span class="or-bulle"><span class="or-bulle-nom" aria-hidden="true">CSS3</span><span class="or-bulle-det">Grids · Responsive</span></span></li>
+            <li class="or-astre or-carre or-vers-d or-vers-b" data-famille="2" tabindex="-1" style="--x:16.582%;--y:70.180%;--t:64;--mx:81.913%;--my:58.543%;--mt:42;--c:#F7DF1E;--n:7"><span class="or-badge" aria-hidden="true"><span class="or-flotte"><span class="or-forme"><svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg?v=3#js"></use></svg></span></span></span><span class="or-nom">JavaScript</span><span class="or-bulle"><span class="or-bulle-nom" aria-hidden="true">JavaScript</span><span class="or-bulle-det">DOM · Fetch</span></span></li>
+            <li class="or-astre or-carre or-vers-d" data-famille="2" tabindex="-1" style="--x:22.164%;--y:34.082%;--t:78;--mx:63.174%;--my:80.304%;--mt:48;--c:#61DAFB;--n:8"><span class="or-badge" aria-hidden="true"><span class="or-flotte"><span class="or-forme"><svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg?v=3#react"></use></svg></span></span></span><span class="or-nom">React</span><span class="or-bulle"><span class="or-bulle-nom" aria-hidden="true">React</span><span class="or-bulle-det">Components · Hooks</span></span></li>
+            <li class="or-astre or-carre or-vers-d" data-famille="2" tabindex="-1" style="--x:46.336%;--y:19.344%;--t:76;--mx:34.478%;--my:79.174%;--mt:48;--c:#4479A1;--n:9"><span class="or-badge" aria-hidden="true"><span class="or-flotte"><span class="or-forme"><svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg?v=3#database"></use></svg></span></span></span><span class="or-nom">MySQL</span><span class="or-bulle"><span class="or-bulle-nom" aria-hidden="true">MySQL</span><span class="or-bulle-det">Modelling · SQL</span></span></li>
+            <li class="or-astre or-carre or-vers-g" data-famille="2" tabindex="-1" style="--x:71.582%;--y:19.607%;--t:64;--mx:20.957%;--my:65.761%;--mt:42;--c:#CC2927;--n:10"><span class="or-badge" aria-hidden="true"><span class="or-flotte"><span class="or-forme"><svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg?v=3#server"></use></svg></span></span></span><span class="or-nom">SQL Server</span><span class="or-bulle"><span class="or-bulle-nom" aria-hidden="true">SQL Server</span><span class="or-bulle-det">T-SQL · Procedures</span></span></li>
+            <li class="or-astre or-carre or-vers-g" data-famille="2" tabindex="-1" style="--x:86.891%;--y:48.066%;--t:70;--mx:24.870%;--my:28.543%;--mt:42;--c:#2DD4BF;--n:11"><span class="or-badge" aria-hidden="true"><span class="or-flotte"><span class="or-forme"><svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg?v=3#plug"></use></svg></span></span></span><span class="or-nom">REST API</span><span class="or-bulle"><span class="or-bulle-nom" aria-hidden="true">REST API</span><span class="or-bulle-det">JSON · JWT</span></span></li>
+          </ul>
+          <ul class="or-famille" data-famille="3" aria-label="Networks & tools">
+            <li class="or-astre or-hexa or-vers-d" data-famille="3" tabindex="-1" style="--x:10.673%;--y:34.689%;--t:72;--mx:61.261%;--my:9.370%;--mt:42;--c:#1BA0D7;--n:12"><span class="or-badge" aria-hidden="true"><span class="or-flotte"><span class="or-forme"><svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg?v=3#cisco"></use></svg></span></span></span><span class="or-nom">Cisco Packet Tracer</span><span class="or-bulle"><span class="or-bulle-nom" aria-hidden="true">Cisco Packet Tracer</span><span class="or-bulle-det">Network models</span></span></li>
+            <li class="or-astre or-hexa or-vers-g or-vers-b" data-famille="3" tabindex="-1" style="--x:83.291%;--y:14.164%;--t:72;--mx:79.565%;--my:80.087%;--mt:42;--c:#8E7CFF;--n:13"><span class="or-badge" aria-hidden="true"><span class="or-flotte"><span class="or-forme"><svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg?v=3#network-wired"></use></svg></span></span></span><span class="or-nom">VLAN · Routing · ACL</span><span class="or-bulle"><span class="or-bulle-nom" aria-hidden="true">VLAN · Routing · ACL</span><span class="or-bulle-det">Segmentation · Filtering</span></span></li>
+            <li class="or-astre or-hexa or-vers-g" data-famille="3" tabindex="-1" style="--x:54.282%;--y:87.820%;--t:72;--mx:9.174%;--my:60.565%;--mt:42;--c:#F05032;--n:14"><span class="or-badge" aria-hidden="true"><span class="or-flotte"><span class="or-forme"><svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg?v=3#git-alt"></use></svg></span></span></span><span class="or-nom">Git &amp; GitHub</span><span class="or-bulle"><span class="or-bulle-nom" aria-hidden="true">Git &amp; GitHub</span><span class="or-bulle-det">Branches · Pull requests</span></span></li>
+          </ul>
+            </div>
+          </div>
+          <div class="or-carte" aria-hidden="true">
+            <span class="or-carte-icone"></span>
+            <span class="or-carte-texte"><span class="or-carte-fam"></span><span class="or-carte-nom"></span><span class="or-carte-det"></span></span>
+          </div>
+          <div class="or-pied">
+            <ul class="or-legende" aria-label="The three families: tap one to bring it forward"><li><button type="button" class="or-leg" data-famille="1" aria-pressed="false"><span class="or-leg-forme or-rond" aria-hidden="true"></span>Programming</button></li><li><button type="button" class="or-leg" data-famille="2" aria-pressed="false"><span class="or-leg-forme or-carre" aria-hidden="true"></span>Web &amp; data</button></li><li><button type="button" class="or-leg" data-famille="3" aria-pressed="false"><span class="or-leg-forme or-hexa" aria-hidden="true"></span>Networks &amp; tools</button></li></ul>
+            <div class="certs or-certs" aria-label="Certifications">
           <div class="cert">
-            <span class="cert-check" aria-hidden="true"><svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg#check"></use></svg></span>
+            <span class="cert-check" aria-hidden="true"><svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg?v=3#check"></use></svg></span>
             <div><strong>Cisco CCNA 1</strong><span>Introduction to Networks · passed</span></div>
           </div>
           <div class="cert">
-            <span class="cert-check" aria-hidden="true"><svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg#check"></use></svg></span>
+            <span class="cert-check" aria-hidden="true"><svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg?v=3#check"></use></svg></span>
             <div><strong>Cisco CCNA 2</strong><span>Switching, Routing and Wireless Essentials · passed</span></div>
           </div>
-          <div class="cert">
-            <span class="cert-check" aria-hidden="true"><svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg#check"></use></svg></span>
-            <div><strong>Office skills, IAI-TOGO</strong><span>Microsoft Office · certified</span></div>
+        </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== À propos : la photo à gauche, le texte à droite ===== -->
+    <section class="section" id="about">
+      <div class="container ap-grille reveal reveal--zoom-fort">
+        <figure class="ap-photo ap-photo--detouree">
+          <span class="ap-fond" aria-hidden="true"></span>
+          <img class="ap-img" src="../assets/ago-ezoolim-ela-detouree-600.webp" srcset="../assets/ago-ezoolim-ela-detouree-600.webp 600w, ../assets/ago-ezoolim-ela-detouree-920.webp 920w" sizes="(max-width: 860px) 78vw, 440px" width="920" height="1239" alt="Ago Ezoolim-Ela, smiling, in a floral dress" loading="lazy" decoding="async">
+        </figure>
+        <div class="ap-texte">
+          <div class="section-head">
+            <h2>About <em>me</em></h2>
+          </div>
+          <div class="apropos-texte">
+            <p>I am a web developer passionate about building modern, useful digital solutions that meet real needs.</p>
+            <p>I mainly work with <strong>Java, Spring Boot, React, PostgreSQL and REST APIs</strong>, while taking a growing interest in bringing <strong>artificial intelligence</strong> into applications.</p>
+            <p>I like to start from a concrete problem, think through a simple solution and build an application that is functional, intuitive and able to grow.</p>
+            <p>Through my projects, I constantly look to sharpen my skills, experiment with new technologies and, above all, build solutions that make a real difference.</p>
           </div>
         </div>
       </div>
@@ -608,42 +714,47 @@
           <h2>Let’s <em>get in touch</em></h2>
         </div>
         <div class="contact-grid">
-          <div class="contact-info reveal">
-            <h3>A project? An internship?</h3>
+          <div class="contact-info reveal reveal--gauche">
+            <h3>A project? A question?</h3>
             <p>Write to me directly or use the form: I answer quickly.</p>
             <ul class="contact-list">
-              <li><span class="icon-gem" aria-hidden="true"><svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg#envelope"></use></svg></span><div><span>Email</span><a href="mailto:agoezoolimela@gmail.com">agoezoolimela@gmail.com</a></div></li>
-              <li><span class="icon-gem" aria-hidden="true"><svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg#phone"></use></svg></span><div><span>Phone</span><a href="tel:+22871123262">+228 71 12 32 62</a></div></li>
-              <li><span class="icon-gem" aria-hidden="true"><svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg#location-dot"></use></svg></span><div><span>Location</span><p>Lomé, Togo</p></div></li>
+              <li><span class="icon-gem" aria-hidden="true"><svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg?v=3#envelope"></use></svg></span><div><span>Email</span><a href="mailto:agoezoolimela@gmail.com">agoezoolimela@gmail.com</a></div></li>
+              <li><span class="icon-gem" aria-hidden="true"><svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg?v=3#phone"></use></svg></span><div><span>Phone</span><a href="tel:+22871123262">+228 71 12 32 62</a></div></li>
+              <li><span class="icon-gem" aria-hidden="true"><svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg?v=3#location-dot"></use></svg></span><div><span>Location</span><p>Lomé, Togo</p></div></li>
             </ul>
             <div class="social-row">
-              <a href="https://github.com/Ezoolim-Ela" target="_blank" rel="noopener" class="icon-btn" aria-label="GitHub"><svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg#github"></use></svg></a>
-              <a href="https://linkedin.com/in/ago-ezoolim-ela" target="_blank" rel="noopener" class="icon-btn" aria-label="LinkedIn"><svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg#linkedin-in"></use></svg></a>
-              <a href="../assets/CV_Ago_Ezoolim-Ela_EN.pdf" target="_blank" rel="noopener" class="icon-btn" aria-label="My CV (PDF)"><svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg#file-arrow-down"></use></svg></a>
+              <a href="https://github.com/Ezoolim-Ela" target="_blank" rel="noopener" class="icon-btn" aria-label="GitHub"><svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg?v=3#github"></use></svg></a>
+              <a href="https://linkedin.com/in/ago-ezoolim-ela" target="_blank" rel="noopener" class="icon-btn" aria-label="LinkedIn"><svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg?v=3#linkedin-in"></use></svg></a>
+              <a href="../assets/CV_Ago_Ezoolim-Ela_EN.pdf" target="_blank" rel="noopener" class="icon-btn" aria-label="My CV (PDF)"><svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg?v=3#file-arrow-down"></use></svg></a>
+            </div>
+            <div class="defi reveal">
+              <p class="defi-titre"><svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg?v=3#eclair"></use></svg>Here’s my challenge</p>
+              <p class="defi-texte">Hand me the problem nobody on your side has time for — the one that keeps getting pushed back. Three lines are enough: I’ll come back with a first angle, free of charge.</p>
+              <button type="button" class="btn btn-glass btn-sm" data-defi="My challenge: &#10;&#10;What we have already tried: &#10;&#10;What I would like to get: ">Take up the challenge</button>
             </div>
           </div>
 
-          <form class="glass contact-form reveal" id="contact-form" action="https://formspree.io/f/xoqzlkpd" method="POST" novalidate>
+          <form class="glass contact-form reveal reveal--fondu" id="contact-form" data-stagger action="https://formspree.io/f/xoqzlkpd" method="POST" novalidate>
             <input type="hidden" name="_subject" value="New message from the portfolio">
             <p class="hp-field" aria-hidden="true"><label>Do not fill in <input type="text" name="_gotcha" tabindex="-1" autocomplete="off"></label></p>
-            <div class="field">
+            <div class="field reveal">
               <label for="name">Full name</label>
               <input type="text" id="name" name="name" autocomplete="name" placeholder="Your name" required>
               <p class="field-error" id="name-error" role="alert"></p>
             </div>
-            <div class="field">
+            <div class="field reveal">
               <label for="email">Email address</label>
               <input type="email" id="email" name="email" autocomplete="email" placeholder="you@example.com" required>
               <p class="field-error" id="email-error" role="alert"></p>
             </div>
-            <div class="field">
+            <div class="field reveal">
               <label for="message">Message</label>
               <textarea id="message" name="message" rows="5" placeholder="Tell me about your project or the opportunity…" required></textarea>
               <p class="field-error" id="message-error" role="alert"></p>
             </div>
-            <button type="submit" class="btn btn-glow btn-block" id="form-submit">
-              <span class="btn-label"><svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg#paper-plane"></use></svg> Send the message</span>
-              <span class="btn-sending"><svg class="icon icon-spin" aria-hidden="true" focusable="false"><use href="../assets/icons.svg#circle-notch"></use></svg> Sending…</span>
+            <button type="submit" class="btn btn-glow btn-block reveal" id="form-submit">
+              <span class="btn-label"><svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg?v=3#paper-plane"></use></svg> Send the message</span>
+              <span class="btn-sending"><svg class="icon icon-spin" aria-hidden="true" focusable="false"><use href="../assets/icons.svg?v=3#circle-notch"></use></svg> Sending…</span>
             </button>
             <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
           </form>
@@ -662,43 +773,44 @@
             <span class="gem" aria-hidden="true">AE</span>
             <span class="brand-name">Ago <em>Ezoolim-Ela</em></span>
           </a>
-          <p>Software Engineering student at IAI-TOGO, passionate about development and networks.</p>
+          <p>Bachelor’s in Computer Science (IAI-TOGO), passionate about development and networks.</p>
         </div>
         <nav class="footer-col" aria-label="Site map">
           <h3>Navigation</h3>
           <ul>
             <li><a href="#projects">Projects</a></li>
-            <li><a href="#about">About</a></li>
             <li><a href="#background">Background</a></li>
             <li><a href="#skills">Skills</a></li>
+            <li><a href="#about">About</a></li>
             <li><a href="#contact">Contact</a></li>
           </ul>
         </nav>
         <div class="footer-col">
           <h3>Find me</h3>
           <ul>
-            <li><a href="https://github.com/Ezoolim-Ela" target="_blank" rel="noopener"><svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg#github"></use></svg> GitHub</a></li>
-            <li><a href="https://linkedin.com/in/ago-ezoolim-ela" target="_blank" rel="noopener"><svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg#linkedin-in"></use></svg> LinkedIn</a></li>
-            <li><a href="mailto:agoezoolimela@gmail.com"><svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg#envelope"></use></svg> agoezoolimela@gmail.com</a></li>
-            <li><a href="../assets/CV_Ago_Ezoolim-Ela_EN.pdf" target="_blank" rel="noopener"><svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg#file-arrow-down"></use></svg> Download my CV</a></li>
+            <li><a href="https://github.com/Ezoolim-Ela" target="_blank" rel="noopener"><svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg?v=3#github"></use></svg> GitHub</a></li>
+            <li><a href="https://linkedin.com/in/ago-ezoolim-ela" target="_blank" rel="noopener"><svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg?v=3#linkedin-in"></use></svg> LinkedIn</a></li>
+            <li><a href="mailto:agoezoolimela@gmail.com"><svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg?v=3#envelope"></use></svg> agoezoolimela@gmail.com</a></li>
+            <li><a href="../assets/CV_Ago_Ezoolim-Ela_EN.pdf" target="_blank" rel="noopener"><svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg?v=3#file-arrow-down"></use></svg> Download my CV</a></li>
           </ul>
         </div>
       </div>
       <div class="footer-bottom">
         <p>&copy; <span id="year">2026</span> Ago Ezoolim-Ela · Site designed and hand-coded — <a href="https://github.com/Ezoolim-Ela/Portfolio" target="_blank" rel="noopener">source code</a></p>
-        <a href="#home" class="footer-top">Back to top <svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg#arrow-up"></use></svg></a>
+        <a href="#home" class="footer-top">Back to top <svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg?v=3#arrow-up"></use></svg></a>
       </div>
     </div>
   </footer>
 
   <button class="back-to-top" id="back-to-top" type="button" aria-label="Back to top">
-    <svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg#arrow-up"></use></svg>
+    <svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg?v=3#arrow-up"></use></svg>
   </button>
 
-  <script src="../intro.js?v=12" defer></script>
-  <script src="../apropos.js?v=4" defer></script>
-  <script src="../projets.js?v=13" defer></script>
-  <script src="../anneaux.js?v=6" defer></script>
-  <script src="../script.js?v=19" defer></script>
+  <script src="../roue.js?v=1" defer></script>
+  <script src="../intro.js?v=26" defer></script>
+  <script src="../apropos.js?v=14" defer></script>
+  <script src="../projets.js?v=31" defer></script>
+  <script src="../orbite.js?v=1" defer></script>
+  <script src="../script.js?v=27" defer></script>
 </body>
 </html>

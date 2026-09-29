@@ -78,7 +78,7 @@
   function currentTheme() { return doc.getAttribute('data-theme') === 'dark' ? 'dark' : 'light'; }
   function applyTheme(theme, persist) {
     doc.setAttribute('data-theme', theme);
-    if (metaTheme) metaTheme.setAttribute('content', theme === 'dark' ? '#16202A' : '#FFFFFF');
+    if (metaTheme) metaTheme.setAttribute('content', theme === 'dark' ? '#170A11' : '#FFFFFF');
     if (themeToggle) {
       themeToggle.setAttribute('aria-pressed', String(theme === 'dark'));
       themeToggle.setAttribute('aria-label', theme === 'dark' ? T.themeClair : T.themeSombre);
@@ -321,6 +321,46 @@
       link.classList.toggle('is-active', on);
       if (on) link.setAttribute('aria-current', 'true'); else link.removeAttribute('aria-current');
     });
+    placerRepere(false);
+  }
+
+  /* ---------- Le repère du menu glisse d'un lien à l'autre ----------
+     Au lieu d'éteindre un lien et d'en allumer un autre, une pastille se
+     déplace sous le menu et prend la largeur du lien suivant. Ordinateur
+     seulement : sur téléphone, le menu est un panneau déroulant où chaque
+     lien garde son propre fond. Rien de tout cela si l'on demande moins de
+     mouvement. */
+  var siteNav = document.getElementById('site-nav');
+  var repere = null, repereActif = null, repereLargeur = 0;
+  var mqBureau = window.matchMedia('(min-width: 861px)');
+  if (siteNav && !reduceMotion) {
+    repere = document.createElement('span');
+    repere.className = 'nav-indicateur';
+    repere.setAttribute('aria-hidden', 'true');
+    siteNav.insertBefore(repere, siteNav.firstChild);
+  }
+  function placerRepere(force) {
+    if (!repere) return;
+    var bureau = mqBureau.matches;
+    siteNav.classList.toggle('a-indicateur', bureau);
+    var actif = bureau ? siteNav.querySelector('.nav-link.is-active') : null;
+    if (!actif) { repere.classList.remove('est-pret'); repereActif = null; return; }
+    if (actif === repereActif && !force && actif.offsetWidth === repereLargeur) return;
+    var b = siteNav.getBoundingClientRect(), r = actif.getBoundingClientRect();
+    /* la première fois, la pastille se pose sans glisser depuis le bord */
+    var premiere = !repere.classList.contains('est-pret');
+    if (premiere) repere.style.transition = 'none';
+    repere.style.width = r.width + 'px';
+    repere.style.height = r.height + 'px';
+    repere.style.transform = 'translate(' + (r.left - b.left).toFixed(1) + 'px, ' + (r.top - b.top).toFixed(1) + 'px)';
+    if (premiere) { void repere.offsetWidth; repere.style.transition = ''; }
+    repere.classList.add('est-pret');
+    repereActif = actif; repereLargeur = actif.offsetWidth;
+  }
+  if (repere) {
+    window.addEventListener('resize', function () { placerRepere(true); });
+    if (mqBureau.addEventListener) mqBureau.addEventListener('change', function () { placerRepere(true); });
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(function () { placerRepere(true); });
   }
 
   var ticking = false;
@@ -510,6 +550,39 @@
     gallery.addEventListener('close', function () {
       document.body.classList.remove('gallery-open');
       if (lastTrigger && lastTrigger.focus) lastTrigger.focus();
+    });
+  }
+
+  /* ----------------------------------------------------------
+     Le défi
+     Le bouton ne se contente pas d'emmener vers le formulaire : il pose
+     l'amorce du message (elle vient de la page, pour qu'elle soit dans la
+     langue du visiteur), place le curseur au bout de la première ligne et
+     souligne le formulaire une seconde, le temps qu'on le retrouve des
+     yeux. Si le visiteur a déjà écrit quelque chose, on n'y touche pas.
+     ---------------------------------------------------------- */
+  var defi = document.querySelector('[data-defi]');
+  var champMessage = document.getElementById('message');
+  if (defi && champMessage) {
+    defi.addEventListener('click', function () {
+      var amorce = defi.getAttribute('data-defi') || '';
+      var vide = !champMessage.value.trim();
+      if (vide && amorce) champMessage.value = amorce;
+      var saut = champMessage.value.indexOf('\n');
+      var pos = (vide && saut > 0) ? saut : champMessage.value.length;
+
+      var doux = !window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if (form) {
+        form.scrollIntoView({ behavior: doux ? 'smooth' : 'auto', block: 'center' });
+        form.classList.add('est-vise');
+        setTimeout(function () { form.classList.remove('est-vise'); }, 1600);
+      }
+      /* le focus après le défilement : sinon le navigateur y saute d'un coup
+         et le mouvement qu'on vient de lancer ne se voit jamais */
+      setTimeout(function () {
+        champMessage.focus({ preventScroll: true });
+        try { champMessage.setSelectionRange(pos, pos); } catch (e) { /* moteur ancien */ }
+      }, doux ? 420 : 0);
     });
   }
 

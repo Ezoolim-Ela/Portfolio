@@ -2973,7 +2973,7 @@ html.intro-done .ha-souligne path { animation: ha-trace 700ms var(--mv-ease) 110
 }
 .hr-place {
   position: absolute; left: 0; top: 0; width: 0; height: 0;
-  transform: rotate(calc(var(--k) * 30deg)) translateY(calc(-1 * var(--hr-R)));
+  transform: rotate(calc(var(--k) * var(--hr-cran, 30deg))) translateY(calc(-1 * var(--hr-R)));
 }
 .hr-sans .hr-anneau, .hr-sans .hr-cadran svg { transition: none; }
 
@@ -2995,6 +2995,7 @@ html.intro-done .ha-souligne path { animation: ha-trace 700ms var(--mv-ease) 110
 .hr-carte--1 { --cf: #CDAE98; --ct: #2A1220; --cs: #4E3440; }
 .hr-carte--2 { --cf: #FFFCFA; --ct: #2A1220; --cs: #6C5561; box-shadow: inset 0 0 0 1px #E6D9CF, 0 26px 44px -24px rgba(26, 8, 16, 0.5), 0 8px 16px -10px rgba(26, 8, 16, 0.3); }
 .hr-carte--3 { --cf: #A94E73; --ct: #FFFFFF; --cs: #FBE3EC; }
+.hr-carte--4 { --cf: #DCCFEA; --ct: #2A1220; --cs: #54406A; }
 .hr-carte-haut {
   display: flex; justify-content: space-between; align-items: baseline; gap: 6px;
   font: 700 max(9px, calc(var(--hr-W) * 0.048))/1 var(--font-texte, var(--font-body));

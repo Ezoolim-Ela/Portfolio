@@ -4,7 +4,7 @@
       tourne — le mot plein d'un côté, le mot en contour à l'opposé, chacun à
       l'endroit des deux côtés. Tout le mouvement est en CSS : ici, on ne fait
       que poser les lettres.
-   2. La roue : les quatre projets, répétés trois fois, font le tour d'un
+   2. La roue : les projets, répétés deux ou trois fois, font le tour d'un
       cadran. Elle avance d'une carte toutes les trois secondes, s'arrête sous
       la souris, au clavier ou quand l'accueil sort de l'écran ; on la fait
       tourner d'un glissement du doigt ou avec les flèches, et une carte ouvre
@@ -39,9 +39,13 @@
   var roue = hero.querySelector('.hr-roue');
   var anneau = roue && roue.querySelector('.hr-anneau');
   if (!anneau) return;
-  var N = 12, PAS = 360 / N;
   var modeles = Array.prototype.slice.call(anneau.querySelectorAll('.hr-place'));
   var nb = modeles.length;
+  /* autant de places qu'un multiple du nombre de projets, au plus près de douze :
+     sinon la suite se casse à la couture et deux cartes identiques se touchent
+     (quatre projets → douze places, cinq → dix) */
+  var N = nb * Math.max(2, Math.round(12 / nb)), PAS = 360 / N;
+  anneau.style.setProperty('--hr-cran', PAS + 'deg');
   var k = function (li) { return parseInt(li.style.getPropertyValue('--k'), 10) || 0; };
   var projetDe = function (li) { return parseInt(li.querySelector('.hr-carte').getAttribute('data-projet'), 10) || 0; };
 
@@ -60,8 +64,9 @@
     cible.appendChild(copie);
   });
 
-  /* douze places : les quatre originaux (les seuls qu'on atteint au clavier) et leurs copies ;
-     en allant vers la gauche, on croise les projets dans l'ordre 1, 2, 3, 4 */
+  /* N places : les originaux (les seuls qu'on atteint au clavier) et leurs copies ;
+     en allant vers la gauche, on croise les projets dans l'ordre 1, 2, 3…
+     La page place chaque original là où cette suite l'attend : --k ≡ -projet (mod nb) */
   var prises = {};
   modeles.forEach(function (li) { prises[k(li)] = true; });
   for (var n = 0; n < N; n++) {
@@ -86,7 +91,7 @@
   window.addEventListener('resize', zoomer);
 
   /* ---------- rotation ---------- */
-  var angle = 0;   /* croît de 30° à chaque avance : la roue tourne dans le sens des aiguilles d'une montre */
+  var angle = 0;   /* croît d'un cran (PAS) à chaque avance : la roue tourne dans le sens des aiguilles d'une montre */
   function ecart(li) { return ((k(li) * PAS + angle) % 360 + 540) % 360 - 180; }   /* -180..180, 0 = en haut */
   function poser(sansTransition) {
     if (sansTransition) roue.classList.add('hr-sans');

@@ -6,7 +6,7 @@
    projet en grand : le contexte, ce qu'il fait, sa fiche, ses liens.
 
    La page ne déclare qu'un rang (data-axe="y", data-sens="haut") et les
-   quatre projets ; le mur est bâti ici : la piste de la page devient la
+   projets ; le mur est bâti ici : la piste de la page devient la
    colonne de gauche, les deux autres sont des copies rangées dans un autre
    ordre, et chacune part un tiers de série plus loin que sa voisine — on
    ne voit jamais trois fois la même carte alignées. Chaque colonne est
@@ -58,20 +58,23 @@
 
   /* ----------------------------------------------------------
      Le mur
-     La piste de la page — les quatre originaux — devient la colonne de
+     La piste de la page — les originaux — devient la colonne de
      gauche ; les deux autres sont bâties ici, avec des copies rangées dans
      un autre ordre. Chaque colonne porte son axe et son sens : une sur deux
      va à contresens de ce que la page demande. La feuille de style en
      efface une sur une tablette, deux sur un téléphone ; une colonne
      masquée ne mesure rien et s'arrête d'elle-même.
-     Si l'on préfère moins de mouvement, on ne bâtit rien : les quatre
+     Si l'on préfère moins de mouvement, on ne bâtit rien : les
      projets restent posés en grille, là où la page les met.
      ---------------------------------------------------------- */
-  /* Chaque colonne reprend le quatuor décalé d'un cran, et part une carte et
-     demie plus loin que sa voisine. Les deux colonnes qui montent gardent le
-     même écart pour toujours : c'est ce couple d'ordres et ces départs qui
-     font qu'un projet ne se retrouve jamais en face de lui-même. */
-  var ORDRE_COL = [[1, 2, 3, 0], [3, 0, 1, 2]];
+  /* Chaque colonne reprend la suite des projets décalée d'un cran (+1 au
+     milieu, -1 à droite), et part une carte et demie plus loin que sa
+     voisine. Les deux colonnes qui montent gardent le même écart pour
+     toujours — deux cartes et demie : la carte j de gauche fait face aux
+     cartes j+2 et j+3 de droite, et le décalage de -1 les rend toujours
+     différentes d'elle (vrai pour quatre projets comme pour cinq). */
+  var decale = function (c) { return projets.map(function (_, i) { return (i + c + N) % N; }); };
+  var ORDRE_COL = [decale(1), decale(-1)];
   var DEPART = [0, 1.5, 2.5];                     /* en cartes */
   var enMouvement = !mqReduit.matches;
   var rang = zone.querySelector('.rh-rang');

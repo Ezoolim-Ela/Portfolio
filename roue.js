@@ -43,9 +43,11 @@
   var nb = modeles.length;
   /* autant de places qu'un multiple du nombre de projets, au plus près de douze :
      sinon la suite se casse à la couture et deux cartes identiques se touchent
-     (quatre projets → douze places, cinq → dix) */
+     (quatre projets → douze places, cinq → dix, sept → quatorze). Au-delà de
+     douze, les cartes rapetissent d'autant (--hr-taille) pour ne pas se chevaucher. */
   var N = nb * Math.max(2, Math.round(12 / nb)), PAS = 360 / N;
   anneau.style.setProperty('--hr-cran', PAS + 'deg');
+  anneau.style.setProperty('--hr-taille', Math.min(1, PAS / 30).toFixed(3));
   var k = function (li) { return parseInt(li.style.getPropertyValue('--k'), 10) || 0; };
   var projetDe = function (li) { return parseInt(li.querySelector('.hr-carte').getAttribute('data-projet'), 10) || 0; };
 

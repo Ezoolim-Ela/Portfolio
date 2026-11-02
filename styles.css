@@ -3900,3 +3900,57 @@ h2 em { color: var(--jaune-texte); }
   .pa-salut { font-size: clamp(1.3rem, 0.9rem + 4vw, 2.2rem); }
   .pa-ligne { font-size: 0.94rem; }
 }
+
+/* =========================================================
+   Responsivité : les retouches (02/11/2026)
+   Passées en revue de 320 à 1920 px, en portrait et en paysage.
+   ========================================================= */
+
+/* ----- l'accueil : le nom ne se casse pas au trait d'union -----
+   À 320 px, « AGO EZOOLIM-ELA » partait à la ligne après le tiret et
+   laissait « ELA » seul. C'est le métier, en face, qui passe sur deux
+   lignes : il est fait pour ça. */
+.hr-nom { white-space: nowrap; }
+
+/* ----- le parcours : « Aujourd'hui » reste dans l'écran -----
+   La pastille était centrée sur le fil (translateX(-50%)) ; tant que le
+   fil longe le bord gauche, la moitié de la pastille sortait de l'écran
+   entre 641 et 860 px. Elle part donc du bord, et ne se centre que
+   lorsque le fil passe au milieu. */
+.today-node { left: 0; transform: none; }
+@media (min-width: 861px) { .today-node { left: 50%; transform: translateX(-50%); } }
+@media (max-width: 640px) { .today-node { left: 4px; } }
+
+/* ----- À propos : l'affiche ne s'étire plus sur une tablette en hauteur -----
+   Calée sur la hauteur de l'écran, elle laissait de grands vides autour
+   du texte une fois les capsules passées dessous. Empilée, elle prend
+   simplement la place de son contenu. */
+@media (max-width: 860px) {
+  .hero-apropos .pa-affiche { min-height: 0; }
+}
+
+/* ----- À propos : le bandeau or sur un petit téléphone -----
+   Sur trois lignes, une pilule devient un ovale qui rogne les bouts de
+   texte (« production » était coupé à 320 px). Sous 560 px, le bandeau
+   devient une carte arrondie, une ligne par chiffre. */
+@media (max-width: 560px) {
+  .pa-bandeau {
+    flex-direction: column; align-items: center; gap: 0.35rem;
+    border-radius: 20px; padding: 0.8rem 1rem;
+  }
+  .pa-bandeau li { white-space: nowrap; }
+}
+
+/* ----- au doigt : des cibles d'au moins 24 px -----
+   Le lien EN faisait 28 × 21 px, « Retour en haut » 23 px de haut. */
+.lang-switch > * { min-height: 24px; display: flex; align-items: center; }
+.footer-top { min-height: 32px; }
+
+/* ----- les consignes suivent l'appareil -----
+   « Survolez » n'a pas de sens sous le doigt : chaque appareil lit la
+   consigne qui le concerne. */
+.cp-aide-doigt { display: none; }
+@media (hover: none) {
+  .cp-aide-souris { display: none; }
+  .cp-aide-doigt { display: inline; }
+}

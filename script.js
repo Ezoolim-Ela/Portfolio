@@ -78,7 +78,7 @@
   function currentTheme() { return doc.getAttribute('data-theme') === 'dark' ? 'dark' : 'light'; }
   function applyTheme(theme, persist) {
     doc.setAttribute('data-theme', theme);
-    if (metaTheme) metaTheme.setAttribute('content', theme === 'dark' ? '#170A11' : '#FFFFFF');
+    if (metaTheme) metaTheme.setAttribute('content', theme === 'dark' ? '#0B0910' : '#F7F5FB');
     if (themeToggle) {
       themeToggle.setAttribute('aria-pressed', String(theme === 'dark'));
       themeToggle.setAttribute('aria-label', theme === 'dark' ? T.themeClair : T.themeSombre);
@@ -299,7 +299,7 @@
     document.addEventListener('click', function (e) {
       if (nav.classList.contains('is-open') && !nav.contains(e.target) && !navToggle.contains(e.target)) setMenu(false);
     });
-    var desktop = window.matchMedia('(min-width: 861px)');
+    var desktop = window.matchMedia('(min-width: 1025px)');
     if (desktop.addEventListener) desktop.addEventListener('change', function (e) { if (e.matches) setMenu(false); });
   }
 
@@ -332,7 +332,7 @@
      mouvement. */
   var siteNav = document.getElementById('site-nav');
   var repere = null, repereActif = null, repereLargeur = 0;
-  var mqBureau = window.matchMedia('(min-width: 861px)');
+  var mqBureau = window.matchMedia('(min-width: 1025px)');
   if (siteNav && !reduceMotion) {
     repere = document.createElement('span');
     repere.className = 'nav-indicateur';

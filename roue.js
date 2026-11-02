@@ -33,6 +33,59 @@
       });
       mot.appendChild(col);
     });
+
+    /* ----------------------------------------------------------
+       L'arrivée
+       Les deux mots entrent chacun par un bord et se rejoignent au centre
+       (tout est dans la feuille de style). Le ruban, lui, reste figé sur sa
+       torsade tant que .hr-arrive est là : il ne se met à tourner qu'une
+       fois la rencontre faite. Le filet de sécurité libère le ruban même si
+       l'animation ne se joue pas — onglet caché au chargement, moteur
+       ancien : le mot doit tourner dans tous les cas.
+       ---------------------------------------------------------- */
+    if (!reduit.matches) {
+      hero.classList.add('hr-arrive');
+      var lache = false;
+      var lacher = function () {
+        if (lache) return;
+        lache = true;
+        hero.classList.remove('hr-arrive');
+        toupie();
+      };
+      mot.addEventListener('animationend', function (e) {
+        if (e.animationName === 'hr-elan') lacher();
+      });
+      setTimeout(lacher, 8000);
+    }
+
+    /* ----------------------------------------------------------
+       La toupie
+       Au moment où les deux mots se rejoignent, le ruban n'est pas lancé à
+       sa vitesse de croisière : il part vite, comme une toupie qu'on jette,
+       et retombe en deux secondes et demie sur son allure normale. On ne
+       touche pas aux animations CSS — on ne fait que changer leur vitesse
+       de lecture, ce qui garde la vague d'une lettre à l'autre intacte.
+       Sans l'API des animations (moteur ancien), le ruban tourne simplement
+       à son allure : rien ne casse.
+       ---------------------------------------------------------- */
+    function toupie() {
+      var LANCE = 4.5, DUREE = 2500;
+      if (reduit.matches || typeof mot.getAnimations !== 'function') return;
+      var tours = [];
+      Array.prototype.forEach.call(mot.querySelectorAll('.hr-f'), function (f) {
+        f.getAnimations().forEach(function (a) {
+          if (a.animationName === 'hr-tour' || a.animationName === 'hr-tour-dos') tours.push(a);
+        });
+      });
+      if (!tours.length) return;
+      var t0 = performance.now();
+      (function pas(t) {
+        var k = Math.min(1, (t - t0) / DUREE);
+        var v = 1 + (LANCE - 1) * Math.pow(1 - k, 3);   /* on retombe en douceur sur 1 */
+        tours.forEach(function (a) { try { a.playbackRate = v; } catch (e) {} });
+        if (k < 1) requestAnimationFrame(pas);
+      })(t0);
+    }
   }
 
   /* ---------- 2. la roue ---------- */

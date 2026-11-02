@@ -6,7 +6,7 @@
   <title>STEA, from idea to production — Case study · Ago Ezoolim-Ela</title>
   <meta name="description" content="Case study: how I designed, built and deployed STEA, a logistics and stock management application used by STEA Trans Euro Afrika SARL (Lomé, Togo). Spring Boot, React, MySQL, Electron.">
   <meta name="color-scheme" content="light dark">
-  <meta name="theme-color" id="meta-theme-color" content="#FFFFFF">
+  <meta name="theme-color" id="meta-theme-color" content="#0B0910">
   <meta name="author" content="Ago Ezoolim-Ela">
   <link rel="canonical" href="https://ezoolim-ela.github.io/Portfolio/en/stea.html">
   <link rel="alternate" hreflang="fr" href="https://ezoolim-ela.github.io/Portfolio/stea.html">
@@ -32,7 +32,7 @@
       if (t!== 'dark' && t!== 'light') t = 'light';
       document.documentElement.setAttribute('data-theme', t);
       var m = document.getElementById('meta-theme-color');
-      if (m) m.setAttribute('content', t === 'dark'? '#170A11': '#FFFFFF');
+      if (m) m.setAttribute('content', t === 'dark'? '#0B0910': '#FFFFFF');
     })();
   </script>
 
@@ -44,7 +44,7 @@
   <!-- Police chargée sans bloquer le rendu (préchargement, puis activation) ; icônes : sprite SVG local assets/icons.svg -->
   <link rel="preload" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Parisienne&family=JetBrains+Mono:wght@500&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
   <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Parisienne&family=JetBrains+Mono:wght@500&display=swap"></noscript>
-  <link rel="stylesheet" href="../styles.css?v=172">
+  <link rel="stylesheet" href="../styles.css?v=200">
   <script src="../transitions.js?v=2"></script>
 </head>
 <body>
@@ -289,7 +289,7 @@
         <button type="button" class="icon-btn gallery-close" id="gallery-close" aria-label="Close the gallery"><svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg?v=3#xmark"></use></svg></button>
       </div>
       <figure class="gallery-figure">
-        <img id="gallery-img" src="" alt="">
+        <img id="gallery-img" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="" decoding="async">
         <figcaption id="gallery-cap"></figcaption>
       </figure>
       <button type="button" class="gallery-nav prev" id="gallery-prev" aria-label="Previous screen"><svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg?v=3#chevron-left"></use></svg></button>
@@ -340,6 +340,6 @@
     <svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg?v=3#arrow-up"></use></svg>
   </button>
 
-  <script src="../script.js?v=26" defer></script>
+  <script src="../script.js?v=29" defer></script>
 </body>
 </html>

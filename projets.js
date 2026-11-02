@@ -342,7 +342,7 @@
     }
 
     fiche.setAttribute('aria-label', titre ? titre.textContent : '');
-    fiche.style.setProperty('--c', art.getAttribute('data-c') || '#CDAE98');
+    fiche.style.setProperty('--c', art.getAttribute('data-c') || '#B79CFB');
   }
 
   function ouvrir(i, depuis, origine) {

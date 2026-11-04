@@ -27,11 +27,19 @@
   var track = document.querySelector('[data-ruche]');
   if (!track) return;
 
-  var projets = Array.prototype.slice.call(track.querySelectorAll('.rh-piste[data-piste="a"] > .rh-projet'));
+  /* Deux listes : le mur ne montre que les projets en vedette (la piste de
+     la page), mais chaque fiche reste ouvrable — depuis la roue de l'accueil
+     et depuis « Autres projets » — grâce à la réserve cachée. projets[n] est
+     donc rangé par data-rh, pas par position dans le mur. */
+  var mur = Array.prototype.slice.call(track.querySelectorAll('.rh-piste[data-piste="a"] > .rh-projet'));
+  var projets = [];
+  Array.prototype.forEach.call(track.querySelectorAll('.rh-projet[data-rh]'), function (art) {
+    projets[parseInt(art.getAttribute('data-rh'), 10) || 0] = art;
+  });
   var puces = Array.prototype.slice.call(track.querySelectorAll('.rh-puce'));
   var zone = track.querySelector('.rh-rangs');
   var pisteA = track.querySelector('[data-piste="a"]');
-  var N = projets.length;
+  var N = mur.length;
   if (!N || !zone || !pisteA) return;
 
   var mqReduit = window.matchMedia('(prefers-reduced-motion: reduce)');
@@ -73,7 +81,7 @@
      toujours — deux cartes et demie : la carte j de gauche fait face aux
      cartes j+2 et j+3 de droite, et le décalage de -1 les rend toujours
      différentes d'elle (vrai pour quatre projets comme pour cinq). */
-  var decale = function (c) { return projets.map(function (_, i) { return (i + c + N) % N; }); };
+  var decale = function (c) { return mur.map(function (_, i) { return (i + c + N) % N; }); };
   var ORDRE_COL = [decale(1), decale(-1)];
   var DEPART = [0, 1.5, 2.5];                     /* en cartes */
   var enMouvement = !mqReduit.matches;
@@ -96,7 +104,7 @@
       var piste = document.createElement('div');
       piste.className = 'rh-piste';
       piste.setAttribute('data-piste', String.fromCharCode(98 + k));   /* b, puis c */
-      ordre.forEach(function (i) { if (projets[i]) piste.appendChild(copie(projets[i])); });
+      ordre.forEach(function (i) { if (mur[i]) piste.appendChild(copie(mur[i])); });
       enColonne(piste, k + 1);
       pistes.push(piste);
     });
@@ -445,10 +453,20 @@
 
   /* ---------- les pastilles : ouvrir directement un projet ---------- */
   puces.forEach(function (b, i) {
+    var art = mur[i];
+    if (!art) return;
     b.addEventListener('click', function () {
-      if (peutOuvrir) { ouvrir(i, b); return; }
-      projets[i].scrollIntoView({ behavior: mqReduit.matches ? 'auto' : 'smooth', block: 'center' });
+      if (peutOuvrir) { ouvrir(parseInt(art.getAttribute('data-rh'), 10) || 0, b); return; }
+      art.scrollIntoView({ behavior: mqReduit.matches ? 'auto' : 'smooth', block: 'center' });
     });
+  });
+
+  /* ---------- « Autres projets » : la même fiche, sans passer par le mur ---------- */
+  Array.prototype.forEach.call(document.querySelectorAll('[data-rh-autre]'), function (b) {
+    var i = parseInt(b.getAttribute('data-rh-autre'), 10) || 0;
+    if (!projets[i]) return;
+    if (!peutOuvrir) { b.disabled = true; return; }   /* sans <dialog>, la fiche ne peut pas s'ouvrir */
+    b.addEventListener('click', function () { ouvrir(i, b); });
   });
 
   /* ---------- mesures ---------- */

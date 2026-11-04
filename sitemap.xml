@@ -23,4 +23,16 @@
     <loc>https://ezoolim-ela.github.io/Portfolio/en/stea.html</loc>
     <lastmod>2026-09-23</lastmod><changefreq>monthly</changefreq><priority>0.7</priority>
   </url>
+  <url>
+    <loc>https://ezoolim-ela.github.io/Portfolio/maintenant.html</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://ezoolim-ela.github.io/Portfolio/maintenant.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ezoolim-ela.github.io/Portfolio/en/now.html"/>
+    <lastmod>2026-11-04</lastmod><changefreq>monthly</changefreq><priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://ezoolim-ela.github.io/Portfolio/en/now.html</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://ezoolim-ela.github.io/Portfolio/maintenant.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ezoolim-ela.github.io/Portfolio/en/now.html"/>
+    <lastmod>2026-11-04</lastmod><changefreq>monthly</changefreq><priority>0.5</priority>
+  </url>
 </urlset>

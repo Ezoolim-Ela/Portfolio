@@ -21,6 +21,7 @@
       secoursLien: 'Ouvrez votre messagerie avec ce message déjà rempli',
       secoursFin: ', ou écrivez-moi à agoezoolimela@gmail.com.',
       sujet: 'Message depuis le portfolio', champNom: 'Nom', champEmail: 'E-mail',
+      copie: 'Adresse e-mail copiée.',
       ecrans: [
         'Tableau de bord — indicateurs de stock, encaissements et tâches à traiter',
         'Statistiques — tableau de bord configurable par widgets et période',
@@ -47,6 +48,7 @@
       secoursLien: 'Open your mail app with this message already filled in',
       secoursFin: ', or write to me at agoezoolimela@gmail.com.',
       sujet: 'Message from the portfolio', champNom: 'Name', champEmail: 'Email',
+      copie: 'Email address copied.',
       ecrans: [
         'Dashboard — stock indicators, payments received and tasks to handle',
         'Statistics — dashboard configurable by widget and period',
@@ -405,6 +407,30 @@
   /* ---------- Année ---------- */
   var year = document.getElementById('year');
   if (year) year.textContent = String(new Date().getFullYear());
+
+  /* ---------- Contact : l'adresse se copie en un clic ----------
+     « Copié ! » s'affiche deux secondes et le lecteur d'écran l'annonce. Si le
+     presse-papiers est refusé (page non sécurisée, vieux navigateur), le bouton
+     ouvre la messagerie : le visiteur n'est jamais laissé sans réponse. */
+  Array.prototype.forEach.call(document.querySelectorAll('[data-copier]'), function (b) {
+    var adresse = b.getAttribute('data-copier');
+    var statut = b.parentNode.querySelector('[data-copier-statut]');
+    var minuteur = 0;
+    b.addEventListener('click', function () {
+      var ecrire = navigator.clipboard && navigator.clipboard.writeText
+        ? navigator.clipboard.writeText(adresse)
+        : Promise.reject(new Error('presse-papiers indisponible'));
+      ecrire.then(function () {
+        b.classList.add('vient-de-copier');
+        if (statut) statut.textContent = T.copie;
+        clearTimeout(minuteur);
+        minuteur = setTimeout(function () {
+          b.classList.remove('vient-de-copier');
+          if (statut) statut.textContent = '';
+        }, 2000);
+      }, function () { window.location.href = 'mailto:' + adresse; });
+    });
+  });
 
   /* ---------- Formulaire ---------- */
   var form = document.getElementById('contact-form');

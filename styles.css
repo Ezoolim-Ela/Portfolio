@@ -3954,3 +3954,96 @@ h2 em { color: var(--jaune-texte); }
   .cp-aide-souris { display: none; }
   .cp-aide-doigt { display: inline; }
 }
+
+/* =========================================================
+   Les propositions (04/11/2026)
+   Nées d'une recherche sur les portfolios qui font embaucher : en cinq
+   secondes, on doit savoir qui elle est, ce qu'elle a livré et quoi faire.
+   ========================================================= */
+
+/* ----- l'accueil : la phrase-preuve, deux boutons, la disponibilité -----
+   Posée sur un verre : la bande violette passe derrière sans gêner la
+   lecture. Le verre suit le thème, comme le reste de la page. */
+.hr-preuve {
+  position: relative; z-index: 4;
+  display: grid; justify-items: center; gap: 14px;
+  max-width: 46rem; margin: clamp(14px, 2.4svh, 26px) auto 0;
+  padding: 16px 22px 14px; border-radius: 22px; text-align: center;
+  background: color-mix(in srgb, var(--bg) 74%, transparent);
+  -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px);
+  border: 1px solid var(--border);
+}
+.hr-phrase { margin: 0; font-size: clamp(1rem, 0.9rem + 0.5vw, 1.25rem); line-height: 1.45; color: var(--text-2); text-wrap: balance; }
+.hr-phrase strong { color: var(--text); font-weight: 700; }
+.hr-actions { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; }
+.hr-dispo {
+  display: inline-flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 4px 8px;
+  padding: 6px 14px; border-radius: 999px; border: 1px solid var(--border-strong);
+  font-size: 0.82rem; color: var(--text-2); text-decoration: none;
+}
+.hr-dispo-lien { color: var(--primary); font-weight: 700; }
+[data-theme="dark"] .hr-dispo-lien { color: var(--jaune); }
+.hr-dispo:hover .hr-dispo-lien, .hr-dispo:focus-visible .hr-dispo-lien { text-decoration: underline; text-underline-offset: 3px; }
+@media (max-width: 560px) {
+  .hr-preuve { padding: 14px 14px 12px; gap: 12px; }
+  .hr-actions .btn { flex: 1 1 auto; justify-content: center; }
+  .hr-dispo { border-radius: 16px; padding: 8px 12px; text-align: center; }
+}
+
+/* ----- les projets : les chiffres, puis les autres projets ----- */
+.rh-chiffres { display: flex; flex-wrap: wrap; gap: 6px; margin: 6px 0 8px; }
+.rh-chiffres > span {
+  padding: 3px 10px; border-radius: 999px;
+  font-size: 0.74rem; font-weight: 700; letter-spacing: 0.02em;
+  background: var(--jaune); color: var(--jaune-encre);
+}
+.autres-projets { margin-top: 28px; }
+.autres-titre { margin: 0 0 12px; font-size: 0.9rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-2); }
+.autres-liste { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 10px; margin: 0; padding: 0; list-style: none; }
+.ap-autre {
+  position: relative; display: grid; gap: 3px; width: 100%; height: 100%;
+  padding: 14px 16px 14px 52px; border-radius: 14px; text-align: left; cursor: pointer;
+  border: 1px solid var(--border); background: var(--surface); color: var(--text); font: inherit;
+  transition: border-color 0.2s ease, transform 0.2s ease;
+}
+.ap-autre:hover, .ap-autre:focus-visible { border-color: var(--primary); transform: translateY(-2px); }
+.ap-autre-num { position: absolute; left: 16px; top: 15px; font-family: var(--font-mono, monospace); font-size: 0.8rem; color: var(--primary); }
+.ap-autre b { font-weight: 700; }
+.ap-autre-sous { font-size: 0.85rem; color: var(--text-3); }
+@media (prefers-reduced-motion: reduce) { .ap-autre { transition: none; } .ap-autre:hover, .ap-autre:focus-visible { transform: none; } }
+
+/* ----- le contact : WhatsApp et l'adresse à copier ----- */
+.ct-rapide { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; margin: 10px 0 14px; }
+.ct-whatsapp { background: #25D366; color: #08140C; font-weight: 700; border: 0; }
+.ct-whatsapp:hover { background: #1EBE5A; }
+.ct-whatsapp .icon { width: 1.1em; height: 1.1em; }
+.ct-copie {
+  display: none; margin-left: 6px; padding: 2px 8px; border-radius: 999px;
+  font-size: 0.72rem; background: var(--primary); color: #fff;
+}
+[data-theme="dark"] .ct-copie { color: #0B0910; }
+.ct-copier.vient-de-copier .ct-copie { display: inline-block; }
+
+/* ----- la page « En ce moment » ----- */
+.maintenant { padding-top: clamp(20px, 4vw, 48px); }
+.maintenant h1 { font-size: clamp(2.4rem, 1.6rem + 3vw, 4rem); margin: 6px 0 10px; }
+.mt-grille { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; margin-top: 28px; }
+.mt-carte { padding: 22px; border-radius: 20px; border: 1px solid var(--border); background: var(--surface); }
+.mt-carte h2 { font-size: 1.25rem; margin: 4px 0 8px; }
+.mt-carte p { margin: 0; color: var(--text-2); line-height: 1.55; }
+.mt-carte .mt-kicker { margin-bottom: 4px; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--primary); }
+.mt-actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 28px; }
+.mt-pied { margin-top: 26px; font-size: 0.88rem; color: var(--text-3); }
+
+/* « ▲ Moi » (« ▲ Me » en anglais, deux lettres) : une cible confortable au doigt,
+   sans rien déplacer — le lien est centré sur lui-même. */
+.hr-moi { min-width: 44px; min-height: 32px; }
+
+/* Les boutons de l'accueil ont été dessinés pour un fond sombre (blanc plein,
+   verre noir et texte blanc). Sur le verre clair de la phrase-preuve, le
+   second devenait illisible : en thème clair, ils reprennent les couleurs
+   du reste du site. */
+[data-theme="light"] .hr-preuve .btn-glow { background: var(--primary); color: #fff; box-shadow: 0 8px 20px -12px rgba(var(--primary-rgb), 0.8); }
+[data-theme="light"] .hr-preuve .btn-glow:hover { background: var(--primary-strong); }
+[data-theme="light"] .hr-preuve .btn-glass { background: var(--surface); color: var(--text); border-color: var(--border-strong); }
+[data-theme="light"] .hr-preuve .btn-glass:hover { background: var(--surface-2); border-color: var(--primary); }

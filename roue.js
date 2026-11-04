@@ -106,7 +106,8 @@
 
   /* les visuels viennent des cartes de la section Projets : une seule source */
   modeles.forEach(function (li) {
-    var src = document.querySelector('.rh-piste[data-piste="a"] > .rh-projet[data-rh="' + projetDe(li) + '"] .rh-ecran-in');
+    /* dans le mur ou dans la réserve des autres projets : la carte d'origine, jamais une copie */
+    var src = document.querySelector('.rh-projet[data-rh="' + projetDe(li) + '"]:not(.est-copie) .rh-ecran-in');
     var v = src && src.querySelector('img, .scene');
     var cible = li.querySelector('.hr-visuel');
     if (!v || !cible) return;

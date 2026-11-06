@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>STEA, from idea to production — Case study · Ago Ezoolim-Ela</title>
-  <meta name="description" content="Case study: how I designed, built and deployed STEA, a logistics and stock management application used by STEA Trans Euro Afrika SARL (Lomé, Togo). Spring Boot, React, MySQL, Electron.">
+  <meta name="description" content="Case study: how I designed, built and deployed STEA, a logistics and stock management application used every day in Lomé, Togo. Spring Boot, React, MySQL, Electron.">
   <meta name="color-scheme" content="light dark">
   <meta name="theme-color" id="meta-theme-color" content="#0B0910">
   <meta name="author" content="Ago Ezoolim-Ela">
@@ -16,9 +16,9 @@
   <meta property="og:locale" content="en_US">
   <meta property="og:site_name" content="Portfolio of Ago Ezoolim-Ela">
   <meta property="og:title" content="STEA, from idea to production — Case study">
-  <meta property="og:description" content="A logistics management application designed, built and deployed end to end: 24 modules, 8 roles, 173 REST endpoints, 141 tests, 29 releases published.">
+  <meta property="og:description" content="A logistics management application designed, built and deployed end to end, in production since August 2026.">
   <meta property="og:url" content="https://ezoolim-ela.github.io/Portfolio/en/stea.html">
-  <meta property="og:image" content="https://ezoolim-ela.github.io/Portfolio/assets/stea/tableau-de-bord-vue-desktop.webp">
+  <meta property="og:image" content="https://ezoolim-ela.github.io/Portfolio/assets/og-image.jpg">
   <meta name="twitter:card" content="summary_large_image">
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%234A1932'/%3E%3Ctext x='32' y='43' font-family='Arial, sans-serif' font-size='27' font-weight='800' fill='white' text-anchor='middle'%3EAE%3C/text%3E%3C/svg%3E">
 
@@ -41,7 +41,7 @@
   <!-- Police chargée sans bloquer le rendu (préchargement, puis activation) ; icônes : sprite SVG local assets/icons.svg -->
   <link rel="preload" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Parisienne&family=JetBrains+Mono:wght@500&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
   <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Parisienne&family=JetBrains+Mono:wght@500&display=swap"></noscript>
-  <link rel="stylesheet" href="../styles.css?v=202">
+  <link rel="stylesheet" href="../styles.css?v=203">
   <script src="../transitions.js?v=2"></script>
 </head>
 <body>
@@ -90,20 +90,15 @@
         <a href="index.html#projects" class="case-back"><svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg?v=3#arrow-left"></use></svg> Back to projects</a>
         <p class="eyebrow">Case study · flagship project</p>
         <h1>STEA, from idea to <em style="font-style: italic; font-weight: 500; color: var(--primary);">production</em></h1>
-        <p class="section-lead">How I designed, built and deployed, end to end, a logistics and stock management application now used by STEA Trans Euro Afrika SARL, in Lomé.</p>
+        <p class="section-lead">How I designed, built and deployed, end to end, a logistics and stock management application now used by STEA, in Lomé.</p>
 
         <dl class="case-meta">
-          <div><dt>Client</dt><dd>STEA Trans Euro Afrika SARL · Lomé, Togo</dd></div>
+          <div><dt>Client</dt><dd>STEA · Lomé, Togo</dd></div>
           <div><dt>My role</dt><dd>Design, development, deployment and maintenance</dd></div>
           <div><dt>Period</dt><dd>July – September 2026 · in production since August 2026</dd></div>
           <div><dt>Technologies</dt><dd>Java 17 · Spring Boot · MySQL · React · Tailwind CSS · Electron</dd></div>
         </dl>
 
-        <div class="case-cta">
-          <button type="button" class="btn btn-glow btn-sm" data-gallery-open="0"><svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg?v=3#images"></use></svg> View the screens</button>
-          <a href="https://github.com/Ezoolim-Ela/stea-desktop" target="_blank" rel="noopener" class="btn btn-glass btn-sm"><svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg?v=3#github"></use></svg> GitHub repository</a>
-          <a href="https://github.com/Ezoolim-Ela/stea-desktop/releases" target="_blank" rel="noopener" class="btn btn-glass btn-sm"><svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg?v=3#desktop"></use></svg> Releases</a>
-        </div>
       </div>
     </section>
 
@@ -113,7 +108,7 @@
         <p class="eyebrow">01 · The challenge</p>
         <h2>Knowing at any moment <em>what is in stock, where, and what to reorder</em></h2>
         <div class="case-prose">
-          <p>STEA Trans Euro Afrika runs several warehouses, buys, delivers and handles returns. Without a central tool, that kind of information scatters: the real state of the stock becomes uncertain and shortages are discovered too late.</p>
+          <p>STEA runs several warehouses, buys, delivers and handles returns. Without a central tool, that kind of information scatters: the real state of the stock becomes uncertain and shortages are discovered too late.</p>
           <p>The application therefore had to keep <strong>a reliable stock across several warehouses</strong>, cover <strong>the whole purchase → delivery → return cycle</strong>, <strong>raise alerts</strong> before a shortage and stay <strong>simple to install</strong> on the company machines.</p>
         </div>
 
@@ -158,15 +153,6 @@
           </div>
         </div>
 
-        <h3 style="margin-top: 40px; font-size: var(--fs-h3);">24 modules, grouped into six families</h3>
-        <ul class="modules" aria-label="Application modules">
-          <li><svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg?v=3#boxes-stacked"></use></svg>Stock: items, warehouses, batches and serials, movements, counts</li>
-          <li><svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg?v=3#cart-shopping"></use></svg>Buying and selling: customers, suppliers, orders</li>
-          <li><svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg?v=3#truck"></use></svg>Deliveries: shipments, notes, returns and credit notes</li>
-          <li><svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg?v=3#coins"></use></svg>Accounting: payments received and settlement tracking</li>
-          <li><svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg?v=3#chart-column"></use></svg>Steering: dashboard, statistics, reports</li>
-          <li><svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg?v=3#user-gear"></use></svg>Administration: users, rights, settings, history</li>
-        </ul>
       </div>
     </section>
 
@@ -176,7 +162,7 @@
         <p class="eyebrow">03 · Security and quality</p>
         <h2>The screen hides, <em>the server forbids</em></h2>
         <div class="case-prose">
-          <p>Every access rule exists twice: in the interface, to show only what is allowed, and in the server, which refuses the rest. Eight roles share the application, three of them read-only.</p>
+          <p>Every access rule exists twice: in the interface, to show only what is allowed, and in the server, which refuses the rest. Several roles share the application, some of them read-only.</p>
         </div>
         <div class="case-grid" data-stagger>
           <article class="case-card reveal">
@@ -201,7 +187,7 @@
             <span class="case-icon" aria-hidden="true"><svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg?v=3#vial-circle-check"></use></svg></span>
             <h3>Verification</h3>
             <ul>
-              <li>141 automated tests on the server side</li>
+              <li>An automated test suite on the server side</li>
               <li>Every change is tried on a test instance before going live</li>
               
             </ul>
@@ -216,36 +202,10 @@
         <p class="eyebrow">04 · Results</p>
         <h2>In production, <em>and still evolving</em></h2>
         <div class="case-prose">
-          <p>The first version was installed on 12 August 2026. Since then 29 releases have been delivered by automatic update, without ever reinstalling a machine.</p>
-          <p>One example of a change requested by the company: three read-only profiles, limited to their own department. Mock-up in the morning, approved the same day, delivered that day.</p>
+          <p>The first version went into service in August 2026. Since then every change has arrived by automatic update, without ever reinstalling a machine.</p>
+          <p>One example of a change requested along the way: new read-only profiles. Mock-up in the morning, approved the same day, delivered that day.</p>
         </div>
 
-        <ul class="case-figures" aria-label="STEA in numbers">
-          <li><span class="figure-num" data-count="24">0</span><span class="figure-label">business modules</span></li>
-          <li><span class="figure-num" data-count="8">0</span><span class="figure-label">user roles</span></li>
-          <li><span class="figure-num" data-count="173">0</span><span class="figure-label">REST endpoints</span></li>
-          <li><span class="figure-num" data-count="141">0</span><span class="figure-label">automated tests</span></li>
-          <li><span class="figure-num" data-count="29">0</span><span class="figure-label">releases published</span></li>
-          <li><span class="figure-num" data-count="46">0</span><span class="figure-label">thousand lines of code (Java + React)</span></li>
-        </ul>
-
-        <!-- Témoignage du client — à activer dès que STEA Trans Euro Afrika fournit une phrase:
-        <blockquote class="project-quote" style="margin-top: 28px; max-width: 68ch;">
-          <p>«La phrase du client.»</p>
-          <footer>— Prénom Nom, fonction · STEA Trans Euro Afrika SARL</footer>
-        </blockquote>
-        -->
-
-        <div class="shots">
-          <figure class="reveal"><img src="../assets/stea/tableau-de-bord-vue-desktop.webp" srcset="../assets/stea/tableau-de-bord-vue-desktop-720.webp 720w, ../assets/stea/tableau-de-bord-vue-desktop-1080.webp 1080w, ../assets/stea/tableau-de-bord-vue-desktop.webp 1440w" sizes="(max-width: 860px) calc(100vw - 32px), 360px" alt="STEA dashboard" width="1440" height="900" loading="lazy"><figcaption>Dashboard — stock indicators, payments received and tasks to handle</figcaption></figure>
-          <figure class="reveal"><img src="../assets/stea/statistiques-widgets-desktop.webp" srcset="../assets/stea/statistiques-widgets-desktop-720.webp 720w, ../assets/stea/statistiques-widgets-desktop-1080.webp 1080w, ../assets/stea/statistiques-widgets-desktop.webp 1440w" sizes="(max-width: 860px) calc(100vw - 32px), 360px" alt="STEA statistics" width="1440" height="900" loading="lazy"><figcaption>Statistics — dashboard configurable by widget and period</figcaption></figure>
-          <figure class="reveal"><img src="../assets/stea/articles-liste-desktop.webp" srcset="../assets/stea/articles-liste-desktop-720.webp 720w, ../assets/stea/articles-liste-desktop-1080.webp 1080w, ../assets/stea/articles-liste-desktop.webp 1440w" sizes="(max-width: 860px) calc(100vw - 32px), 360px" alt="STEA item list" width="1440" height="900" loading="lazy"><figcaption>Items — list with alert thresholds, prices and stock levels</figcaption></figure>
-          <figure class="reveal"><img src="../assets/stea/mouvements-liste-desktop.webp" srcset="../assets/stea/mouvements-liste-desktop-720.webp 720w, ../assets/stea/mouvements-liste-desktop-1080.webp 1080w, ../assets/stea/mouvements-liste-desktop.webp 1440w" sizes="(max-width: 860px) calc(100vw - 32px), 360px" alt="STEA stock movements" width="1440" height="900" loading="lazy"><figcaption>Movements — stock in, out, transfers and adjustments</figcaption></figure>
-          <figure class="reveal"><img src="../assets/stea/bons-de-commande-liste-desktop.webp" srcset="../assets/stea/bons-de-commande-liste-desktop-720.webp 720w, ../assets/stea/bons-de-commande-liste-desktop-1080.webp 1080w, ../assets/stea/bons-de-commande-liste-desktop.webp 1440w" sizes="(max-width: 860px) calc(100vw - 32px), 360px" alt="STEA purchase orders" width="1440" height="900" loading="lazy"><figcaption>Purchase orders — tracking supplier orders and their status</figcaption></figure>
-          <figure class="reveal"><img src="../assets/stea/livraisons-liste-desktop.webp" srcset="../assets/stea/livraisons-liste-desktop-720.webp 720w, ../assets/stea/livraisons-liste-desktop-1080.webp 1080w, ../assets/stea/livraisons-liste-desktop.webp 1440w" sizes="(max-width: 860px) calc(100vw - 32px), 360px" alt="STEA deliveries" width="1440" height="900" loading="lazy"><figcaption>Deliveries — shipment book, statuses and documents</figcaption></figure>
-          <figure class="reveal"><img src="../assets/stea/reapprovisionnement-liste-desktop.webp" srcset="../assets/stea/reapprovisionnement-liste-desktop-720.webp 720w, ../assets/stea/reapprovisionnement-liste-desktop-1080.webp 1080w, ../assets/stea/reapprovisionnement-liste-desktop.webp 1440w" sizes="(max-width: 860px) calc(100vw - 32px), 360px" alt="STEA replenishment" width="1440" height="900" loading="lazy"><figcaption>Replenishment — threshold rules and items to reorder</figcaption></figure>
-          <figure class="reveal"><img src="../assets/stea/notifications-vue-desktop.webp" srcset="../assets/stea/notifications-vue-desktop-720.webp 720w, ../assets/stea/notifications-vue-desktop-1080.webp 1080w, ../assets/stea/notifications-vue-desktop.webp 1440w" sizes="(max-width: 860px) calc(100vw - 32px), 360px" alt="STEA notifications" width="1440" height="900" loading="lazy"><figcaption>Notifications — low-stock alerts and internal messaging</figcaption></figure>
-        </div>
       </div>
     </section>
 
@@ -279,22 +239,6 @@
   </main>
 
   <!-- ===== Galerie des écrans (même composant que la page d’accueil) ===== -->
-<dialog class="gallery" id="galerie-stea" aria-label="Screens of the STEA application">
-    <div class="gallery-inner">
-      <div class="gallery-top">
-        <p class="gallery-title">STEA — application screens <span class="gallery-count" id="gallery-count"></span></p>
-        <button type="button" class="icon-btn gallery-close" id="gallery-close" aria-label="Close the gallery"><svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg?v=3#xmark"></use></svg></button>
-      </div>
-      <figure class="gallery-figure">
-        <img id="gallery-img" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="" decoding="async">
-        <figcaption id="gallery-cap"></figcaption>
-      </figure>
-      <button type="button" class="gallery-nav prev" id="gallery-prev" aria-label="Previous screen"><svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg?v=3#chevron-left"></use></svg></button>
-      <button type="button" class="gallery-nav next" id="gallery-next" aria-label="Next screen"><svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg?v=3#chevron-right"></use></svg></button>
-      <div class="gallery-thumbs" id="gallery-thumbs" aria-label="Choose a screen"></div>
-    </div>
-  </dialog>
-
   <!-- ===== Pied de page ===== -->
   <footer class="site-footer">
     <div class="container">
@@ -338,6 +282,6 @@
     <svg class="icon" aria-hidden="true" focusable="false"><use href="../assets/icons.svg?v=3#arrow-up"></use></svg>
   </button>
 
-  <script src="../script.js?v=30" defer></script>
+  <script src="../script.js?v=31" defer></script>
 </body>
 </html>

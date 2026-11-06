@@ -21,18 +21,7 @@
       secoursLien: 'Ouvrez votre messagerie avec ce message déjà rempli',
       secoursFin: ', ou écrivez-moi à agoezoolimela@gmail.com.',
       sujet: 'Message depuis le portfolio', champNom: 'Nom', champEmail: 'E-mail',
-      copie: 'Adresse e-mail copiée.',
-      ecrans: [
-        'Tableau de bord — indicateurs de stock, encaissements et tâches à traiter',
-        'Statistiques — tableau de bord configurable par widgets et période',
-        'Articles — liste avec seuils d’alerte, prix et niveaux de stock',
-        'Mouvements — entrées, sorties, transferts et ajustements de stock',
-        'Bons de commande — suivi des achats fournisseurs et de leurs statuts',
-        'Livraisons — expéditions en cours et documents associés',
-        'Réapprovisionnement — règles de seuil et alertes automatiques',
-        'Notifications — alertes de stock critique et messagerie interne'
-      ],
-      ecran: 'Écran '
+      copie: 'Adresse e-mail copiée.'
     },
     en: {
       themeClair: 'Switch to light mode', themeSombre: 'Switch to dark mode',
@@ -49,17 +38,6 @@
       secoursFin: ', or write to me at agoezoolimela@gmail.com.',
       sujet: 'Message from the portfolio', champNom: 'Name', champEmail: 'Email',
       copie: 'Email address copied.',
-      ecrans: [
-        'Dashboard — stock indicators, payments received and tasks to handle',
-        'Statistics — dashboard configurable by widget and period',
-        'Items — list with alert thresholds, prices and stock levels',
-        'Movements — stock in, out, transfers and adjustments',
-        'Purchase orders — tracking supplier orders and their status',
-        'Deliveries — shipments in progress and related documents',
-        'Replenishment — threshold rules and automatic alerts',
-        'Notifications — low-stock alerts and internal messaging'
-      ],
-      ecran: 'Screen '
     }
   };
   var T = TEXTES[LANGUE];
@@ -510,74 +488,6 @@
     });
   }
 
-  /* ---------- Galerie des écrans de STEA ---------- */
-  var gallery = document.getElementById('galerie-stea');
-  if (gallery && typeof gallery.showModal === 'function') {
-    var screens = [
-      { src: RACINE + 'assets/stea/tableau-de-bord-vue-desktop.webp', cap: T.ecrans[0] },
-      { src: RACINE + 'assets/stea/statistiques-widgets-desktop.webp', cap: T.ecrans[1] },
-      { src: RACINE + 'assets/stea/articles-liste-desktop.webp', cap: T.ecrans[2] },
-      { src: RACINE + 'assets/stea/mouvements-liste-desktop.webp', cap: T.ecrans[3] },
-      { src: RACINE + 'assets/stea/bons-de-commande-liste-desktop.webp', cap: T.ecrans[4] },
-      { src: RACINE + 'assets/stea/livraisons-liste-desktop.webp', cap: T.ecrans[5] },
-      { src: RACINE + 'assets/stea/reapprovisionnement-liste-desktop.webp', cap: T.ecrans[6] },
-      { src: RACINE + 'assets/stea/notifications-vue-desktop.webp', cap: T.ecrans[7] }
-    ];
-    var gImg = document.getElementById('gallery-img');
-    var gCap = document.getElementById('gallery-cap');
-    var gCount = document.getElementById('gallery-count');
-    var gThumbs = document.getElementById('gallery-thumbs');
-    var current = 0;
-    var lastTrigger = null;
-
-    screens.forEach(function (sc, i) {
-      var b = document.createElement('button');
-      b.type = 'button';
-      b.setAttribute('aria-label', T.ecran + (i + 1) + ' : ' + sc.cap);
-      var im = document.createElement('img');
-      im.src = sc.src; im.alt = ''; im.loading = 'lazy';
-      b.appendChild(im);
-      b.addEventListener('click', function () { showScreen(i); });
-      gThumbs.appendChild(b);
-    });
-
-    function showScreen(i) {
-      current = (i + screens.length) % screens.length;
-      gImg.src = screens[current].src;
-      gImg.alt = screens[current].cap;
-      gCap.textContent = screens[current].cap;
-      gCount.textContent = (current + 1) + ' / ' + screens.length;
-      Array.prototype.forEach.call(gThumbs.children, function (b, k) {
-        b.classList.toggle('is-current', k === current);
-        if (k === current && b.scrollIntoView) b.scrollIntoView({ block: 'nearest', inline: 'center', behavior: reduceMotion ? 'auto' : 'smooth' });
-      });
-    }
-
-    function openGallery(i, trigger) {
-      lastTrigger = trigger || null;
-      showScreen(i);
-      gallery.showModal();
-      document.body.classList.add('gallery-open');
-      var closeBtn = document.getElementById('gallery-close');
-      if (closeBtn) closeBtn.focus();
-    }
-
-    document.querySelectorAll('[data-gallery-open]').forEach(function (el) {
-      el.addEventListener('click', function () { openGallery(parseInt(el.getAttribute('data-gallery-open'), 10) || 0, el); });
-    });
-    document.getElementById('gallery-close').addEventListener('click', function () { gallery.close(); });
-    document.getElementById('gallery-prev').addEventListener('click', function () { showScreen(current - 1); });
-    document.getElementById('gallery-next').addEventListener('click', function () { showScreen(current + 1); });
-    gallery.addEventListener('keydown', function (e) {
-      if (e.key === 'ArrowLeft') showScreen(current - 1);
-      if (e.key === 'ArrowRight') showScreen(current + 1);
-    });
-    gallery.addEventListener('click', function (e) { if (e.target === gallery) gallery.close(); });
-    gallery.addEventListener('close', function () {
-      document.body.classList.remove('gallery-open');
-      if (lastTrigger && lastTrigger.focus) lastTrigger.focus();
-    });
-  }
 
   /* ----------------------------------------------------------
      Le défi

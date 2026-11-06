@@ -21,7 +21,7 @@ index.html            Page d'accueil
 stea.html             Étude de cas STEA
 styles.css            Feuille de style unique (thème clair par défaut, mode sombre via [data-theme="dark"])
 script.js             Thème, menu mobile, frise, compteurs, galerie d'écrans, formulaire
-assets/               Photo, image de partage (og-image.jpg), CV, captures de STEA (assets/stea/*.webp)
+assets/               Photo, image de partage (og-image.jpg), CV, captures des projets
 cv/index.html         Source HTML du CV français (page A4)
 cv/index-en.html      Source HTML du CV anglais
 cv/generer-pdf.cmd    Regénère assets/CV_Ago_Ezoolim-Ela.pdf avec Edge en mode headless
@@ -44,7 +44,6 @@ puis ouvrir http://localhost:8000. (Ouvrir `index.html` directement dans le navi
 - **Textes, projets, compétences** : modifier `index.html` (et `stea.html` pour l'étude de cas), puis reporter la modification dans `en/`. Les textes de l'interface pilotés par le script (labels, messages, etc.) sont définis dans `script.js`.
 - **CV** : modifier `cv/index.html`, puis double-cliquer sur `cv/generer-pdf.cmd` (Edge requis, connexion internet pour les polices). Le PDF remplace `assets/CV_Ago_Ezoolim-Ela.pdf`.
 - **Photo** : `assets/photo-ago-ezoolim-ela.jpg` (portrait). **Image de partage** : `assets/og-image.jpg` (1200 × 630), affichée quand le lien est partagé sur LinkedIn ou WhatsApp.
-- **Captures de STEA** : `assets/stea/*.webp`, référencées dans `script.js` (galerie) et `stea.html`.
 - **Témoignage du client** : un bloc `project-quote` est prêt, en commentaire, dans `index.html` et `stea.html`.
 - **Formulaire de contact** : l'attribut `action` pointe vers Formspree. **L'identifiant actuel n'est pas actif** : créer le formulaire sur formspree.io, confirmer l'adresse par courriel, puis remplacer l'`action` dans le formulaire.
 

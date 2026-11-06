@@ -340,11 +340,6 @@
       Array.prototype.forEach.call(actSrc.children, function (n) {
         if (n.hasAttribute('data-rh-open')) return;
         var copie = n.cloneNode(true);
-        /* la galerie garde son déclencheur d'origine : elle est câblée ailleurs */
-        if (copie.hasAttribute('data-gallery-open')) {
-          copie.removeAttribute('data-gallery-open');
-          copie.addEventListener('click', function () { n.click(); });
-        }
         actions.appendChild(copie);
       });
     }

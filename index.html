@@ -68,7 +68,7 @@
   <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300..700&family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Parisienne&family=Archivo:wdth,wght@125,700;125,800&family=JetBrains+Mono:wght@500&display=swap"></noscript>
   <link rel="preload" href="https://api.fontshare.com/v2/css?f%5B%5D=clash-display@600,700&f%5B%5D=satoshi@400,500,700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
   <noscript><link rel="stylesheet" href="https://api.fontshare.com/v2/css?f%5B%5D=clash-display@600,700&f%5B%5D=satoshi@400,500,700&display=swap"></noscript>
-  <link rel="stylesheet" href="styles.css?v=202">
+  <link rel="stylesheet" href="styles.css?v=203">
   <script src="transitions.js?v=2"></script>
 </head>
 <body>
@@ -189,7 +189,31 @@
                   <button type="button" class="rh-ecran" data-rh-open="0" aria-label="Ouvrir le projet : STEA — Gestion logistique et suivi des stocks">
                     <span class="rh-ecran-in">
                       <span class="rh-bar" aria-hidden="true"><i></i><i></i><i></i></span>
-                      <img src="assets/stea/tableau-de-bord-vue-desktop.webp" srcset="assets/stea/tableau-de-bord-vue-desktop-720.webp 720w, assets/stea/tableau-de-bord-vue-desktop-1080.webp 1080w, assets/stea/tableau-de-bord-vue-desktop.webp 1440w" sizes="(max-width: 980px) calc(100vw - 48px), 560px" alt="Tableau de bord de STEA : indicateurs de stock, encaissements et tâches à traiter" width="1440" height="900" loading="lazy">
+                      <div class="scene scene-stock" aria-hidden="true">
+              <svg viewBox="0 0 320 180" class="scene-svg" focusable="false">
+                <defs>
+                  <linearGradient id="carton" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#E9E3FB"/><stop offset="1" stop-color="#B79CFB"/></linearGradient>
+                  <linearGradient id="carton-plein" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#6D28D9"/><stop offset="1" stop-color="#2B1B52"/></linearGradient>
+                </defs>
+                <rect x="0" y="152" width="320" height="28" fill="#EFEBF8"/>
+                <g class="rack">
+                  <rect x="26" y="28" width="5" height="124" rx="2"/><rect x="155" y="28" width="5" height="124" rx="2"/><rect x="284" y="28" width="5" height="124" rx="2"/>
+                  <rect x="26" y="88" width="263" height="5" rx="2"/><rect x="26" y="147" width="263" height="5" rx="2"/>
+                </g>
+                <g class="cartons">
+                  <rect class="c" x="40" y="54" width="44" height="34" rx="3"/>
+                  <rect class="c pleine" x="96" y="46" width="44" height="42" rx="3"/>
+                  <rect class="c" x="170" y="50" width="44" height="38" rx="3"/>
+                  <rect class="c vide" x="226" y="62" width="44" height="26" rx="3"/>
+                  <rect class="c pleine" x="40" y="110" width="44" height="37" rx="3"/>
+                  <rect class="c" x="96" y="118" width="44" height="29" rx="3"/>
+                  <rect class="c pleine" x="170" y="106" width="44" height="41" rx="3"/>
+                  <rect class="c" x="226" y="120" width="44" height="27" rx="3"/>
+                </g>
+              </svg>
+              <span class="scene-chip chip-a"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg?v=3#boxes-stacked"></use></svg> Stock à jour</span>
+              <span class="scene-chip chip-b"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg?v=3#circle-check"></use></svg> Réappro déclenché</span>
+            </div>
                     </span>
                     <span class="rh-ouvrir" aria-hidden="true"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg?v=3#arrow-up-right-from-square"></use></svg> Ouvrir le projet</span>
                   </button>
@@ -199,8 +223,8 @@
                 <p class="rh-num" aria-hidden="true">01</p>
                 <p class="rh-kind"><span class="project-kind gold">Projet phare · 2026</span><span class="live-badge"><span class="live-dot" aria-hidden="true"></span> En production</span></p>
                 <h3>STEA — Gestion logistique et suivi des stocks</h3>
-                <p class="rh-chiffres"><span>29 versions livrées</span><span>141 tests</span><span>8 rôles</span></p>
-                <p class="rh-desc">Application de gestion des stocks et de la logistique développée pour STEA Trans Euro Afrika SARL, à Lomé. Elle couvre le cycle complet, des achats aux livraisons, et tourne aujourd’hui sur les postes de l’entreprise.</p>
+                <p class="rh-chiffres"><span>En production</span><span>Mises à jour automatiques</span></p>
+                <p class="rh-desc">Application de gestion des stocks et de la logistique développée pour STEA, à Lomé. Elle couvre le cycle complet, des achats aux livraisons, et tourne aujourd’hui sur les postes de l’entreprise.</p>
                 <ul class="tags"><li>Java 17</li><li>Spring Boot</li><li>MySQL</li><li>JWT</li><li>React</li><li>Tailwind CSS</li><li>Recharts</li><li>Electron</li></ul>
                 <div class="rh-actions">
                   <button type="button" class="btn btn-glow btn-sm" data-rh-open="0"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg?v=3#arrow-up-right-from-square"></use></svg> Ouvrir le projet</button>
@@ -209,15 +233,15 @@
               </div>
               <div class="rh-plus" hidden>
                 <div class="rh-plus-points">
-                  <p class="rh-contexte">STEA Trans Euro Afrika gère plusieurs entrepôts, des achats, des livraisons et des retours. Sans outil central, l’information se disperse : l’état réel du stock devient incertain et les ruptures se découvrent trop tard.</p>
+                  <p class="rh-contexte">STEA gère plusieurs entrepôts, des achats, des livraisons et des retours. Sans outil central, l’information se disperse : l’état réel du stock devient incertain et les ruptures se découvrent trop tard.</p>
                   <h4>Ce que ça fait</h4>
-                  <ul class="rh-points"><li>Un stock qu’on peut croire : plusieurs entrepôts, des lots, des numéros de série.</li><li>Le cycle complet — commandes, livraisons, retours — sans ressaisie d’un document à l’autre.</li><li>L’alerte avant la rupture, pas après : seuils, réapprovisionnement, notifications.</li><li>Des droits précis : chaque métier voit ce qui le concerne et n’agit que dans son périmètre.</li><li>24 modules en six familles, installés en un clic sur les postes de l’entreprise.</li></ul>
+                  <ul class="rh-points"><li>Un stock qu’on peut croire : plusieurs entrepôts, des lots, des numéros de série.</li><li>Le cycle complet — commandes, livraisons, retours — sans ressaisie d’un document à l’autre.</li><li>L’alerte avant la rupture, pas après : seuils, réapprovisionnement, notifications.</li><li>Des droits précis : chaque métier voit ce qui le concerne et n’agit que dans son périmètre.</li><li>Une installation en un clic sur les postes de l’entreprise, et des mises à jour qui arrivent toutes seules.</li></ul>
                 </div>
                 <div class="rh-plus-faits">
                   <h4>La fiche</h4>
-                  <ul class="rh-faits"><li><b>Rôle</b><span>Conception, développement et déploiement</span></li><li><b>Année</b><span>2026</span></li><li><b>Cadre</b><span>STEA Trans Euro Afrika SARL, Lomé</span></li><li><b>État</b><span>En production</span></li></ul>
+                  <ul class="rh-faits"><li><b>Rôle</b><span>Conception, développement et déploiement</span></li><li><b>Année</b><span>2026</span></li><li><b>Cadre</b><span>STEA, Lomé</span></li><li><b>État</b><span>En production</span></li></ul>
                 </div>
-                <div class="rh-plus-actions"><a href="stea.html" class="btn btn-glow btn-sm"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg?v=3#book-open"></use></svg> Étude de cas</a><button type="button" class="btn btn-glass btn-sm" data-gallery-open="0"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg?v=3#images"></use></svg> Voir les écrans</button><a href="https://github.com/Ezoolim-Ela/stea-desktop" target="_blank" rel="noopener" class="btn btn-glass btn-sm"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg?v=3#desktop"></use></svg> Application bureau</a></div>
+                <div class="rh-plus-actions"><a href="stea.html" class="btn btn-glow btn-sm"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg?v=3#book-open"></use></svg> Étude de cas</a></div>
               </div>
             </article>
             <article class="rh-projet" data-rh="4" data-c="#B79CFB" style="--c:#B79CFB">
@@ -602,23 +626,6 @@
       </div>
     </dialog>
 
-    <!-- Galerie des écrans de STEA -->
-    <dialog class="gallery" id="galerie-stea" aria-label="Écrans de l’application STEA">
-      <div class="gallery-inner">
-        <div class="gallery-top">
-          <p class="gallery-title">STEA — écrans de l’application <span class="gallery-count" id="gallery-count"></span></p>
-          <button type="button" class="icon-btn gallery-close" id="gallery-close" aria-label="Fermer la galerie"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg?v=3#xmark"></use></svg></button>
-        </div>
-        <figure class="gallery-figure">
-          <img id="gallery-img" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="" decoding="async">
-          <figcaption id="gallery-cap"></figcaption>
-        </figure>
-        <button type="button" class="gallery-nav prev" id="gallery-prev" aria-label="Écran précédent"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg?v=3#chevron-left"></use></svg></button>
-        <button type="button" class="gallery-nav next" id="gallery-next" aria-label="Écran suivant"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg?v=3#chevron-right"></use></svg></button>
-        <div class="gallery-thumbs" id="gallery-thumbs" aria-label="Choisir un écran"></div>
-      </div>
-    </dialog>
-
     <!-- ===== Parcours ===== -->
     <section class="section" id="parcours">
       <div class="container">
@@ -666,7 +673,7 @@
             <button type="button" class="timeline-marker" aria-expanded="false" aria-controls="detail-0" aria-label="Afficher le détail : STEA en production"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg?v=3#rocket"></use></svg></button>
             <div class="glass timeline-body">
               <h3>STEA mise en production</h3>
-              <p>Mon premier logiciel utilisé en entreprise : conçu, développé, déployé et maintenu de bout en bout pour STEA Trans Euro Afrika SARL, à Lomé.</p>
+              <p>Mon premier logiciel utilisé en entreprise : conçu, développé, déployé et maintenu de bout en bout pour STEA, à Lomé.</p>
               <ul class="tags"><li>Spring Boot</li><li>React</li><li>MySQL</li><li>Electron</li></ul>
               <button type="button" class="tl-toggle" aria-expanded="false" aria-controls="detail-0"><span class="tl-toggle-label">Voir le détail</span> <svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg?v=3#chevron-down"></use></svg></button>
               <div class="tl-details" id="detail-0">
@@ -674,8 +681,8 @@
                   <p class="tl-details-title">Étapes clés</p>
                   <ul class="tl-check">
                     <li>Juillet 2026 : conception de la base de données et des premiers écrans</li>
-                    <li>12 août 2026 : première version installée dans l’entreprise</li>
-                    <li>Août – septembre 2026 : 29 versions livrées par mises à jour automatiques</li>
+                    <li>Août 2026 : première version installée dans l’entreprise</li>
+                    <li>Depuis : les évolutions arrivent par mises à jour automatiques</li>
                     
                   </ul>
                   <p class="tl-details-title">Pour aller plus loin</p>
@@ -1008,8 +1015,8 @@
 
   <script src="roue.js?v=6" defer></script>
   <script src="intro.js?v=27" defer></script>
-  <script src="projets.js?v=34" defer></script>
+  <script src="projets.js?v=35" defer></script>
   <script src="competences.js?v=1" defer></script>
-  <script src="script.js?v=30" defer></script>
+  <script src="script.js?v=31" defer></script>
 </body>
 </html>

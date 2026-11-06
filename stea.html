@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>STEA, de l’idée à la production — Étude de cas · Ago Ezoolim-Ela</title>
-  <meta name="description" content="Étude de cas : comment j’ai conçu, développé et déployé STEA, une application de gestion logistique et de suivi des stocks utilisée par STEA Trans Euro Afrika SARL (Lomé). Spring Boot, React, MySQL, Electron.">
+  <meta name="description" content="Étude de cas : comment j’ai conçu, développé et déployé STEA, une application de gestion logistique et de suivi des stocks utilisée chaque jour à Lomé. Spring Boot, React, MySQL, Electron.">
   <meta name="color-scheme" content="light dark">
   <meta name="theme-color" id="meta-theme-color" content="#0B0910">
   <meta name="author" content="Ago Ezoolim-Ela">
@@ -16,9 +16,9 @@
   <meta property="og:locale" content="fr_FR">
   <meta property="og:site_name" content="Portfolio d’Ago Ezoolim-Ela">
   <meta property="og:title" content="STEA, de l’idée à la production — Étude de cas">
-  <meta property="og:description" content="Une application de gestion logistique conçue, développée et déployée de bout en bout : 24 modules, 8 rôles, 173 endpoints REST, 141 tests, 29 versions publiées.">
+  <meta property="og:description" content="Une application de gestion logistique conçue, développée et déployée de bout en bout, en production depuis août 2026.">
   <meta property="og:url" content="https://ezoolim-ela.github.io/Portfolio/stea.html">
-  <meta property="og:image" content="https://ezoolim-ela.github.io/Portfolio/assets/stea/tableau-de-bord-vue-desktop.webp">
+  <meta property="og:image" content="https://ezoolim-ela.github.io/Portfolio/assets/og-image.jpg">
   <meta name="twitter:card" content="summary_large_image">
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%234A1932'/%3E%3Ctext x='32' y='43' font-family='Arial, sans-serif' font-size='27' font-weight='800' fill='white' text-anchor='middle'%3EAE%3C/text%3E%3C/svg%3E">
 
@@ -41,7 +41,7 @@
   <!-- Police chargée sans bloquer le rendu (préchargement, puis activation) ; icônes : sprite SVG local assets/icons.svg -->
   <link rel="preload" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Parisienne&family=JetBrains+Mono:wght@500&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
   <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Parisienne&family=JetBrains+Mono:wght@500&display=swap"></noscript>
-  <link rel="stylesheet" href="styles.css?v=202">
+  <link rel="stylesheet" href="styles.css?v=203">
   <script src="transitions.js?v=2"></script>
 </head>
 <body>
@@ -90,20 +90,15 @@
         <a href="index.html#projets" class="case-back"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg?v=3#arrow-left"></use></svg> Retour aux projets</a>
         <p class="eyebrow">Étude de cas · projet phare</p>
         <h1>STEA, de l’idée à la <em style="font-style: italic; font-weight: 500; color: var(--primary);">production</em></h1>
-        <p class="section-lead">Comment j’ai conçu, développé et déployé, de bout en bout, une application de gestion logistique et de suivi des stocks aujourd’hui utilisée par STEA Trans Euro Afrika SARL, à Lomé.</p>
+        <p class="section-lead">Comment j’ai conçu, développé et déployé, de bout en bout, une application de gestion logistique et de suivi des stocks aujourd’hui utilisée par STEA, à Lomé.</p>
 
         <dl class="case-meta">
-          <div><dt>Client</dt><dd>STEA Trans Euro Afrika SARL · Lomé, Togo</dd></div>
+          <div><dt>Client</dt><dd>STEA · Lomé, Togo</dd></div>
           <div><dt>Mon rôle</dt><dd>Conception, développement, déploiement et maintenance</dd></div>
           <div><dt>Période</dt><dd>Juillet – septembre 2026 · en production depuis août 2026</dd></div>
           <div><dt>Technologies</dt><dd>Java 17 · Spring Boot · MySQL · React · Tailwind CSS · Electron</dd></div>
         </dl>
 
-        <div class="case-cta">
-          <button type="button" class="btn btn-glow btn-sm" data-gallery-open="0"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg?v=3#images"></use></svg> Voir les écrans</button>
-          <a href="https://github.com/Ezoolim-Ela/stea-desktop" target="_blank" rel="noopener" class="btn btn-glass btn-sm"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg?v=3#github"></use></svg> Dépôt GitHub</a>
-          <a href="https://github.com/Ezoolim-Ela/stea-desktop/releases" target="_blank" rel="noopener" class="btn btn-glass btn-sm"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg?v=3#desktop"></use></svg> Versions publiées</a>
-        </div>
       </div>
     </section>
 
@@ -113,7 +108,7 @@
         <p class="eyebrow">01 · Le défi</p>
         <h2>Savoir à tout moment <em>ce qu’il y a en stock, où, et quoi recommander</em></h2>
         <div class="case-prose">
-          <p>STEA Trans Euro Afrika gère plusieurs entrepôts, des achats, des livraisons et des retours. Sans outil central, ce type d’information se disperse : l’état réel du stock devient incertain et les ruptures se découvrent trop tard.</p>
+          <p>STEA gère plusieurs entrepôts, des achats, des livraisons et des retours. Sans outil central, ce type d’information se disperse : l’état réel du stock devient incertain et les ruptures se découvrent trop tard.</p>
           <p>L’application devait donc tenir <strong>un stock fiable sur plusieurs entrepôts</strong>, couvrir <strong>tout le cycle achat → livraison → retour</strong>, <strong>alerter avant la rupture</strong> et rester <strong>simple à installer</strong> sur les postes de l’entreprise.</p>
         </div>
 
@@ -158,15 +153,6 @@
           </div>
         </div>
 
-        <h3 style="margin-top: 40px; font-size: var(--fs-h3);">24 modules, regroupés en six familles</h3>
-        <ul class="modules" aria-label="Modules de l’application">
-          <li><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg?v=3#boxes-stacked"></use></svg>Stock : articles, entrepôts, lots et séries, mouvements, inventaires</li>
-          <li><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg?v=3#cart-shopping"></use></svg>Achats et ventes : clients, fournisseurs, commandes</li>
-          <li><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg?v=3#truck"></use></svg>Livraisons : expéditions, bons, retours et avoirs</li>
-          <li><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg?v=3#coins"></use></svg>Comptabilité : encaissements et suivi des règlements</li>
-          <li><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg?v=3#chart-column"></use></svg>Pilotage : tableau de bord, statistiques, rapports</li>
-          <li><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg?v=3#user-gear"></use></svg>Administration : utilisateurs, droits, configuration, historique</li>
-        </ul>
       </div>
     </section>
 
@@ -176,7 +162,7 @@
         <p class="eyebrow">03 · Sécurité et qualité</p>
         <h2>L’écran cache, <em>le serveur interdit</em></h2>
         <div class="case-prose">
-          <p>Chaque règle de droits existe deux fois : dans l’interface, pour ne montrer que ce qui est permis, et dans le serveur, qui refuse le reste. Huit rôles se partagent l’application, dont trois en consultation seule.</p>
+          <p>Chaque règle de droits existe deux fois : dans l’interface, pour ne montrer que ce qui est permis, et dans le serveur, qui refuse le reste. Plusieurs rôles se partagent l’application, dont certains en consultation seule.</p>
         </div>
         <div class="case-grid" data-stagger>
           <article class="case-card reveal">
@@ -201,7 +187,7 @@
             <span class="case-icon" aria-hidden="true"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg?v=3#vial-circle-check"></use></svg></span>
             <h3>Vérification</h3>
             <ul>
-              <li>141 tests automatisés côté serveur</li>
+              <li>Une suite de tests automatisés côté serveur</li>
               <li>Chaque évolution est essayée sur une instance de test avant la mise en production</li>
               
             </ul>
@@ -216,36 +202,10 @@
         <p class="eyebrow">04 · Résultats</p>
         <h2>En production, <em>et toujours en évolution</em></h2>
         <div class="case-prose">
-          <p>La première version a été installée le 12 août 2026. Depuis, 29 versions ont été livrées par mise à jour automatique, sans jamais réinstaller un poste.</p>
-          <p>Exemple d’évolution demandée par l’entreprise : trois profils en consultation seule, limités à leur service. Maquette le matin, validée dans la journée, livrée le jour même.</p>
+          <p>La première version est entrée en service en août 2026. Depuis, les évolutions arrivent par mise à jour automatique, sans jamais réinstaller un poste.</p>
+          <p>Exemple d’évolution demandée en cours de route : de nouveaux profils en consultation seule. Maquette le matin, validée dans la journée, livrée le jour même.</p>
         </div>
 
-        <ul class="case-figures" aria-label="STEA en chiffres">
-          <li><span class="figure-num" data-count="24">0</span><span class="figure-label">modules métier</span></li>
-          <li><span class="figure-num" data-count="8">0</span><span class="figure-label">rôles utilisateurs</span></li>
-          <li><span class="figure-num" data-count="173">0</span><span class="figure-label">endpoints REST</span></li>
-          <li><span class="figure-num" data-count="141">0</span><span class="figure-label">tests automatisés</span></li>
-          <li><span class="figure-num" data-count="29">0</span><span class="figure-label">versions publiées</span></li>
-          <li><span class="figure-num" data-count="46">0</span><span class="figure-label">mille lignes de code (Java + React)</span></li>
-        </ul>
-
-        <!-- Témoignage du client — à activer dès que STEA Trans Euro Afrika fournit une phrase :
-        <blockquote class="project-quote" style="margin-top: 28px; max-width: 68ch;">
-          <p>« La phrase du client. »</p>
-          <footer>— Prénom Nom, fonction · STEA Trans Euro Afrika SARL</footer>
-        </blockquote>
-        -->
-
-        <div class="shots">
-          <figure class="reveal"><img src="assets/stea/tableau-de-bord-vue-desktop.webp" srcset="assets/stea/tableau-de-bord-vue-desktop-720.webp 720w, assets/stea/tableau-de-bord-vue-desktop-1080.webp 1080w, assets/stea/tableau-de-bord-vue-desktop.webp 1440w" sizes="(max-width: 860px) calc(100vw - 32px), 360px" alt="Tableau de bord de STEA" width="1440" height="900" loading="lazy"><figcaption>Tableau de bord — indicateurs de stock, encaissements et tâches à traiter</figcaption></figure>
-          <figure class="reveal"><img src="assets/stea/statistiques-widgets-desktop.webp" srcset="assets/stea/statistiques-widgets-desktop-720.webp 720w, assets/stea/statistiques-widgets-desktop-1080.webp 1080w, assets/stea/statistiques-widgets-desktop.webp 1440w" sizes="(max-width: 860px) calc(100vw - 32px), 360px" alt="Statistiques de STEA" width="1440" height="900" loading="lazy"><figcaption>Statistiques — tableau de bord configurable par widgets et période</figcaption></figure>
-          <figure class="reveal"><img src="assets/stea/articles-liste-desktop.webp" srcset="assets/stea/articles-liste-desktop-720.webp 720w, assets/stea/articles-liste-desktop-1080.webp 1080w, assets/stea/articles-liste-desktop.webp 1440w" sizes="(max-width: 860px) calc(100vw - 32px), 360px" alt="Liste des articles de STEA" width="1440" height="900" loading="lazy"><figcaption>Articles — liste avec seuils d’alerte, prix et niveaux de stock</figcaption></figure>
-          <figure class="reveal"><img src="assets/stea/mouvements-liste-desktop.webp" srcset="assets/stea/mouvements-liste-desktop-720.webp 720w, assets/stea/mouvements-liste-desktop-1080.webp 1080w, assets/stea/mouvements-liste-desktop.webp 1440w" sizes="(max-width: 860px) calc(100vw - 32px), 360px" alt="Mouvements de stock de STEA" width="1440" height="900" loading="lazy"><figcaption>Mouvements — entrées, sorties, transferts et ajustements de stock</figcaption></figure>
-          <figure class="reveal"><img src="assets/stea/bons-de-commande-liste-desktop.webp" srcset="assets/stea/bons-de-commande-liste-desktop-720.webp 720w, assets/stea/bons-de-commande-liste-desktop-1080.webp 1080w, assets/stea/bons-de-commande-liste-desktop.webp 1440w" sizes="(max-width: 860px) calc(100vw - 32px), 360px" alt="Bons de commande de STEA" width="1440" height="900" loading="lazy"><figcaption>Bons de commande — suivi des achats fournisseurs et de leurs statuts</figcaption></figure>
-          <figure class="reveal"><img src="assets/stea/livraisons-liste-desktop.webp" srcset="assets/stea/livraisons-liste-desktop-720.webp 720w, assets/stea/livraisons-liste-desktop-1080.webp 1080w, assets/stea/livraisons-liste-desktop.webp 1440w" sizes="(max-width: 860px) calc(100vw - 32px), 360px" alt="Livraisons de STEA" width="1440" height="900" loading="lazy"><figcaption>Livraisons — carnet des expéditions, statuts et documents</figcaption></figure>
-          <figure class="reveal"><img src="assets/stea/reapprovisionnement-liste-desktop.webp" srcset="assets/stea/reapprovisionnement-liste-desktop-720.webp 720w, assets/stea/reapprovisionnement-liste-desktop-1080.webp 1080w, assets/stea/reapprovisionnement-liste-desktop.webp 1440w" sizes="(max-width: 860px) calc(100vw - 32px), 360px" alt="Réapprovisionnement de STEA" width="1440" height="900" loading="lazy"><figcaption>Réapprovisionnement — règles de seuil et articles à commander</figcaption></figure>
-          <figure class="reveal"><img src="assets/stea/notifications-vue-desktop.webp" srcset="assets/stea/notifications-vue-desktop-720.webp 720w, assets/stea/notifications-vue-desktop-1080.webp 1080w, assets/stea/notifications-vue-desktop.webp 1440w" sizes="(max-width: 860px) calc(100vw - 32px), 360px" alt="Notifications de STEA" width="1440" height="900" loading="lazy"><figcaption>Notifications — alertes de stock critique et messagerie interne</figcaption></figure>
-        </div>
       </div>
     </section>
 
@@ -279,22 +239,6 @@
   </main>
 
   <!-- ===== Galerie des écrans (même composant que la page d’accueil) ===== -->
-<dialog class="gallery" id="galerie-stea" aria-label="Écrans de l’application STEA">
-    <div class="gallery-inner">
-      <div class="gallery-top">
-        <p class="gallery-title">STEA — écrans de l’application <span class="gallery-count" id="gallery-count"></span></p>
-        <button type="button" class="icon-btn gallery-close" id="gallery-close" aria-label="Fermer la galerie"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg?v=3#xmark"></use></svg></button>
-      </div>
-      <figure class="gallery-figure">
-        <img id="gallery-img" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="" decoding="async">
-        <figcaption id="gallery-cap"></figcaption>
-      </figure>
-      <button type="button" class="gallery-nav prev" id="gallery-prev" aria-label="Écran précédent"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg?v=3#chevron-left"></use></svg></button>
-      <button type="button" class="gallery-nav next" id="gallery-next" aria-label="Écran suivant"><svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg?v=3#chevron-right"></use></svg></button>
-      <div class="gallery-thumbs" id="gallery-thumbs" aria-label="Choisir un écran"></div>
-    </div>
-  </dialog>
-
   <!-- ===== Pied de page ===== -->
   <footer class="site-footer">
     <div class="container">
@@ -338,6 +282,6 @@
     <svg class="icon" aria-hidden="true" focusable="false"><use href="assets/icons.svg?v=3#arrow-up"></use></svg>
   </button>
 
-  <script src="script.js?v=30" defer></script>
+  <script src="script.js?v=31" defer></script>
 </body>
 </html>
